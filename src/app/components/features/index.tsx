@@ -240,8 +240,8 @@ const Features = () => {
                               }}
                               className="w-full flex items-center gap-8"
                             >
-                              <SlashIcon className="stroke-[#94A8ED]" />
-                              <span className="font-nb text-white text-[14px] leading-[18px]">
+                              {/* <SlashIcon className="stroke-[#94A8ED]" /> */}
+                              <span className="font-nb text-white text-[14px] leading-[18px] gradient-text cursor-pointer">
                                 {item}
                               </span>
                             </motion.div>

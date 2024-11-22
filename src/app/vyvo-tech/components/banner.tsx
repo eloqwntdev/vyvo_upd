@@ -152,16 +152,16 @@ const Banner = () => {
               className={"w-[36px] md:w-[73px] h-[24px] md:h-[48px] block"}
             />
           </div>
-          {/* Logo */}
-          <img
-            src={"/logo-pilot.svg"}
+          <div className="w-[72.976px] h-[48px]"></div>
+          {/* <img
+            src={"/logo-pilot. "}
             alt={"Life Copilot"}
             width={72.976}
             height={48}
             className={
               "w-[36px] md:w-[73px] h-[24px] md:h-[48px] hidden md:block"
             }
-          />
+          /> */}
         </div>
       </section>
     </div>

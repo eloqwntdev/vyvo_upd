@@ -10,6 +10,9 @@ import TryNow from "./components/try-now";
 export const metadata = {
   title: "VAI",
   description: "",
+  icons: {
+    icon: "/logo.svg",
+  },
 };
 
 export default function Home() {
