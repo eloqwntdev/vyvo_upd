@@ -116,7 +116,7 @@ const Header = () => {
                         )}
                         {link.label}
                       </a>
-                      {link.subMenu && (
+                      {/* {link.subMenu && (
                         <AnimatePresence>
                           {activeIndex === index && (
                             <motion.ul
@@ -139,7 +139,7 @@ const Header = () => {
                             </motion.ul>
                           )}
                         </AnimatePresence>
-                      )}
+                      )} */}
                     </li>
                   ))}
                 </ul>

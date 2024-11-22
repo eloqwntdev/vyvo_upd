@@ -106,32 +106,9 @@ const Features = () => {
   const sectionInViews = sectionRefs.map((ref) =>
     useInView(ref, {
       once: false,
-      margin: "-0% 0px 0% 0px",
+      margin: "-100px 0px -200px 0px", // Adjusts the triggering range by 100px
     })
   );
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!targetRef.current) return;
-
-      // Get the bounding rect of the target div
-      const rect = targetRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // Check if the bottom of the div is visible
-      if (rect.bottom <= windowHeight) {
-        setIsAtBottom(true);
-      } else {
-        setIsAtBottom(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   useEffect(() => {
     const newActiveTab = sectionInViews.findIndex((isInView) => isInView);
@@ -139,13 +116,6 @@ const Features = () => {
       setActiveTab(newActiveTab);
     }
   }, [sectionInViews]);
-
-  useEffect(() => {
-    if (isAtBottom) {
-      console.log("User has scrolled to the bottom of the page.");
-      // Add your functionality here, e.g., load more content or trigger animations.
-    }
-  }, [isAtBottom]);
 
   if (isMobile) {
     return <MobileFeatures />;
@@ -235,19 +205,20 @@ const Features = () => {
                   <motion.div
                     key={tab.id}
                     ref={sectionRefs[tabIndex]}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.3 }} // Faster transition duration
                     className="space-y-20"
                   >
                     {tab.sections.map((section, sectionIndex) => (
                       <motion.div
                         key={sectionIndex}
-                        initial={{ opacity: 1, y: 30 }}
+                        initial={{ opacity: 0, y: 10 }}
                         animate={{
-                          y: sectionInViews[tabIndex] ? 0 : 30,
+                          opacity: sectionInViews[tabIndex] ? 1 : 0,
+                          y: sectionInViews[tabIndex] ? 0 : 10,
                         }}
                         transition={{
-                          duration: 1.5,
-                          delay: tabIndex * 0.6,
+                          duration: 0.5, // Shortened duration
+                          delay: tabIndex * 0.2, // Reduced delay for a faster response
                         }}
                         className="w-full flex flex-col md:flex-row items-start justify-between"
                       >
@@ -258,17 +229,19 @@ const Features = () => {
                           {section.items.map((item, itemIndex) => (
                             <motion.div
                               key={itemIndex}
-                              initial={{ opacity: 1, x: -20 }}
+                              initial={{ opacity: 0, x: -10 }}
                               animate={{
-                                x: sectionInViews[tabIndex] ? 0 : -20,
+                                opacity: sectionInViews[tabIndex] ? 1 : 0,
+                                x: sectionInViews[tabIndex] ? 0 : -10,
                               }}
                               transition={{
-                                duration: 0.5,
-                                delay: itemIndex * 0.1,
+                                duration: 0.3, // Faster animation duration for each item
+                                delay: itemIndex * 0.05, // Reduced delay between items
                               }}
                               className="w-full flex items-center gap-8"
                             >
-                              <span className="cursor-pointer bg-gradient-to-l hover:from-[#2A5FDD] hover:to-[#77A9E8] from-[#9DA2B3] to-[#9DA2B3] bg-clip-text text-transparent font-nb text-[16px] leading-[20px] font-light">
+                              <SlashIcon className="stroke-[#94A8ED]" />
+                              <span className="font-nb text-white text-[14px] leading-[18px]">
                                 {item}
                               </span>
                             </motion.div>

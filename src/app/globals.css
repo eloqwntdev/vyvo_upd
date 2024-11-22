@@ -237,6 +237,95 @@ button:hover {
   );
 }
 
+.card-1-gradient,
+.card-2-gradient,
+.card-3-gradient,
+.card-4-gradient {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.card-1-gradient::before,
+.card-2-gradient::before,
+.card-3-gradient::before,
+.card-4-gradient::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle closest-corner at 50% 50%,
+    rgba(255, 255, 255, 0.2),
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-1-gradient:hover::before,
+.card-2-gradient:hover::before,
+.card-3-gradient:hover::before,
+.card-4-gradient:hover::before {
+  opacity: 1;
+}
+
+.card-1-gradient::after,
+.card-2-gradient::after,
+.card-3-gradient::after,
+.card-4-gradient::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.3),
+    transparent 50%,
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.card-1-gradient:hover,
+.card-2-gradient:hover,
+.card-3-gradient:hover,
+.card-4-gradient:hover {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-1-gradient:hover::after,
+.card-2-gradient:hover::after,
+.card-3-gradient:hover::after,
+.card-4-gradient:hover::after {
+  opacity: 1;
+}
+
+.card-1-inner-gradient img,
+.card-2-inner-gradient img,
+.card-3-inner-gradient img,
+.card-4-inner-gradient img {
+  transition: transform 0.4s ease;
+}
+
+.card-1-gradient:hover .card-1-inner-gradient img,
+.card-2-gradient:hover .card-2-inner-gradient img,
+.card-3-gradient:hover .card-3-inner-gradient img,
+.card-4-gradient:hover .card-4-inner-gradient img {
+  transform: scale(1.1);
+}
+
 .vyvo-tech-bg-banner-tag {
   background: radial-gradient(
     36.21% 29.66% at 39.06% 38.97%,
