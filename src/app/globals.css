@@ -1,0 +1,289 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html,
+body {
+  overscroll-behavior: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.main-shadow {
+  box-shadow: 6px 80px 80px 0px rgba(148, 168, 237, 0.02) inset,
+    0px -1px 1px 0px rgba(148, 168, 237, 0.2) inset,
+    0px 1px 1px 0px rgba(148, 168, 237, 0.2) inset;
+  /*transition: all 0.3s ease-in-out;*/
+}
+
+.glow-effect {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(267deg, #5674cd -17.53%, #9ab4ff 92.36%);
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1;
+}
+
+button:hover + .glow-effect {
+  opacity: 0.55;
+}
+button:hover {
+  background: rgba(148, 168, 237, 0.16);
+  backdrop-filter: blur(10px);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tab-styles {
+  border-radius: 12px;
+  background: rgba(148, 168, 237, 0.16);
+  box-shadow: 6px 80px 80px 0px rgba(148, 168, 237, 0.02) inset,
+    0px -1px 1px 0px rgba(148, 168, 237, 0.2) inset,
+    0px 1px 1px 0px rgba(148, 168, 237, 0.2) inset;
+  backdrop-filter: blur(10px);
+}
+
+.ellipse {
+  border-radius: 826px;
+  opacity: 0.1;
+  background: var(
+    --Radial,
+    radial-gradient(80.98% 72.04% at 50% 50%, #94a8ed 0%, #fff 100%)
+  );
+  filter: blur(200px);
+}
+
+.most-popular {
+  border-radius: 80px;
+  border: 0.5px solid #94a8ed;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(3px);
+}
+
+.responsive-tag {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 6px 80px 80px 0px rgba(255, 255, 255, 0.02) inset,
+    0px -1px 1px 0px rgba(255, 255, 255, 0.2) inset,
+    0px 1px 1px 0px rgba(255, 255, 255, 0.2) inset;
+  backdrop-filter: blur(5px);
+}
+
+.scroll-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.menu-styles {
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 6px 80px 80px 0px rgba(148, 168, 237, 0.02) inset,
+    0px -1px 1px 0px rgba(148, 168, 237, 0.2) inset,
+    0px 1px 1px 0px rgba(148, 168, 237, 0.2) inset;
+  backdrop-filter: blur(75.80000305175781px);
+}
+
+.gradient-text {
+  color: #fff;
+  background-image: linear-gradient(
+    to right,
+    #fff,
+    #fff 0%,
+    #2a5fdd 100%,
+    #77a9e8
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  background-position: top left;
+  transition: all 0.2s ease-in-out;
+}
+
+.gradient-text:hover {
+  background-position: top left 100%;
+}
+
+.banner-gradient-text {
+  color: #fff;
+  background-image: radial-gradient(
+    36.21% 29.66% at 39.06% 38.97%,
+    #2a5fdd 0%,
+    #77a9e8 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  background-position: top left;
+  transition: all 0.5s ease-in-out;
+}
+
+.vyvo-tech-gradient-text {
+  color: #fff;
+  background-image: radial-gradient(
+    36.21% 29.66% at 39.06% 38.97%,
+    #2a5fdd 0%,
+    #77a9e8 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  background-position: top left;
+  transition: all 0.5s ease-in-out;
+}
+
+.card-shadow {
+  box-shadow: 0px 0px 12.61px 0px #f8f8f840 inset;
+  backdrop-filter: blur(400px);
+}
+
+.card-1-gradient {
+  background: linear-gradient(
+    166.34deg,
+    hsla(222, 72%, 52%, 0.5) 9.78%,
+    /* solid color */ rgba(42, 95, 221, 0) 48.06%,
+    /* more transparent blue */ rgba(42, 95, 221, 0) 67.19%,
+    /* adjusted opacity */ rgba(42, 95, 221, 0.15) 105.47%
+  );
+}
+
+.card-1-inner-gradient {
+  background: linear-gradient(
+    180deg,
+    hsla(222, 72%, 52%, 0.507) 0%,
+    rgba(42, 95, 221, 0) 100%
+  );
+}
+
+.card-2-gradient {
+  background: linear-gradient(
+    166.34deg,
+    hwb(222 16% 13% / 0.508) 9.78%,
+    rgba(42, 95, 221, 0) 48.06%,
+    rgba(42, 95, 221, 0) 67.19%,
+    rgba(42, 95, 221, 0.4) 105.47%
+  );
+}
+
+.card-2-inner-gradient {
+  background: linear-gradient(
+    180deg,
+    hsla(245, 100%, 67%, 0.497) 0%,
+    rgba(99, 85, 255, 0) 100%
+  );
+}
+
+.card-3-gradient {
+  background: linear-gradient(
+    166.34deg,
+    hsla(213, 71%, 69%, 0.502) 9.78%,
+    rgba(119, 169, 232, 0) 48.06%,
+    rgba(119, 169, 232, 0) 67.19%,
+    rgba(119, 169, 232, 0.4) 105.47%
+  );
+}
+
+.card-3-inner-gradient {
+  background: linear-gradient(
+    180deg,
+    hsla(213, 71%, 69%, 0.5) 0%,
+    rgba(119, 169, 232, 0) 100%
+  );
+}
+
+.card-3-tag {
+  background: radial-gradient(
+    36.21% 29.66% at 39.06% 38.97%,
+    #2a5fdd 0%,
+    #77a9e8 100%
+  );
+}
+
+.card-4-gradient {
+  background: linear-gradient(
+    166.34deg,
+    hsla(336, 100%, 50%, 0.504) 9.78%,
+    rgba(255, 0, 102, 0) 48.06%,
+    rgba(255, 0, 102, 0) 67.19%,
+    rgba(255, 0, 102, 0.4) 105.47%
+  );
+}
+
+.card-4-inner-gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 0, 102, 0.6) 0%,
+    rgba(255, 0, 102, 0) 100%
+  );
+}
+
+.vyvo-tech-bg-banner-tag {
+  background: radial-gradient(
+    36.21% 29.66% at 39.06% 38.97%,
+    #2a5fdd 0%,
+    #77a9e8 100%
+  );
+  box-shadow: 0px 1px 1px 0px #94a8ed33 inset;
+
+  box-shadow: 0px -1px 1px 0px #94a8ed33 inset;
+
+  box-shadow: 6px 80px 80px 0px #94a8ed05 inset;
+
+  backdrop-filter: blur(20px);
+}
+
+.vyvo-button {
+  box-shadow: 0px -1px 1px 0px #94a8ed33 inset;
+
+  backdrop-filter: blur(20px);
+}
+
+.link-gradient {
+  color: #fff;
+  background-image: radial-gradient(
+    36.21% 29.66% at 39.06% 38.97%,
+    #2a5fdd 0%,
+    #77a9e8 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  background-position: top left;
+  transition: all 0.5s ease-in-out;
+}
+
+.link-hover:hover {
+  color: #fff;
+  background-image: radial-gradient(
+    36.21% 29.66% at 39.06% 38.97%,
+    #2a5fdd 0%,
+    #77a9e8 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  background-position: top left;
+  transition: all 0.5s ease-in-out;
+}

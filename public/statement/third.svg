@@ -1,0 +1,26 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="24" cy="24" r="24" fill="url(#paint0_radial_253_1203)"/>
+<g clip-path="url(#clip0_253_1203)">
+<path d="M16 24C16 20.2288 16 18.3431 17.1716 17.1716C18.3431 16 20.2288 16 24 16C27.7712 16 29.6569 16 30.8284 17.1716C32 18.3431 32 20.2288 32 24C32 27.7712 32 29.6569 30.8284 30.8284C29.6569 32 27.7712 32 24 32C20.2288 32 18.3431 32 17.1716 30.8284C16 29.6569 16 27.7712 16 24Z" fill="white" fill-opacity="0.2"/>
+<path d="M16 24C16 20.2288 16 18.3431 17.1716 17.1716C18.3431 16 20.2288 16 24 16C27.7712 16 29.6569 16 30.8284 17.1716C32 18.3431 32 20.2288 32 24C32 27.7712 32 29.6569 30.8284 30.8284C29.6569 32 27.7712 32 24 32C20.2288 32 18.3431 32 17.1716 30.8284C16 29.6569 16 27.7712 16 24Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M21.5 14V16" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M26.5 13V16" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21.5 32V35" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M26.5 32V34" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25 21L21 25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M27 25L25 27" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M35 26.5L32 26.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 21.5L13 21.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 26.5L14 26.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M34 21.5L32 21.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_253_1203" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(18.7488 18.7059) rotate(-38.7335) scale(22.281 11.419)">
+<stop stop-color="#2A5FDD"/>
+<stop offset="1" stop-color="#77A9E8"/>
+</radialGradient>
+<clipPath id="clip0_253_1203">
+<rect width="24" height="24" fill="white" transform="translate(12 12)"/>
+</clipPath>
+</defs>
+</svg>

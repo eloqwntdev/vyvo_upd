@@ -1,0 +1,17 @@
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="elements">
+<path id="Ellipse 1334" d="M21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21C16.5228 21 21 16.5228 21 11Z" fill="#94A8ED" fill-opacity="0.2"/>
+<path id="Vector" d="M13.9994 14L8 8M8.00064 14L14 8" stroke="url(#paint0_radial_0_241)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Ellipse 1335" d="M21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21C16.5228 21 21 16.5228 21 11Z" stroke="url(#paint1_radial_0_241)" stroke-width="1.5"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_0_241" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(11 11) scale(4.32245 4.85894)">
+<stop stop-color="#FFA0A0"/>
+<stop offset="1" stop-color="white"/>
+</radialGradient>
+<radialGradient id="paint1_radial_0_241" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(11 11) scale(14.4082 16.1965)">
+<stop stop-color="#FF0000"/>
+<stop offset="1" stop-color="white"/>
+</radialGradient>
+</defs>
+</svg>
