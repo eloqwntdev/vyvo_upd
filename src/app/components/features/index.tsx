@@ -106,7 +106,7 @@ const Features = () => {
   const sectionInViews = sectionRefs.map((ref) =>
     useInView(ref, {
       once: false,
-      margin: "-700px 0px -200px 0px", // Adjusts the triggering range by 100px
+      margin: "-65% 0px -200px 0px", // Adjusts the triggering range by 100px
     })
   );
 
@@ -199,7 +199,7 @@ const Features = () => {
 
           <div className="max-w-[1200px] w-full scrollbar-hide ">
             <div className="flex flex-col gap-[124px]">
-              <div className="max-w-[900px] w-full flex flex-col gap-[50px]">
+              <div className="max-w-[900px] w-full flex flex-col gap-[100px]">
                 {tabsData.map((tab, tabIndex) => (
                   <motion.div
                     key={tab.id}
