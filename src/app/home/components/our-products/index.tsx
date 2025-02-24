@@ -38,7 +38,7 @@ const OurProducts = () => {
               className="w-[42px] md:w-[106px] h-auto"
             />
           </div>
-          <div className="h-[136px] md:h-[305px] flex items-center justify-center border-gradient only-left gradient-partner-card">
+          <div className="h-[136px] md:h-[305px] flex items-center justify-center border-gradient only-left !border-t-0 gradient-partner-card">
             <Image
               src={"/homepage/partners/infineon.svg"}
               alt={"Infineon"}
