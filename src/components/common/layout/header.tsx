@@ -365,12 +365,12 @@ const navigationData = [
   },
   {
     section: "SOCIALFI",
-    items: [{ title: "SocialFI", href: "#" }],
+    items: [{ title: "SocialFI", href: "/social-fi" }],
   },
   {
     section: "ABOUT US",
     items: [
-      { title: "About Us", href: "#" },
+      { title: "About Us", href: "/about-us" },
       { title: "News", href: "#" },
       { title: "Support", href: "#" },
     ],
@@ -391,9 +391,9 @@ const navLinksMobile = [
   { label: "VAI OS", href: "/vai-os" },
   { label: "Vyvo Tech", href: "/vyvo-tech" },
   { label: "Vyvo Smart Chain", href: "/vyvo-smart-chain" },
-  { label: "SocialFi", href: "/socialfi" },
+  { label: "SocialFi", href: "/social-fi" },
   { label: "Store", href: "/store" },
-  { label: "About us", href: "/about" },
+  { label: "About Us", href: "/about-us" },
   { label: "Tokenomic", href: "/tokenomic" },
   { label: "News", href: "/news" },
   { label: "Events", href: "/events" },

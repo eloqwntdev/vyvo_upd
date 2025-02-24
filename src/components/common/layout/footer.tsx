@@ -9,7 +9,7 @@ const Footer = () => {
     { label: "VAI OS", href: "" },
     { label: "Vyvo Tech", href: "" },
     { label: "Vyvo Smart Chain", href: "" },
-    { label: "SocialFi", href: "" },
+    { label: "SocialFi", href: "/social-fi" },
     { label: "Store", href: "" },
   ];
 
@@ -22,7 +22,7 @@ const Footer = () => {
   ];
 
   const thirdLinks = [
-    { label: "About us", href: "" },
+    { label: "About Us", href: "/about-us" },
     { label: "News", href: "" },
     { label: "Events", href: "" },
     { label: "Support", href: "" },

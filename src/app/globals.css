@@ -33,10 +33,12 @@ html {
   z-index: 1;
 }
 
-button:hover + .glow-effect {
+button:not(.dropdown-menu-shadow button, .remove-hover-bg):hover
+  + .glow-effect {
   opacity: 0.55;
 }
-button:hover {
+
+button:not(.dropdown-menu-shadow button, .remove-hover-bg):hover {
   background: rgba(148, 168, 237, 0.16);
   backdrop-filter: blur(10px);
 }
@@ -483,4 +485,116 @@ button:hover {
 .gradient-partner-card:hover::before,
 .gradient-partner-card-reverse:hover::before {
   opacity: 1;
+}
+
+.text-gradient {
+  background-image: radial-gradient(
+    36.21% 29.66% at 39.06% 38.97%,
+    #2a5fdd 0%,
+    #77a9e8 100%
+  );
+  color: transparent;
+  background-clip: text;
+}
+
+.slider-card-bg {
+  background: linear-gradient(179deg, #77a9e8 -80%, rgba(119, 169, 232, 0) 93%);
+}
+
+.team-card-bg {
+  background: linear-gradient(180deg, #77a9e8 0%, rgba(119, 169, 232, 0) 100%);
+  border: 2.01px solid;
+
+  border-image-source: linear-gradient(
+    166.34deg,
+    #77a9e8 9.78%,
+    rgba(119, 169, 232, 0) 48.06%,
+    rgba(119, 169, 232, 0) 67.19%,
+    rgba(119, 169, 232, 0.4) 105.47%
+  );
+
+  box-shadow: 0px 0px 16.9px 0px #f8f8f840 inset;
+
+  backdrop-filter: blur(211.23373413085938px);
+}
+
+/* GRADIENT BORDER  */
+
+.gradient-border-mask-slider {
+  display: flow-root;
+  position: relative;
+}
+
+.gradient-border-mask-slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: linear-gradient(
+      166.34deg,
+      #77a9e8 9.78%,
+      rgba(119, 169, 232, 0) 48.06%,
+      rgba(119, 169, 232, 0) 67.19%,
+      rgba(119, 169, 232, 0.4) 105.47%
+    )
+    border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+.cross-btn-shadow {
+  box-shadow: 0px 1px 1px 0px #94a8ed33 inset;
+
+  box-shadow: 0px -1px 1px 0px #94a8ed33 inset;
+
+  backdrop-filter: blur(20px);
+}
+
+.dropdown-shadow {
+  box-shadow: 0px 1px 1px 0px #94a8ed66 inset;
+
+  box-shadow: 0px -1px 1px 0px #94a8ed66 inset;
+
+  backdrop-filter: blur(20px);
+}
+
+.dropdown-menu-shadow {
+  box-shadow: 0px 1px 1px 0px #94a8ed66 inset;
+
+  box-shadow: 0px -1px 1px 0px #94a8ed66 inset;
+
+  backdrop-filter: blur(100px);
+}
+
+.pink-button-shadow {
+  box-shadow: 0px 1px 1px 0px #ff006666 inset;
+
+  box-shadow: 0px -1px 1px 0px #ff006666 inset;
+
+  backdrop-filter: blur(20px);
+}
+.pink2-button-shadow {
+  box-shadow: 0px 1px 1px 0px #e749f033 inset;
+
+  box-shadow: 0px -1px 1px 0px #e749f033 inset;
+
+  box-shadow: 6px 80px 80px 0px #e749f005 inset;
+
+  backdrop-filter: blur(20px);
+}
+
+.news-article-image {
+  background: linear-gradient(
+    180deg,
+    #77a9e8 -191%,
+    rgba(119, 169, 232, 0) 100%
+  );
+  box-shadow: 0px 0px 43.54px 0px #f8f8f840 inset;
+
+  backdrop-filter: blur(544.193359375px);
 }

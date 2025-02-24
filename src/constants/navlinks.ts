@@ -22,7 +22,7 @@ export const navLinks = [
     href: "/vyvo-smart-chain",
     label: "Vyvo Smart Chain",
   },
-  { href: "/socialfi", label: "SocialFi" },
+  { href: "/social-fi", label: "SocialFi" },
   {
     href: "/about-us",
     label: "About us",
