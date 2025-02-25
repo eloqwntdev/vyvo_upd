@@ -8,12 +8,15 @@ import SlashButton from "../controllers/button/slash-button";
 import { navLinks } from "@/constants/navlinks";
 import { motion, AnimatePresence } from "framer-motion";
 
+const centeredHeaderPages = ["/gpu-farm"];
+
 const Header = () => {
   const pathname = usePathname();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const shouldCenterHeader = centeredHeaderPages.includes(pathname);
 
   const handleMouseEnter = (index: number | null) => {
     setActiveIndex(index);
@@ -54,8 +57,21 @@ const Header = () => {
 
   return (
     <>
-      <div className="w-full bg-black">
-        <header className="max-w-[1280px]  px-4 md:px-0 mx-auto w-full pt-5 md:pt-8 flex items-center justify-between relative z-[101]">
+      <div
+        className={`w-full ${
+          shouldCenterHeader
+            ? "absolute left-1/2 -translate-x-1/2 top-0 z-50"
+            : "bg-black"
+        }
+`}
+      >
+        <header
+          className={`
+            max-w-[1280px] px-4 md:px-0 mx-auto w-full pt-5 md:pt-8 
+            flex items-center justify-between relative z-[101]
+         
+          `}
+        >
           <motion.div
             className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px]"
             initial={{ y: -20, opacity: 0 }}

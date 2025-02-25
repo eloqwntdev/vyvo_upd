@@ -598,3 +598,42 @@ button:not(.dropdown-menu-shadow button, .remove-hover-bg):hover {
 
   backdrop-filter: blur(544.193359375px);
 }
+
+.gpu-farm-clip-path {
+  clip-path: polygon(7% -4%, 58% 95%, -129% 108%, -60% 33%);
+}
+
+.wearables-bg-card {
+  background: linear-gradient(
+    180deg,
+    rgba(119, 169, 232, 0.4) 0%,
+    rgba(119, 169, 232, 0) 100%
+  );
+}
+
+.gradient-border-wearables-bg-card {
+  display: flow-root;
+  position: relative;
+}
+
+.gradient-border-wearables-bg-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: linear-gradient(
+      158.39deg,
+      rgba(119, 169, 232, 0.4) 14.19%,
+      rgba(119, 169, 232, 0.2) 50.59%,
+      rgba(119, 169, 232, 0.2) 68.79%,
+      rgba(119, 169, 232, 0.4) 105.18%
+    )
+    border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
