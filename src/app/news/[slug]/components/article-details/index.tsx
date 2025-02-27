@@ -46,7 +46,7 @@ const ArticleDetails = () => {
             rounded-[8px] md:rounded-[16px] lg:rounded-[24px] overflow-hidden"
           >
             <Image
-              src={"/wearables/slider/card1.webp"}
+              src={"/wearables-img/slider/card1.webp"}
               width={1280}
               height={616}
               alt={"Article hero image"}

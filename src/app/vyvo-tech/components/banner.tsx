@@ -7,9 +7,9 @@ const Banner = () => {
   const [activeCard, setActiveCard] = useState("ring");
 
   const images = {
-    ring: "/vyvo-tech/watch-1.png",
-    band: "/vyvo-tech/watch-2.png",
-    watch: "/vyvo-tech/watch-3.png",
+    ring: "/vyvo-tech-img/watch-1.png",
+    band: "/vyvo-tech-img/watch-2.png",
+    watch: "/vyvo-tech-img/watch-3.png",
   };
 
   const cardLabels = {

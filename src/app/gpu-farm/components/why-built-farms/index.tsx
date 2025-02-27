@@ -11,7 +11,7 @@ const WhyBuiltFarms = () => {
         <div className="flex flex-col gap-10">
           <div className="size-16 rounded-full vyvo-tech-bg-banner-tag flex items-center justify-center">
             <Image
-              src={"/gpu-farms/icons/icon1.svg"}
+              src={"/gpu-farms-img/icons/icon1.svg"}
               width={32}
               height={32}
               alt={""}
@@ -31,7 +31,7 @@ const WhyBuiltFarms = () => {
         <div className="flex flex-col gap-10">
           <div className="size-16 rounded-full vyvo-tech-bg-banner-tag flex items-center justify-center">
             <Image
-              src={"/gpu-farms/icons/icon2.svg"}
+              src={"/gpu-farms-img/icons/icon2.svg"}
               width={32}
               height={32}
               alt={""}
@@ -51,7 +51,7 @@ const WhyBuiltFarms = () => {
         <div className="flex flex-col gap-10">
           <div className="size-16 rounded-full vyvo-tech-bg-banner-tag flex items-center justify-center">
             <Image
-              src={"/gpu-farms/icons/icon3.svg"}
+              src={"/gpu-farms-img/icons/icon3.svg"}
               width={32}
               height={32}
               alt={""}

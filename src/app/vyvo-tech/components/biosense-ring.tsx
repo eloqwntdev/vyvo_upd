@@ -112,7 +112,7 @@ const BiosenseRing: React.FC = () => {
           >
             <motion.img
               key={activeTagData?.id}
-              src={`/vyvo-tech/${activeTag}.png`}
+              src={`/vyvo-tech-img/${activeTag}.png`}
               alt={activeTag}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}

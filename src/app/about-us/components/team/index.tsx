@@ -43,7 +43,7 @@ const TeamCard = () => {
       <div className="relative flex flex-col items-center justify-center gap-2 md:gap-4">
         <div className="h-[124px] sm:h-[200px] md:h-[381px] w-full rounded-[8px] md:rounded-2xl overflow-hidden">
           <Image
-            src={"/wearables/slider/card1.webp"}
+            src={"/wearables-img/slider/card1.webp"}
             width={381}
             height={381}
             alt={""}

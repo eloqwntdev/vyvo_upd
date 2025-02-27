@@ -5,7 +5,7 @@ const AboutUsBanner = () => {
   return (
     <section className="min-h-[578px] md:min-h-[900px] relative w-full bg-black flex items-end justify-end">
       <img
-        src="/about-us/Hero.webp"
+        src="/about-us-img/Hero.webp"
         alt=""
         className="absolute top-0 left-0 w-full h-full object-cover sm:object-fill"
       />

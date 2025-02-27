@@ -8,18 +8,18 @@ const BiosenseBand = () => {
         <div className="max-w-[630px] w-full flex flex-col gap-5">
           <div className="w-full min-h-[460px] rounded-3xl wearables-bg-card p-4 flex relative">
             <img
-              src="/wearables/band/fingertip.svg"
+              src="/wearables-img/band/fingertip.svg"
               className="absolute top-14 right-[25.5px] z-10"
               alt=""
             />
             <img
-              src="/wearables/band/pose.svg"
+              src="/wearables-img/band/pose.svg"
               className="absolute bottom-14 right-[25.5px] z-10"
               alt=""
             />
             <div className="gradient-border-wearables-bg-card before:!rounded-[24px] w-full relative">
               <Image
-                src={"/wearables/band/watch1.webp"}
+                src={"/wearables-img/band/watch1.webp"}
                 width={498}
                 height={400}
                 alt={""}

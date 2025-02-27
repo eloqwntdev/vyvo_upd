@@ -15,7 +15,7 @@ const MobileBiosenseRing = () => {
         <h3 className="vyvo-tech-gradient-text font-light text-center font-nb text-[32px] leading-[36px]">
           BioSense Ring
         </h3>
-        <img src={`/vyvo-tech/card1.png`} alt={"card2"} className="" />
+        <img src={`/vyvo-tech-img/card1.png`} alt={"card2"} className="" />
 
         <div className="grid grid-cols-2 gap-x-5 gap-y-4">
           {features.map(({ icon, text }, index) => (
@@ -48,7 +48,7 @@ const MobileBiosenseRing = () => {
         <h3 className="vyvo-tech-gradient-text font-light text-center font-nb text-[32px] leading-[36px]">
           BioSense Band
         </h3>
-        <img src={`/vyvo-tech/card2.png`} alt={"card1"} className="" />
+        <img src={`/vyvo-tech-img/card2.png`} alt={"card1"} className="" />
 
         <div className="grid grid-cols-2 gap-x-5 gap-y-4">
           {features.map(({ icon, text }, index) => (
@@ -81,7 +81,7 @@ const MobileBiosenseRing = () => {
         <h3 className="vyvo-tech-gradient-text font-light text-center font-nb text-[32px] leading-[36px]">
           BioSense Watch
         </h3>
-        <img src={`/vyvo-tech/card3.png`} alt={"card3"} className="" />
+        <img src={`/vyvo-tech-img/card3.png`} alt={"card3"} className="" />
 
         <div className="grid grid-cols-2 gap-x-5 gap-y-4">
           {features.map(({ icon, text }, index) => (

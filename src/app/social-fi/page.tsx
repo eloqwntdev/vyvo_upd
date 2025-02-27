@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import SocialFiBanner from "./components/banner";
 import HeartBeats from "./components/heartbeats";

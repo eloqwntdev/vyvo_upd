@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import WearablesBanner from "./components/banner";
 import Ring from "./components/banner/ring";

@@ -2,9 +2,7 @@ import "./globals.css";
 import localFont from "next/font/local";
 
 import Header from "@/components/common/layout/header";
-import { AnimatePresence } from "framer-motion";
 import React from "react";
-import Preloader from "@/app/components/preloader";
 
 // export const metadata = {
 //   title: "Next.js",
@@ -56,17 +54,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${nbInternational.variable} antialiased`}>
-        <AnimatePresence>
-          {/* {loading ? (
+        {/* <AnimatePresence> */}
+        {/* {loading ? (
             <Preloader key={"preloader"} />
           ) : ( */}
-          <>
-            <Header />
-            {children}
-            <Footer />
-          </>
-          {/* )} */}
-        </AnimatePresence>
+        <>
+          <Header />
+          {children}
+          <Footer />
+        </>
+        {/* )} */}
+        {/* </AnimatePresence> */}
       </body>
     </html>
   );

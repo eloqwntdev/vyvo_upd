@@ -6,21 +6,21 @@ const valuesData = [
   {
     id: "01",
     title: "IoT Devices",
-    image: "/vyvo-smart-chain/card1.webp",
+    image: "/vyvo-smart-chain-img/card1.webp",
     description:
       "Bridging the digital divide between wearable device users and Web3 through secure blockchain infrastructure. VSC enables transparent data transactions between users and institutions.",
   },
   {
     id: "02",
     title: "Hybrid Consensus PoS + PoSe",
-    image: "/vyvo-smart-chain/card2.webp",
+    image: "/vyvo-smart-chain-img/card2.webp",
     description:
       "Merging Proof-of-Stake (PoS) with our own IoT data validation protocol, Proof-of-Sensing (PoSe), we seamlessly bring blockchain technology to real-world applications.",
   },
   {
     id: "03",
     title: "DDH Platform",
-    image: "/vyvo-smart-chain/card3.webp",
+    image: "/vyvo-smart-chain-img/card3.webp",
     description:
       "Uniting researchers, institutions, and organizations with Data. The Decentralised Digital Health (DDH) Platform allows leveraging of authenticated IoT data from all over the world to drive scientific advancements.",
   },

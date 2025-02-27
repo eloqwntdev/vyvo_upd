@@ -46,7 +46,7 @@ export const ArticleCard = () => {
       <div className="relative flex flex-col items-center justify-center gap-[8px] md:gap-[16px]">
         <div className="h-[148px] md:h-[180px] lg:h-[210px] w-full rounded-[8px] md:rounded-[24px] overflow-hidden">
           <Image
-            src={"/wearables/slider/card1.webp"}
+            src={"/wearables-img/slider/card1.webp"}
             width={381}
             height={210}
             alt={""}

@@ -1,3 +1,4 @@
+"use client";
 import { SlashIcon } from "@/components/svg";
 
 interface ButtonProps {

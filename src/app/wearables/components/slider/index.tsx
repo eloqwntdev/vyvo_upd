@@ -28,7 +28,7 @@ const SliderCard: React.FC<SliderCardProps> = ({
     <div className="p-0 rounded-[24px] bg-[#F5F8FF] overflow-hidden flex flex-col max-w-[413px] w-full">
       <div className="w-full overflow-hidden">
         <Image
-          src={imageSrc || "/wearables/slider/card1.webp"}
+          src={imageSrc || "/wearables-img/slider/card1.webp"}
           width={373}
           height={210}
           alt={title || ""}
@@ -62,91 +62,91 @@ const WearablesSlider: React.FC = () => {
 
   const sliderData = [
     {
-      imageSrc: "/wearables/slider/card1.webp",
+      imageSrc: "/wearables-img/slider/card1.webp",
       title: "BioSense Ring",
       description:
         "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
     },
     {
-      imageSrc: "/wearables/slider/card2.webp",
+      imageSrc: "/wearables-img/slider/card2.webp",
       title: "BioSense Band",
       description:
         "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
     },
     {
-      imageSrc: "/wearables/slider/card3.webp",
+      imageSrc: "/wearables-img/slider/card3.webp",
       title: "LifeWatch Generation 2",
       description:
         "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
     },
     {
-      imageSrc: "/wearables/slider/card4.webp",
+      imageSrc: "/wearables-img/slider/card4.webp",
       title: "Watch Lite SE",
       description:
         "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
     },
     {
-      imageSrc: "/wearables/slider/card5.webp",
+      imageSrc: "/wearables-img/slider/card5.webp",
       title: "Vyvo Smart App",
       description:
         "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
     },
     {
-      imageSrc: "/wearables/slider/card6.webp",
+      imageSrc: "/wearables-img/slider/card6.webp",
       title: "BIA Check",
       description:
         "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
     },
     {
-      imageSrc: "/wearables/slider/card7.webp",
+      imageSrc: "/wearables-img/slider/card7.webp",
       title: "SpO₂",
       description:
         "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
     },
     {
-      imageSrc: "/wearables/slider/card8.webp",
+      imageSrc: "/wearables-img/slider/card8.webp",
       title: "Atrial Fibrillation (AFib)",
       description:
         "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
     },
     {
-      imageSrc: "/wearables/slider/card9.webp",
+      imageSrc: "/wearables-img/slider/card9.webp",
       title: "Accelerated Plethysmography (APG)",
       description:
         "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
     },
     {
-      imageSrc: "/wearables/slider/card10.webp",
+      imageSrc: "/wearables-img/slider/card10.webp",
       title: "Energy",
       description:
         "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
     },
     {
-      imageSrc: "/wearables/slider/card11.webp",
+      imageSrc: "/wearables-img/slider/card11.webp",
       title: "Heart Rate",
       description:
         "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
     },
     {
-      imageSrc: "/wearables/slider/card12.webp",
+      imageSrc: "/wearables-img/slider/card12.webp",
       title: "Breath Rate",
       description:
         "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
     },
     {
-      imageSrc: "/wearables/slider/card13.webp",
+      imageSrc: "/wearables-img/slider/card13.webp",
       title: "Blood Pressure",
       description:
         "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
     },
     {
-      imageSrc: "/wearables/slider/card14.webp",
+      imageSrc: "/wearables-img/slider/card14.webp",
       title: "Stress",
       description:
         "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
     },
     {
-      imageSrc: "/wearables/slider/card15.webp",
+      imageSrc: "/wearables-img/slider/card15.webp",
       title: "Sleep",
       description:
         "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",

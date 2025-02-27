@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import VyvoCmartChainBanner from "./components/banner";
 import AboutVSC from "./components/about-vsc";

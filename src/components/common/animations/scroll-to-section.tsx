@@ -4,12 +4,14 @@ import React from "react";
 
 const ScrollToSection = ({ id = "statement-section" }: { id: string }) => {
   const handleScroll = () => {
-    const targetSection = document.getElementById(id);
-    if (targetSection) {
-      targetSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+    if (typeof document !== "undefined") {
+      const targetSection = document.getElementById(id);
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
     }
   };
   return (
