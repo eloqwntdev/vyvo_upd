@@ -1,41 +1,31 @@
 import Image from "next/image";
 import Link from "next/link";
+import AutoShowBlock from "./autoshow";
 
 const BiosenseBand = () => {
   return (
     <section className="bg-white py-20">
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
         <div className="max-w-[630px] w-full flex flex-col gap-5">
-          <div className="w-full min-h-[460px] rounded-3xl wearables-bg-card p-4 flex relative">
-            <img
-              src="/wearables-img/band/fingertip.svg"
-              className="absolute top-14 right-[25.5px] z-10"
+          <AutoShowBlock />
+          <div className="flex gap-5">
+            <Image
+              src="/wearables-img/band/image1.webp"
+              width={305}
+              height={220}
               alt=""
             />
-            <img
-              src="/wearables-img/band/pose.svg"
-              className="absolute bottom-14 right-[25.5px] z-10"
+            <Image
+              src="/wearables-img/band/image2.webp"
+              width={305}
+              height={220}
               alt=""
             />
-            <div className="gradient-border-wearables-bg-card before:!rounded-[24px] w-full relative">
-              <Image
-                src={"/wearables-img/band/watch1.webp"}
-                width={498}
-                height={400}
-                alt={""}
-              />
-
-              <div className="max-w-[22px] absolute bottom-8 left-8 flex gap-1.5">
-                <div className="size-2 rounded-full bg-[#77A9E8]"></div>
-                <div className="size-2 rounded-full bg-[#77A9E880]"></div>
-              </div>
-            </div>
           </div>
-          <div className="flex gap-5"></div>
         </div>
         <div className="max-w-[480px] w-full flex flex-col gap-8">
           <div className="flex flex-col gap-6">
-            <h2 className="font-nb font-light text-[56px] leading-[64px] tracking-[-1.7px]">
+            <h2 className="font-nb font-light text-[56px] leading-[64px] tracking-[-1.7px] banner-gradient-text">
               BioSense Band
             </h2>
 

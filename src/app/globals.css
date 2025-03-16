@@ -637,3 +637,15 @@ button:not(.dropdown-menu-shadow button, .remove-hover-bg):hover {
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
 }
+
+/* Wearables Card Styles */
+.wearables-card-gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(119, 169, 232, 0.4) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-image-slice: 1;
+  box-shadow: 0px 0px 16.9px 0px rgba(248, 248, 248, 0.25) inset;
+  backdrop-filter: blur(211.23373413085938px);
+}
