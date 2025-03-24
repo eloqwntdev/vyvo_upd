@@ -649,3 +649,21 @@ button:not(.dropdown-menu-shadow button, .remove-hover-bg):hover {
   box-shadow: 0px 0px 16.9px 0px rgba(248, 248, 248, 0.25) inset;
   backdrop-filter: blur(211.23373413085938px);
 }
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.snap-container {
+  scroll-snap-type: x mandatory;
+}
+
+.snap-item {
+  scroll-snap-align: start;
+}

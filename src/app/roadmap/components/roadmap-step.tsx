@@ -1,77 +1,95 @@
 "use client";
 
 // RoadMapStep.jsx
-import React, { useRef, useEffect } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import React, { useRef, useEffect, useState } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useInView,
+  animate,
+} from "framer-motion";
 
-const RoadMapStep = ({ title, index, canAnimate, onComplete }) => {
-  const containerRef = useRef(null);
+interface RoadMapStepProps {
+  title: string;
+  index: number;
+  canAnimate: boolean;
+  onComplete?: () => void;
+  isCompleted?: boolean;
+  previousStepCompleted?: boolean;
+}
+
+const RoadMapStep: React.FC<RoadMapStepProps> = ({
+  title,
+  index,
+  canAnimate,
+  onComplete,
+  isCompleted = false,
+  previousStepCompleted = false,
+}) => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: false, amount: 0.2 });
+  const [animationProgress, setAnimationProgress] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end center"],
   });
 
-  // Track when animation is complete
+  // Start animation when conditions are met
   useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (value) => {
-      if (value >= 0.99 && canAnimate) {
-        onComplete?.();
-      }
-    });
+    if (
+      !canAnimate ||
+      isCompleted ||
+      !previousStepCompleted ||
+      !isInView ||
+      isAnimating
+    )
+      return;
 
-    return () => unsubscribe();
-  }, [scrollYProgress, onComplete, canAnimate]);
+    const startAnimation = async () => {
+      setIsAnimating(true);
 
-  // Transform scroll progress values for different elements
-  const topLineProgress = useTransform(
-    scrollYProgress,
-    [0, 0.5],
-    canAnimate ? [0, 1] : [0, 0]
-  );
+      // Animate from 0 to 7 (7 steps in total)
+      await animate(0, 7, {
+        duration: 3.5, // Total animation duration
+        ease: [0.43, 0.13, 0.23, 0.96],
+        onUpdate: (latest) => {
+          setAnimationProgress(latest);
+        },
+        onComplete: () => {
+          setIsAnimating(false);
+          onComplete?.();
+        },
+      });
+    };
 
-  const leftLineProgress = useTransform(
-    scrollYProgress,
-    [0.5, 0.7],
-    canAnimate ? [0, 1] : [0, 0]
-  );
+    startAnimation();
+  }, [
+    canAnimate,
+    isCompleted,
+    previousStepCompleted,
+    isInView,
+    isAnimating,
+    onComplete,
+  ]);
 
-  const rightLineProgress = useTransform(
-    scrollYProgress,
-    [0.5, 0.7],
-    canAnimate ? [0, 1] : [0, 0]
-  );
+  // Calculate individual element progress based on animation step
+  const getProgress = (stepIndex: number) => {
+    if (isCompleted) return 1;
+    const progress = Math.max(0, Math.min(1, animationProgress - stepIndex));
+    return progress;
+  };
 
-  const bottomLineProgress = useTransform(
-    scrollYProgress,
-    [0.7, 1],
-    canAnimate ? [0, 1] : [0, 0]
-  );
-
-  // Circle fill values based on scroll position
-  const centerCircleFill = useTransform(
-    scrollYProgress,
-    [0.4, 0.5],
-    canAnimate ? [0, 1] : [0, 0]
-  );
-
-  const leftCircleFill = useTransform(
-    scrollYProgress,
-    [0.6, 0.7],
-    canAnimate ? [0, 1] : [0, 0]
-  );
-
-  const rightCircleFill = useTransform(
-    scrollYProgress,
-    [0.6, 0.7],
-    canAnimate ? [0, 1] : [0, 0]
-  );
+  const customEase = [0.43, 0.13, 0.23, 0.96] as const;
 
   return (
     <section
       ref={containerRef}
-      className="flex flex-col gap-6 items-center justify-center"
+      className={`flex flex-col gap-6 items-center justify-center transition-all duration-700 ${
+        canAnimate && previousStepCompleted ? "opacity-100" : "opacity-30"
+      }`}
     >
       <h3 className="text-white/40 font-nb font-light text-[32px] leading-[36px]">
         {title}
@@ -86,71 +104,79 @@ const RoadMapStep = ({ title, index, canAnimate, onComplete }) => {
         </div>
 
         <div className="relative w-full h-[311px] bg-black flex items-center">
-          {/* Top vertical line with fill effect - top to bottom */}
+          {/* Top vertical line */}
           <div className="absolute top-[-6%] left-1/2 h-[176px] w-px bg-gray-500/30 transform -translate-x-1/2 overflow-hidden">
             <motion.div
               className="absolute top-0 left-0 w-full bg-gray-500 origin-top"
               style={{
                 height: "100%",
-                scaleY: topLineProgress,
+                scaleY: getProgress(0),
               }}
+              transition={{ duration: 0.5, ease: customEase }}
             />
           </div>
 
-          {/* Horizontal Line with fill effect from center */}
+          {/* Horizontal Line */}
           <div className="absolute left-0 w-full h-px bg-gray-500/30">
-            {/* Left half of horizontal line */}
-            <motion.div
-              className="absolute right-1/2 top-0 h-full bg-gray-500 origin-right"
-              style={{
-                width: "50%",
-                scaleX: leftLineProgress,
-              }}
-            />
-            {/* Right half of horizontal line */}
-            <motion.div
-              className="absolute left-1/2 top-0 h-full bg-gray-500 origin-left"
-              style={{
-                width: "50%",
-                scaleX: rightLineProgress,
-              }}
-            />
-
-            {/* Left Circle with fill effect */}
-            <div className="absolute left-0 top-1/2 w-3 h-3 bg-gray-500/30 rounded-full transform -translate-y-1/2 overflow-hidden">
-              <motion.div
-                className="absolute inset-0 bg-gray-500 rounded-full"
-                style={{ opacity: leftCircleFill }}
-              />
-            </div>
-
-            {/* Center Circle with fill effect */}
+            {/* Center Circle */}
             <div className="bg-black absolute rounded-full left-1/2 top-1/2 size-5 z-10 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
               <div className="w-3 h-3 bg-gray-500/30 rounded-full overflow-hidden">
                 <motion.div
                   className="absolute inset-0 bg-gray-500 rounded-full"
-                  style={{ opacity: centerCircleFill }}
+                  style={{ opacity: getProgress(1) }}
+                  transition={{ duration: 0.5, ease: customEase }}
                 />
               </div>
             </div>
 
-            {/* Right Circle with fill effect */}
+            {/* Left half */}
+            <motion.div
+              className="absolute right-1/2 top-0 h-full bg-gray-500 origin-right"
+              style={{
+                width: "50%",
+                scaleX: getProgress(2),
+              }}
+              transition={{ duration: 0.5, ease: customEase }}
+            />
+
+            {/* Left Circle */}
+            <div className="absolute left-0 top-1/2 w-3 h-3 bg-gray-500/30 rounded-full transform -translate-y-1/2 overflow-hidden">
+              <motion.div
+                className="absolute inset-0 bg-gray-500 rounded-full"
+                style={{ opacity: getProgress(3) }}
+                transition={{ duration: 0.5, ease: customEase }}
+              />
+            </div>
+
+            {/* Right half */}
+            <motion.div
+              className="absolute left-1/2 top-0 h-full bg-gray-500 origin-left"
+              style={{
+                width: "50%",
+                scaleX: getProgress(4),
+              }}
+              transition={{ duration: 0.5, ease: customEase }}
+            />
+
+            {/* Right Circle */}
             <div className="absolute right-0 top-1/2 w-3 h-3 bg-gray-500/30 rounded-full transform -translate-y-1/2 overflow-hidden">
               <motion.div
                 className="absolute inset-0 bg-gray-500 rounded-full"
-                style={{ opacity: rightCircleFill }}
+                style={{ opacity: getProgress(5) }}
+                transition={{ duration: 0.5, ease: customEase }}
               />
             </div>
           </div>
 
-          {/* Bottom vertical line with fill effect */}
+          {/* Bottom vertical line */}
           <div className="absolute bottom-[-48%] left-1/2 h-[296px] w-px bg-gray-500/30 transform -translate-x-1/2 overflow-hidden">
             <motion.div
               className="absolute top-0 left-0 w-full bg-gray-500 origin-top"
               style={{
                 height: "100%",
-                scaleY: bottomLineProgress,
+                scaleY: getProgress(6),
               }}
+              transition={{ duration: 0.5, ease: customEase }}
             />
           </div>
         </div>

@@ -7,6 +7,7 @@ interface StepBlockProps {
   description: string;
   scrollYProgress: MotionValue<number>;
   index: number;
+  totalSteps: number;
 }
 
 const StepBlock = ({
@@ -14,26 +15,31 @@ const StepBlock = ({
   description,
   scrollYProgress,
   index,
+  totalSteps,
 }: StepBlockProps) => {
-  const start = index * 0.15;
+  const segmentSize = 1 / totalSteps;
+  const start = 0;
   const end = 1;
 
   const textColor = useTransform(
     scrollYProgress,
-    [start, Math.min(start + 0.2, 1)],
+    [index * segmentSize, (index + 0.5) * segmentSize],
     ["rgba(255, 255, 255, 0.3)", "rgba(255, 255, 255, 1)"]
   );
 
   const dotColor = useTransform(
     scrollYProgress,
-    [start, Math.min(start + 0.4, 1)],
+    [index * segmentSize, (index + 0.2) * segmentSize],
     ["rgba(255, 255, 255, 0.3)", "#2A5FDD"]
   );
 
   const lineProgress = useTransform(
     scrollYProgress,
-    [start, Math.min(start + 0.4, 1)],
-    [0, 1]
+    [index * segmentSize, (index + 0.8) * segmentSize],
+    [0, 1],
+    {
+      clamp: true,
+    }
   );
 
   return (
@@ -58,8 +64,12 @@ const StepBlock = ({
           <div className="relative w-[1px] h-[180px]">
             <div className="absolute inset-0 bg-[#FFFFFF1A]" />
             <motion.div
-              style={{ scaleY: lineProgress, originY: 1 }}
-              className="absolute bottom-0 w-full h-full bg-gradient-to-b from-[#2A5FDD00] to-[#2A5FDD]"
+              style={{
+                scaleY: lineProgress,
+                originY: 0,
+                background: "linear-gradient(180deg, #2A5FDD 0%, #2A5FDD 100%)",
+              }}
+              className="absolute top-0 w-full h-full"
             />
           </div>
 
@@ -130,6 +140,7 @@ const Stepper = () => {
             description={step.description}
             scrollYProgress={scrollYProgress}
             index={index}
+            totalSteps={steps.length}
           />
         ))}
       </div>

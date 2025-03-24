@@ -2,41 +2,55 @@
 import React, { useState } from "react";
 import RoadMapStep from "./components/roadmap-step";
 
-const RoadMap = () => {
-  const [completedSteps, setCompletedSteps] = useState([]);
+const roadmapSteps = [
+  {
+    title: "Q1 2024",
+    description: "Release of enhanced health metrics and initial integrations",
+  },
+  {
+    title: "Q2 2024",
+    description: "Expansion of device support and advanced analytics",
+  },
+  {
+    title: "Q3 2024",
+    description: "Launch of predictive health features",
+  },
+  {
+    title: "Q4 2024",
+    description: "Global platform expansion and partnerships",
+  },
+];
 
-  const handleStepComplete = (index) => {
-    if (!completedSteps.includes(index)) {
-      setCompletedSteps((prev) => [...prev, index]);
-      console.log(`Step ${index} completed, next step can start`);
-    }
+export default function RoadMap() {
+  const [completedSteps, setCompletedSteps] = useState<boolean[]>(
+    new Array(roadmapSteps.length).fill(false)
+  );
+
+  const handleStepComplete = (index: number) => {
+    setCompletedSteps((prev) => {
+      const newCompleted = [...prev];
+      newCompleted[index] = true;
+      return newCompleted;
+    });
   };
 
   return (
-    <div className="w-full bg-black pt-20">
-      <div className="flex flex-col gap-20">
-        <RoadMapStep
-          title="Short-Term (0-6 Months)"
-          index={0}
-          canAnimate={true} // First step can always animate
-          onComplete={() => handleStepComplete(0)}
-        />
-        <RoadMapStep
-          title="Medium-Term (6-12 Months)"
-          index={1}
-          canAnimate={completedSteps.includes(0)}
-          onComplete={() => handleStepComplete(1)}
-        />
-        <RoadMapStep
-          title="Long-Term (12-18 Months)"
-          index={2}
-          canAnimate={completedSteps.includes(1)}
-          onComplete={() => handleStepComplete(2)}
-          showVerticalLines={false} // Hide bottom vertical line on last step
-        />
+    <div className="min-h-screen bg-black py-20">
+      <div className="container mx-auto px-4">
+        {roadmapSteps.map((step, index) => (
+          <RoadMapStep
+            key={index}
+            title={step.title}
+            index={index}
+            canAnimate={true}
+            isCompleted={completedSteps[index]}
+            previousStepCompleted={
+              index === 0 ? true : completedSteps[index - 1]
+            }
+            onComplete={() => handleStepComplete(index)}
+          />
+        ))}
       </div>
     </div>
   );
-};
-
-export default RoadMap;
+}
