@@ -10,7 +10,7 @@ export const navLinks = [
     ],
   },
   {
-    href: "/vyvo-tech",
+    href: "/wearables",
     label: "Vyvo Tech",
     subMenu: [
       { href: "/vyvo-tech/biosense-ring", label: "BioSense Ring" },

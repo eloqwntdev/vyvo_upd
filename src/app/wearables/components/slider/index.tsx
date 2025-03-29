@@ -25,27 +25,27 @@ const SliderCard: React.FC<SliderCardProps> = ({
   description,
 }) => {
   return (
-    <div className="p-0 rounded-[24px] bg-[#F5F8FF] overflow-hidden flex flex-col max-w-[413px] w-full">
+    <div className="p-0 rounded-[16px] sm:rounded-[20px] md:rounded-[24px] bg-[#F5F8FF] overflow-hidden flex flex-col w-full h-full">
       <div className="w-full overflow-hidden">
         <Image
           src={imageSrc || "/wearables-img/slider/card1.webp"}
-          width={373}
+          width={413}
           height={210}
           alt={title || ""}
-          className="w-full h-[210px] object-cover"
+          className="w-full h-[150px] sm:h-[180px] md:h-[210px] object-cover"
         />
       </div>
-      <div className="p-4 pb-6 flex flex-col gap-2">
-        <span className="text-black font-nb text-[16px] leading-[20px] font-medium">
+      <div className="p-3 sm:p-4 pb-4 sm:pb-6 flex flex-col gap-1 sm:gap-2 flex-grow">
+        <span className="text-black font-nb text-[14px] sm:text-[15px] md:text-[16px] leading-[18px] sm:leading-[20px] font-medium">
           {title || "BioSense Ring"}
         </span>
-        <p className="text-black font-nb font-light text-[14px] leading-[18px] opacity-80">
+        <p className="text-black font-nb font-light text-[12px] sm:text-[13px] md:text-[14px] leading-[16px] sm:leading-[18px] opacity-80">
           {description ||
             "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus."}
         </p>
 
-        <div className="mt-2">
-          <div className="size-8 rounded-full bg-[#E9EEFF] flex items-center justify-center cursor-pointer">
+        <div className="mt-auto pt-2">
+          <div className="size-6 sm:size-7 md:size-8 rounded-full bg-[#E9EEFF] flex items-center justify-center cursor-pointer">
             <CrossIcon />
           </div>
         </div>
@@ -59,6 +59,22 @@ const WearablesSlider: React.FC = () => {
   const navigationNextRef = useRef<HTMLDivElement>(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Initial check
+    checkScreenSize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", checkScreenSize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
 
   const sliderData = [
     {
@@ -154,24 +170,23 @@ const WearablesSlider: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 flex flex-col items-center justify-center gap-[60px]">
-      <div className="max-w-[480px] w-full flex flex-col items-center justify-center text-center gap-6">
-        <h2 className="text-gradient font-nb font-light text-[56px] leading-[64px] tracking-[0.5px]">
+    <section className="py-10 sm:py-14 md:py-20 px-4 sm:px-6 md:px-8 flex flex-col items-center justify-center gap-[30px] sm:gap-[40px] md:gap-[60px]">
+      <div className="max-w-[320px] sm:max-w-[400px] md:max-w-[480px] w-full flex flex-col items-center justify-center text-center gap-3 sm:gap-4 md:gap-6">
+        <h2 className="text-gradient font-nb font-light text-[32px] sm:text-[44px] md:text-[56px] leading-[40px] sm:leading-[52px] md:leading-[64px] tracking-[0.5px]">
           Title
         </h2>
-        <p className="text-black font-nb font-light text-[16px] leading-[20px] tracking-[0.5px]">
+        <p className="text-black font-nb font-light text-[14px] sm:text-[15px] md:text-[16px] leading-[18px] sm:leading-[19px] md:leading-[20px] tracking-[0.5px]">
           Lorem ipsum dolor sit amet consectetur. Quis amet morbi et volutpat
           ut. Condimentum morbi mauris bibendum venenatis et.
         </p>
       </div>
 
       <div className="w-full relative overflow-hidden">
-        {/* Using a container with left margin to create the 80px space and allow first card to be off-screen */}
         <div className="w-full">
           <Swiper
             modules={[Navigation]}
-            spaceBetween={20}
-            slidesPerView={3.5}
+            spaceBetween={10}
+            slidesPerView={1.2}
             initialSlide={0}
             freeMode={{
               enabled: false,
@@ -195,7 +210,7 @@ const WearablesSlider: React.FC = () => {
               const progressBar = document.getElementById("swiperProgressBar");
               if (progressBar) {
                 const totalSlides = swiper.slides.length;
-                const visibleSlides = 3.5;
+                const visibleSlides = swiper.params.slidesPerView as number;
                 const maxIndex = totalSlides - visibleSlides;
                 const progress = (swiper.activeIndex / maxIndex) * 100;
                 progressBar.style.width = `${Math.min(progress, 100)}%`;
@@ -209,41 +224,51 @@ const WearablesSlider: React.FC = () => {
               setIsBeginning(swiper.isBeginning);
               setIsEnd(swiper.isEnd);
             }}
-            className="w-full !px-4 md:!px-20"
+            className="w-full !px-4 sm:!px-6 md:!px-8 lg:!px-20"
             breakpoints={{
               320: {
                 slidesPerView: 1.2,
                 spaceBetween: 10,
               },
+              480: {
+                slidesPerView: 1.5,
+                spaceBetween: 12,
+              },
               640: {
                 slidesPerView: 2.2,
                 spaceBetween: 15,
               },
+              768: {
+                slidesPerView: 2.5,
+                spaceBetween: 15,
+              },
               1024: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+              1280: {
                 slidesPerView: 3.5,
                 spaceBetween: 20,
               },
             }}
-            // Allow slides to flow past the beginning (for off-screen effect)
             allowSlidePrev={true}
             allowTouchMove={true}
           >
             {sliderData.map((card, index) => (
-              <SwiperSlide
-                key={index}
-                className="!w-[270px] !h-[350px] md:!w-[413px]"
-              >
-                <SliderCard
-                  imageSrc={card.imageSrc}
-                  title={card.title}
-                  description={card.description}
-                />
+              <SwiperSlide key={index} className="!h-auto">
+                <div className="h-full">
+                  <SliderCard
+                    imageSrc={card.imageSrc}
+                    title={card.title}
+                    description={card.description}
+                  />
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
 
-        <div className="w-full max-w-[1280px] mx-auto flex items-center gap-10 mt-20">
+        <div className="w-full max-w-[1280px] mx-auto flex items-center gap-4 sm:gap-6 md:gap-10 mt-8 sm:mt-12 md:mt-20 px-4 sm:px-6 md:px-8">
           <div className="w-full relative h-[1px]">
             {/* Progress indicator */}
             <div className="absolute top-0 left-0 w-full h-[1px] bg-[#D1D1D1]"></div>
@@ -253,21 +278,21 @@ const WearablesSlider: React.FC = () => {
             ></div>
           </div>
 
-          <div className="max-w-[92px] w-full flex gap-3">
+          <div className="flex gap-2 sm:gap-3">
             <div
               ref={navigationPrevRef}
-              className={`size-10 cross-btn-shadow ${
+              className={`size-8 sm:size-9 md:size-10 cross-btn-shadow ${
                 isBeginning ? "bg-[#77A9E829]" : "bg-[#2A5FDD1A]"
-              } rounded-2xl flex items-center justify-center cursor-pointer`}
+              } rounded-xl sm:rounded-2xl flex items-center justify-center cursor-pointer`}
             >
               <LeftArrow active={!isBeginning} />
             </div>
 
             <div
               ref={navigationNextRef}
-              className={`size-10 cross-btn-shadow ${
+              className={`size-8 sm:size-9 md:size-10 cross-btn-shadow ${
                 isEnd ? "bg-[#77A9E829]" : "bg-[#2A5FDD1A]"
-              } rounded-2xl flex items-center justify-center cursor-pointer`}
+              } rounded-xl sm:rounded-2xl flex items-center justify-center cursor-pointer`}
             >
               <RightArrow active={!isEnd} />
             </div>
@@ -283,11 +308,12 @@ export default WearablesSlider;
 const CrossIcon: React.FC = () => {
   return (
     <svg
-      width="16"
-      height="16"
+      width="14"
+      height="14"
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="sm:w-[16px] sm:h-[16px]"
     >
       <path
         d="M10.001 3.33337V16.6667"
@@ -310,11 +336,12 @@ const CrossIcon: React.FC = () => {
 const LeftArrow: React.FC<ArrowProps> = ({ active }) => {
   return (
     <svg
-      width="20"
-      height="20"
+      width="16"
+      height="16"
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="sm:w-[18px] sm:h-[18px] md:w-[20px] md:h-[20px]"
     >
       <path
         d="M4.16699 10L16.667 9.9998"
@@ -337,11 +364,12 @@ const LeftArrow: React.FC<ArrowProps> = ({ active }) => {
 const RightArrow: React.FC<ArrowProps> = ({ active }) => {
   return (
     <svg
-      width="20"
-      height="20"
+      width="16"
+      height="16"
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="sm:w-[18px] sm:h-[18px] md:w-[20px] md:h-[20px]"
     >
       <path
         d="M15.834 9.99988L3.33398 9.99988"
