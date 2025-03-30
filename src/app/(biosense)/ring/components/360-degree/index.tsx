@@ -114,14 +114,14 @@ const Degree360 = () => {
         className="absolute w-full h-full left-0"
       />
       {/* Mobile background image - shown only on mobile */}
-      <div className="block md:hidden w-full px-4">
+      <div className="block md:hidden w-full px-4 relative">
         <img
           src="/biosense-products/ring/slider-ring.webp"
           className="w-full h-auto mb-6"
           alt="BioSense Watch with health features"
         />
       </div>
-      <div className="w-full mx-auto flex flex-col gap-6 px-4 md:px-0 md:max-w-[958px]">
+      <div className="w-full mx-auto flex flex-col gap-6 px-4 relative md:px-0 md:max-w-[958px]">
         <h2 className="text-white font-nb sm:text-center font-light text-[32px] leading-[38px] md:text-[56px] md:leading-[60px]">
           <span className="banner-gradient-text">All That ...</span> <br />
           Plus Vyvo's Advanced Health Features
@@ -187,7 +187,7 @@ const Degree360 = () => {
         </div>
       </div>
 
-      <div className="md:hidden w-full flex flex-col gap-4 pb-10">
+      <div className="md:hidden w-full flex flex-col gap-4 pb-10 relative">
         {/* Horizontal scroll indicator */}
 
         {/* Horizontal swiper-like scrollable cards */}

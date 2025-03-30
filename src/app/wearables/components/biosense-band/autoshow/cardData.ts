@@ -15,6 +15,18 @@ export const cardData = [
         alt: "Pose tracking",
       },
     ],
+    contentMobile: [
+      {
+        src: "/wearables-img/mobile-top.webp",
+        className: "absolute top-[4.5rem] right-[41%] z-10 max-w-[152px]",
+        alt: "Fingertip control",
+      },
+      {
+        src: "/wearables-img/mobile-bottom.webp",
+        className: "absolute bottom-[8.5rem] right-[27%] z-10",
+        alt: "Pose tracking",
+      },
+    ],
   },
   {
     mainImage: "/wearables-img/band/watch2.webp",

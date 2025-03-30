@@ -121,184 +121,188 @@ const Features = () => {
     }
   }, [tabInViews]);
 
-  if (isMobile) {
-    return <MobileFeatures />;
-  }
-
   return (
-    <div ref={targetRef} className="pb-[300px] top-0 bg-[#050505]">
-      <section className="rounded-[24px] relative z-20 w-full flex items-center justify-center flex-col px-6 md:px-[100px]">
-        <motion.div
-          className="w-full flex items-center justify-center pt-[60px] z-10  top-0 pb-[150px]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-[40px] md:text-[64px] sticky top-0 leading-[44px] text-center md:leading-[68px] font-light tracking-[-1.92px] text-white max-w-[649px] font-nb">
-            <span className="text-[#94A8ED]">A Companion That</span> Anticipates
-            Your Needs
-          </h2>
-        </motion.div>
-        <div className="flex items-start justify-center w-full gap-[130px]">
-          <div className="flex flex-col gap-[50px] sticky top-[40%] z-50 h-full">
-            <span className="text-white font-nb text-[16px] leading-[20px] tracking-[-0.48px]">
-              Features of VAI
-            </span>
-            <div className="flex flex-col gap-6 items-baseline">
-              {tabsData.map((tab, index) => (
-                <motion.div
-                  key={tab.id}
-                  onClick={() => {
-                    setActiveTab(index);
-                    // Scroll to the tab when clicked
-                    tabRefs.current[index].current?.scrollIntoView({
-                      behavior: "smooth",
-                      block: "center",
-                    });
-                  }}
-                  className="flex gap-3 items-center cursor-pointer"
-                  whileHover={{ scale: 1.05 }}
-                  animate={{
-                    opacity: activeTab === index ? 1 : 0.7,
-                    scale: activeTab === index ? 1.05 : 1,
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div
-                    className={`size-12 shrink-0 rounded-full bg-[#FCFCFE] ${
-                      activeTab === index
-                        ? "bg-gradient-to-r from-[#2A5FDD] to-[#77A9E8]"
-                        : "bg-[#FCFCFE]"
-                    } grid place-content-center transition-colors duration-300`}
-                  >
-                    {index === 0 ? (
-                      <Icon1
-                        className={`${
-                          activeTab === index
-                            ? "stroke-[#fff]"
-                            : "stroke-[#2A5FDD]"
-                        }`}
-                      />
-                    ) : index === 1 ? (
-                      <Icon2
-                        className={`${
-                          activeTab === index
-                            ? "stroke-[#fff]"
-                            : "stroke-[#2A5FDD]"
-                        }`}
-                      />
-                    ) : (
-                      <Icon3
-                        className={`${
-                          activeTab === index
-                            ? "stroke-[#fff]"
-                            : "stroke-[#2A5FDD]"
-                        }`}
-                      />
-                    )}
-                  </div>
-                  <span
-                    className={`text-[16px] leading-[20px] font-nb ${
-                      activeTab === index ? "text-[#94A8ED]" : "text-white"
-                    } transition-colors duration-300`}
-                  >
-                    {tab.label}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          <div className="max-w-[1200px] w-full scrollbar-hide">
-            <div className="flex flex-col gap-[200px]">
-              <div className="max-w-[900px] w-full flex flex-col gap-[250px]">
-                {tabsData.map((tab, tabIndex) => (
+    <>
+      <div
+        ref={targetRef}
+        className="pb-[300px] top-0 bg-[#050505] lg:block hidden"
+      >
+        <section className="rounded-[24px] relative z-20 w-full flex items-center justify-center flex-col px-6 md:px-[100px]">
+          <motion.div
+            className="w-full flex items-center justify-center pt-[60px] z-10  top-0 pb-[150px]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-[40px] md:text-[64px] sticky top-0 leading-[44px] text-center md:leading-[68px] font-light tracking-[-1.92px] text-white max-w-[649px] font-nb">
+              <span className="text-[#94A8ED]">A Companion That</span>{" "}
+              Anticipates Your Needs
+            </h2>
+          </motion.div>
+          <div className="flex items-start justify-center w-full gap-[130px]">
+            <div className="flex flex-col gap-[50px] sticky top-[40%] z-50 h-full">
+              <span className="text-white font-nb text-[16px] leading-[20px] tracking-[-0.48px]">
+                Features of VAI
+              </span>
+              <div className="flex flex-col gap-6 items-baseline">
+                {tabsData.map((tab, index) => (
                   <motion.div
                     key={tab.id}
-                    ref={tabRefs.current[tabIndex]}
-                    className="space-y-20"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    {tab.sections.map((section, sectionIndex) => {
-                      // Reference for this section
-                      const sectionRef = useRef(null);
-
-                      // Calculate scroll-based visibility for this section
-                      const { scrollYProgress: sectionScroll } = useScroll({
-                        target: sectionRef,
-                        offset: ["start end", "end start"],
+                    onClick={() => {
+                      setActiveTab(index);
+                      // Scroll to the tab when clicked
+                      tabRefs.current[index].current?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center",
                       });
-
-                      // Center sections are more visible, edges fade out
-                      // Last tab's sections are always fully visible
-                      const sectionOpacity =
-                        tabIndex === tabsData.length - 1
-                          ? 1
-                          : useTransform(
-                              sectionScroll,
-                              [0, 0.3, 0.5, 0.7, 1],
-                              [0, 1, 1, 1, 0]
-                            );
-
-                      return (
-                        <motion.div
-                          key={sectionIndex}
-                          ref={sectionRef}
-                          className="w-full flex flex-col md:flex-row items-start justify-between"
-                          style={{ opacity: sectionOpacity }}
-                          initial={{ y: 20, opacity: 0 }}
-                          whileInView={{
-                            y: 0,
-                            opacity:
-                              tabIndex === tabsData.length - 1 ? 1 : undefined,
-                          }}
-                          viewport={{ once: false, amount: 0.5 }}
-                          transition={{
-                            duration: 0.5,
-                            delay: sectionIndex * 0.1,
-                          }}
-                        >
-                          <motion.span className="max-w-[186px] w-full font-nb text-[24px] leading-[28px] font-normal text-white mb-4 md:mb-0">
-                            {section.title}
-                          </motion.span>
-                          <motion.div className="flex flex-col w-full gap-[10px] max-w-[443px]">
-                            {section.items.map((item, itemIndex) => (
-                              <motion.div
-                                key={itemIndex}
-                                initial={{ x: -10, opacity: 0 }}
-                                whileInView={{ x: 0, opacity: 1 }}
-                                viewport={{ once: false }}
-                                transition={{
-                                  duration: 0.3,
-                                  delay: itemIndex * 0.05,
-                                }}
-                                className="w-full flex items-center gap-8"
-                              >
-                                <span className="font-nb text-white text-[14px] leading-[18px] gradient-text cursor-pointer">
-                                  {item}
-                                </span>
-                              </motion.div>
-                            ))}
-                          </motion.div>
-                        </motion.div>
-                      );
-                    })}
+                    }}
+                    className="flex gap-3 items-center cursor-pointer"
+                    whileHover={{ scale: 1.05 }}
+                    animate={{
+                      opacity: activeTab === index ? 1 : 0.7,
+                      scale: activeTab === index ? 1.05 : 1,
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div
+                      className={`size-12 shrink-0 rounded-full bg-[#FCFCFE] ${
+                        activeTab === index
+                          ? "bg-gradient-to-r from-[#2A5FDD] to-[#77A9E8]"
+                          : "bg-[#FCFCFE]"
+                      } grid place-content-center transition-colors duration-300`}
+                    >
+                      {index === 0 ? (
+                        <Icon1
+                          className={`${
+                            activeTab === index
+                              ? "stroke-[#fff]"
+                              : "stroke-[#2A5FDD]"
+                          }`}
+                        />
+                      ) : index === 1 ? (
+                        <Icon2
+                          className={`${
+                            activeTab === index
+                              ? "stroke-[#fff]"
+                              : "stroke-[#2A5FDD]"
+                          }`}
+                        />
+                      ) : (
+                        <Icon3
+                          className={`${
+                            activeTab === index
+                              ? "stroke-[#fff]"
+                              : "stroke-[#2A5FDD]"
+                          }`}
+                        />
+                      )}
+                    </div>
+                    <span
+                      className={`text-[16px] leading-[20px] font-nb ${
+                        activeTab === index ? "text-[#94A8ED]" : "text-white"
+                      } transition-colors duration-300`}
+                    >
+                      {tab.label}
+                    </span>
                   </motion.div>
                 ))}
               </div>
             </div>
+
+            <div className="max-w-[1200px] w-full scrollbar-hide">
+              <div className="flex flex-col gap-[200px]">
+                <div className="max-w-[900px] w-full flex flex-col gap-[250px]">
+                  {tabsData.map((tab, tabIndex) => (
+                    <motion.div
+                      key={tab.id}
+                      ref={tabRefs.current[tabIndex]}
+                      className="space-y-20"
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: false, amount: 0.3 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      {tab.sections.map((section, sectionIndex) => {
+                        // Reference for this section
+                        const sectionRef = useRef(null);
+
+                        // Calculate scroll-based visibility for this section
+                        const { scrollYProgress: sectionScroll } = useScroll({
+                          target: sectionRef,
+                          offset: ["start end", "end start"],
+                        });
+
+                        // Center sections are more visible, edges fade out
+                        // Last tab's sections are always fully visible
+                        const sectionOpacity =
+                          tabIndex === tabsData.length - 1
+                            ? 1
+                            : useTransform(
+                                sectionScroll,
+                                [0, 0.3, 0.5, 0.7, 1],
+                                [0, 1, 1, 1, 0]
+                              );
+
+                        return (
+                          <motion.div
+                            key={sectionIndex}
+                            ref={sectionRef}
+                            className="w-full flex flex-col md:flex-row items-start justify-between"
+                            style={{ opacity: sectionOpacity }}
+                            initial={{ y: 20, opacity: 0 }}
+                            whileInView={{
+                              y: 0,
+                              opacity:
+                                tabIndex === tabsData.length - 1
+                                  ? 1
+                                  : undefined,
+                            }}
+                            viewport={{ once: false, amount: 0.5 }}
+                            transition={{
+                              duration: 0.5,
+                              delay: sectionIndex * 0.1,
+                            }}
+                          >
+                            <motion.span className="max-w-[186px] w-full font-nb text-[24px] leading-[28px] font-normal text-white mb-4 md:mb-0">
+                              {section.title}
+                            </motion.span>
+                            <motion.div className="flex flex-col w-full gap-[10px] max-w-[443px]">
+                              {section.items.map((item, itemIndex) => (
+                                <motion.div
+                                  key={itemIndex}
+                                  initial={{ x: -10, opacity: 0 }}
+                                  whileInView={{ x: 0, opacity: 1 }}
+                                  viewport={{ once: false }}
+                                  transition={{
+                                    duration: 0.3,
+                                    delay: itemIndex * 0.05,
+                                  }}
+                                  className="w-full flex items-center gap-8"
+                                >
+                                  <span className="font-nb text-white text-[14px] leading-[18px] gradient-text cursor-pointer">
+                                    {item}
+                                  </span>
+                                </motion.div>
+                              ))}
+                            </motion.div>
+                          </motion.div>
+                        );
+                      })}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-      {/* <img
+        </section>
+        {/* <img
         src="/Preloder-back.gif"
         alt="Preloder-back"
         className="fixed w-full top-0 left-0 h-full"
       /> */}
-    </div>
+      </div>
+      <MobileFeatures />;
+    </>
   );
 };
 

@@ -15,9 +15,9 @@ const WearablesPage = () => {
       <Ring />
       <Slider />
       <BiosenseBand />
-      {/* <VyvoResearchDevelopment />
+      <VyvoResearchDevelopment />
       <VyvoSmart />
-      <ProductLineup /> */}
+      <ProductLineup />
     </>
   );
 };

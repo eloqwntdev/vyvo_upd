@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import React, { useEffect, useState, useRef } from "react";
+import { AnimatePresence, motion, useInView, Variants } from "framer-motion";
 import Image from "next/image";
 
 interface OneRingProps {
@@ -24,6 +24,8 @@ const OneRing: React.FC<OneRingProps> = ({
   imagePosition = "right",
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const textRef = useRef(null);
+  const isInView = useInView(textRef, { once: true, amount: 0.3 });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,6 +34,27 @@ const OneRing: React.FC<OneRingProps> = ({
 
     return () => clearInterval(interval);
   }, [images.length]);
+
+  // Animation variants
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: [0.33, 1, 0.68, 1] },
+    },
+  };
+
+  const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
 
   const SliderComponent = (
     <div className="wearables-card-gradient w-full max-w-[598px] rounded-[24px] relative overflow-hidden p-4">
@@ -71,25 +94,54 @@ const OneRing: React.FC<OneRingProps> = ({
   );
 
   const TextContent = (
-    <div className="max-w-[530px] w-full flex flex-col gap-6">
+    <motion.div
+      ref={textRef}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={staggerContainer}
+      className="max-w-[530px] w-full flex flex-col gap-6"
+    >
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-6 w-full">
-          <h2 className="font-nb font-light text-white text-[32px] leading-[40px] md:text-[56px] md:tracking-[-1.4px] md:leading-[64px]">
+          <motion.h2
+            variants={fadeInUp}
+            className="font-nb font-light text-white text-[24px] leading-[28px] md:text-[56px] md:tracking-[-1.4px] md:leading-[64px]"
+          >
             {title}{" "}
             <span className="banner-gradient-text">{highlightedText}</span>{" "}
             Quest!
-          </h2>
-          <p className="text-white font-nb text-[16px] leading-[20px] md:tracking-wider max-w-[387px]">
+          </motion.h2>
+          <motion.p
+            variants={fadeInUp}
+            className="text-white font-nb text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] md:tracking-wider max-w-[387px]"
+          >
             {description}
-          </p>
+          </motion.p>
         </div>
       </div>
-      <div className="flex flex-col gap-4 md:gap-8 w-full md:max-w-[350px]">
-        <p className="text-white font-nb text-[16px] leading-[20px]">
+      <motion.div
+        variants={fadeInUp}
+        className="flex flex-col gap-4 md:gap-8 w-full md:max-w-[350px]"
+      >
+        <p className="text-white font-nb text-[14px] leading-[18px] md:text-[16px] md:leading-[20px]">
           {appDescription}
         </p>
         <div className="flex gap-4 md:gap-5">
-          <div className="w-full bg-[#77A9E829] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: 0.5,
+                  ease: [0.33, 1, 0.68, 1],
+                  delay: 0.3,
+                },
+              },
+            }}
+            className="w-full bg-[#77A9E829] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]"
+          >
             <Image
               src={"/google.svg"}
               alt={"Google Play"}
@@ -104,8 +156,22 @@ const OneRing: React.FC<OneRingProps> = ({
                 Google Play
               </span>
             </div>
-          </div>
-          <div className="w-full bg-[#77A9E829] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]">
+          </motion.div>
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: 0.5,
+                  ease: [0.33, 1, 0.68, 1],
+                  delay: 0.4,
+                },
+              },
+            }}
+            className="w-full bg-[#77A9E829] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]"
+          >
             <Image
               src={"/apple.svg"}
               className="invert"
@@ -121,10 +187,10 @@ const OneRing: React.FC<OneRingProps> = ({
                 App Store
               </span>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 
   return (

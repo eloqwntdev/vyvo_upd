@@ -4,6 +4,8 @@ import React, { useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
 
 // Import Swiper styles
 import "swiper/css";
@@ -13,6 +15,7 @@ interface SliderCardProps {
   imageSrc: string;
   title: string;
   description: string;
+  index: number;
 }
 
 interface ArrowProps {
@@ -23,36 +26,165 @@ const SliderCard: React.FC<SliderCardProps> = ({
   imageSrc,
   title,
   description,
+  index,
 }) => {
+  const cardRef = useRef(null);
+  const isInView = useInView(cardRef, { once: true, amount: 0.3 });
+
   return (
-    <div className="p-0 rounded-[16px] sm:rounded-[20px] md:rounded-[24px] bg-[#F5F8FF] overflow-hidden flex flex-col w-full h-full">
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{
+        duration: 0.5,
+        delay: 0.1 * index,
+        ease: "easeOut",
+      }}
+      className="p-0 rounded-[16px] sm:rounded-[20px] md:rounded-[24px] bg-[#F5F8FF] overflow-hidden flex flex-col w-full h-full"
+    >
       <div className="w-full overflow-hidden">
-        <Image
-          src={imageSrc || "/wearables-img/slider/card1.webp"}
-          width={413}
-          height={210}
-          alt={title || ""}
-          className="w-full h-[150px] sm:h-[180px] md:h-[210px] object-cover"
-        />
+        <motion.div
+          initial={{ scale: 1.1 }}
+          animate={isInView ? { scale: 1 } : { scale: 1.1 }}
+          transition={{ duration: 0.7, delay: 0.1 * index + 0.2 }}
+        >
+          <Image
+            src={imageSrc || "/wearables-img/slider/card1.webp"}
+            width={413}
+            height={210}
+            alt={title || ""}
+            className="w-full h-[150px] sm:h-[180px] md:h-[210px] object-cover"
+          />
+        </motion.div>
       </div>
       <div className="p-3 sm:p-4 pb-4 sm:pb-6 flex flex-col gap-1 sm:gap-2 flex-grow">
-        <span className="text-black font-nb text-[14px] sm:text-[15px] md:text-[16px] leading-[18px] sm:leading-[20px] font-medium">
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 * index + 0.3 }}
+          className="text-black font-nb text-[14px] sm:text-[15px] md:text-[16px] leading-[18px] sm:leading-[20px] font-medium"
+        >
           {title || "BioSense Ring"}
-        </span>
-        <p className="text-black font-nb font-light text-[12px] sm:text-[13px] md:text-[14px] leading-[16px] sm:leading-[18px] opacity-80">
+        </motion.span>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 0.8 } : { opacity: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 * index + 0.4 }}
+          className="text-black font-nb font-light text-[12px] sm:text-[13px] md:text-[14px] leading-[16px] sm:leading-[18px] opacity-80"
+        >
           {description ||
             "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus."}
-        </p>
+        </motion.p>
 
         <div className="mt-auto pt-2">
-          <div className="size-6 sm:size-7 md:size-8 rounded-full bg-[#E9EEFF] flex items-center justify-center cursor-pointer">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={
+              isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
+            }
+            transition={{ duration: 0.4, delay: 0.1 * index + 0.5 }}
+            className="size-6 sm:size-7 md:size-8 rounded-[12px] bg-[#E9EEFF] cross-btn-shadow flex items-center justify-center cursor-pointer"
+          >
             <CrossIcon />
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
+const sliderData = [
+  {
+    imageSrc: "/wearables-img/slider/card1.webp",
+    title: "BioSense Ring",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+  },
+  {
+    imageSrc: "/wearables-img/slider/card2.webp",
+    title: "BioSense Band",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+  },
+  {
+    imageSrc: "/wearables-img/slider/card3.webp",
+    title: "LifeWatch Generation 2",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+  },
+  {
+    imageSrc: "/wearables-img/slider/card4.webp",
+    title: "Watch Lite SE",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+  },
+  {
+    imageSrc: "/wearables-img/slider/card5.webp",
+    title: "Vyvo Smart App",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+  },
+  {
+    imageSrc: "/wearables-img/slider/card6.webp",
+    title: "BIA Check",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+  },
+  {
+    imageSrc: "/wearables-img/slider/card7.webp",
+    title: "SpO₂",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+  },
+  {
+    imageSrc: "/wearables-img/slider/card8.webp",
+    title: "Atrial Fibrillation (AFib)",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+  },
+  {
+    imageSrc: "/wearables-img/slider/card9.webp",
+    title: "Accelerated Plethysmography (APG)",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+  },
+  {
+    imageSrc: "/wearables-img/slider/card10.webp",
+    title: "Energy",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+  },
+  {
+    imageSrc: "/wearables-img/slider/card11.webp",
+    title: "Heart Rate",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+  },
+  {
+    imageSrc: "/wearables-img/slider/card12.webp",
+    title: "Breath Rate",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+  },
+  {
+    imageSrc: "/wearables-img/slider/card13.webp",
+    title: "Blood Pressure",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+  },
+  {
+    imageSrc: "/wearables-img/slider/card14.webp",
+    title: "Stress",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+  },
+  {
+    imageSrc: "/wearables-img/slider/card15.webp",
+    title: "Sleep",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+  },
+];
 
 const WearablesSlider: React.FC = () => {
   const navigationPrevRef = useRef<HTMLDivElement>(null);
@@ -60,6 +192,12 @@ const WearablesSlider: React.FC = () => {
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+
+  const titleRef = useRef(null);
+  const isTitleInView = useInView(titleRef, { once: true, amount: 0.5 });
+
+  const controlsRef = useRef(null);
+  const areControlsInView = useInView(controlsRef, { once: true, amount: 0.5 });
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -76,110 +214,33 @@ const WearablesSlider: React.FC = () => {
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
-  const sliderData = [
-    {
-      imageSrc: "/wearables-img/slider/card1.webp",
-      title: "BioSense Ring",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-    },
-    {
-      imageSrc: "/wearables-img/slider/card2.webp",
-      title: "BioSense Band",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-    },
-    {
-      imageSrc: "/wearables-img/slider/card3.webp",
-      title: "LifeWatch Generation 2",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-    },
-    {
-      imageSrc: "/wearables-img/slider/card4.webp",
-      title: "Watch Lite SE",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-    },
-    {
-      imageSrc: "/wearables-img/slider/card5.webp",
-      title: "Vyvo Smart App",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-    },
-    {
-      imageSrc: "/wearables-img/slider/card6.webp",
-      title: "BIA Check",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-    },
-    {
-      imageSrc: "/wearables-img/slider/card7.webp",
-      title: "SpO₂",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-    },
-    {
-      imageSrc: "/wearables-img/slider/card8.webp",
-      title: "Atrial Fibrillation (AFib)",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-    },
-    {
-      imageSrc: "/wearables-img/slider/card9.webp",
-      title: "Accelerated Plethysmography (APG)",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-    },
-    {
-      imageSrc: "/wearables-img/slider/card10.webp",
-      title: "Energy",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-    },
-    {
-      imageSrc: "/wearables-img/slider/card11.webp",
-      title: "Heart Rate",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-    },
-    {
-      imageSrc: "/wearables-img/slider/card12.webp",
-      title: "Breath Rate",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-    },
-    {
-      imageSrc: "/wearables-img/slider/card13.webp",
-      title: "Blood Pressure",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-    },
-    {
-      imageSrc: "/wearables-img/slider/card14.webp",
-      title: "Stress",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-    },
-    {
-      imageSrc: "/wearables-img/slider/card15.webp",
-      title: "Sleep",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-    },
-  ];
-
   return (
     <section className="py-10 sm:py-14 md:py-20 px-4 sm:px-6 md:px-8 flex flex-col items-center justify-center gap-[30px] sm:gap-[40px] md:gap-[60px]">
-      <div className="max-w-[320px] sm:max-w-[400px] md:max-w-[480px] w-full flex flex-col items-center justify-center text-center gap-3 sm:gap-4 md:gap-6">
-        <h2 className="text-gradient font-nb font-light text-[32px] sm:text-[44px] md:text-[56px] leading-[40px] sm:leading-[52px] md:leading-[64px] tracking-[0.5px]">
+      <motion.div
+        ref={titleRef}
+        initial={{ opacity: 0, y: 30 }}
+        animate={isTitleInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="max-w-[320px] sm:max-w-[400px] md:max-w-[480px] w-full flex flex-col items-center justify-center text-center gap-3 sm:gap-4 md:gap-6"
+      >
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={isTitleInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="text-gradient font-nb font-light text-[32px] sm:text-[44px] md:text-[56px] leading-[40px] sm:leading-[52px] md:leading-[64px] tracking-[0.5px]"
+        >
           Title
-        </h2>
-        <p className="text-black font-nb font-light text-[14px] sm:text-[15px] md:text-[16px] leading-[18px] sm:leading-[19px] md:leading-[20px] tracking-[0.5px]">
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={isTitleInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-black font-nb font-light text-[14px] sm:text-[15px] md:text-[16px] leading-[18px] sm:leading-[19px] md:leading-[20px] tracking-[0.5px]"
+        >
           Lorem ipsum dolor sit amet consectetur. Quis amet morbi et volutpat
           ut. Condimentum morbi mauris bibendum venenatis et.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       <div className="w-full relative overflow-hidden">
         <div className="w-full">
@@ -261,6 +322,7 @@ const WearablesSlider: React.FC = () => {
                     imageSrc={card.imageSrc}
                     title={card.title}
                     description={card.description}
+                    index={index}
                   />
                 </div>
               </SwiperSlide>
@@ -268,36 +330,59 @@ const WearablesSlider: React.FC = () => {
           </Swiper>
         </div>
 
-        <div className="w-full max-w-[1280px] mx-auto flex items-center gap-4 sm:gap-6 md:gap-10 mt-8 sm:mt-12 md:mt-20 px-4 sm:px-6 md:px-8">
+        <motion.div
+          ref={controlsRef}
+          initial={{ opacity: 0, y: 20 }}
+          animate={
+            areControlsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+          }
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="w-full max-w-[1280px] mx-auto flex items-center gap-4 sm:gap-6 md:gap-10 mt-8 sm:mt-12 md:mt-20 px-4 sm:px-6 md:px-8"
+        >
           <div className="w-full relative h-[1px]">
             {/* Progress indicator */}
             <div className="absolute top-0 left-0 w-full h-[1px] bg-[#D1D1D1]"></div>
-            <div
-              className="absolute top-0 left-0 h-[1px] bg-[#2A5FDD] w-[0%] transition-all duration-300"
+            <motion.div
+              initial={{ width: "0%" }}
+              animate={areControlsInView ? { width: "0%" } : { width: "0%" }}
+              transition={{ duration: 0.5 }}
+              className="absolute top-0 left-0 h-[1px] bg-[#2A5FDD] transition-all duration-300"
               id="swiperProgressBar"
-            ></div>
+            ></motion.div>
           </div>
 
           <div className="flex gap-2 sm:gap-3">
-            <div
+            <motion.div
+              initial={{ opacity: 0, x: 10 }}
+              animate={
+                areControlsInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 10 }
+              }
+              transition={{ duration: 0.5, delay: 0.4 }}
               ref={navigationPrevRef}
               className={`size-8 sm:size-9 md:size-10 cross-btn-shadow ${
                 isBeginning ? "bg-[#77A9E829]" : "bg-[#2A5FDD1A]"
               } rounded-xl sm:rounded-2xl flex items-center justify-center cursor-pointer`}
             >
               <LeftArrow active={!isBeginning} />
-            </div>
+            </motion.div>
 
-            <div
+            <motion.div
+              initial={{ opacity: 0, x: -10 }}
+              animate={
+                areControlsInView
+                  ? { opacity: 1, x: 0 }
+                  : { opacity: 0, x: -10 }
+              }
+              transition={{ duration: 0.5, delay: 0.5 }}
               ref={navigationNextRef}
               className={`size-8 sm:size-9 md:size-10 cross-btn-shadow ${
                 isEnd ? "bg-[#77A9E829]" : "bg-[#2A5FDD1A]"
               } rounded-xl sm:rounded-2xl flex items-center justify-center cursor-pointer`}
             >
               <RightArrow active={!isEnd} />
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
