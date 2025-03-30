@@ -8,7 +8,7 @@ const Footer = () => {
   const navItems = [
     { label: "Home", href: "" },
     { label: "VAI OS", href: "" },
-    { label: "Vyvo Tech", href: "" },
+    { label: "Vyvo Tech", href: "/wearables" },
     { label: "Vyvo Smart Chain", href: "" },
     { label: "SocialFi", href: "/social-fi" },
     { label: "Store", href: "" },

@@ -2,7 +2,13 @@
 import { motion } from "framer-motion";
 import React from "react";
 
-const ScrollToSection = ({ id = "statement-section" }: { id: string }) => {
+const ScrollToSection = ({
+  id = "statement-section",
+  className,
+}: {
+  id: string;
+  className?: string;
+}) => {
   const handleScroll = () => {
     if (typeof document !== "undefined") {
       const targetSection = document.getElementById(id);

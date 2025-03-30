@@ -7,7 +7,7 @@ const MobileFeatures = () => {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
 
   return (
-    <section className="bg-[#050505] min-h-[568px] px-4 py-[28px] rounded-[24px] pb-16">
+    <section className="bg-[#050505] min-h-[568px] px-4 py-[28px] rounded-[24px] pb-16 lg:hidden block">
       <div className="flex flex-col mb-[28px]">
         <h2 className="text-[24px] leading-[28px] font-nb font-light tracking-[-0.72px] text-center mb-[71px]">
           <span className="text-[#94A8ED] block mb-1">A Companion That</span>
