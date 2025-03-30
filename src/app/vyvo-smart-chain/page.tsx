@@ -7,9 +7,9 @@ import Values from "./components/values";
 const VyvoCmartChain = () => {
   return (
     <>
-      <VyvoCmartChainBanner />
+      {/* <VyvoCmartChainBanner />
       <AboutVSC />
-      <Values />
+      <Values /> */}
     </>
   );
 };
