@@ -7,9 +7,9 @@ import LearnMore from "./components/learn-more";
 const SocialFi = () => {
   return (
     <>
-      <SocialFiBanner />
+      {/* <SocialFiBanner />
       <HeartBeats />
-      <LearnMore />
+      <LearnMore /> */}
     </>
   );
 };

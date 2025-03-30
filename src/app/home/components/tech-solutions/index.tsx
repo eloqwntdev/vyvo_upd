@@ -182,6 +182,7 @@ const TechSolutions = () => {
                   description={card.description}
                   images={card.images}
                   reverse={card.reverse}
+                  //@ts-ignore
                   isActive={isActive}
                 />
               </motion.div>
