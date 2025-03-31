@@ -34,14 +34,14 @@ const BiosenseBand = () => {
                 isImageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
               }
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="w-full sm:w-auto"
+              className="w-full sm:w-auto overflow-hidden rounded-[24px]"
             >
               <Image
                 src="/wearables-img/band/image1.webp"
                 width={305}
                 height={220}
                 alt=""
-                className="w-full h-auto sm:w-auto sm:h-auto"
+                className="w-full h-auto sm:w-auto sm:h-auto transition-transform duration-300 hover:scale-110"
               />
             </motion.div>
             <motion.div
@@ -50,19 +50,19 @@ const BiosenseBand = () => {
                 isImageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
               }
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="w-full sm:w-auto mt-5 sm:mt-0"
+              className="w-full sm:w-auto mt-5 sm:mt-0 overflow-hidden rounded-[24px]"
             >
               <Image
                 src="/wearables-img/band/image2.webp"
                 width={305}
                 height={220}
                 alt=""
-                className="w-full h-auto sm:w-auto sm:h-auto"
+                className="w-full h-auto sm:w-auto sm:h-auto transition-transform duration-300 hover:scale-110"
               />
             </motion.div>
           </div>
         </motion.div>
-        <div className="max-w-full md:max-w-[480px] w-full flex flex-col gap-8">
+        <div className="max-w-full md:max-w-[480px] w-full flex items-start flex-col gap-8">
           <div className="flex flex-col gap-6">
             <motion.h2
               ref={contentRef}
@@ -117,21 +117,12 @@ const BiosenseBand = () => {
               ))}
             </motion.ul>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={
-              isListInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }
-            }
-            transition={{ duration: 0.5, delay: 0.8 }}
-          >
-            <Link
-              className="text-black font-nb text-[16px] cross-btn-shadow leading-[20px] tracking-[-0.5px] py-2.5 max-w-[140px] w-full rounded-2xl bg-[#77A9E829] flex items-center justify-center"
-              href={""}
-            >
+          <div className="relative z-10 flex items-start justify-start max-w-[140px] w-full">
+            <button className="text-black relative z-50 cursor-pointer hover:bg-[#94a7ed28] font-nb text-[16px] cross-btn-shadow leading-[20px] tracking-[-0.5px] py-2.5 max-w-[140px] w-full rounded-2xl bg-[#77A9E829] flex items-center justify-center">
               Learn More
-            </Link>
-          </motion.div>
+            </button>
+            <div className="glow-effect transition-all duration-300 ease-in-out"></div>
+          </div>
         </div>
       </div>
     </section>

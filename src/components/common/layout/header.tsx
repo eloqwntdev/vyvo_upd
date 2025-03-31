@@ -64,7 +64,7 @@ const Header = () => {
           shouldCenterHeader ? "absolute left-1/2 -translate-x-1/2 top-0" : ""
         }
         bg-black/50 backdrop-blur-[20px]
-       fixed ${
+       sticky ${
          scrollDirection === "down" ? "-top-24 " : "top-0"
        }  z-[1000000] transition-all duration-500
 `}
@@ -73,7 +73,6 @@ const Header = () => {
           className={`
             max-w-[1280px] px-4 md:px-0 mx-auto w-full py-2.5 md:py-4 
             flex items-center justify-between relative z-[101]
-         
           `}
         >
           <motion.div

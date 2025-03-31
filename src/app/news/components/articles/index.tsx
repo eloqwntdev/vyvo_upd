@@ -61,7 +61,7 @@ export const ArticleCard = () => {
           </div>
           <div className="pl-[14px] mt-[8px]">
             <span className="text-[#FFFFFFCC] font-nb font-light text-[12px] md:text-[13px] lg:text-[14px] leading-[16px] md:leading-[17px] lg:leading-[18px] tracking-[-0.4px]">
-              May 30, 2024
+              May 30, 2025
             </span>
             <p className="text-white font-nb font-light text-[12px] md:text-[15px] lg:text-[16px] leading-[18px] md:leading-[19px] lg:leading-[20px] tracking-[-0.5px] mt-[6px] pb-[12px]">
               In an era where digital innovation is relentlessly advancing, the

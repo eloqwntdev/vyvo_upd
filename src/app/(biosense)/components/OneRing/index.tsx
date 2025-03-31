@@ -126,68 +126,47 @@ const OneRing: React.FC<OneRingProps> = ({
         <p className="text-white font-nb text-[14px] leading-[18px] md:text-[16px] md:leading-[20px]">
           {appDescription}
         </p>
-        <div className="flex gap-4 md:gap-5">
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: {
-                  duration: 0.5,
-                  ease: [0.33, 1, 0.68, 1],
-                  delay: 0.3,
-                },
-              },
-            }}
-            className="w-full bg-[#77A9E829] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]"
-          >
-            <Image
-              src={"/google.svg"}
-              alt={"Google Play"}
-              width={32}
-              height={32}
-            />
-            <div className="flex flex-col">
-              <span className="text-white font-nb font-normal text-[12px] leading-[16px]">
-                Get it on
-              </span>
-              <span className="text-white font-nb font-medium text-[16px] leading-[18px]">
-                Google Play
-              </span>
-            </div>
-          </motion.div>
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: {
-                  duration: 0.5,
-                  ease: [0.33, 1, 0.68, 1],
-                  delay: 0.4,
-                },
-              },
-            }}
-            className="w-full bg-[#77A9E829] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]"
-          >
-            <Image
-              src={"/apple.svg"}
-              className="invert"
-              alt={"App Store"}
-              width={32}
-              height={32}
-            />
-            <div className="flex flex-col">
-              <span className="text-white font-nb font-normal text-[12px] leading-[16px]">
-                Get it on
-              </span>
-              <span className="text-white font-nb font-medium text-[16px] leading-[18px]">
-                App Store
-              </span>
-            </div>
-          </motion.div>
+        <div className="flex flex-row gap-4 md:gap-5">
+          <div className="relative z-10 max-w-[166px] w-full">
+            <motion.button className="w-full sm:max-w-[166px] relative z-20 bg-[#77A9E829] hover:bg-[#94a7ed28] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]">
+              <Image
+                src={"/google.svg"}
+                alt={""}
+                width={32}
+                height={32}
+                className="w-8 h-8"
+              />
+              <div className="flex flex-col items-start">
+                <span className="text-white font-nb font-normal text-[10px] md:text-[12px] leading-[1.4] md:leading-[16px]">
+                  Get it on
+                </span>
+                <span className="text-white font-nb font-medium text-[14px] md:text-[16px] leading-[1.2] md:leading-[18px]">
+                  Google Play
+                </span>
+              </div>
+            </motion.button>
+            <div className="glow-effect transition-all duration-300 ease-in-out"></div>
+          </div>
+          <div className="relative z-10 max-w-[166px] w-full">
+            <motion.button className="w-full sm:max-w-[166px] relative z-20 bg-[#77A9E829] hover:bg-[#94a7ed28] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]">
+              <Image
+                src={"/apple.svg"}
+                alt={""}
+                width={32}
+                height={32}
+                className="w-8 h-8 invert"
+              />
+              <div className="flex flex-col items-start">
+                <span className="text-white font-nb font-normal text-[10px] md:text-[12px] leading-[1.4] md:leading-[16px]">
+                  Get it on
+                </span>
+                <span className="text-white font-nb font-medium text-[14px] md:text-[16px] leading-[1.2] md:leading-[18px]">
+                  App Store
+                </span>
+              </div>
+            </motion.button>
+            <div className="glow-effect transition-all duration-300 ease-in-out"></div>
+          </div>
         </div>
       </motion.div>
     </motion.div>

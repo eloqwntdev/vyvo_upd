@@ -21,7 +21,7 @@ const ArticleDetails = () => {
               leading-[20px] md:leading-[22px] lg:leading-[24px] 
               tracking-[-0.4px] md:tracking-[-0.5px] lg:tracking-[-0.6px]"
             >
-              June 3, 2024
+              June 3, 2025
             </span>
             <div className="size-1 rounded-full bg-gradient-to-t from-[#2A5FDD] to-[#77A9E8]"></div>
             <span

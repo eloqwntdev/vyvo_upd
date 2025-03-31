@@ -52,7 +52,7 @@ const Preorders = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-[415px] md:min-h-[800px] lg:min-h-[900px] w-full relative bg-black flex sm:items-center sm:justify-center"
+      className="min-h-[415px] md:min-h-[600px] lg:min-h-[700px] w-full relative bg-black flex sm:items-start sm:justify-center"
     >
       {/* Background animation */}
       <div className="absolute w-full h-full left-0">
@@ -83,7 +83,7 @@ const Preorders = () => {
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={staggerContainer}
-        className="flex sm:items-center sm:justify-center gap-4 sm:gap-6 max-w-[610px] flex-col w-full z-10 px-4 md:px-6 pt-[39px] md:pt-0"
+        className="flex sm:items-center sm:justify-center gap-4 sm:gap-6 max-w-[610px] flex-col w-full z-10 px-4 md:px-6 pt-[39px] md:pt-[140px]"
       >
         <motion.h2
           variants={fadeInUp}

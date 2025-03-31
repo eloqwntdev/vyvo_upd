@@ -10,7 +10,7 @@ import ProductLineup from "./components/product-lineup";
 
 const WearablesPage = () => {
   return (
-    <>
+    <div className="overflow-hidden">
       <WearablesBanner />
       <Ring />
       <Slider />
@@ -18,7 +18,7 @@ const WearablesPage = () => {
       <VyvoResearchDevelopment />
       <VyvoSmart />
       <ProductLineup />
-    </>
+    </div>
   );
 };
 

@@ -20,7 +20,7 @@ const watchImages = [
 
 const BandPage = () => {
   return (
-    <>
+    <div className="overflow-hidden">
       <BannerBand />
       <WatchVideoBand />
       <ThinLight />
@@ -37,7 +37,7 @@ const BandPage = () => {
         imagePosition="left"
       />
       <ButNowBand />
-    </>
+    </div>
   );
 };
 

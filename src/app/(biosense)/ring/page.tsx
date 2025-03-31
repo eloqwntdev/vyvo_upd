@@ -22,7 +22,12 @@ const RingWatch = () => {
       <Banner />
       <WatchVideoRing />
       <ProductOverview />
-      <Degree360 />
+      <Degree360
+        titleHighlight=""
+        titleMain="360 degrees of health"
+        description="Monitor every beat, breath, burst of energy, and spike of stress by keeping the BioSense™ Ring on your finger. Leverage the insights to improve your health, day after day."
+        className="md:!max-w-[425px]"
+      />
       <HealthFeaturesSection />
 
       <OneRing

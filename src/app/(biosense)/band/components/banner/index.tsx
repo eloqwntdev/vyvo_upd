@@ -47,7 +47,7 @@ const BannerBand = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-[600px] sm:min-h-screen w-full bg-black relative flex items-start lg:items-center pt-[120px] lg:pt-0 justify-center overflow-hidden"
+      className="min-h-[600px] sm:min-h-screen w-full bg-black relative flex items-start  pt-[120px] lg:pt-0 justify-center overflow-hidden"
     >
       {/* Background GIF - Using a div wrapper to preserve positioning */}
       <div className="absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -101,7 +101,7 @@ const BannerBand = () => {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="flex items-center justify-center gap-4 sm:gap-6 w-full max-w-[400px] sm:max-w-[500px] md:max-w-[610px] z-10 px-4 md:px-6"
+        className="flex items-center justify-center gap-4 sm:gap-6 w-full max-w-[400px] sm:max-w-[500px] pt-10 md:pt-[220px] md:max-w-[610px] z-10 px-4 md:px-6"
       >
         <div className="flex flex-col items-center gap-4 sm:gap-6 w-full">
           <motion.h2

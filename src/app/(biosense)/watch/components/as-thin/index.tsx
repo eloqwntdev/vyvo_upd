@@ -61,7 +61,7 @@ const AsThin = () => {
       ref={sectionRef}
       className="bg-black py-10 md:py-16 lg:py-[100px] px-4 md:px-6"
     >
-      <div className="max-w-[1280px] w-full mx-auto flex flex-col md:flex-row md:justify-between md:items-center gap-8 md:gap-4">
+      <div className="max-w-[1162px] w-full mx-auto flex flex-col md:flex-row md:justify-between md:items-center">
         <div className="w-full md:max-w-[400px] relative mx-auto md:mx-0 flex items-center justify-center">
           <motion.div
             initial="hidden"
@@ -71,8 +71,8 @@ const AsThin = () => {
             <Image
               src="/biosense-products/watch/as-thin.webp"
               alt="watch-as-thin"
-              width={400}
-              height={400}
+              width={300}
+              height={300}
               className="w-full md:w-full max-w-[200px] md:max-w-none"
             />
           </motion.div>
@@ -83,7 +83,7 @@ const AsThin = () => {
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
             src="/biosense-products/watch/top-info.webp"
-            className="absolute top-[8%] sm:top-0 right-[26%] sm:right-[-20%] md:right-[-43%] w-[40%] md:w-auto"
+            className="absolute top-[8%] sm:top-0 right-[26%] sm:right-[-20%] md:right-[-38%] w-[30%] md:w-[80%]"
             alt="Watch thickness specifications"
           />
           <motion.img
@@ -91,7 +91,7 @@ const AsThin = () => {
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 1.2 }}
             src="/biosense-products/watch/bottom-info.webp"
-            className="absolute bottom-0 right-[27%] sm:bottom-[-4%] sm:right-[-10%] md:right-[-19%] w-[40%] md:w-auto"
+            className="absolute bottom-0 right-[27%] sm:bottom-[-4%] sm:right-[-10%] md:right-[-5%] w-[40%] md:w-[80%]"
             alt="Watch weight specifications"
           />
         </div>

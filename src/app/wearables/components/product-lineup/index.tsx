@@ -28,7 +28,7 @@ const ProductLineup = () => {
   });
 
   return (
-    <section className="py-10 md:py-20 px-4 md:px-6 lg:px-8 flex flex-col gap-6 md:gap-10 items-center justify-center">
+    <section className="py-10 bg-white md:py-20 px-4 md:px-6 lg:px-8 flex flex-col gap-6 md:gap-10 items-center justify-center">
       <motion.h2
         ref={titleRef}
         initial={{ opacity: 0, y: 30 }}
@@ -56,13 +56,14 @@ const ProductLineup = () => {
                   : { scale: 0.8, opacity: 0 }
               }
               transition={{ duration: 0.6, delay: 0.1 }}
+              className="overflow-hidden"
             >
               <Image
                 src={"/wearables-img/lineup/biosense-ring.webp"}
                 alt={"BioSense Ring"}
                 width={206}
                 height={206}
-                className="w-[160px] md:w-[180px] lg:w-[206px] h-auto"
+                className="w-[160px] md:w-[180px] lg:w-[206px] h-auto transition-transform duration-300 hover:scale-110"
               />
             </motion.div>
           </Link>
@@ -93,13 +94,14 @@ const ProductLineup = () => {
                   : { scale: 0.8, opacity: 0 }
               }
               transition={{ duration: 0.6, delay: 0.3 }}
+              className="overflow-hidden"
             >
               <Image
                 src={"/wearables-img/lineup/biosense-watch.webp"}
                 alt={"BioSense Watch"}
                 width={308}
                 height={337}
-                className="w-[240px] md:w-[280px] lg:w-[308px] h-auto"
+                className="w-[240px] md:w-[280px] lg:w-[308px] h-auto transition-transform duration-300 hover:scale-110"
               />
             </motion.div>
           </Link>
@@ -130,13 +132,14 @@ const ProductLineup = () => {
                   : { scale: 0.8, opacity: 0 }
               }
               transition={{ duration: 0.6, delay: 0.5 }}
+              className="overflow-hidden"
             >
               <Image
                 src={"/wearables-img/lineup/biosense-band.webp"}
                 alt={"BioSense Band"}
                 width={289}
                 height={289}
-                className="w-[220px] md:w-[260px] lg:w-[289px] h-auto"
+                className="w-[220px] md:w-[260px] lg:w-[289px] h-auto transition-transform duration-300 hover:scale-110"
               />
             </motion.div>
           </Link>
