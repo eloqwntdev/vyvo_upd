@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import SlashButton from "@/components/common/controllers/button/slash-button";
 
 const ThinLight = () => {
   const sectionRef = useRef(null);
@@ -100,7 +101,7 @@ const ThinLight = () => {
 
         {/* Right side content */}
         <div className="max-w-[483px] w-full flex flex-col gap-6 lg:gap-10">
-          <div className="flex flex-col gap-4 lg:gap-6">
+          <div className="flex flex-col gap-4 items-start lg:gap-6">
             <motion.h2
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
@@ -153,6 +154,14 @@ const ThinLight = () => {
                 </span>
               </motion.li>
             </motion.ul>
+
+            <SlashButton
+              showIcon={false}
+              label="Buy Now"
+              className="!bg-[#77A9E829] hover:!bg-[#77A9E840] transition-colors !py-[12px] test !rounded-[16px] w-full !max-w-[140px]"
+              labelClassName="!tracking-[-0.2px]"
+              containerStyles="!w-auto"
+            />
           </div>
         </div>
       </div>

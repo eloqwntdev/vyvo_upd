@@ -49,7 +49,7 @@ const ButNowBand = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-[515px] md:min-h-[800px] lg:min-h-[900px] w-full relative bg-black flex sm:items-center sm:justify-center"
+      className="min-h-[415px] md:min-h-[500px] lg:min-h-[600px] w-full relative bg-black flex sm:items-start sm:justify-center"
     >
       {/* Background GIF with positioning wrapper */}
       <div className="absolute w-full left-1/2 top-1/2 h-[560px] -translate-x-1/2 -translate-y-1/2 max-w-[1190px]">
@@ -91,7 +91,7 @@ const ButNowBand = () => {
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={staggerContainer}
-        className="flex items-start sm:items-center sm:justify-center gap-4 sm:gap-6 max-w-[7b10px] flex-col w-full z-10 px-4 md:px-6 pt-[39px] md:pt-0"
+        className="flex items-start sm:items-center sm:justify-center gap-4 sm:gap-6 max-w-[7b10px] flex-col w-full z-10 px-4 md:px-6 pt-[39px] md:pt-20"
       >
         <motion.h2
           variants={fadeInUp}

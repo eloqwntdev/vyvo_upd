@@ -85,10 +85,10 @@ const HealthBand = () => {
           </motion.h2>
           <motion.p
             variants={fadeInUp}
-            className="max-w-[394px] w-full text-white font-nb font-light text-[14px] leading-[18px] sm:text-[15px] sm:leading-[19px] md:text-[16px] md:leading-[20px]"
+            className="max-w-[434px] w-full text-white font-nb font-light text-[14px] leading-[18px] sm:text-[15px] sm:leading-[19px] md:text-[16px] md:leading-[20px]"
           >
             From the moment you put it on your wrist, you'll find it capable and
-            comfortable, powerful and practical, life-enhancing and
+            comfortable, powerful and practical, <br /> life-enhancing and
             life-changing. All of that in one elegant, ultra-thin and ultralight
             device you'll enjoy, and even love.
           </motion.p>

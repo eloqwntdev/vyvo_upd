@@ -8,7 +8,7 @@ const WearablesBanner = () => {
       {/* Fullscreen Video Background */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        src="https://eloqwntmain.ams3.cdn.digitaloceanspaces.com/Vyvo/Werables_Page/whatch-2_SuxRJP1o.mp4"
+        src="https://eloqwntmain.ams3.cdn.digitaloceanspaces.com/Vyvo/Werables_Page/w3-clip-1-site_drdCvWtI.mp4"
         autoPlay
         loop
         muted

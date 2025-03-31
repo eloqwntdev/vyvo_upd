@@ -32,7 +32,7 @@ const Ring = () => {
           if (el) handleVideoPlayback(el);
         }}
         className="absolute inset-0 w-full h-full object-cover"
-        src="https://eloqwntmain.ams3.cdn.digitaloceanspaces.com/Vyvo/Werables_Page/ring_xiLX87Qu.mp4"
+        src="https://eloqwntmain.ams3.cdn.digitaloceanspaces.com/Vyvo/Werables_Page/ring-clip-2-site_roDZ6C73.mp4"
         muted
         playsInline
       />

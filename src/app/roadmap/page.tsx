@@ -4,19 +4,19 @@ import RoadMapStep from "./components/roadmap-step";
 
 const roadmapSteps = [
   {
-    title: "Q1 2024",
+    title: "Q1 2025",
     description: "Release of enhanced health metrics and initial integrations",
   },
   {
-    title: "Q2 2024",
+    title: "Q2 2025",
     description: "Expansion of device support and advanced analytics",
   },
   {
-    title: "Q3 2024",
+    title: "Q3 2025",
     description: "Launch of predictive health features",
   },
   {
-    title: "Q4 2024",
+    title: "Q4 2025",
     description: "Global platform expansion and partnerships",
   },
 ];

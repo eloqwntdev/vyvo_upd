@@ -9,6 +9,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+  background-color: black;
 }
 
 .main-shadow {
