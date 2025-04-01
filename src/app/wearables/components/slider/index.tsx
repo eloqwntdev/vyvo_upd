@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Import Swiper styles
 import "swiper/css";
@@ -20,6 +21,12 @@ interface ArrowProps {
   active: boolean;
 }
 
+interface WearablesSliderProps {
+  onCardClick: (
+    card: { title: string; description: string; imageSrc: string } | null
+  ) => void;
+}
+
 const SliderCard: React.FC<SliderCardProps> = ({
   imageSrc,
   title,
@@ -28,7 +35,7 @@ const SliderCard: React.FC<SliderCardProps> = ({
   return (
     <div className="p-0 rounded-[16px] sm:rounded-[20px] md:rounded-[24px] bg-[#F5F8FF] overflow-hidden flex flex-col w-full h-full">
       <div className="w-full overflow-hidden">
-        <div>
+        <div className="p-4">
           <Image
             src={imageSrc || "/wearables-img/slider/card1.webp"}
             width={413}
@@ -60,97 +67,80 @@ const SliderCard: React.FC<SliderCardProps> = ({
 const sliderData = [
   {
     imageSrc: "/wearables-img/slider/card1.webp",
-    title: "BioSense Ring",
+    title: "Air Quality Index",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+      "An Air Quality Index (AQI) reports air quality in reference to air pollution levels and associated health effects that might be of concern to the population",
   },
   {
     imageSrc: "/wearables-img/slider/card2.webp",
-    title: "BioSense Band",
+    title: "BIA",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+      "Bioelectrical Impedance Analysis, or BIA, uses a minimal electrical current to measure fat and muscle in the body.",
   },
   {
     imageSrc: "/wearables-img/slider/card3.webp",
-    title: "LifeWatch Generation 2",
+    title: "APG",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+      "Cardiovascular disease (CVD) is the leading cause of death worldwide.",
   },
   {
     imageSrc: "/wearables-img/slider/card4.webp",
-    title: "Watch Lite SE",
+    title: "Oxygen Saturation",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+      "Oxygen is indispensible for most forms of life. For humans, blood oxygen levels are typically 95 to 100 percent.",
   },
   {
     imageSrc: "/wearables-img/slider/card5.webp",
-    title: "Vyvo Smart App",
+    title: "Blood Pressure",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+      "As an important vital sign, blood pressure is frequently measured to assess health.",
   },
+
   {
     imageSrc: "/wearables-img/slider/card6.webp",
-    title: "BIA Check",
+    title: "Atrial Fibrilation",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+      "Atrial Fibrilation (or AFib) is the most common  form of arrhythmia, or abnormal heart rhythm.",
   },
   {
     imageSrc: "/wearables-img/slider/card7.webp",
-    title: "SpO₂",
+    title: "Energy",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+      "Demands on your energy are constant. Are you up for your next big meeting, or the walk to the subway station?",
   },
   {
     imageSrc: "/wearables-img/slider/card8.webp",
-    title: "Atrial Fibrillation (AFib)",
+    title: "Heart Rate",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+      "The human heart beats approximately 100,000 times a day.  In general, a normal resting HR is 60 to 100 beats per minute in adults.",
   },
   {
     imageSrc: "/wearables-img/slider/card9.webp",
-    title: "Accelerated Plethysmography (APG)",
+    title: "ECG",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+      "Electrocardiography (ECG) is used to measure the rate and rhythm of heartbeats.",
   },
   {
     imageSrc: "/wearables-img/slider/card10.webp",
-    title: "Energy",
+    title: "Skin Temperature",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+      "Your Vyvo Technology wearable device will check your skin's temperature every 10 minutes.",
   },
   {
     imageSrc: "/wearables-img/slider/card11.webp",
-    title: "Heart Rate",
+    title: "Stress",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+      "Everyone has some stress, which is the body's defense mechanism against threats and stimuli from social and environmental factors.",
   },
   {
     imageSrc: "/wearables-img/slider/card12.webp",
-    title: "Breath Rate",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-  },
-  {
-    imageSrc: "/wearables-img/slider/card13.webp",
-    title: "Blood Pressure",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-  },
-  {
-    imageSrc: "/wearables-img/slider/card14.webp",
-    title: "Stress",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
-  },
-  {
-    imageSrc: "/wearables-img/slider/card15.webp",
     title: "Sleep",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus.",
+      "Wear your Vyvo Technology device while you sleep and it will capture valuable data to help you to understand your sleep quality.",
   },
 ];
 
-const WearablesSlider: React.FC = () => {
+const WearablesSlider: React.FC<WearablesSliderProps> = ({ onCardClick }) => {
   const navigationPrevRef = useRef<HTMLDivElement>(null);
   const navigationNextRef = useRef<HTMLDivElement>(null);
   const [isBeginning, setIsBeginning] = useState(true);
@@ -177,11 +167,11 @@ const WearablesSlider: React.FC = () => {
     <section className="py-10 bg-white sm:py-14 md:py-20 pl-4 sm:px-0 flex flex-col items-center justify-center gap-[30px] sm:gap-[40px] md:gap-[60px]">
       <div className="max-w-[320px] px-4 sm:px-6 md:px-8 sm:max-w-[400px] md:max-w-[480px] w-full flex flex-col items-center justify-center text-center gap-3 sm:gap-4 md:gap-6">
         <h2 className="text-gradient font-nb font-light text-[32px] sm:text-[44px] md:text-[56px] leading-[40px] sm:leading-[52px] md:leading-[64px] tracking-[0.5px]">
-          Title
+          Health Features
         </h2>
         <p className="text-black font-nb font-light text-[14px] sm:text-[15px] md:text-[16px] leading-[18px] sm:leading-[19px] md:leading-[20px] tracking-[0.5px]">
-          Lorem ipsum dolor sit amet consectetur. Quis amet morbi et volutpat
-          ut. Condimentum morbi mauris bibendum venenatis et.
+          Advanced health monitoring technology providing real-time insights
+          into vital signs, wellness, and overall well-being.
         </p>
       </div>
 
@@ -288,7 +278,10 @@ const WearablesSlider: React.FC = () => {
                 key={index}
                 className="!h-auto max-w-[260px] sm:max-w-[413px]"
               >
-                <div className="">
+                <div
+                  className="cursor-pointer"
+                  onClick={() => onCardClick(card)}
+                >
                   <SliderCard
                     imageSrc={card.imageSrc}
                     title={card.title}

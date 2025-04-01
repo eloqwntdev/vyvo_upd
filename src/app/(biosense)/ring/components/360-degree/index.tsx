@@ -226,11 +226,10 @@ const Degree360 = ({
                 width: `${horizScrollProgress * 100}%`,
                 background:
                   "linear-gradient(90deg, #2A5FDD 0%, rgba(42, 95, 221, 0.4) 100%)",
+                minWidth: "25%", // Added minimum width to show some fill even at start
               }}
             ></div>
           </div>
-
-          {/* Progressing fill line */}
         </div>
       </div>
     </section>

@@ -66,8 +66,7 @@ const Header = () => {
         bg-black/50 backdrop-blur-[20px]
        sticky ${
          scrollDirection === "down" ? "-top-24 " : "top-0"
-       }  z-[1000000] transition-all duration-500
-`}
+       }  z-[1000000] transition-all duration-500`}
       >
         <header
           className={`
@@ -363,7 +362,7 @@ const navigationData = [
   {
     section: "VAI OS",
     items: [
-      { title: "VAI OS", href: "#" },
+      { title: "VAI OS", href: "/" },
       { title: "Tokenomics Roadmap", href: "#" },
       { title: "Getting Started", href: "#" },
       { title: "Using Agents", href: "#" },
@@ -406,8 +405,8 @@ const navigationData = [
 ];
 
 const navLinksMobile = [
-  { label: "Home", href: "/" },
-  { label: "VAI OS", href: "/vai-os" },
+  { label: "Home", href: "/home" },
+  { label: "VAI OS", href: "/" },
   { label: "Vyvo Tech", href: "/vyvo-tech" },
   { label: "Vyvo Smart Chain", href: "/vyvo-smart-chain" },
   { label: "SocialFi", href: "/social-fi" },

@@ -76,7 +76,7 @@ const ButNowBand = () => {
       </div>
 
       {/* Mobile image with positioning wrapper */}
-      <div className="absolute left-1/2 bottom-0 -translate-x-1/2 block md:hidden md:max-w-[700px] lg:max-w-[1360px] w-full z-[5]">
+      <div className="absolute left-1/2 bottom-0 -translate-x-1/2 block md:hidden max-w-[300px] lg:max-w-[1360px] w-full z-[5]">
         <motion.img
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
