@@ -61,7 +61,7 @@ const AsThin = () => {
       ref={sectionRef}
       className="bg-black py-10 md:py-16 lg:py-[100px] px-4 md:px-6"
     >
-      <div className="max-w-[1162px] w-full mx-auto flex flex-col md:flex-row md:justify-between md:items-center">
+      <div className="max-w-[1162px] w-full mx-auto flex flex-col md:flex-row md:justify-between gap-10 md:items-center">
         <div className="w-full md:max-w-[400px] relative mx-auto md:mx-0 flex items-center justify-center">
           <motion.div
             initial="hidden"

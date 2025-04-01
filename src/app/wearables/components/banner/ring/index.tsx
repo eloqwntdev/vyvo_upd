@@ -52,7 +52,7 @@ const Ring = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <motion.h1
-              className="text-white font-nb font-light text-[36px] md:text-[48px] lg:text-[72px] leading-[40px] md:leading-[52px] lg:leading-[76px] sticky top-[15%]"
+              className="text-white font-nb font-light text-[36px] md:text-[48px] lg:text-[72px] leading-[40px] md:leading-[52px] lg:leading-[76px]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}

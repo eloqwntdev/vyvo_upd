@@ -668,3 +668,13 @@ button:not(.dropdown-menu-shadow button, .remove-hover-bg):hover {
 .snap-item {
   scroll-snap-align: start;
 }
+
+.modal-shadow {
+  box-shadow: 0px 1px 1px 0px #94a8ed33 inset;
+
+  box-shadow: 0px -1px 1px 0px #94a8ed33 inset;
+
+  box-shadow: 6px 80px 80px 0px #94a8ed05 inset;
+
+  backdrop-filter: blur(500px);
+}

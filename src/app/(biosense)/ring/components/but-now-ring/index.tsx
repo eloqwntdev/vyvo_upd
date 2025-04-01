@@ -52,7 +52,7 @@ const ButNowRing = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-[415px] md:min-h-[600px] lg:min-h-[700px] w-full relative bg-black flex sm:items-start sm:justify-center"
+      className="min-h-[315px] md:min-h-[600px] lg:min-h-[700px] w-full relative bg-black flex sm:items-start sm:justify-center"
     >
       {/* Background animation */}
       <div className="absolute w-full h-full left-0">

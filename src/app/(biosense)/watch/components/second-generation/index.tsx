@@ -47,19 +47,10 @@ const SecondGeneration = () => {
     },
   };
 
-  const scaleIn: Variants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] },
-    },
-  };
-
   return (
     <section
       ref={sectionRef}
-      className="bg-black py-12 md:py-20 lg:py-[147px] px-4 md:px-6 flex flex-col-reverse md:flex-row items-center justify-center gap-8 md:gap-10 lg:gap-[146px]"
+      className="bg-black py-6 md:py-20 lg:py-[147px] px-4 md:px-6 flex flex-col-reverse md:flex-row items-center justify-center gap-10 lg:gap-[146px]"
     >
       <motion.div
         initial="hidden"

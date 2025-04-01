@@ -22,7 +22,7 @@ const watchImages = [
 
 const BiosenseWatchPage = () => {
   return (
-    <main>
+    <div className="overflow-hidden">
       <WatchBanner />
       <WatchVideo />
       <AsThin />
@@ -39,7 +39,7 @@ const BiosenseWatchPage = () => {
         imagePosition="right"
       />
       <Preorders />
-    </main>
+    </div>
   );
 };
 
