@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 
 const MainSection = () => {
-  const [selectedIcon, setSelectedIcon] = useState<string | null>("Icon1");
+  const [selectedIcon, setSelectedIcon] = useState<string | null>("Icon3");
   const [imageSrc, setImageSrc] = useState("/homepage/card-watch-1.png");
-  const [textContent, setTextContent] = useState("BioSense Ring");
+  const [textContent, setTextContent] = useState("BioSense Watch");
 
   const handleClick = (icon: string | null) => {
     setSelectedIcon(icon);

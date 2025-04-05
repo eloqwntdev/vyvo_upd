@@ -8,24 +8,24 @@ import useStageStore from "@/store/useStageStore";
 
 const Banner = () => {
   const currentStage = useStageStore((state) => state.currentStage);
-  const [videoSrc, setVideoSrc] = useState("/banner/new/1.webm");
+  const [videoSrc, setVideoSrc] = useState("/banner/videos/1.mov");
   const [isVideoChanging, setIsVideoChanging] = useState(false);
 
   useEffect(() => {
-    let newSrc = "/banner/new/1.webm";
+    let newSrc = "/banner/videos/1.mov";
     switch (currentStage) {
       case "start":
       case "submit":
-        newSrc = "/banner/new/2.webm";
+        newSrc = "/banner/videos/2.mov";
         break;
       case "thinking":
-        newSrc = "/banner/new/4.webm";
+        newSrc = "/banner/videos/4.mov";
         break;
       case "audio":
-        newSrc = "/banner/new/seed.webm";
+        newSrc = "/banner/videos/5.mov";
         break;
       default:
-        newSrc = "/banner/new/seed2.webm";
+        newSrc = "/banner/videos/6.mov";
         break;
     }
 
