@@ -175,156 +175,189 @@ const WearablesSlider: React.FC<WearablesSliderProps> = ({ onCardClick }) => {
         </p>
       </div>
 
-      <div className="w-full relative overflow-hidden">
-        <div className="w-full overflow-hidden">
-          <Swiper
-            modules={[Navigation]}
-            spaceBetween={10}
-            slidesPerView={1.2}
-            initialSlide={0}
-            freeMode={{
-              enabled: false,
-              momentum: false,
-            }}
-            navigation={{
-              prevEl: navigationPrevRef.current,
-              nextEl: navigationNextRef.current,
-            }}
-            onBeforeInit={(swiper: SwiperType) => {
-              swiperRef.current = swiper;
-              if (
-                swiper.params.navigation &&
-                typeof swiper.params.navigation !== "boolean"
-              ) {
-                swiper.params.navigation.prevEl = navigationPrevRef.current;
-                swiper.params.navigation.nextEl = navigationNextRef.current;
-              }
-            }}
-            onSlideChange={(swiper: SwiperType) => {
-              // Update progress bar based on current position
-              const progressBar = document.getElementById("swiperProgressBar");
-              if (progressBar) {
-                const totalSlides = swiper.slides.length;
-                const visibleSlides = swiper.params.slidesPerView as number;
-                const maxIndex = totalSlides - visibleSlides;
-                const progress = (swiper.activeIndex / maxIndex) * 100;
-                progressBar.style.width = `${Math.min(progress, 100)}%`;
-              }
+      {/* Mobile view - columnar layout */}
+      {isMobile && (
+        <div className="w-full px-4 flex flex-col gap-6">
+          {sliderData.map((card, index) => (
+            <div
+              key={index}
+              className="cursor-pointer bg-white rounded-2xl shadow-md overflow-hidden"
+              onClick={() => onCardClick(card)}
+            >
+              <div className="w-full aspect-[4/3] overflow-hidden">
+                <img
+                  src={card.imageSrc}
+                  alt={card.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4 flex flex-col gap-2">
+                <h3 className="font-nb text-[18px] font-medium text-black">
+                  {card.title}
+                </h3>
+                <p className="font-nb text-[14px] font-light text-black/70 line-clamp-2">
+                  {card.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
 
-              // Calculate if we've reached the true end (no gap)
-              const isRealEnd =
-                swiper.isEnd ||
-                swiper.activeIndex +
-                  Math.ceil(swiper.params.slidesPerView as number) >=
-                  swiper.slides.length;
-
-              // Update navigation button states
-              setIsBeginning(swiper.isBeginning);
-              setIsEnd(isRealEnd);
-            }}
-            onInit={(swiper: SwiperType) => {
-              setIsBeginning(swiper.isBeginning);
-              setIsEnd(swiper.isEnd);
-            }}
-            onReachEnd={() => {
-              // Ensure we're at the true end (no gap)
-              if (swiperRef.current) {
-                const totalSlides = swiperRef.current.slides.length;
-                const visibleSlides = Math.ceil(
-                  swiperRef.current.params.slidesPerView as number
-                );
-                const targetIndex = totalSlides - visibleSlides;
-
-                // Snap to the correct position to avoid gaps
-                if (swiperRef.current.activeIndex !== targetIndex) {
-                  swiperRef.current.slideTo(targetIndex);
+      {/* Desktop view - swiper */}
+      {!isMobile && (
+        <div className="w-full relative overflow-hidden">
+          <div className="w-full overflow-hidden">
+            <Swiper
+              modules={[Navigation]}
+              spaceBetween={10}
+              slidesPerView={1.2}
+              initialSlide={0}
+              freeMode={{
+                enabled: false,
+                momentum: false,
+              }}
+              navigation={{
+                prevEl: navigationPrevRef.current,
+                nextEl: navigationNextRef.current,
+              }}
+              onBeforeInit={(swiper: SwiperType) => {
+                swiperRef.current = swiper;
+                if (
+                  swiper.params.navigation &&
+                  typeof swiper.params.navigation !== "boolean"
+                ) {
+                  swiper.params.navigation.prevEl = navigationPrevRef.current;
+                  swiper.params.navigation.nextEl = navigationNextRef.current;
                 }
-              }
-            }}
-            className="w-full px-3 sm:!p-0 lg:!pl-20"
-            breakpoints={{
-              320: {
-                slidesPerView: 1.2,
-                spaceBetween: 10,
-              },
-              480: {
-                slidesPerView: 1.5,
-                spaceBetween: 12,
-              },
-              640: {
-                slidesPerView: 2.2,
-                spaceBetween: 15,
-              },
-              768: {
-                slidesPerView: 2.5,
-                spaceBetween: 15,
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-              },
-              1280: {
-                slidesPerView: 3.5,
-                spaceBetween: 20,
-              },
-            }}
-            allowSlidePrev={true}
-            allowTouchMove={true}
-            grabCursor={true}
-            slideToClickedSlide={true}
-          >
-            {sliderData.map((card, index) => (
-              <SwiperSlide
-                key={index}
-                className="!h-auto max-w-[260px] sm:max-w-[413px]"
-              >
-                <div
-                  className="cursor-pointer"
-                  onClick={() => onCardClick(card)}
+              }}
+              onSlideChange={(swiper: SwiperType) => {
+                // Update progress bar based on current position
+                const progressBar =
+                  document.getElementById("swiperProgressBar");
+                if (progressBar) {
+                  const totalSlides = swiper.slides.length;
+                  const visibleSlides = swiper.params.slidesPerView as number;
+                  const maxIndex = totalSlides - visibleSlides;
+                  const progress = (swiper.activeIndex / maxIndex) * 100;
+                  progressBar.style.width = `${Math.min(progress, 100)}%`;
+                }
+
+                // Calculate if we've reached the true end (no gap)
+                const isRealEnd =
+                  swiper.isEnd ||
+                  swiper.activeIndex +
+                    Math.ceil(swiper.params.slidesPerView as number) >=
+                    swiper.slides.length;
+
+                // Update navigation button states
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(isRealEnd);
+              }}
+              onInit={(swiper: SwiperType) => {
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
+              onReachEnd={() => {
+                // Ensure we're at the true end (no gap)
+                if (swiperRef.current) {
+                  const totalSlides = swiperRef.current.slides.length;
+                  const visibleSlides = Math.ceil(
+                    swiperRef.current.params.slidesPerView as number
+                  );
+                  const targetIndex = totalSlides - visibleSlides;
+
+                  // Snap to the correct position to avoid gaps
+                  if (swiperRef.current.activeIndex !== targetIndex) {
+                    swiperRef.current.slideTo(targetIndex);
+                  }
+                }
+              }}
+              className="w-full px-3 sm:!p-0 lg:!pl-20"
+              breakpoints={{
+                320: {
+                  slidesPerView: 1.2,
+                  spaceBetween: 10,
+                },
+                480: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 12,
+                },
+                640: {
+                  slidesPerView: 2.2,
+                  spaceBetween: 15,
+                },
+                768: {
+                  slidesPerView: 2.5,
+                  spaceBetween: 15,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                },
+                1280: {
+                  slidesPerView: 3.5,
+                  spaceBetween: 20,
+                },
+              }}
+              allowSlidePrev={true}
+              allowTouchMove={true}
+              grabCursor={true}
+              slideToClickedSlide={true}
+            >
+              {sliderData.map((card, index) => (
+                <SwiperSlide
+                  key={index}
+                  className="!h-auto max-w-[260px] sm:max-w-[413px]"
                 >
-                  <SliderCard
-                    imageSrc={card.imageSrc}
-                    title={card.title}
-                    description={card.description}
-                    index={index}
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-
-        <div className="w-full max-w-[1280px] mx-auto flex items-center gap-4 sm:gap-6 md:gap-10 mt-8 sm:mt-12 md:mt-20 px-4 sm:px-6 md:px-8">
-          <div className="w-full relative h-[1px]">
-            {/* Progress indicator */}
-            <div className="absolute top-0 left-0 w-full h-[1px] bg-[#D1D1D1]"></div>
-            <div
-              className="absolute top-0 left-0 h-[1px] bg-[#2A5FDD] transition-all duration-300"
-              id="swiperProgressBar"
-            ></div>
+                  <div
+                    className="cursor-pointer"
+                    onClick={() => onCardClick(card)}
+                  >
+                    <SliderCard
+                      imageSrc={card.imageSrc}
+                      title={card.title}
+                      description={card.description}
+                      index={index}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
 
-          <div className="flex gap-2 sm:gap-3">
-            <div
-              ref={navigationPrevRef}
-              className={`size-8 sm:size-9 md:size-10 cross-btn-shadow ${
-                isBeginning ? "bg-[#77A9E829]" : "bg-[#2A5FDD1A]"
-              } rounded-xl sm:rounded-2xl flex items-center justify-center cursor-pointer`}
-            >
-              <LeftArrow active={!isBeginning} />
+          <div className="w-full max-w-[1280px] mx-auto flex items-center gap-4 sm:gap-6 md:gap-10 mt-8 sm:mt-12 md:mt-20 px-4 sm:px-6 md:px-8">
+            <div className="w-full relative h-[1px]">
+              {/* Progress indicator */}
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-[#D1D1D1]"></div>
+              <div
+                className="absolute top-0 left-0 h-[1px] bg-[#2A5FDD] transition-all duration-300"
+                id="swiperProgressBar"
+              ></div>
             </div>
 
-            <div
-              ref={navigationNextRef}
-              className={`size-8 sm:size-9 md:size-10 cross-btn-shadow ${
-                isEnd ? "bg-[#77A9E829]" : "bg-[#2A5FDD1A]"
-              } rounded-xl sm:rounded-2xl flex items-center justify-center cursor-pointer`}
-            >
-              <RightArrow active={!isEnd} />
+            <div className="flex gap-2 sm:gap-3">
+              <div
+                ref={navigationPrevRef}
+                className={`size-8 sm:size-9 md:size-10 cross-btn-shadow ${
+                  isBeginning ? "bg-[#77A9E829]" : "bg-[#2A5FDD1A]"
+                } rounded-xl sm:rounded-2xl flex items-center justify-center cursor-pointer`}
+              >
+                <LeftArrow active={!isBeginning} />
+              </div>
+
+              <div
+                ref={navigationNextRef}
+                className={`size-8 sm:size-9 md:size-10 cross-btn-shadow ${
+                  isEnd ? "bg-[#77A9E829]" : "bg-[#2A5FDD1A]"
+                } rounded-xl sm:rounded-2xl flex items-center justify-center cursor-pointer`}
+              >
+                <RightArrow active={!isEnd} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };

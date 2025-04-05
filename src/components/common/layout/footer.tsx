@@ -6,10 +6,10 @@ import React from "react";
 
 const Footer = () => {
   const navItems = [
-    { label: "Home", href: "" },
-    { label: "VAI OS", href: "" },
+    { label: "Home", href: "/home" },
+    { label: "VAI OS", href: "/" },
     { label: "Vyvo Tech", href: "/wearables" },
-    { label: "Vyvo Smart Chain", href: "" },
+    { label: "Vyvo Smart Chain", href: "/vyvo-smart-chain" },
     { label: "SocialFi", href: "/social-fi" },
     { label: "Store", href: "" },
   ];

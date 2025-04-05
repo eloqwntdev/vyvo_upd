@@ -2,6 +2,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import SolutionCard from "./solution-card";
+import MobileSolutionCard from "./mobile-solution-card";
 
 const TechSolutions = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -9,6 +10,7 @@ const TechSolutions = () => {
   const [activeCard, setActiveCard] = useState(0);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [scrolledPastHeader, setScrolledPastHeader] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const solutionCards = [
     {
@@ -48,6 +50,22 @@ const TechSolutions = () => {
     },
   ];
 
+  // Check if mobile
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Initial check
+    checkIfMobile();
+
+    // Add event listener for resize
+    window.addEventListener("resize", checkIfMobile);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
+
   // Track scroll for title fade effect - more gradual fade out
   const { scrollYProgress: titleScrollProgress } = useScroll({
     target: containerRef,
@@ -61,14 +79,18 @@ const TechSolutions = () => {
 
   // Track when header is fully scrolled past
   useEffect(() => {
+    if (isMobile) return; // Skip for mobile
+
     const unsubscribe = titleScrollProgress.onChange((v) => {
       setScrolledPastHeader(v > 0.25);
     });
     return () => unsubscribe();
-  }, [titleScrollProgress]);
+  }, [titleScrollProgress, isMobile]);
 
   // Track which card is currently in view
   useEffect(() => {
+    if (isMobile) return; // Skip for mobile
+
     const handleScroll = () => {
       if (!containerRef.current) return;
 
@@ -100,13 +122,43 @@ const TechSolutions = () => {
     handleScroll(); // Initial call
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [solutionCards.length]);
+  }, [solutionCards.length, isMobile]);
 
   // Initialize refs array for card elements
   useEffect(() => {
+    if (isMobile) return; // Skip for mobile
     cardRefs.current = Array(solutionCards.length).fill(null);
-  }, [solutionCards.length]);
+  }, [solutionCards.length, isMobile]);
 
+  // Mobile view
+  if (isMobile) {
+    return (
+      <section className="bg-[#000000] py-10">
+        <div className="w-full px-4">
+          <h2 className="font-nb font-light text-[24px] leading-[30px] tracking-[-3%] text-white text-center mb-8">
+            Vyvo drives innovation at the intersection of Web3, Wearable
+            Technology, and AI.
+          </h2>
+          <p className="text-white/80 font-nb font-light text-[16px] leading-[22px] tracking-[-3%] text-center mb-12">
+            Smarter living with secure, personalized, and adaptive solutions.
+          </p>
+
+          <div className="flex flex-col gap-10">
+            {solutionCards.map((card, index) => (
+              <MobileSolutionCard
+                key={index}
+                title={card.title}
+                description={card.description}
+                images={card.images}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Desktop view
   return (
     <section ref={containerRef} className="bg-[#000000] relative">
       {/* Header section - now with more visible movement on scroll */}

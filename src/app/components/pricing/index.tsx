@@ -9,7 +9,7 @@ const Pricing = () => {
   const [activeTab, setActiveTab] = useState("personal");
 
   return (
-    <section className="left-0 right-0 py-16 px-4 md:px-0 md:pt-[120px] relative md:pb-[137px] bg-black z-20 rounded-t-[24px] overflow-hidden grid place-content-center">
+    <section className="left-0 right-0 py-6 sm:py-16 px-4 md:px-0 md:pt-[120px] relative md:pb-[137px] bg-black z-20 rounded-t-[24px] overflow-hidden grid place-content-center">
       {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:block hidden h-full w-full ellipse"></div> */}
 
       <div className="relative z-10 max-w-[825px] w-full mx-auto flex flex-col gap-8">
