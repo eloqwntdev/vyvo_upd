@@ -57,7 +57,7 @@ const Banner = () => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <source src={videoSrc} type="video/webm" />
+                <source src={videoSrc} />
                 Your browser does not support the video tag.
               </motion.video>
             )}
