@@ -8,7 +8,7 @@ import useStageStore from "@/store/useStageStore";
 
 const Banner = () => {
   const currentStage = useStageStore((state) => state.currentStage);
-  const [videoSrc, setVideoSrc] = useState("/banner/new/1.webm");
+  const [videoSrc, setVideoSrc] = useState("/banner/new/1.mp4");
   const [isVideoChanging, setIsVideoChanging] = useState(false);
 
   useEffect(() => {
@@ -51,11 +51,7 @@ const Banner = () => {
                 playsInline
                 loop
                 key={videoSrc}
-                className=" z-10  "
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
+                className="z-10 "
               >
                 <source src={videoSrc} type="video/webm" />
                 Your browser does not support the video tag.
