@@ -8,6 +8,13 @@ import {
   useTransform,
   useInView,
 } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 interface SolutionCardProps {
   reverse?: boolean;
@@ -22,7 +29,8 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
   title = "",
   description = "",
 }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const cardRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(cardRef, { once: false, amount: 0.3 });
 
@@ -34,15 +42,12 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
   // Transform for vertical movement on scroll
   const yTransform = useTransform(scrollYProgress, [0, 0.5, 1], [0, 30, 0]);
 
-  useEffect(() => {
-    if (images.length <= 1) return;
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [images.length]);
+  // Handle navigation to specific slide
+  const goToSlide = (index: number) => {
+    if (swiperInstance) {
+      swiperInstance.slideTo(index);
+    }
+  };
 
   return (
     <div
@@ -121,7 +126,7 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
           )}
         </motion.div>
 
-        {/* Image Block */}
+        {/* Image Block with Swiper */}
         <motion.div
           className="relative w-full sm:w-[90%] md:w-1/2 lg:w-[630px] aspect-[630/420] sm:aspect-[630/420] md:aspect-[630/420]"
           style={{ y: yTransform }}
@@ -135,36 +140,40 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
             ease: [0.215, 0.61, 0.355, 1],
           }}
         >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              className="w-full h-full"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Image
-                fill
-                src={images[currentIndex]}
-                alt={title}
-                className="object-cover rounded-lg"
-                sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 50vw, 630px"
-                priority
-              />
-            </motion.div>
-          </AnimatePresence>
+          <Swiper
+            onSwiper={setSwiperInstance}
+            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+            modules={[Pagination, Navigation]}
+            className="w-full h-full rounded-lg"
+            slidesPerView={1}
+            grabCursor={true}
+            speed={500}
+          >
+            {images.map((image, index) => (
+              <SwiperSlide key={index} className="w-full h-full">
+                <Image
+                  fill
+                  src={image}
+                  alt={`${title} - image ${index + 1}`}
+                  className="object-cover rounded-lg"
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 50vw, 630px"
+                  priority={index === 0}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
           {images.length > 1 && (
             <motion.div
-              className="flex items-center gap-1.5 absolute bottom-4 sm:bottom-5 md:bottom-6 left-1/2 -translate-x-1/2"
+              className="flex items-center gap-1.5 absolute bottom-4 sm:bottom-5 md:bottom-6 left-1/2 -translate-x-1/2 z-10"
               initial={{ opacity: 0 }}
               animate={{ opacity: isInView ? 1 : 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               {images.map((_, index) => (
-                <motion.div
+                <motion.button
                   key={index}
+                  onClick={() => goToSlide(index)}
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{
@@ -172,9 +181,12 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
                     delay: 0.3 + index * 0.1,
                     ease: [0.215, 0.61, 0.355, 1],
                   }}
-                  className={`size-1.5 sm:size-2 rounded-full ${
-                    index === currentIndex ? "bg-white" : "bg-[#FFFFFF80]"
+                  className={`size-1.5 sm:size-2 rounded-full transition-all duration-300 ${
+                    index === activeIndex
+                      ? "bg-white scale-110"
+                      : "bg-[#FFFFFF80]"
                   }`}
+                  aria-label={`Go to slide ${index + 1}`}
                 />
               ))}
             </motion.div>
