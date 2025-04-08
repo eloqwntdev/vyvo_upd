@@ -166,7 +166,8 @@ const Header = () => {
           </motion.div>
           <div className="flex gap-3">
             <Link
-              href={""}
+              href={"https://www.facebook.com/VyvoGroup/"}
+              target="_blank"
               className="size-10 main-shadow bg-[#94A8ED0A] backdrop-blur-[20px] rounded-full md:grid place-content-center hidden hover:bg-[#94A8ED33] hover:scale-105 transition-all duration-300 ease-in-out"
             >
               <svg
@@ -188,7 +189,8 @@ const Header = () => {
             </Link>
 
             <Link
-              href={""}
+              href={"https://t.me/VyvoSmartChainEN"}
+              target="_blank"
               className="size-10 main-shadow bg-[#94A8ED0A] backdrop-blur-[20px] rounded-full md:grid place-content-center hidden hover:bg-[#94A8ED33] hover:scale-105 transition-all duration-300 ease-in-out"
             >
               <svg
@@ -209,7 +211,8 @@ const Header = () => {
             </Link>
 
             <Link
-              href={""}
+              href={"https://x.com/VyvoSmartChain"}
+              target="_blank"
               className="size-10 main-shadow bg-[#94A8ED0A] backdrop-blur-[20px] rounded-full md:grid place-content-center hidden hover:bg-[#94A8ED33] hover:scale-105 transition-all duration-300 ease-in-out"
             >
               <svg

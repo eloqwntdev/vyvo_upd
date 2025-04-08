@@ -1,6 +1,12 @@
 "use client";
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+
+import "swiper/css";
+import "swiper/css/pagination";
 
 interface MobileSolutionCardProps {
   images: string[];
@@ -13,40 +19,55 @@ const MobileSolutionCard: React.FC<MobileSolutionCardProps> = ({
   title = "",
   description = "",
 }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  // Simple image rotation without animations
-  useEffect(() => {
-    if (images.length <= 1) return;
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [images.length]);
+  // Handle navigation to specific slide
+  const goToSlide = (index: number) => {
+    if (swiperInstance) {
+      swiperInstance.slideTo(index);
+    }
+  };
 
   return (
     <div className="w-full overflow-hidden">
-      {/* Image Block */}
+      {/* Image Block with Swiper */}
       <div className="relative w-full h-[260px]">
-        <Image
-          src={images[currentIndex]}
-          alt={title}
-          fill
-          className="object-cover rounded-[12px]"
-          sizes="100vw"
-          priority={currentIndex === 0}
-        />
+        <Swiper
+          onSwiper={setSwiperInstance}
+          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+          modules={[Pagination]}
+          className="w-full h-full"
+          slidesPerView={1}
+          grabCursor={true}
+          speed={500}
+        >
+          {images.map((image, index) => (
+            <SwiperSlide key={index} className="w-full h-full">
+              <Image
+                src={image}
+                alt={`${title} - image ${index + 1}`}
+                fill
+                className="object-cover rounded-[12px]"
+                sizes="100vw"
+                priority={index === 0}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
         {images.length > 1 && (
-          <div className="flex items-center gap-1.5 absolute bottom-3 left-1/2 -translate-x-1/2">
+          <div className="flex items-center gap-1.5 absolute bottom-3 left-1/2 -translate-x-1/2 z-10">
             {images.map((_, index) => (
-              <div
+              <button
                 key={index}
-                className={`size-1.5 rounded-full ${
-                  index === currentIndex ? "bg-white" : "bg-[#FFFFFF80]"
+                onClick={() => goToSlide(index)}
+                className={`size-1.5 rounded-full transition-all duration-300 ${
+                  index === activeIndex
+                    ? "bg-white scale-110"
+                    : "bg-[#FFFFFF80]"
                 }`}
+                aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
