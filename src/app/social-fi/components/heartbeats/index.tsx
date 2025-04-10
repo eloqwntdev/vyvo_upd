@@ -5,6 +5,10 @@ import animationData from "../../../../../public/lottie/4/data.json";
 import PinkButton from "@/components/common/controllers/button/pink-button";
 
 const HeartBeats = () => {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
   const options = {
     animationData,
     loop: true,

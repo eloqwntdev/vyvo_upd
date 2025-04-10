@@ -5,6 +5,10 @@ import { useLottie } from "lottie-react";
 import animationData from "../../../../../public/lottie/circles-bottom.json";
 
 const LearnMore = () => {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
   const options = {
     animationData,
     loop: true,
