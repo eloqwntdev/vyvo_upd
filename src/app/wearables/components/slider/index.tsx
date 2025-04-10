@@ -233,15 +233,17 @@ const WearablesSlider: React.FC<WearablesSliderProps> = ({ onCardClick }) => {
               }}
               onSlideChange={(swiper: SwiperType) => {
                 // Update progress bar based on current position
-                const progressBar =
-                  document.getElementById("swiperProgressBar");
-                if (progressBar) {
-                  const totalSlides = swiper.slides.length;
-                  const visibleSlides = swiper.params.slidesPerView as number;
-                  const maxIndex = totalSlides - visibleSlides;
-                  const progress = (swiper.activeIndex / maxIndex) * 100;
-                  progressBar.style.width = `${Math.min(progress, 100)}%`;
-                }
+if (typeof document !== "undefined") {
+  const progressBar =
+    document.getElementById("swiperProgressBar");
+  if (progressBar) {
+    const totalSlides = swiper.slides.length;
+    const visibleSlides = swiper.params.slidesPerView as number;
+    const maxIndex = totalSlides - visibleSlides;
+    const progress = (swiper.activeIndex / maxIndex) * 100;
+    progressBar.style.width = `${Math.min(progress, 100)}%`;
+  }
+}
 
                 // Calculate if we've reached the true end (no gap)
                 const isRealEnd =

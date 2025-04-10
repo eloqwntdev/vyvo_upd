@@ -11,13 +11,15 @@ const ScrollLogoSection = () => {
   const currentStage = useStageStore((state) => state.currentStage);
 
   const handleScroll = () => {
-    const targetSection = document.getElementById("statement-section");
-    if (targetSection) {
+if (typeof document !== "undefined") {
+  const targetSection = document.getElementById("statement-section");
+  if (targetSection) {
       targetSection.scrollIntoView({
         behavior: "smooth",
         block: "start", // aligns the element at the top of the view
       });
     }
+  }
   };
 
   //f

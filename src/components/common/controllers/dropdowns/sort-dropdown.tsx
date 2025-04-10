@@ -17,8 +17,14 @@ const SortDropdown = () => {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    if (typeof document !== "undefined") {
+  document.addEventListener("mousedown", handleClickOutside);
+}
+    return () => {
+  if (typeof document !== "undefined") {
+    document.removeEventListener("mousedown", handleClickOutside);
+  }
+};
   }, []);
 
   const options = ["Most recent", "Title", "Title"];

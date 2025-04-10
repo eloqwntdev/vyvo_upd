@@ -142,12 +142,20 @@ const WaveForm = ({ isPlaying, progress, audioRef }: WaveformProps) => {
 
     const handleMouseUp = () => {
       setIsDragging(false);
-      document.removeEventListener("mousemove", onMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
+      if (typeof document !== "undefined") {
+  document.removeEventListener("mousemove", onMouseMove);
+}
+      if (typeof document !== "undefined") {
+  document.removeEventListener("mouseup", handleMouseUp);
+}
     };
 
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseup", handleMouseUp);
+    if (typeof document !== "undefined") {
+  document.addEventListener("mousemove", onMouseMove);
+}
+    if (typeof document !== "undefined") {
+  document.addEventListener("mouseup", handleMouseUp);
+}
   };
 
   // Handle the click event for directly jumping to a location

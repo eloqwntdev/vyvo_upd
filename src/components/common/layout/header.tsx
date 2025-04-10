@@ -34,7 +34,10 @@ const Header = () => {
   ) => {
     e.preventDefault();
     const targetId = href.replace("/", "");
-    const element = document.querySelector(targetId);
+    let element = null;
+if (typeof document !== "undefined") {
+  element = document.querySelector(targetId);
+}
 
     if (element) {
       element.scrollIntoView({
@@ -51,9 +54,13 @@ const Header = () => {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      if (typeof document !== "undefined") {
+  document.body.style.overflow = "hidden";
+}
     } else {
-      document.body.style.overflow = "auto";
+      if (typeof document !== "undefined") {
+  document.body.style.overflow = "auto";
+}
     }
   }, [isOpen]);
 
