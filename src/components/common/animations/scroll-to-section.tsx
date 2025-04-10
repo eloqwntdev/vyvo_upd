@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect } from "react";
 
 const ScrollToSection = ({
   id = "statement-section",
@@ -10,9 +10,9 @@ const ScrollToSection = ({
   className?: string;
 }) => {
   const handleScroll = () => {
-if (typeof document !== "undefined") {
-  const targetSection = document.getElementById(id);
-  if (targetSection) {
+    if (typeof document !== "undefined") {
+      const targetSection = document.getElementById(id);
+      if (targetSection) {
         targetSection.scrollIntoView({
           behavior: "smooth",
           block: "start",
