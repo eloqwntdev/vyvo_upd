@@ -5,6 +5,7 @@ import secondAnimationData from "../../../../../public/lottie/3/data.json";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { useRef, useEffect } from "react";
 import AnimatedCounter from "@/components/common/animations/animated-counter";
+import Lottie from "lottie-react";
 
 const AboutVSC = () => {
   const sectionRef = useRef(null);
@@ -50,7 +51,10 @@ const AboutVSC = () => {
         </motion.p>
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           <div className="relative w-full">
-            {/* {View} */}
+          <Lottie
+            animationData={animationData}
+            loop={true}
+          />
             <div className="flex flex-col gap-6 md:gap-8 lg:gap-[56px] absolute bottom-7 md:bottom-8 lg:bottom-12 left-7 md:left-8 lg:left-12">
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
