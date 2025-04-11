@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, useAnimationControls } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { SlashIcon } from "@/components/svg";
 import clsx from "clsx";

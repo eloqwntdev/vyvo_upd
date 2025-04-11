@@ -1,13 +1,11 @@
 "use client";
 import PinkButton from "@/components/common/controllers/button/pink-button";
 import React from "react";
-import { useLottie } from "lottie-react";
+// import { useLottie } from "lottie-react";
 import animationData from "../../../../../public/lottie/circles-bottom.json";
 
 const LearnMore = () => {
-  if (typeof window === 'undefined') {
-    return null;
-  }
+
 
   const options = {
     animationData,
@@ -19,7 +17,7 @@ const LearnMore = () => {
     },
   };
 
-  const { View } = useLottie(options);
+  // const { View } = useLottie(options);
 
   return (
     <section className="min-h-[400px] bg-white md:min-h-[600px] w-full flex items-center md:justify-center relative px-4 md:px-6">
