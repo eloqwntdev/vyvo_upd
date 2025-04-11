@@ -75,6 +75,7 @@ const AboutVSC = () => {
           </div>
           <div className="relative w-full">
             {/* {View2} */}
+            <Lottie animationData={secondAnimationData} loop assetsPath="/lottie/3/images/" />
             <div className="flex flex-col gap-6 md:gap-8 lg:gap-[56px] absolute bottom-7 md:bottom-8 lg:bottom-12 left-7 md:left-8 lg:left-12">
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
