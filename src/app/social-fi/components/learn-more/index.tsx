@@ -3,9 +3,13 @@ import PinkButton from "@/components/common/controllers/button/pink-button";
 import React from "react";
 // import { useLottie } from "lottie-react";
 import animationData from "../../../../../public/lottie/circles-bottom.json";
+import dynamic from 'next/dynamic';
 
 const LearnMore = () => {
 
+  const Lottie = dynamic(() => import('lottie-react'), { 
+    ssr: false
+  });
 
   const options = {
     animationData,
@@ -35,7 +39,12 @@ const LearnMore = () => {
         />
       </div>
 
-      {/* <div className="absolute bottom-0 left-0 w-full">{View}</div> */}
+      <div className="absolute bottom-0 left-0 w-full">
+        <Lottie animationData={animationData} loop assetsPath="/lottie/4/images/" rendererSettings={{
+      progressiveLoad: true,
+      preserveAspectRatio: "xMidYMid slice",
+    }}/>
+      </div>
     </section>
   );
 };

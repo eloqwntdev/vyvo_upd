@@ -49,7 +49,8 @@ const HeartBeats = () => {
           </div>
         </div>
 
-        <div className="max-w-[630px] w-full">            <Lottie animationData={animationData} loop assetsPath="/lottie/4/images/" />
+        <div className="max-w-[630px] w-full">            
+          <Lottie animationData={animationData} loop assetsPath="/lottie/4/images/" />
         </div>
       </div>
     </section>
