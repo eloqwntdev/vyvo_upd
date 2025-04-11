@@ -11,11 +11,11 @@ const HeartBeats = () => {
     ssr: false
   });
 
-  const options = {
-    animationData,
-    loop: true,
-    assetsPath: "/lottie/4/images/",
-  };
+  // const options = {
+  //   animationData,
+  //   loop: true,
+  //   assetsPath: "/lottie/4/images/",
+  // };
 
   // const { View } = useLottie(options);
   return (

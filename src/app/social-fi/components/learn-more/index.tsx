@@ -11,15 +11,15 @@ const LearnMore = () => {
     ssr: false
   });
 
-  const options = {
-    animationData,
-    loop: true,
-    assetsPath: "/lottie/4/images/",
-    rendererSettings: {
-      progressiveLoad: true,
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+  // const options = {
+  //   animationData,
+  //   loop: true,
+  //   assetsPath: "/lottie/4/images/",
+  //   rendererSettings: {
+  //     progressiveLoad: true,
+  //     preserveAspectRatio: "xMidYMid slice",
+  //   },
+  // };
 
   // const { View } = useLottie(options);
 
