@@ -35,7 +35,7 @@ const LearnMore = () => {
         />
       </div>
 
-      <div className="absolute bottom-0 left-0 w-full">{View}</div>
+      {/* <div className="absolute bottom-0 left-0 w-full">{View}</div> */}
     </section>
   );
 };

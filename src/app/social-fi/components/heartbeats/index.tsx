@@ -45,7 +45,7 @@ const HeartBeats = () => {
           </div>
         </div>
 
-        <div className="max-w-[630px] w-full">{View}</div>
+        {/* <div className="max-w-[630px] w-full">{View}</div> */}
       </div>
     </section>
   );
