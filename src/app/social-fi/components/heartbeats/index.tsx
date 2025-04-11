@@ -3,9 +3,13 @@ import React from "react";
 // import { useLottie } from "lottie-react";
 import animationData from "../../../../../public/lottie/4/data.json";
 import PinkButton from "@/components/common/controllers/button/pink-button";
+import dynamic from 'next/dynamic';
 
 const HeartBeats = () => {
 
+  const Lottie = dynamic(() => import('lottie-react'), { 
+    ssr: false
+  });
 
   const options = {
     animationData,
@@ -45,7 +49,8 @@ const HeartBeats = () => {
           </div>
         </div>
 
-        {/* <div className="max-w-[630px] w-full">{View}</div> */}
+        <div className="max-w-[630px] w-full">            <Lottie animationData={animationData} loop assetsPath="/lottie/4/images/" />
+        </div>
       </div>
     </section>
   );
