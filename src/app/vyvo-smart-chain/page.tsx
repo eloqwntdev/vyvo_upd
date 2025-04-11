@@ -4,7 +4,6 @@ import VyvoCmartChainBanner from "./components/banner";
 import AboutVSC from "./components/about-vsc";
 import Values from "./components/values";
 import PinkButton from "@/components/common/controllers/button/pink-button";
-// import { useLottie } from "lottie-react";
 
 const VyvoCmartChain = () => {
   return (
