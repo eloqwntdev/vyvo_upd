@@ -1,13 +1,11 @@
 "use client";
 import React from "react";
-import { useLottie } from "lottie-react";
+// import { useLottie } from "lottie-react";
 import animationData from "../../../../../public/lottie/4/data.json";
 import PinkButton from "@/components/common/controllers/button/pink-button";
 
 const HeartBeats = () => {
-  if (typeof window === 'undefined') {
-    return null;
-  }
+
 
   const options = {
     animationData,
@@ -15,7 +13,7 @@ const HeartBeats = () => {
     assetsPath: "/lottie/4/images/",
   };
 
-  const { View } = useLottie(options);
+  // const { View } = useLottie(options);
   return (
     <section className="py-10 bg-white md:py-20 flex flex-col items-center justify-center gap-[30px] md:gap-20 px-4 md:px-6">
       <span className="text-[#FF0066] font-nb text-[16px] md:text-[20px] leading-[20px] md:leading-[24px] tracking-[-0.2px] text-center">
@@ -47,7 +45,7 @@ const HeartBeats = () => {
           </div>
         </div>
 
-        <div className="max-w-[630px] w-full">{View}</div>
+        {/* <div className="max-w-[630px] w-full">{View}</div> */}
       </div>
     </section>
   );
