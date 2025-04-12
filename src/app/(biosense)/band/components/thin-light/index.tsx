@@ -45,7 +45,7 @@ const ThinLight = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-[60px] sm:py-[80px] md:py-[100px] lg:py-[120px] bg-black"
+      className="min-h-screen flex items-center justify-center lg:py-[120px] bg-black"
     >
       <div className="max-w-[1280px] w-full mx-auto flex flex-col lg:flex-row items-center justify-between px-4 md:px-6 gap-10 lg:gap-0">
         {/* Left side with band image and floating items */}

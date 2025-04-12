@@ -19,11 +19,11 @@ const MobileFeatures = () => {
           Features of VAI
         </span>
 
-        <div className="flex flex-col border-y border-[#fff]">
+        <div className="flex flex-col border-y border-[#FFFFFF33]">
           {tabsData.map((tab, index) => (
             <div
               key={tab.id}
-              className="border-t border-[#fff] first:border-t-0"
+              className="border-t border-[#FFFFFF33] first:border-t-0"
             >
               <motion.div
                 className="w-full py-[19px] flex items-center justify-between"
@@ -68,7 +68,7 @@ const MobileFeatures = () => {
                   </div>
                 </div>
                 <span
-                  className={`font-nb text-[16px] leading-[20px] tracking-[-0.03em]
+                  className={`font-nb text-[18px] leading-[20px] tracking-[-0.03em]
                   ${
                     activeAccordion === index ? "text-[#94A8ED]" : "text-white"
                   }`}
@@ -80,7 +80,7 @@ const MobileFeatures = () => {
                   transition={{ duration: 0.3 }}
                 >
                   <ChevronDownIcon
-                    className={`w-5 h-5 ${
+                    className={`w-4 h-4 ${
                       activeAccordion === index ? "text-[#]" : "text-white"
                     }`}
                   />

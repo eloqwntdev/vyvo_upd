@@ -36,21 +36,31 @@ const DesktopValues = () => {
     offset: ["start start", "end end"],
   });
 
-  const activeIndex = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 2]);
+  const activeIndex = useTransform(scrollYProgress, [0, 0.3, 0.6], [0, 1, 2]);
 
   return (
-    <div ref={wrapperRef} className="h-[300vh] relative">
+    <div ref={wrapperRef} className="h-[200vh] relative">
       <motion.section
         ref={containerRef}
         className="py-20 flex flex-col gap-16 items-center justify-center bg-black min-h-screen sticky top-0"
       >
         <div className="flex flex-col items-center justify-center gap-20">
-          <span className="text-[#E749F0] font-nb text-[20px] leading-[24px] tracking-[-0.2px]">
+          <motion.span
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="text-[#E749F0] font-nb text-[20px] leading-[24px] tracking-[-0.2px]"
+          >
             Values
-          </span>
-          <h3 className="max-w-[607px] text-center font-nb font-light text-[48px] leading-[52px] tracking-[-1.4px] text-white">
+          </motion.span>
+          <motion.h3
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="max-w-[607px] text-center font-nb font-light text-[48px] leading-[52px] tracking-[-1.4px] text-white"
+          >
             Verifying health data integrity through decentralization.
-          </h3>
+          </motion.h3>
         </div>
 
         <div className="max-w-[1280px] flex items-center justify-center gap-[110px] w-full mx-auto">
@@ -62,8 +72,8 @@ const DesktopValues = () => {
                 style={{
                   opacity: useTransform(
                     activeIndex,
-                    [index - 0.3, index, index + 0.3],
-                    [0.4, 1, 0.4]
+                    [index - 0.2, index, index + 0.2],
+                    [0.3, 1, 0.3]
                   ),
                 }}
               >
@@ -74,15 +84,20 @@ const DesktopValues = () => {
                   style={{
                     color: useTransform(
                       activeIndex,
-                      [index - 0.3, index, index + 0.3],
+                      [index - 0.2, index, index + 0.2],
                       [
-                        "rgba(255, 255, 255, 0.4)",
+                        "rgba(255, 255, 255, 0.3)",
                         "#E749F0",
-                        "rgba(255, 255, 255, 0.4)",
+                        "rgba(255, 255, 255, 0.3)",
                       ]
                     ),
+                    scale: useTransform(
+                      activeIndex,
+                      [index - 0.2, index, index + 0.2],
+                      [0.95, 1.05, 0.95]
+                    ),
                   }}
-                  className="font-nb font-light text-[32px] leading-[36px] tracking-[-1.0px]"
+                  className="font-nb font-light text-[32px] leading-[36px] tracking-[-1.0px] origin-left"
                 >
                   {item.title}
                 </motion.h3>
@@ -94,7 +109,7 @@ const DesktopValues = () => {
             <motion.div
               className="bg-[#E749F0] w-full absolute top-0"
               style={{
-                height: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]),
+                height: useTransform(scrollYProgress, [0, 0.6], ["0%", "100%"]),
               }}
             />
           </div>
@@ -107,8 +122,13 @@ const DesktopValues = () => {
                 style={{
                   opacity: useTransform(
                     activeIndex,
+                    [index - 0.3, index - 0.1, index, index + 0.4, index + 0.8],
+                    [0, 0.5, 1, 0.8, 0]
+                  ),
+                  y: useTransform(
+                    activeIndex,
                     [index - 0.3, index, index + 0.3],
-                    [0, 1, 0]
+                    [20, 0, -20]
                   ),
                 }}
               >
@@ -116,7 +136,7 @@ const DesktopValues = () => {
                   src={item.image}
                   width={414}
                   height={250}
-                  alt=""
+                  alt={item.title}
                   className="rounded-2xl"
                 />
                 <p className="text-center text-white font-nb font-light text-[16px] leading-[20px] tracking-[-0.5px]">
@@ -126,6 +146,21 @@ const DesktopValues = () => {
             ))}
           </div>
         </div>
+
+        <motion.div
+          className="absolute right-[calc(50%-640px+414px/2)] top-[50%] max-w-[414px] w-full flex flex-col items-center justify-center gap-6 translate-y-[-50%] pointer-events-none"
+          style={{
+            opacity: useTransform(activeIndex, [0, 0.1, 0.9, 1], [0, 0, 0, 0]),
+          }}
+        >
+          <Image
+            src="/vyvo-smart-chain-img/card1.webp"
+            width={414}
+            height={250}
+            alt="Vyvo Smart Chain"
+            className="rounded-2xl opacity-40"
+          />
+        </motion.div>
       </motion.section>
     </div>
   );
