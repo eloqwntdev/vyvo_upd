@@ -12,11 +12,15 @@ const Modal = () => {
 
   useEffect(() => {
     // Disable scrolling when the modal is open
-    document.body.style.overflow = "hidden";
+    if (typeof document !== "undefined") {
+  document.body.style.overflow = "hidden";
+}
 
     return () => {
       // Re-enable scrolling when the modal is closed
-      document.body.style.overflow = "";
+      if (typeof document !== "undefined") {
+  document.body.style.overflow = "";
+}
     };
   }, []);
 

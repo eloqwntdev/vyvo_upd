@@ -7,7 +7,8 @@ function useScrollDirection() {
   );
 
   useEffect(() => {
-    let lastScrollY = window.pageYOffset;
+    if (typeof window !== 'undefined') {
+      let lastScrollY = window.pageYOffset;
 
     const updateScrollDirection = () => {
       const scrollY = window.pageYOffset;
@@ -20,10 +21,11 @@ function useScrollDirection() {
       }
       lastScrollY = scrollY > 0 ? scrollY : 0;
     };
-    window.addEventListener("scroll", updateScrollDirection); // add event listener
-    return () => {
-      window.removeEventListener("scroll", updateScrollDirection); // clean up
-    };
+      window.addEventListener("scroll", updateScrollDirection); // add event listener
+      return () => {
+        window.removeEventListener("scroll", updateScrollDirection); // clean up
+      };
+    }
   }, [scrollDirection]);
 
   return scrollDirection;

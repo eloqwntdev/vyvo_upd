@@ -4,6 +4,7 @@ import { useLottie } from "lottie-react";
 import { motion } from "framer-motion";
 import animationData from "../../../../../public/lottie/4/data.json";
 import PinkButton from "@/components/common/controllers/button/pink-button";
+import dynamic from "next/dynamic";
 
 const HeartBeats = () => {
   const options = {
@@ -11,7 +12,6 @@ const HeartBeats = () => {
     loop: true,
     assetsPath: "/lottie/4/images/",
   };
-
   const { View } = useLottie(options);
 
   // Animation variants

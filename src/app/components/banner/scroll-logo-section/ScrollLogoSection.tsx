@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, useAnimationControls } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { SlashIcon } from "@/components/svg";
 import clsx from "clsx";
@@ -11,13 +11,15 @@ const ScrollLogoSection = () => {
   const currentStage = useStageStore((state) => state.currentStage);
 
   const handleScroll = () => {
-    const targetSection = document.getElementById("statement-section");
-    if (targetSection) {
+if (typeof document !== "undefined") {
+  const targetSection = document.getElementById("statement-section");
+  if (targetSection) {
       targetSection.scrollIntoView({
         behavior: "smooth",
         block: "start", // aligns the element at the top of the view
       });
     }
+  }
   };
 
   //f

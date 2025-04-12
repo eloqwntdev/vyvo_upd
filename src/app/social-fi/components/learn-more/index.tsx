@@ -1,21 +1,27 @@
 "use client";
 import PinkButton from "@/components/common/controllers/button/pink-button";
 import React from "react";
-import { useLottie } from "lottie-react";
+// import { useLottie } from "lottie-react";
 import animationData from "../../../../../public/lottie/circles-bottom.json";
+import dynamic from 'next/dynamic';
 
 const LearnMore = () => {
-  const options = {
-    animationData,
-    loop: true,
-    assetsPath: "/lottie/4/images/",
-    rendererSettings: {
-      progressiveLoad: true,
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
 
-  const { View } = useLottie(options);
+  const Lottie = dynamic(() => import('lottie-react'), { 
+    ssr: false
+  });
+
+  // const options = {
+  //   animationData,
+  //   loop: true,
+  //   assetsPath: "/lottie/4/images/",
+  //   rendererSettings: {
+  //     progressiveLoad: true,
+  //     preserveAspectRatio: "xMidYMid slice",
+  //   },
+  // };
+
+  // const { View } = useLottie(options);
 
   return (
     <section className="min-h-[400px] bg-white md:min-h-[600px] w-full flex items-center md:justify-center relative px-4 md:px-6">
@@ -33,7 +39,12 @@ const LearnMore = () => {
         />
       </div>
 
-      <div className="absolute bottom-0 left-0 w-full">{View}</div>
+      <div className="absolute bottom-0 left-0 w-full">
+        <Lottie animationData={animationData} loop assetsPath="/lottie/4/images/" rendererSettings={{
+      progressiveLoad: true,
+      preserveAspectRatio: "xMidYMid slice",
+    }}/>
+      </div>
     </section>
   );
 };
