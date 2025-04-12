@@ -122,7 +122,10 @@ const Stepper = () => {
   ];
 
   return (
-    <section className="py-10 md:py-20 flex flex-col gap-8 md:gap-16 items-center justify-center bg-black min-h-screen px-6 md:px-4">
+    <section
+      id="stepper"
+      className="py-10 md:py-20 flex flex-col gap-8 md:gap-16 items-center justify-center bg-black md:min-h-screen px-6 md:px-4"
+    >
       <div className="max-w-[714px] w-full">
         <h2 className="font-nb font-light text-[32px] md:text-[56px] leading-[36px] md:leading-[50px] tracking-[-1px] md:tracking-[-1.7px] text-white text-center">
           Innovating health through collaboration and care.

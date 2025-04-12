@@ -11,13 +11,13 @@ import AIInvestmentHero from "./components/ai-investment-hero";
 const GPUFarmPage = () => {
   return (
     <>
-      {/* <GPUBanner />
+      <GPUBanner />
       <VyvoGPUFarms />
       <WhyBuiltFarms />
       <FarmsAsAProduct />
       <FeaturesGPUFarms />
       <Improvements />
-      <AIInvestmentHero /> */}
+      <AIInvestmentHero />
     </>
   );
 };

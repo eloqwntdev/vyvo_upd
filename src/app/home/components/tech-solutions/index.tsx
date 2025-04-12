@@ -14,6 +14,17 @@ const TechSolutions = () => {
 
   const solutionCards = [
     {
+      title: "VAI OS",
+      description:
+        "At the vanguard of AI, Vyvo turns data from your day to day life into actionable insights that adapt to your lifestyle. With your Life CoPilot, every interaction makes it smarter and capable of new personalized solutions, delivering ever growing value for its users.",
+      images: [
+        "/homepage/solutions/card3/card1.webp",
+        "/homepage/solutions/card3/card2.webp",
+        "/homepage/solutions/card3/card3.webp",
+      ],
+      reverse: false,
+    },
+    {
       title: "Vyvo Tech",
       description: [
         "Vyvo's wearables redefine what it means to stay connected to your health. Using IoT and cutting-edge sensors, our devices have built intuitive solutions that not only track your body's signals but also translate them into meaningful and actionable insights.",
@@ -26,17 +37,7 @@ const TechSolutions = () => {
       ],
       reverse: true,
     },
-    {
-      title: "VAI OS",
-      description:
-        "At the vanguard of AI, Vyvo turns data from your day to day life into actionable insights that adapt to your lifestyle. With your Life CoPilot, every interaction makes it smarter and capable of new personalized solutions, delivering ever growing value for its users.",
-      images: [
-        "/homepage/solutions/card3/card1.webp",
-        "/homepage/solutions/card3/card2.webp",
-        "/homepage/solutions/card3/card3.webp",
-      ],
-      reverse: false,
-    },
+
     {
       title: "Vyvo Smart Chain",
       description:
@@ -172,7 +173,6 @@ const TechSolutions = () => {
           style={{
             opacity: headerOpacity,
             y: headerY,
-            scale: headerScale,
           }}
         >
           <motion.h2

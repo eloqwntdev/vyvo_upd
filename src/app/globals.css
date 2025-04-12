@@ -571,14 +571,12 @@ button:not(.dropdown-menu-shadow button, .remove-hover-bg):hover {
 
   backdrop-filter: blur(100px);
 }
-
 .pink-button-shadow {
-  box-shadow: 0px 1px 1px 0px #ff006666 inset;
-
   box-shadow: 0px -1px 1px 0px #ff006666 inset;
-
   backdrop-filter: blur(20px);
+  transition: all 0.3s ease-in-out;
 }
+
 .pink2-button-shadow {
   box-shadow: 0px 1px 1px 0px #e749f033 inset;
 

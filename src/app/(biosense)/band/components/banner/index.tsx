@@ -108,7 +108,7 @@ const BannerBand = () => {
             variants={fadeInUp}
             className="text-white font-light font-nb text-[24px] sm:text-[36px] sm:leading-[40px] md:text-[48px] md:leading-[52px] lg:text-[72px] lg:leading-[76px] text-center tracking-[-3%]"
           >
-            <span className="text-gradient">BioSense Watch </span>
+            <span className="text-gradient">BioSense Band</span>
           </motion.h2>
           <motion.p
             variants={fadeInUp}

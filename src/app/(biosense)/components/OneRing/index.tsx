@@ -3,6 +3,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { AnimatePresence, motion, useInView, Variants } from "framer-motion";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+
+// Import Swiper styles
+import "swiper/css";
 
 interface OneRingProps {
   title: string;
@@ -24,16 +30,9 @@ const OneRing: React.FC<OneRingProps> = ({
   imagePosition = "right",
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const swiperRef = useRef<SwiperType | null>(null);
   const textRef = useRef(null);
   const isInView = useInView(textRef, { once: true, amount: 0.3 });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [images.length]);
 
   // Animation variants
   const fadeInUp: Variants = {
@@ -58,36 +57,66 @@ const OneRing: React.FC<OneRingProps> = ({
 
   const SliderComponent = (
     <div className="wearables-card-gradient w-full max-w-[598px] rounded-[24px] relative overflow-hidden p-4">
-      <AnimatePresence initial={false} mode="popLayout">
-        <motion.div
-          key={currentIndex}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{
-            duration: 1,
-            ease: [0.4, 0.0, 0.2, 1],
-          }}
-        >
-          <Image
-            src={images[currentIndex]}
-            width={598}
-            height={628}
-            alt={`${productName} Device`}
-            className="mx-auto"
-            priority
-          />
-        </motion.div>
-      </AnimatePresence>
+      <Swiper
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+        }}
+        onSlideChange={(swiper) => setCurrentIndex(swiper.realIndex)}
+        spaceBetween={0}
+        slidesPerView={1}
+        centeredSlides={true}
+        loop={true}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay]}
+        className="w-full h-full"
+      >
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                duration: 0.5,
+                ease: [0.4, 0.0, 0.2, 1],
+              }}
+              className="flex items-center justify-center"
+            >
+              <Image
+                src={image}
+                width={598}
+                height={628}
+                alt={`${productName} Device ${index + 1}`}
+                className="mx-auto"
+                priority={index === 0}
+              />
+            </motion.div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-1.5">
+      <div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-1.5 z-10"
+        style={{ transition: "opacity 0.3s ease" }}
+      >
         {images.map((_, index) => (
           <div
             key={index}
-            className={`size-2 rounded-full ${
-              index === currentIndex ? "bg-[#fff]" : "bg-[#FFFFFF80]"
-            }`}
-          ></div>
+            onClick={() => swiperRef.current?.slideToLoop(index)}
+            className="cursor-pointer"
+            aria-label={`Go to slide ${index + 1}`}
+          >
+            <div
+              className={`size-2 rounded-full transform transition-all duration-300 ${
+                index === currentIndex
+                  ? "bg-white scale-110"
+                  : "bg-white/50 hover:bg-white/70"
+              }`}
+            />
+          </div>
         ))}
       </div>
     </div>

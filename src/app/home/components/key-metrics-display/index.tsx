@@ -23,14 +23,23 @@ interface ParsedNumber {
 
 const KeyMetricsDisplay = () => {
   const [progress, setProgress] = useState(0);
-  // Keep track of which indices have completed animations
-  const [animatedIndices, setAnimatedIndices] = useState<Set<number>>(
-    new Set()
-  );
-  // Store final values for each metric to prevent resetting
-  const [finalValues, setFinalValues] = useState<Record<number, string>>({});
+  // State to trigger the animation once
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+  // State to track if the animation has finished
+  const [animationComplete, setAnimationComplete] = useState(false);
+  // Store the current animated values during the animation
+  const [currentAnimatedValues, setCurrentAnimatedValues] = useState<
+    Map<string, number>
+  >(new Map());
+  // Store final pre-calculated display values
+  const [finalValues, setFinalValues] = useState<Record<string, string>>({});
 
-  // Parse the numeric part and any suffix from strings like "100,000+" or "3.4+"
+  const sectionRef = useRef<HTMLElement>(null);
+  const animationFrameRef = useRef<number | null>(null);
+  // Use useInView on the section, trigger only once
+  const isSectionInView = useInView(sectionRef, { amount: 0.3, once: true });
+
+  // Parse the numeric part and any suffix
   const parseNumberAndSuffix = (value: string): ParsedNumber => {
     const match = value.match(/^([\d,\.]+)(.*)$/);
     if (match) {
@@ -41,7 +50,7 @@ const KeyMetricsDisplay = () => {
     return { numericValue: 0, suffix: "" };
   };
 
-  // Format number with commas for thousands separator
+  // Format number with commas
   const formatWithCommas = (value: number): string => {
     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
@@ -68,6 +77,7 @@ const KeyMetricsDisplay = () => {
       label: "Million Data Blocks Validated",
       image: "/homepage/slider/card5.webp",
     },
+    // Duplicates for looping slider
     {
       number: "100,000+",
       label: "Active Users",
@@ -112,137 +122,140 @@ const KeyMetricsDisplay = () => {
     },
   ];
 
-  // Generate final display values for all metrics ahead of time
+  // Pre-calculate final display values for unique metric numbers
   useEffect(() => {
-    const values: Record<number, string> = {};
-    metrics.forEach((metric, index) => {
-      // Extract unique index based on the first occurrence of each number
-      const uniqueIndex = metrics.findIndex((m) => m.number === metric.number);
-      if (!(uniqueIndex in values)) {
-        const { numericValue, suffix } = parseNumberAndSuffix(metric.number);
-        const isDecimal = metric.number.includes(".");
-        const decimalPlaces = isDecimal
-          ? metric.number.split(".")[1].replace(/\D/g, "").length
-          : 0;
+    const uniqueMetrics = Array.from(new Set(metrics.map((m) => m.number)));
+    const finalVals: Record<string, string> = {};
+    const initialAnimatedVals = new Map<string, number>();
 
-        let displayValue: string;
-        if (isDecimal) {
-          displayValue = numericValue.toFixed(decimalPlaces);
-        } else {
-          displayValue = formatWithCommas(numericValue);
-        }
-        values[uniqueIndex] = displayValue + suffix;
+    uniqueMetrics.forEach((metricValue) => {
+      const { numericValue, suffix } = parseNumberAndSuffix(metricValue);
+      const isDecimal = metricValue.includes(".");
+      const decimalPlaces = isDecimal
+        ? metricValue.split(".")[1].replace(/\D/g, "").length
+        : 0;
+
+      let displayValue: string;
+      if (isDecimal) {
+        displayValue = numericValue.toFixed(decimalPlaces);
+      } else {
+        displayValue = formatWithCommas(numericValue);
       }
+      finalVals[metricValue] = displayValue + suffix;
+      initialAnimatedVals.set(metricValue, 0); // Start animation from 0
     });
-    setFinalValues(values);
-  }, []);
 
-  interface NumberCounterProps {
-    value: string;
-    index: number;
+    setFinalValues(finalVals);
+    // Initialize animated values map
+    setCurrentAnimatedValues(initialAnimatedVals);
+  }, []); // Removed metrics dependency, calculated once
+
+  // Trigger animation when the section scrolls into view
+  useEffect(() => {
+    if (isSectionInView && !shouldAnimate) {
+      setShouldAnimate(true);
+    }
+  }, [isSectionInView, shouldAnimate]);
+
+  // Run the global animation loop when shouldAnimate is true
+  useEffect(() => {
+    if (!shouldAnimate || animationComplete) return;
+
+    const uniqueMetricNumbers = Object.keys(finalValues);
+    const targets = new Map<string, { target: number; decimals: number }>();
+    uniqueMetricNumbers.forEach((numStr) => {
+      const { numericValue } = parseNumberAndSuffix(numStr);
+      const isDecimal = numStr.includes(".");
+      const decimalPlaces = isDecimal
+        ? numStr.split(".")[1].replace(/\D/g, "").length
+        : 0;
+      targets.set(numStr, { target: numericValue, decimals: decimalPlaces });
+    });
+
+    let startTime: number | null = null;
+    const duration = 1500; // 1.5 seconds animation
+
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easedProgress = 1 - Math.pow(1 - progress, 4); // EaseOutQuart
+
+      const newAnimatedValues = new Map<string, number>();
+      let allComplete = true;
+
+      targets.forEach(({ target, decimals }, numStr) => {
+        const currentValue = target * easedProgress;
+        newAnimatedValues.set(numStr, currentValue);
+        if (progress < 1) {
+          allComplete = false;
+        }
+      });
+
+      setCurrentAnimatedValues(newAnimatedValues);
+
+      if (!allComplete) {
+        animationFrameRef.current = requestAnimationFrame(animate);
+      } else {
+        setAnimationComplete(true); // Mark animation as done
+      }
+    };
+
+    animationFrameRef.current = requestAnimationFrame(animate);
+
+    // Cleanup function
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, [shouldAnimate, animationComplete, finalValues]);
+
+  // Simplified component to display the number
+  interface NumberDisplayProps {
+    value: string; // The metric number string, e.g., "100,000+"
   }
 
-  const NumberCounter: React.FC<NumberCounterProps> = ({ value, index }) => {
-    const ref = useRef<HTMLSpanElement>(null);
-    const isInView = useInView(ref, { amount: 0.5 }); // Removed once: true
-    const [counter, setCounter] = useState(0);
-
-    // Find the first occurrence of this number in the metrics array
-    const uniqueIndex = metrics.findIndex((metric) => metric.number === value);
-    const isAnimated = animatedIndices.has(uniqueIndex);
-
-    const { numericValue, suffix } = parseNumberAndSuffix(value);
+  const NumberDisplay: React.FC<NumberDisplayProps> = ({ value }) => {
+    const { suffix } = parseNumberAndSuffix(value);
     const isDecimal = value.includes(".");
     const decimalPlaces = isDecimal
       ? value.split(".")[1].replace(/\D/g, "").length
       : 0;
 
-    // If this item has been animated before, show the final value immediately
-    useEffect(() => {
-      if (isAnimated) {
-        setCounter(numericValue);
+    let displayValueStr: string;
+
+    if (animationComplete) {
+      // If animation is done, show the final pre-calculated value
+      displayValueStr = finalValues[value] || `0${suffix}`;
+    } else if (shouldAnimate) {
+      // If animation is running, show the current animated value
+      const currentNumericVal = currentAnimatedValues.get(value) || 0;
+      if (isDecimal) {
+        displayValueStr = `${currentNumericVal.toFixed(
+          decimalPlaces
+        )}${suffix}`;
+      } else {
+        displayValueStr = `${formatWithCommas(
+          Math.round(currentNumericVal)
+        )}${suffix}`;
       }
-    }, [isAnimated, numericValue]);
-
-    // Handle animation when element comes into view
-    useEffect(() => {
-      if (isInView && !isAnimated) {
-        // Animate from 0 to the target number
-        let startTime: number | null = null;
-        const duration = 2000; // 2 seconds
-
-        const animateCount = (timestamp: number) => {
-          if (!startTime) startTime = timestamp;
-          const elapsed = timestamp - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-
-          // Use easeOutExpo for more natural counting effect
-          const easeOutProgress = 1 - Math.pow(1 - progress, 3);
-          const currentValue = numericValue * easeOutProgress;
-
-          // Update with proper decimal places if needed
-          if (isDecimal) {
-            setCounter(parseFloat(currentValue.toFixed(decimalPlaces)));
-          } else {
-            setCounter(Math.floor(currentValue));
-          }
-
-          if (progress < 1) {
-            requestAnimationFrame(animateCount);
-          } else {
-            // Mark this index as animated when complete
-            setAnimatedIndices((prev) => {
-              const updated = new Set(prev);
-              updated.add(uniqueIndex);
-              return updated;
-            });
-          }
-        };
-
-        requestAnimationFrame(animateCount);
-      }
-    }, [
-      isInView,
-      numericValue,
-      isAnimated,
-      isDecimal,
-      decimalPlaces,
-      uniqueIndex,
-    ]);
-
-    // Show final value immediately if already animated
-    if (isAnimated && finalValues[uniqueIndex]) {
-      return (
-        <span
-          ref={ref}
-          className="text-white text-[24px] md:text-[56px] leading-[28px] md:leading-[60px] tracking-[-3%]"
-        >
-          {finalValues[uniqueIndex]}
-        </span>
-      );
-    }
-
-    // Format the counter value properly
-    let displayValue: string;
-    if (isDecimal) {
-      displayValue = counter.toFixed(decimalPlaces);
     } else {
-      displayValue = formatWithCommas(counter);
+      // Before animation starts, show 0
+      const initialDisplay = isDecimal ? `0.${"0".repeat(decimalPlaces)}` : "0";
+      displayValueStr = `${initialDisplay}${suffix}`;
     }
 
     return (
-      <span
-        ref={ref}
-        className="text-white text-[24px] md:text-[56px] leading-[28px] md:leading-[60px] tracking-[-3%]"
-      >
-        {displayValue}
-        {suffix}
+      <span className="text-white text-[24px] md:text-[56px] leading-[28px] md:leading-[60px] tracking-[-3%]">
+        {displayValueStr}
       </span>
     );
   };
 
   return (
-    <section className="bg-[#000000] py-8 md:py-20">
+    // Add ref to the section for useInView
+    <section ref={sectionRef} className="bg-[#000000] py-8 md:py-20">
       <div className="flex flex-col gap-8 md:gap-[60px] w-full">
         <h2 className="text-white text-left md:text-center font-nb font-light text-[20px] md:text-[48px] leading-[24px] md:leading-[56px] tracking-[-3%] px-4">
           Numbers That Define Us
@@ -255,14 +268,14 @@ const KeyMetricsDisplay = () => {
             spaceBetween={24}
             loop={true}
             freeMode={{
-              enabled: false,
+              enabled: false, // Keep false for mobile snap effect
               momentum: false,
             }}
             className="w-full !px-4 md:!px-20"
             breakpoints={{
               768: {
                 freeMode: {
-                  enabled: true,
+                  enabled: true, // Enable free mode scrolling on desktop
                   momentum: true,
                 },
                 spaceBetween: 24,
@@ -292,7 +305,8 @@ const KeyMetricsDisplay = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <div className="flex flex-col gap-1 md:gap-2 absolute bottom-5 left-5 md:bottom-8 md:left-8">
-                    <NumberCounter value={metric.number} index={index} />
+                    {/* Use the simplified NumberDisplay component */}
+                    <NumberDisplay value={metric.number} />
                     <span className="text-white text-[16px] md:text-[24px] leading-[20px] md:leading-[32px]">
                       {metric.label}
                     </span>

@@ -68,7 +68,7 @@ const ProductOverview = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-black py-10 md:py-16 lg:py-[100px] px-4 md:px-6 overflow-hidden"
+      className="bg-black  min-h-screen flex items-center justify-center px-4 md:px-6 overflow-hidden"
     >
       <div className="max-w-[1180px] w-full mx-auto flex flex-col md:flex-row md:justify-between md:items-center gap-8 md:gap-4">
         <div className="w-full md:max-w-[400px] relative mx-auto md:mx-0 flex items-center justify-center">

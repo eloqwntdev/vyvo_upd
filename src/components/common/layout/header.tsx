@@ -60,9 +60,7 @@ const Header = () => {
   return (
     <>
       <div
-        className={`w-full ${
-          shouldCenterHeader ? "absolute left-1/2 -translate-x-1/2 top-0" : ""
-        }
+        className={`w-full ${1 ? "absolute left-1/2  top-0" : ""}
         bg-black/50 backdrop-blur-[20px]
        sticky ${
          scrollDirection === "down" ? "-top-24 " : "top-0"
@@ -74,19 +72,25 @@ const Header = () => {
             flex items-center justify-between relative z-[101]
           `}
         >
-          <motion.div
-            className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px]"
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{
-              delay: 0.6,
-              duration: 2.4,
-              ease: [0.16, 1, 0.3, 1],
-              opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
-            }}
+          <Link
+            href="/home"
+            aria-label="Navigate to home page"
+            className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px] cursor-pointer"
           >
-            <Image src={"/logo.svg"} alt={"Logo.svg"} fill priority />
-          </motion.div>
+            <motion.div
+              className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px] cursor-pointer"
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                delay: 0.6,
+                duration: 2.4,
+                ease: [0.16, 1, 0.3, 1],
+                opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
+              }}
+            >
+              <Image src={"/logo.svg"} alt={"Vyvo Logo"} fill priority />
+            </motion.div>
+          </Link>
 
           <motion.div
             className="hidden lg:flex items-center w-full max-w-[676px]"
