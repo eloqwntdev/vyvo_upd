@@ -56,7 +56,7 @@ const WearablesBanner = () => {
               label="DISCOVER MORE"
               className="gap-3 md:gap-4 bg-[#94a7ed28] py-2 md:py-2.5 px-[16px] md:px-[18.5px] test"
               labelClassName="!tracking-[-0.2px] text-[14px] md:text-base"
-              containerStyles={"flex items-center justify-center max-w-[140px]"}
+              containerStyles={"flex items-center justify-center max-w-[200px]"}
             />
           </motion.div>
         </motion.div>
