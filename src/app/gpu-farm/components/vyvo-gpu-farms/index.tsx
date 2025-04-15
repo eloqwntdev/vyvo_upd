@@ -1,5 +1,5 @@
 "use client";
-import { useLottie } from "lottie-react";
+// import { useLottie } from "lottie-react";
 import animationData from "../../../../../public/lottie/heartbeat.json";
 import AnimatedCounter from "@/components/common/animations/animated-counter";
 import Image from "next/image";
@@ -11,7 +11,7 @@ const VyvoGPUFarms = () => {
     loop: true,
   };
 
-  const { View } = useLottie(options);
+  // const { View } = useLottie(options);
 
   return (
     <section

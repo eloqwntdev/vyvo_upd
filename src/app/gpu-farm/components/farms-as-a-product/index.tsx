@@ -1,17 +1,17 @@
 "use client";
-import { useLottie } from "lottie-react";
+// import { useLottie } from "lottie-react";
 import animationData from "../../../../../public/lottie/12/data.json";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
 const FarmsAsAProduct = () => {
-  const options = {
-    animationData,
-    loop: true,
-    assetsPath: "/lottie/12/images/",
-  };
+  // const options = {
+  //   animationData,
+  //   loop: true,
+  //   assetsPath: "/lottie/12/images/",
+  // };
 
-  const { View } = useLottie(options);
+  // const { View } = useLottie(options);
 
   return (
     <section className="bg-[#050505] py-10 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 flex relative flex-col items-center justify-center">
