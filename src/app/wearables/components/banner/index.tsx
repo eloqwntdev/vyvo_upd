@@ -43,7 +43,7 @@ const WearablesBanner = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
-              The new face of Vyvo technology
+              The New Face of Vyvo Technology.
             </motion.p>
           </motion.div>
           <motion.div
@@ -53,7 +53,7 @@ const WearablesBanner = () => {
           >
             <SlashButton
               showIcon={false}
-              label="Discover more"
+              label="DISCOVER MORE"
               className="gap-3 md:gap-4 bg-[#94a7ed28] py-2 md:py-2.5 px-[16px] md:px-[18.5px] test"
               labelClassName="!tracking-[-0.2px] text-[14px] md:text-base"
               containerStyles={"flex items-center justify-center max-w-[140px]"}
