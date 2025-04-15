@@ -108,13 +108,13 @@ const BannerBand = () => {
             variants={fadeInUp}
             className="text-white font-light font-nb text-[24px] sm:text-[36px] sm:leading-[40px] md:text-[48px] md:leading-[52px] lg:text-[72px] lg:leading-[76px] text-center tracking-[-3%]"
           >
-            <span className="text-gradient">BioSense Band</span>
+            <span className="text-gradient">BioSense Health Band</span>
           </motion.h2>
           <motion.p
             variants={fadeInUp}
             className="text-white font-light font-nb text-[14px] leading-[18px] sm:text-[18px] sm:leading-[22px] md:text-[24px] md:leading-[28px] text-center tracking-[-3%]"
           >
-            The new face of Vyvo technology
+            Experience the world’s most advanced health band
           </motion.p>
           <motion.div variants={scaleUp}>
             <SlashButton

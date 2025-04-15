@@ -78,6 +78,7 @@ over personal information
             </motion.div>
           </motion.div>
           <motion.div
+          className="flex flex-row gap-5"
             ref={awardRef}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={
@@ -89,6 +90,13 @@ over personal information
           >
             <Image
               src="/wearables-img/research/award.webp"
+              width={157}
+              height={80}
+              alt="Award"
+              className="w-[120px] md:w-[157px] h-auto"
+            />
+                        <Image
+              src="/wearables-img/research/PD2025_RD.png"
               width={157}
               height={80}
               alt="Award"
@@ -142,6 +150,7 @@ over personal information
                 className="w-full h-auto transition-transform duration-300 hover:scale-110"
               />
             </div>
+            
           </div>
         </motion.div>
       </div>
