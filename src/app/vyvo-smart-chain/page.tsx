@@ -4,7 +4,7 @@ import VyvoCmartChainBanner from "./components/banner";
 import AboutVSC from "./components/about-vsc";
 import Values from "./components/values";
 import PinkButton from "@/components/common/controllers/button/pink-button";
-import { useLottie } from "lottie-react";
+// import { useLottie } from "lottie-react";
 import animationBgPink from "../../../public/lottie/pink-bg/data.json";
 import dynamic from 'next/dynamic';
 
@@ -12,11 +12,11 @@ const VyvoCmartChain = () => {
   const Lottie = dynamic(() => import('lottie-react'), { 
     ssr: false
   });
-  const optionsBgPink = {
-    animationData: animationBgPink,
-    loop: true,
-  };
-  const { View: ViewBgPink } = useLottie(optionsBgPink);
+  // const optionsBgPink = {
+  //   animationData: animationBgPink,
+  //   loop: true,
+  // };
+  // const { View: ViewBgPink } = useLottie(optionsBgPink);
   return (
     <>
       <VyvoCmartChainBanner />
