@@ -30,7 +30,7 @@ const cards: Card[] = [
     id: 1,
     title: "Heart Rate",
     content:
-      "Enjoy a better understanding of your body composition that is far more helpful than just weight alone.",
+      "Track your heart rate 24/7 and receive alerts for abnormal patterns to stay ahead of potential health issues",
   },
   {
     id: 2,

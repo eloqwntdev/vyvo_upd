@@ -29,9 +29,11 @@ const BandPage = () => {
       <PrivacyBand />
       <WayToPay />
       <OneRing
-        title="It's the One Watch for"
-        highlightedText="Your Wellness"
-        description="The shockingly light, amazingly thin, and utterly powerful BioSenseTM Watch transforms the way you think about wearable devices."
+        title="An Extraordinary Breakthrough,"
+        highlightedText="Made Just for You"
+        description="BioSense is what other health bands want to be like when they grow up. Quite simply, it’s the
+world’s most advanced health band.
+Use the Vyvo Smart App to initiate measurements with your BioSense health band and to check"
         images={watchImages}
         productName="Vyvo Smart Watch"
         imagePosition="left"

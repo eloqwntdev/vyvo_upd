@@ -24,7 +24,7 @@ const OneRing: React.FC<OneRingProps> = ({
   title,
   highlightedText,
   description,
-  appDescription = "Download the Vyvo Smart App from the Apple App Store or Google Play Store.",
+  appDescription = "your results, each time and across days and weeks. Download it from the Apple App Store or Google Play Store.",
   images,
   productName,
   imagePosition = "right",
@@ -138,7 +138,7 @@ const OneRing: React.FC<OneRingProps> = ({
           >
             {title}{" "}
             <span className="banner-gradient-text">{highlightedText}</span>{" "}
-            Quest!
+            {/* Quest! */}
           </motion.h2>
           <motion.p
             variants={fadeInUp}

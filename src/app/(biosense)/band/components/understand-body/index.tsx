@@ -41,7 +41,7 @@ const UnderstandBody = () => {
       icon: <Icon3 />,
       title: "Medical-grade fingertip sensor for BP + SPO2 + APG",
       content:
-        "Track your heart rate 24/7 and receive alerts for abnormal patterns to stay ahead of potential health issues. Monitor blood pressure, oxygen levels, and arterial conditions with clinical-grade accuracy.",
+        "Monitor blood pressure, oxygen levels, and arterial conditions with clinical-grade accuracy.",
     },
   ];
 

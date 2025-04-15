@@ -94,7 +94,7 @@ const Banner = () => {
               variants={fadeInUp}
               className="text-white font-nb font-light text-[16px] leading-[20px] md:text-[24px] md:leading-[28px] text-center"
             >
-              The New Shape of Wellness, from Vyvo
+              The One Ring For Your Wellness Quest.
             </motion.p>
           </div>
           <motion.div variants={fadeInUp}>
