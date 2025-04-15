@@ -31,8 +31,8 @@ const RingWatch = () => {
       <HealthFeaturesSection />
 
       <OneRing
-        title="An Extraordinary Breakthrough,"
-        highlightedText="Made Just for You"
+        title="Wellness Monitoring,"
+        highlightedText="Wrapped Around Your Finger"
         description="BioSense is what other health bands want to be like when they grow up. Quite simply, it’s the
 world’s most advanced health band.
 Use the Vyvo Smart App to initiate measurements with your BioSense health band and to check"

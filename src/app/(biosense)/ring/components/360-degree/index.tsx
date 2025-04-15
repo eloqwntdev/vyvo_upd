@@ -36,7 +36,7 @@ const cards: Card[] = [
     id: 2,
     title: "Stress Analysis",
     content:
-      "A scale doesn't tell you much about your health. BioSense uses BIA to give you a deeper understanding of your body composition, far beyond just your weight.That makes it easier to know where you're at, so you  can get to where you want to be.",
+      "Monitor your stress levels throughout the day and learn effective ways to manage and reduce stress.",
   },
   {
     id: 3,
@@ -48,7 +48,7 @@ const cards: Card[] = [
     id: 4,
     title: "Energy",
     content:
-      "Monitor your stress levels throughout the day and learn effective ways to manage and reduce stress.",
+      "Demands on your energy are constant. Are you up for your next big meeting, or the walk to the subway station?",
   },
 ];
 const Degree360 = ({
