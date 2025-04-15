@@ -23,9 +23,9 @@ const BandPage = () => {
     <div className="overflow-hidden">
       <BannerBand />
       <WatchVideoBand />
-      <ThinLight />
       <HealthBand />
       <UnderstandBody />
+      <ThinLight />
       <PrivacyBand />
       <WayToPay />
       <OneRing
