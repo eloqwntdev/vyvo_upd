@@ -6,8 +6,12 @@ import Values from "./components/values";
 import PinkButton from "@/components/common/controllers/button/pink-button";
 import { useLottie } from "lottie-react";
 import animationBgPink from "../../../public/lottie/pink-bg/data.json";
+import dynamic from 'next/dynamic';
 
 const VyvoCmartChain = () => {
+  const Lottie = dynamic(() => import('lottie-react'), { 
+    ssr: false
+  });
   const optionsBgPink = {
     animationData: animationBgPink,
     loop: true,
@@ -35,7 +39,7 @@ const VyvoCmartChain = () => {
         </div>
 
         <div className="absolute top-[-20%] w-full h-full scale-125">
-          {ViewBgPink}
+        <Lottie animationData={animationBgPink} loop/>
         </div>
       </section>
     </>
