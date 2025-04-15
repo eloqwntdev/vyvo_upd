@@ -111,18 +111,21 @@ const AccessibleInteligence = () => {
               variants={fadeInUp}
               className="text-white font-nb font-light text-[56px] leading-[60px]"
             >
-              Accessible
-              <br /> inteligence
+              Accessible 
+              <br /> Intelligence
             </motion.h2>
 
             <motion.p
               variants={fadeInUp}
               className="text-white font-nb font-light text-[16px] leading-[20px]"
             >
-              VAI OS uses a multimodal approach to make conversations easy and
-              natural. With the BioSense Watch's speaker and mic, this Life
-              CoPilot interacts seamlessly and keeps you informed on various
-              aspects of your daily life, including:
+              BioSense™ Watch is the first VAI OS companion device, easily connecting you to this uniquely
+capable Life CoPilot. With a built-in microphone and speaker, you can interact with VAI OS
+right from your wrist, wherever you are.* And it can interact with you through natural
+conversations!
+<br />
+<br />
+VAI OS supports you with:
             </motion.p>
 
             {/* Feature list with bullet points */}
@@ -135,24 +138,30 @@ const AccessibleInteligence = () => {
               <motion.li variants={fadeInUp} className="flex items-start gap-3">
                 <div className="rounded-full w-2 h-2 bg-white mt-2 shrink-0"></div>
                 <span className="text-white font-nb font-light text-[16px] leading-[20px]">
-                  Health Monitoring: VAI OS tracks your health via the BioSense
-                  Watch and sends alerts for any concerns.
+                Health Monitoring: VAI OS tracks your health via the BioSense Watch and sends alerts
+                for any concerns.
                 </span>
               </motion.li>
 
               <motion.li variants={fadeInUp} className="flex items-start gap-3">
                 <div className="rounded-full w-2 h-2 bg-white mt-2 shrink-0"></div>
                 <span className="text-white font-nb font-light text-[16px] leading-[20px]">
-                  Personalized Suggestions: It analyzes your habits to offer
-                  tailored advice.
+                Personalized Suggestions: It analyzes your habits to offer tailored advice.
                 </span>
               </motion.li>
 
               <motion.li variants={fadeInUp} className="flex items-start gap-3">
                 <div className="rounded-full w-2 h-2 bg-white mt-2 shrink-0"></div>
                 <span className="text-white font-nb font-light text-[16px] leading-[20px]">
-                  Timely Reminders: VAI OS reminds you of tasks like taking
-                  vitamins, staying active, or following up on emails.
+                Timely Reminders: VAI OS reminds you of tasks like taking vitamins, staying active, or
+                following up on emails.
+                </span>
+              </motion.li>
+              <motion.li variants={fadeInUp} className="flex items-start gap-3">
+                <div className="rounded-full w-2 h-2 bg-white mt-2 shrink-0"></div>
+                <span className="text-white font-nb font-light text-[16px] leading-[20px]">
+                Even more: Simply ask VAI OS how it can help you and give it tasks throughout your
+day!
                 </span>
               </motion.li>
             </motion.ul>
