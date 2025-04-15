@@ -24,7 +24,7 @@ const Footer = () => {
 
   const thirdLinks = [
     { label: "About Us", href: "/about-us" },
-    { label: "News", href: "" },
+    { label: "News", href: "/news" },
     { label: "Events", href: "" },
     { label: "Support", href: "" },
   ];
