@@ -1,7 +1,7 @@
 import SlashButton from "@/components/common/controllers/button/slash-button";
 import SortDropdown from "@/components/common/controllers/dropdowns/sort-dropdown";
 import React from "react";
-import { ArticleCard } from "../articles";
+import ArticleCard  from "../articles";
 
 const PressRelease = () => {
   return (
