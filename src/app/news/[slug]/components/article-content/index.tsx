@@ -2,28 +2,43 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
-// Define the type for our section names
-type SectionName =
-  | "Understanding SocialFi"
-  | "Vyvo's Role in SocialFi"
-  | "Benefits of SocialFi Through Vyvo"
-  | "The Future of SocialFi and Vyvo"
-  | "Conclusion";
+// Define the types for our article data
+interface Description {
+  type: string;
+  text: string;
+  spans: any[];
+  direction: string;
+}
 
-const ArticleContent = () => {
-  const [activeSection, setActiveSection] = useState<SectionName>(
-    "Understanding SocialFi"
+interface Section {
+  title: string;
+  descriptions: Description[];
+}
+
+interface ArticleContentProps {
+  articles: any[];
+}
+
+const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
+  console.log(articles);
+  // Filter out invalid sections (those with null titles or empty descriptions)
+  const validSections = articles.filter(
+    (section) => section.title && section.descriptions.length > 0
+  );
+
+  const [activeSection, setActiveSection] = useState<string>(
+    validSections.length > 0 ? validSections[0].title : ""
   );
   const [isMobileView, setIsMobileView] = useState(false);
 
-  // Section refs with proper typing
-  const sectionRefs: Record<SectionName, React.RefObject<HTMLDivElement>> = {
-    "Understanding SocialFi": useRef(null),
-    "Vyvo's Role in SocialFi": useRef(null),
-    "Benefits of SocialFi Through Vyvo": useRef(null),
-    "The Future of SocialFi and Vyvo": useRef(null),
-    Conclusion: useRef(null),
-  };
+  // Create refs for each section dynamically
+  const sectionRefs = validSections.reduce(
+    (acc, section) => {
+      acc[section.title] = useRef(null);
+      return acc;
+    },
+    {} as Record<string, React.RefObject<HTMLDivElement>>
+  );
 
   // Handle responsive layout
   useEffect(() => {
@@ -38,37 +53,103 @@ const ArticleContent = () => {
 
   // Handle scroll spy
   useEffect(() => {
+    // Only set up scroll spy if there are valid sections
+    if (validSections.length === 0) return;
+
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100; // Offset for better activation
+      const scrollPosition = window.scrollY + 80; // Offset for better activation
+      let currentSection = "";
+      let closestSection = null;
+      let minDistance = Number.MAX_VALUE;
 
-      Object.entries(sectionRefs).forEach(([section, ref]) => {
+      // Find the closest section to the current scroll position
+      for (const sectionTitle in sectionRefs) {
+        const ref = sectionRefs[sectionTitle];
         if (ref.current) {
-          const element = ref.current;
-          const { offsetTop, offsetHeight } = element;
+          const { offsetTop, offsetHeight } = ref.current;
+          const distance = Math.abs(
+            scrollPosition - (offsetTop + offsetHeight / 2)
+          );
 
+          // If this section is closer than the previous closest, update
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestSection = sectionTitle;
+          }
+
+          // Also check if we're inside this section
           if (
             scrollPosition >= offsetTop &&
             scrollPosition < offsetTop + offsetHeight
           ) {
-            setActiveSection(section as SectionName);
+            currentSection = sectionTitle;
+            break; // Found the section we're in, no need to check further
           }
         }
-      });
+      }
+
+      // Use either the section we're in, or the closest section
+      const newActiveSection = currentSection || closestSection;
+
+      if (newActiveSection && newActiveSection !== activeSection) {
+        console.log("Setting active section to:", newActiveSection);
+        setActiveSection(newActiveSection);
+      } else if (scrollPosition < 200 && validSections.length > 0) {
+        // Near the top of the page, set the first section as active
+        setActiveSection(validSections[0].title);
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    // Use requestAnimationFrame for better performance
+    let ticking = false;
+    const scrollListener = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
 
-  const scrollToSection = (section: SectionName) => {
-    if (sectionRefs[section]?.current) {
-      sectionRefs[section].current?.scrollIntoView({
+    window.addEventListener("scroll", scrollListener);
+
+    // Initial call to set the correct section on page load
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", scrollListener);
+  }, [sectionRefs, activeSection, validSections]);
+
+  const scrollToSection = (sectionTitle: string) => {
+    console.log("Scrolling to section:", sectionTitle);
+    if (sectionRefs[sectionTitle]?.current) {
+      const yOffset = -80; // Adjust for header height
+      const element = sectionRefs[sectionTitle].current;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({
+        top: y,
         behavior: "smooth",
-        block: "start",
       });
-      setActiveSection(section);
+
+      // Update active section immediately for better UX
+      setActiveSection(sectionTitle);
+    } else {
+      console.warn(`Section ref for "${sectionTitle}" not found`);
     }
   };
+
+  // If there are no valid sections, return empty component or placeholder
+  if (validSections.length === 0) {
+    return (
+      <section className="w-full bg-black py-10">
+        <p className="text-white/50 text-center">
+          No article content available
+        </p>
+      </section>
+    );
+  }
 
   // Mobile section navigation component
   const MobileSectionNav = () => (
@@ -79,16 +160,16 @@ const ArticleContent = () => {
       className="w-full mb-6"
     >
       <div className="flex flex-col gap-4 pb-2">
-        {(Object.keys(sectionRefs) as SectionName[]).map((section) => (
+        {validSections.map((section) => (
           <motion.button
-            key={section}
-            onClick={() => scrollToSection(section)}
+            key={section.title}
+            onClick={() => scrollToSection(section.title)}
             whileHover={{ x: 2 }}
             className="flex items-center remove-hover-bg gap-2 relative group text-left"
           >
             <div
               className={`h-5 rounded-full w-0.5 transition-all duration-300 ${
-                activeSection === section
+                activeSection === section.title
                   ? "bg-gradient-to-t from-[#2A5FDD] to-[#77A9E8]"
                   : "bg-gradient-to-t from-[#000] to-[#000]"
               }`}
@@ -96,12 +177,12 @@ const ArticleContent = () => {
             <div
               className={`bg-transparent font-nb font-light text-sm md:text-[16px] leading-tight md:leading-[20px] tracking-[-0.3px] md:tracking-[-0.5px] transition-colors duration-300
                       ${
-                        activeSection === section
+                        activeSection === section.title
                           ? "text-white"
                           : "text-white/50 hover:text-white/80"
                       }`}
             >
-              {section}
+              {section.title}
             </div>
           </motion.button>
         ))}
@@ -124,16 +205,16 @@ const ArticleContent = () => {
             className="hidden md:block w-full max-w-[160px] lg:max-w-[232px] sticky top-[100px]"
           >
             <div className="flex flex-col gap-4 md:gap-6">
-              {(Object.keys(sectionRefs) as SectionName[]).map((section) => (
+              {validSections.map((section) => (
                 <motion.button
-                  key={section}
-                  onClick={() => scrollToSection(section)}
+                  key={section.title}
+                  onClick={() => scrollToSection(section.title)}
                   whileHover={{ x: 2 }}
                   className="flex items-center remove-hover-bg gap-2 relative group text-left"
                 >
                   <div
                     className={`h-5 rounded-full w-0.5 transition-all duration-300 ${
-                      activeSection === section
+                      activeSection === section.title
                         ? "bg-gradient-to-t from-[#2A5FDD] to-[#77A9E8]"
                         : "bg-gradient-to-t from-[#000] to-[#000]"
                     }`}
@@ -141,12 +222,12 @@ const ArticleContent = () => {
                   <div
                     className={`bg-transparent font-nb font-light text-sm md:text-[16px] leading-tight md:leading-[20px] tracking-[-0.3px] md:tracking-[-0.5px] transition-colors duration-300
                       ${
-                        activeSection === section
+                        activeSection === section.title
                           ? "text-white"
                           : "text-white/50 hover:text-white/80"
                       }`}
                   >
-                    {section}
+                    {section.title}
                   </div>
                 </motion.button>
               ))}
@@ -165,121 +246,39 @@ const ArticleContent = () => {
           }}
           className="w-full md:max-w-[calc(100%-180px)] lg:max-w-[632px] flex flex-col gap-8 sm:gap-10 md:gap-[60px]"
         >
-          <p className="text-white/90 font-light font-nb text-sm sm:text-base md:text-[16px] leading-relaxed md:leading-[20px] tracking-[-0.3px] md:tracking-[-0.5px]">
-            In an era where digital innovation is relentlessly advancing, the
-            convergence of social media and decentralized finance has given
-            birth to an exciting new paradigm: SocialFi. At the forefront of
-            this revolution stands Vyvo, a visionary company that's redefining
-            how we think about social connectivity and financial empowerment.
-          </p>
+          {/* Introduction paragraph - using first section's first description if available */}
+          {validSections.length > 0 &&
+            validSections[0].descriptions.length > 0 && (
+              <p className="text-white/90 font-light font-nb text-sm sm:text-base md:text-[16px] leading-relaxed md:leading-[20px] tracking-[-0.3px] md:tracking-[-0.5px] break-words overflow-hidden">
+                {validSections[0].descriptions[0].text}
+              </p>
+            )}
 
           <div className="flex flex-col gap-8 sm:gap-10">
-            <motion.div
-              ref={sectionRefs["Understanding SocialFi"]}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col gap-3 sm:gap-4"
-            >
-              <h3 className="text-white font-nb font-light text-2xl sm:text-3xl md:text-4xl leading-tight md:leading-[44px] tracking-[-0.8px] md:tracking-[-1.2px]">
-                Understanding SocialFi
-              </h3>
-              <p className="font-nb text-sm sm:text-base md:text-[16px] font-light leading-relaxed md:leading-[20px] tracking-[-0.3px] md:tracking-[-0.5px] text-white/80">
-                SocialFi represents a merging of social networking platforms
-                with decentralized finance protocols, creating ecosystems where
-                social interactions carry real economic value. Unlike
-                traditional social media, where user data is harvested and
-                monetized by corporations, SocialFi platforms empower users to
-                own their data and be rewarded for their contributions and
-                engagements.
-              </p>
-            </motion.div>
+            {validSections.map((section) => (
+              <motion.div
+                key={section.title}
+                ref={sectionRefs[section.title]}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col gap-3 sm:gap-4"
+              >
+                <h3 className="text-white font-nb font-light text-2xl sm:text-3xl md:text-4xl leading-tight md:leading-[44px] tracking-[-0.8px] md:tracking-[-1.2px]">
+                  {section.title}
+                </h3>
 
-            <motion.div
-              ref={sectionRefs["Vyvo's Role in SocialFi"]}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col gap-3 sm:gap-4"
-            >
-              <h3 className="text-white font-nb font-light text-2xl sm:text-3xl md:text-4xl leading-tight md:leading-[44px] tracking-[-0.8px] md:tracking-[-1.2px]">
-                Vyvo's Role in SocialFi
-              </h3>
-              <p className="font-nb text-sm sm:text-base md:text-[16px] font-light leading-relaxed md:leading-[20px] tracking-[-0.3px] md:tracking-[-0.5px] text-white/80">
-                Vyvo is redefining the landscape of SocialFi by integrating
-                health data and wearable technology into the equation. Through
-                its innovative platform, Vyvo enables users to generate value
-                from their health data while maintaining complete ownership and
-                privacy. This approach transforms passive data collection into
-                an active, rewarding experience.
-              </p>
-            </motion.div>
-
-            <motion.div
-              ref={sectionRefs["Benefits of SocialFi Through Vyvo"]}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col gap-3 sm:gap-4"
-            >
-              <h3 className="text-white font-nb font-light text-2xl sm:text-3xl md:text-4xl leading-tight md:leading-[44px] tracking-[-0.8px] md:tracking-[-1.2px]">
-                Benefits of SocialFi Through Vyvo
-              </h3>
-              <p className="font-nb text-sm sm:text-base md:text-[16px] font-light leading-relaxed md:leading-[20px] tracking-[-0.3px] md:tracking-[-0.5px] text-white/80">
-                The integration of SocialFi principles into Vyvo's ecosystem
-                offers numerous advantages. Users gain enhanced privacy
-                controls, fair compensation for their data contributions, and
-                access to a vibrant community of health-conscious individuals.
-                Meanwhile, researchers and healthcare providers benefit from
-                anonymized, consent-based data that can drive meaningful
-                innovations in healthcare.
-              </p>
-            </motion.div>
-
-            <motion.div
-              ref={sectionRefs["The Future of SocialFi and Vyvo"]}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col gap-3 sm:gap-4"
-            >
-              <h3 className="text-white font-nb font-light text-2xl sm:text-3xl md:text-4xl leading-tight md:leading-[44px] tracking-[-0.8px] md:tracking-[-1.2px]">
-                The Future of SocialFi and Vyvo
-              </h3>
-              <p className="font-nb text-sm sm:text-base md:text-[16px] font-light leading-relaxed md:leading-[20px] tracking-[-0.3px] md:tracking-[-0.5px] text-white/80">
-                Looking ahead, Vyvo envisions a world where personal health data
-                becomes a valuable asset class, empowering individuals while
-                contributing to global health initiatives. By continuing to
-                innovate at the intersection of blockchain technology, wearable
-                devices, and social connectivity, Vyvo is laying the groundwork
-                for a more equitable digital economy.
-              </p>
-            </motion.div>
-
-            <motion.div
-              ref={sectionRefs["Conclusion"]}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col gap-3 sm:gap-4"
-            >
-              <h3 className="text-white font-nb font-light text-2xl sm:text-3xl md:text-4xl leading-tight md:leading-[44px] tracking-[-0.8px] md:tracking-[-1.2px]">
-                Conclusion
-              </h3>
-              <p className="font-nb text-sm sm:text-base md:text-[16px] font-light leading-relaxed md:leading-[20px] tracking-[-0.3px] md:tracking-[-0.5px] text-white/80">
-                Vyvo stands at the intersection of several transformative
-                trends—decentralized finance, health technology, and social
-                networking. By pioneering the SocialFi revolution in the health
-                sector, Vyvo is not just creating a new product; it's
-                establishing a new paradigm for how we value and share our most
-                personal data in the digital age.
-              </p>
-            </motion.div>
+                {section.descriptions.map((desc: any, index: number) => (
+                  <p
+                    key={index}
+                    className="font-nb text-sm sm:text-base md:text-[16px] font-light leading-relaxed md:leading-[20px] tracking-[-0.3px] md:tracking-[-0.5px] text-white/80 break-words overflow-hidden"
+                  >
+                    {desc.text}
+                  </p>
+                ))}
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>
