@@ -90,11 +90,11 @@ effortlessly fit into your lifestyle.
 
             <motion.ul ref={listRef} className="flex flex-col gap-2">
               {[
-                "BP + SPO2 + APG",
-                "Bioelectrical Impedance Analysis",
-                "Electrocardiogram Measurement",
-                "Continuous Monitoring for Atrial Fibrillation (AFib)",
-                "Continuous Monitoring of Other Key Health Metrics",
+                "Bioelectrical Impedance Analysis, for a comprehensive understanding of your body composition.",
+                "Electrocardiogram, giving you valuable insights into your heart health.",
+                "Continuous Atrial Fibrillation (AFib) monitoring, alerting you whenever issues are detected.",
+                "Sleep quality — including REM and disturbances – so you can address shortcomings and make needed improvements.",
+                "And much more!",
               ].map((item, index) => (
                 <motion.li
                   key={index}
