@@ -73,7 +73,7 @@ const BiosenseBand = () => {
               transition={{ duration: 0.6 }}
               className="font-nb font-light text-[36px] sm:text-[48px] md:text-[56px] leading-[1.15] md:leading-[64px] tracking-[-1.7px] banner-gradient-text"
             >
-              BioSense Band
+              BioSense Health Band
             </motion.h2>
 
             <motion.p
@@ -82,9 +82,10 @@ const BiosenseBand = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-nb font-light text-[16px] leading-[20px] tracking-[-3%] text-black"
             >
-              Our award-winning BioSense Band combines sleek design with
-              powerful innovation, featuring a Clinical-Grade fingertip sensor
-              to track metrics like body composition, hydration, and more
+              The award-winning BioSense™ health band is unlike anything in its category,
+combining elegant design with powerful innovation. It’s equipped with advanced
+technology and carefully engineered by Vyvo Technology to empower you and
+effortlessly fit into your lifestyle.
             </motion.p>
 
             <motion.ul ref={listRef} className="flex flex-col gap-2">
