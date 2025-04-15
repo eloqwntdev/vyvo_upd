@@ -11,6 +11,7 @@ const Footer = () => {
     { label: "Vyvo Tech", href: "/wearables" },
     { label: "Vyvo Smart Chain", href: "/vyvo-smart-chain" },
     { label: "SocialFi", href: "/social-fi" },
+    { label: "GPU Farm", href: "/gpu-farm" },
     { label: "Store", href: "" },
   ];
 
