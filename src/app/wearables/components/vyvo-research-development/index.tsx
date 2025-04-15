@@ -67,13 +67,13 @@ const VyvoResearchDevelopment = () => {
                 Our Dedication To Excellence
               </h3>
               <p className="font-nb font-light text-[14px] md:text-[16px] leading-[1.4] md:leading-[22px] tracking-wider">
-                FDA clearance for Vyvo's LifeWatch device exemplifies its
-                commitment to quality and innovation in health monitoring.
-                Through this milestone, Vyvo reinforces its commitment to
-                integrating advanced technology with user-focused wellness
-                solutions. With secure blockchain-backed data management, Vyvo's
-                devices provide users with accurate, trusted insights while
-                ensuring full control over personal information.
+              FDA clearance granted to Vyvo’s LifeWatch exemplifies our commitment to quality and
+innovation in health monitoring. Our unique wearables have been recognized with prestigious
+design awards, which reinforces our commitment to crafting world-class personal technology
+devices. But design is just a start. We also integrate advanced sensors and back-end data analysis
+to provide user-focused wellness solutions. By using secure blockchain-backed data
+management, our devices provide users with accurate, trusted insights while ensuring full control
+over personal information
               </p>
             </motion.div>
           </motion.div>
