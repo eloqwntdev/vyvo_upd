@@ -13,7 +13,7 @@ import "swiper/css";
 interface OneRingProps {
   title: string;
   highlightedText: string;
-  description: string;
+  description: React.ReactNode;
   appDescription?: string;
   images: string[];
   productName: string;
@@ -24,7 +24,7 @@ const OneRing: React.FC<OneRingProps> = ({
   title,
   highlightedText,
   description,
-  appDescription = "your results, each time and across days and weeks. Download it from the Apple App Store or Google Play Store.",
+  appDescription = "",
   images,
   productName,
   imagePosition = "right",

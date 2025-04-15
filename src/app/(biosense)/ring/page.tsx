@@ -33,9 +33,17 @@ const RingWatch = () => {
       <OneRing
         title="Wellness Monitoring,"
         highlightedText="Wrapped Around Your Finger"
-        description="BioSense is what other health bands want to be like when they grow up. Quite simply, it’s the
-world’s most advanced health band.
-Use the Vyvo Smart App to initiate measurements with your BioSense health band and to check"
+        description={
+          <>
+   Use BioSense Ring to constantly monitor key metrics, day and night, for enhanced wellbeing.
+Vyvo Smart App makes that so easy, unlocking all the tracking features and benefits of the
+BioSense Ring.
+<br />
+<br />
+<br />
+Download it from the Apple App Store or Google Play Store. 
+          </>
+        }
         images={watchImages}
         productName="Vyvo Smart Watch"
         imagePosition="left"

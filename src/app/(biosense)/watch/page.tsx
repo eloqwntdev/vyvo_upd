@@ -25,9 +25,9 @@ const BiosenseWatchPage = () => {
     <div className="overflow-hidden">
       <WatchBanner />
       <WatchVideo />
+      <AccessibleInteligence />
       <AsThin />
       <ALLThat />
-      <AccessibleInteligence />
       <SecondGeneration />
       <Privacy />
       <OneRing

@@ -84,12 +84,12 @@ const WatchBanner = () => {
           variants={fadeInUp}
           className="text-white font-light font-nb text-[14px] leading-[18px] md:text-[24px] md:leading-[28px] text-center tracking-[-3%]"
         >
-          The new face of Vyvo technology
+          The New Face of Vyvo Technology.
         </motion.p>
         <motion.div variants={slideUp}>
           <SlashButton
             showIcon={false}
-            label="Join to Waitlist"
+            label="Preorder Now"
             className="!bg-[#77A9E829] !py-[12px] test !rounded-[16px] w-full !max-w-[170px]"
             labelClassName="!tracking-[-0.2px]"
             containerStyles="!w-auto"
