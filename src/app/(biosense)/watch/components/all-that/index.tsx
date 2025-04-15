@@ -24,31 +24,31 @@ const ALLThat = () => {
       id: 1,
       title: "Medical-grade fingertip sensor for BP + SPO2 + APG",
       content:
-        "Enjoy a better understanding of your body composition that is far more helpful than just weight alone.",
+        "It couldn’t be simpler to check your Sp02 (blood oxygen), blood pressure, and vascular age (APG) readings at any time.",
     },
     {
       id: 2,
       title: "Bioelectrical Impedance Analysis",
       content:
-        "Understand your sleep cycles and get personalized recommendations to improve your sleep quality.",
+        "Enjoy a better understanding of your body composition that is far more helpful than just weight alone.",
     },
     {
       id: 3,
       title: "Electrocardiogram",
       content:
-        "Track your heart rate 24/7 and receive alerts for abnormal patterns to stay ahead of potential health issues.",
+        "TGet to the heart of the matter — capture an accurate ECG at any moment.",
     },
     {
       id: 4,
       title: "Activity Tracking",
       content:
-        "Monitor your stress levels throughout the day and learn effective ways to manage and reduce stress.",
+        "Keep track of your daily movements, workouts, and calories burned to maintain an active lifestyle.",
     },
     {
       id: 5,
       title: "Sleep Monitoring",
       content:
-        "Keep track of your daily movements, workouts, and calories burned to maintain an active lifestyle.",
+        "Wake up to a precise awareness of your sleep patterns, including REM and any sleep disturbances.",
     },
     {
       id: 6,

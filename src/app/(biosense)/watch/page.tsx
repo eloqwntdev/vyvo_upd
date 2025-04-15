@@ -31,11 +31,17 @@ const BiosenseWatchPage = () => {
       <SecondGeneration />
       <Privacy />
       <OneRing
-        title="An Extraordinary Breakthrough,"
-        highlightedText="Made Just for You"
-        description="BioSense is what other health bands want to be like when they grow up. Quite simply, it’s the
-world’s most advanced health band.
-Use the Vyvo Smart App to initiate measurements with your BioSense health band and to check"
+        title="Everything You’d Want from a Wearable —"
+        highlightedText="and More!"
+        description={
+          <>
+From VAI OS and AQI, to advanced wellness features and a stunning, award-winning design,
+BioSense Watch sets a new standard for what is possible from a smart wearable.
+Pair your BioSense Watch with the Vyvo Smart App to experience all the benefits of this
+remarkable device.        <br />
+Download it from the Apple App Store or Google Play Store.
+          </>
+        }
         images={watchImages}
         productName="Vyvo Smart Watch"
         imagePosition="right"
