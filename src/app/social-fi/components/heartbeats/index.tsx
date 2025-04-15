@@ -1,18 +1,22 @@
 "use client";
 import React from "react";
-import { useLottie } from "lottie-react";
+// import { useLottie } from "lottie-react";
 import { motion } from "framer-motion";
 import animationData from "../../../../../public/lottie/4/data.json";
 import PinkButton from "@/components/common/controllers/button/pink-button";
 import dynamic from "next/dynamic";
 
 const HeartBeats = () => {
-  const options = {
-    animationData,
-    loop: true,
-    assetsPath: "/lottie/4/images/",
-  };
-  const { View } = useLottie(options);
+    const Lottie = dynamic(() => import('lottie-react'), { 
+      ssr: false
+    });
+
+  // const options = {
+  //   animationData,
+  //   loop: true,
+  //   assetsPath: "/lottie/4/images/",
+  // };
+  // const { View } = useLottie(options);
 
   // Animation variants
   const fadeInUp = {
@@ -121,7 +125,7 @@ const HeartBeats = () => {
           }}
           className="max-w-[630px] w-full"
         >
-          {View}
+          <Lottie animationData={animationData} loop assetsPath="/lottie/4/images/"/>
         </motion.div>
       </motion.div>
     </motion.section>
