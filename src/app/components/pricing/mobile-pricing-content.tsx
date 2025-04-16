@@ -178,9 +178,16 @@ const MobilePricingCard = ({
   return (
     <div className="w-full px-4 pb-4">
       <div className="flex items-end gap-2 mb-5">
-        <span className="text-white text-[28px] font-nb leading-[32px]">
+        <motion.span
+          key={price}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3 }}
+          className="text-white text-[28px] font-nb leading-[32px]"
+        >
           ${price}
-        </span>
+        </motion.span>
         <span className="text-[#9DA2B3] text-[14px] font-nb mb-1">
           per month
         </span>
@@ -262,20 +269,10 @@ const MobilePricingContent = ({
       </div>
 
       {/* Content area */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={`pricing-${activeTab}-${isYearly ? "yearly" : "monthly"}`}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <MobilePricingCard
-            plan={pricingPlans[activeTab]}
-            isYearly={isYearly}
-          />
-        </motion.div>
-      </AnimatePresence>
+      <MobilePricingCard
+        plan={pricingPlans[activeTab]}
+        isYearly={isYearly}
+      />
     </div>
   );
 };

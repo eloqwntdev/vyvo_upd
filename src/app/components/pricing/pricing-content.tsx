@@ -145,10 +145,7 @@ const PricingCard = ({
   const price = isYearly ? plan.yearlyPrice : plan.monthlyPrice;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+    <div
       className={`w-full max-w-[542px] rounded-[20px] backdrop-blur-xl p-6 relative ${
         plan.isPopular ? "bg-[#77A9E829]" : "bg-[#0D0F17]"
       }`}
@@ -165,9 +162,16 @@ const PricingCard = ({
           )}
         </div>
         <div className="flex items-end gap-1">
-          <span className="text-white text-[30px] font-nb leading-[36px]">
+          <motion.span
+            key={price}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="text-white text-[30px] font-nb leading-[36px]"
+          >
             ${price}
-          </span>
+          </motion.span>
           <span className="text-[#9DA2B3] text-[14px] font-nb mb-1">
             per month
           </span>
@@ -234,7 +238,7 @@ const PricingCard = ({
           containerStyles="!w-auto text-center"
         />
       )}
-    </motion.div>
+    </div>
   );
 };
 
@@ -244,20 +248,11 @@ const PricingContent = ({
 }: PricingContentProps) => {
   return (
     <div className="w-full">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={`pricing-${isYearly ? "yearly" : "monthly"}`}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.3 }}
-          className="flex flex-col md:flex-row gap-6 w-full justify-center"
-        >
-          {pricingPlans.map((plan) => (
-            <PricingCard key={plan.title} plan={plan} isYearly={isYearly} />
-          ))}
-        </motion.div>
-      </AnimatePresence>
+      <div className="flex flex-col md:flex-row gap-6 w-full justify-center">
+        {pricingPlans.map((plan) => (
+          <PricingCard key={plan.title} plan={plan} isYearly={isYearly} />
+        ))}
+      </div>
     </div>
   );
 };
