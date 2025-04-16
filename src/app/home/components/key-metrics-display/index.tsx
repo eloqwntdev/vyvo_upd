@@ -261,35 +261,23 @@ const KeyMetricsDisplay = () => {
           Numbers That Define Us
         </h2>
 
-        <div className="relative w-full">
-          <Swiper
+        <div className="relative pointer-events-none w-full">
+            <Swiper
             modules={[FreeMode]}
             slidesPerView="auto"
             spaceBetween={24}
-            loop={true}
+            loop={false}
             freeMode={{
-              enabled: false, // Keep false for mobile snap effect
+              enabled: false, // Disable free mode scrolling
               momentum: false,
             }}
             className="w-full !px-4 md:!px-20"
-            breakpoints={{
-              768: {
-                freeMode: {
-                  enabled: true, // Enable free mode scrolling on desktop
-                  momentum: true,
-                },
-                spaceBetween: 24,
-              },
-            }}
-            slideToClickedSlide={true}
+            allowTouchMove={false} // Disable touch and mouse movement
+            slideToClickedSlide={false} // Prevent slide movement on click
             centeredSlides={true}
             centeredSlidesBounds={true}
             speed={800}
-            onSlideChange={(swiper) => {
-              const progress = swiper.progress;
-              setProgress(progress);
-            }}
-          >
+            >
             {metrics.map((metric, index) => (
               <SwiperSlide
                 key={index}

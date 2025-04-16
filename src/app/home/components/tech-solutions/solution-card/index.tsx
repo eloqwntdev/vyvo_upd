@@ -62,29 +62,29 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
         {/* Text Block */}
         <motion.div
           className="w-full md:w-1/2 lg:max-w-[504px] flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-10"
-          style={{ y: yTransform }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{
-            opacity: isInView ? 1 : 0,
-            y: isInView ? 0 : 20,
-          }}
-          transition={{
-            duration: 0.8,
-            ease: [0.215, 0.61, 0.355, 1],
-          }}
+          // style={{ y: yTransform }}
+          // initial={{ opacity: 0, y: 20 }}
+          // animate={{
+          //   opacity: isInView ? 1 : 0,
+          //   y: isInView ? 0 : 20,
+          // }}
+          // transition={{
+          //   duration: 0.8,
+          //   ease: [0.215, 0.61, 0.355, 1],
+          // }}
         >
           <motion.h3
             className="banner-gradient-text font-nb text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-[20px] md:leading-[22px] lg:leading-[24px] tracking-[-1%]"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{
-              opacity: isInView ? 1 : 0,
-              y: isInView ? 0 : 10,
-            }}
-            transition={{
-              duration: 0.6,
-              ease: [0.215, 0.61, 0.355, 1],
-              delay: 0.1,
-            }}
+            // initial={{ opacity: 0, y: 10 }}
+            // animate={{
+            //   opacity: isInView ? 1 : 0,
+            //   y: isInView ? 0 : 10,
+            // }}
+            // transition={{
+            //   duration: 0.6,
+            //   ease: [0.215, 0.61, 0.355, 1],
+            //   delay: 0.1,
+            // }}
           >
             {title}
           </motion.h3>
@@ -93,16 +93,16 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
               <motion.p
                 key={index}
                 className="text-white font-nb font-light text-[14px] sm:text-[15px] md:text-[16px] lg:text-[20px] leading-[20px] md:leading-[24px] lg:leading-[28px] tracking-[-3%]"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{
-                  opacity: isInView ? 1 : 0,
-                  y: isInView ? 0 : 10,
-                }}
-                transition={{
-                  duration: 0.6,
-                  ease: [0.215, 0.61, 0.355, 1],
-                  delay: 0.2 + index * 0.1,
-                }}
+                // initial={{ opacity: 0, y: 10 }}
+                // animate={{
+                //   opacity: isInView ? 1 : 0,
+                //   y: isInView ? 0 : 10,
+                // }}
+                // transition={{
+                //   duration: 0.6,
+                //   ease: [0.215, 0.61, 0.355, 1],
+                //   delay: 0.2 + index * 0.1,
+                // }}
               >
                 {paragraph}
               </motion.p>
@@ -110,16 +110,16 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
           ) : (
             <motion.p
               className="text-white font-nb font-light text-[14px] sm:text-[15px] md:text-[16px] lg:text-[20px] leading-[20px] md:leading-[24px] lg:leading-[28px] tracking-[-3%]"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{
-                opacity: isInView ? 1 : 0,
-                y: isInView ? 0 : 10,
-              }}
-              transition={{
-                duration: 0.6,
-                ease: [0.215, 0.61, 0.355, 1],
-                delay: 0.2,
-              }}
+              // initial={{ opacity: 0, y: 10 }}
+              // animate={{
+              //   opacity: isInView ? 1 : 0,
+              //   y: isInView ? 0 : 10,
+              // }}
+              // transition={{
+              //   duration: 0.6,
+              //   ease: [0.215, 0.61, 0.355, 1],
+              //   delay: 0.2,
+              // }}
             >
               {description}
             </motion.p>
@@ -129,16 +129,16 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
         {/* Image Block with Swiper */}
         <motion.div
           className="relative w-full sm:w-[90%] md:w-1/2 lg:w-[630px] aspect-[630/420] sm:aspect-[630/420] md:aspect-[630/420]"
-          style={{ y: yTransform }}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{
-            opacity: isInView ? 1 : 0,
-            scale: isInView ? 1 : 0.95,
-          }}
-          transition={{
-            duration: 0.8,
-            ease: [0.215, 0.61, 0.355, 1],
-          }}
+          // style={{ y: yTransform }}
+          // initial={{ opacity: 0, scale: 0.95 }}
+          // animate={{
+          //   opacity: isInView ? 1 : 0,
+          //   scale: isInView ? 1 : 0.95,
+          // }}
+          // transition={{
+          //   duration: 0.8,
+          //   ease: [0.215, 0.61, 0.355, 1],
+          // }}
         >
           <Swiper
             onSwiper={setSwiperInstance}
@@ -170,9 +170,9 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
           {images.length > 1 && (
             <motion.div
               className="flex items-center gap-1.5 absolute bottom-4 sm:bottom-5 md:bottom-6 left-1/2 -translate-x-1/2 z-10"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: isInView ? 1 : 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              // initial={{ opacity: 0 }}
+              // animate={{ opacity: isInView ? 1 : 0 }}
+              // transition={{ duration: 0.6, delay: 0.3 }}
             >
               {images.map((_, index) => (
                 <motion.button

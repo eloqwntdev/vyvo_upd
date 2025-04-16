@@ -219,15 +219,15 @@ const TechSolutions = () => {
             >
               <motion.div
                 className="sticky top-0 min-h-screen w-full"
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: isActive ? 1 : 0.3,
-                  scale: isActive ? 1 : 0.95,
-                }}
-                transition={{
-                  duration: 0.5,
-                  ease: [0.215, 0.61, 0.355, 1],
-                }}
+                // initial={{ opacity: 0 }}
+                // animate={{
+                //   opacity: isActive ? 1 : 0.3,
+                //   scale: isActive ? 1 : 0.95,
+                // }}
+                // transition={{
+                //   duration: 0.5,
+                //   ease: [0.215, 0.61, 0.355, 1],
+                // }}
               >
                 <SolutionCard
                   title={card.title}
