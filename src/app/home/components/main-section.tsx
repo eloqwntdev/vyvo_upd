@@ -34,7 +34,7 @@ const MainSection = () => {
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-5 pt-[96px] md:pt-[162px] pb-6 lg:pb-0">
-        <div className="card-1-gradient p-[2.5px] rounded-[18px] card-shadow">
+        <div className="cursor-pointer card-1-gradient p-[2.5px] rounded-[18px] card-shadow">
           <div className="p-4 rounded-[18px] card-1-inner-gradient relative">
             <img
               src="/homepage/card-1.png"
@@ -46,7 +46,8 @@ const MainSection = () => {
             </span>
           </div>
         </div>
-        <div className="card-2-gradient p-[2.5px] rounded-[18px] card-shadow">
+        
+        <div className="cursor-pointer card-2-gradient p-[2.5px] rounded-[18px] card-shadow">
           <div className="p-4 rounded-[18px] card-2-inner-gradient relative">
             <img
               src="/homepage/card-2.png"
@@ -58,7 +59,8 @@ const MainSection = () => {
             </span>
           </div>
         </div>
-        <div className="card-3-gradient p-[2.5px] rounded-[18px] card-shadow ">
+
+        <div className="cursor-pointer card-3-gradient p-[2.5px] rounded-[18px] card-shadow ">
           <div className="p-4 rounded-[18px] card-3-inner-gradient relative">
             <img
               src="/homepage/card-3.png"
@@ -177,7 +179,7 @@ const MainSection = () => {
           </div>
         </div>
 
-        <div className="card-4-gradient p-[2.5px] rounded-[18px] card-shadow">
+        <div className="cursor-pointer card-4-gradient p-[2.5px] rounded-[18px] card-shadow">
           <div className="p-4 rounded-[18px] card-4-inner-gradient relative">
             <img
               src="/homepage/card-4.png"
