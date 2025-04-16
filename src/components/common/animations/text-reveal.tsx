@@ -86,11 +86,11 @@ const Word: FC<WordProps> = ({ children, progress, range, hasRevealed }) => {
   const opacity = useTransform(progress, range, [0, 1]);
   return (
     <span className="xl:lg-3 relative flex items-center justify-center mx-1 lg:mx-1.5 text-center">
-      <span className="absolute text-[#FFFFFF26]">{children}</span>
+      <span className="absolute py-[2px] text-[#FFFFFF26]">{children}</span>
       <motion.span
         style={{ opacity: hasRevealed ? 1 : opacity }}
         className={
-          "bg-gradient-to-r from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent"
+          "bg-gradient-to-r py-[2px] from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent"
         }
       >
         {children}
