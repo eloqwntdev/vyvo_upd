@@ -87,8 +87,8 @@ const OneRing: React.FC<OneRingProps> = ({
             >
               <Image
                 src={image}
-                width={598}
-                height={628}
+                width={1196}
+                height={1256}
                 alt={`${productName} Device ${index + 1}`}
                 className="mx-auto"
                 priority={index === 0}
