@@ -31,10 +31,13 @@ const BiosenseWatchPage = () => {
       <SecondGeneration />
       <Privacy />
       <OneRing
-        title="Everything You’d Want from a Wearable —"
-        highlightedText="and More!"
+        title="It's the One Watch for"
+        highlightedText="Your Wellness"
         description={
           <>
+          Everything You’d Want from a Wearable — and More!
+          <br />
+          <br />
 From VAI OS and AQI, to advanced wellness features and a stunning, award-winning design,
 BioSense Watch sets a new standard for what is possible from a smart wearable.
 Pair your BioSense Watch with the Vyvo Smart App to experience all the benefits of this

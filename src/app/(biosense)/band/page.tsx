@@ -29,12 +29,15 @@ const BandPage = () => {
       <PrivacyBand />
       <WayToPay />
       <OneRing
-        title="An Extraordinary Breakthrough,"
-        highlightedText="Made Just for You"
+        title="It's the One Watch for"
+        highlightedText="Your Wellness"
         description={
           <>
-            BioSense is what other health bands want to be like when they grow up. Quite simply, it’s the world’s most advanced health band.Use the Vyvo Smart App to initiate measurements with your BioSense health band and to check your results, each time and across days and weeks.
-            <br />
+            An Extraordinary Breakthrough, Made Just for You
+          <br />
+          <br />
+          BioSense is what other health bands want to be like when they grow up. Quite simply, it’s the world’s most advanced health band. Use the Vyvo Smart App to initiate measurements with your BioSense health band and to check your results, each time and across days and weeks. 
+          <br />
             <br />
             <br />
             Download it from the Apple App Store or Google Play Store.
