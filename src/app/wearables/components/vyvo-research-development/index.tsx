@@ -67,18 +67,21 @@ const VyvoResearchDevelopment = () => {
                 Our Dedication To Excellence
               </h3>
               <p className="font-nb font-light text-[14px] md:text-[16px] leading-[1.4] md:leading-[22px] tracking-wider">
-              FDA clearance granted to Vyvo’s LifeWatch exemplifies our commitment to quality and
-innovation in health monitoring. Our unique wearables have been recognized with prestigious
-design awards, which reinforces our commitment to crafting world-class personal technology
-devices. But design is just a start. We also integrate advanced sensors and back-end data analysis
-to provide user-focused wellness solutions. By using secure blockchain-backed data
-management, our devices provide users with accurate, trusted insights while ensuring full control
-over personal information
+                FDA clearance granted to Vyvo’s LifeWatch exemplifies our
+                commitment to quality and innovation in health monitoring. Our
+                unique wearables have been recognized with prestigious design
+                awards, which reinforces our commitment to crafting world-class
+                personal technology devices. But design is just a start. We also
+                integrate advanced sensors and back-end data analysis to provide
+                user-focused wellness solutions. By using secure
+                blockchain-backed data management, our devices provide users
+                with accurate, trusted insights while ensuring full control over
+                personal information
               </p>
             </motion.div>
           </motion.div>
           <motion.div
-          className="flex flex-row gap-5"
+            className="flex flex-row gap-5"
             ref={awardRef}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={
@@ -95,7 +98,7 @@ over personal information
               alt="Award"
               className="w-[120px] md:w-[157px] h-auto"
             />
-                        <Image
+            <Image
               src="/wearables-img/research/PD2025_RD.png"
               width={157}
               height={80}
@@ -124,8 +127,8 @@ over personal information
           >
             <Image
               src="/wearables-img/research/medium-rectangle.webp"
-              width={630}
-              height={400}
+              width={1260}
+              height={800}
               alt="Research Development"
               className="w-full h-auto transition-transform duration-300 hover:scale-110"
             />
@@ -134,8 +137,8 @@ over personal information
             <div className="overflow-hidden  w-full sm:w-1/2 rounded-[24px]">
               <Image
                 src="/wearables-img/research/medium-rectangle-second.webp"
-                width={305}
-                height={226}
+                width={610}
+                height={452}
                 alt="Research Development"
                 className="w-full h-auto transition-transform duration-300 hover:scale-110"
               />
@@ -144,13 +147,12 @@ over personal information
             <div className="overflow-hidden  w-full sm:w-1/2 rounded-[24px]">
               <Image
                 src="/wearables-img/research/medium-rectangle-third.webp"
-                width={305}
-                height={226}
+                width={610}
+                height={452}
                 alt="Research Development"
                 className="w-full h-auto transition-transform duration-300 hover:scale-110"
               />
             </div>
-            
           </div>
         </motion.div>
       </div>
