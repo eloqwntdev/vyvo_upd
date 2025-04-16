@@ -200,6 +200,8 @@ const ALLThat = () => {
                 content={card.content}
                 delay={index * 0.1}
                 icon={renderCardIcon(card.id)}
+                isLast={index === cards.length - 1}
+                scrollContainerRef={vertScrollContainerRef}
               />
             ))}
           </div>
@@ -234,6 +236,8 @@ const ALLThat = () => {
                 delay={index * 0.1}
                 isMobile={true}
                 icon={renderCardIcon(card.id)}
+                isLast={index === cards.length - 1}
+                scrollContainerRef={horizScrollContainerRef}
               />
             </div>
           ))}
@@ -267,6 +271,8 @@ interface ExpandableCardProps {
   delay?: number;
   isMobile?: boolean;
   icon?: React.ReactNode;
+  isLast?: boolean;
+  scrollContainerRef?: React.RefObject<HTMLDivElement>;
 }
 
 const ExpandableCard = ({
@@ -276,9 +282,38 @@ const ExpandableCard = ({
   delay = 0,
   isMobile = false,
   icon,
+  isLast = false,
+  scrollContainerRef,
 }: ExpandableCardProps) => {
   // Auto-expand the first card or all mobile cards
   const [isExpanded, setIsExpanded] = useState(id === 1 || isMobile);
+
+  // Ref for scrolling into view
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // Scroll into view when expanded
+  useEffect(() => {
+    if (isExpanded) {
+      if (isLast && scrollContainerRef && scrollContainerRef.current) {
+        // Scroll to end of container
+        if (isMobile) {
+          scrollContainerRef.current.scrollLeft =
+            scrollContainerRef.current.scrollWidth -
+            scrollContainerRef.current.clientWidth;
+        } else {
+          scrollContainerRef.current.scrollTop =
+            scrollContainerRef.current.scrollHeight -
+            scrollContainerRef.current.clientHeight;
+        }
+      } else if (cardRef.current) {
+        cardRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: isMobile ? "nearest" : "center",
+          inline: isMobile ? "center" : "nearest",
+        });
+      }
+    }
+  }, [isExpanded, isMobile, isLast, scrollContainerRef]);
 
   // Enhanced animation variants
   const contentVariants = {
@@ -302,6 +337,7 @@ const ExpandableCard = ({
 
   return (
     <motion.div
+      ref={cardRef}
       className="rounded-2xl p-4 md:p-6 w-full flex flex-col gap-3 md:gap-5"
       initial={{ opacity: 0, y: 20 }}
       animate={{
