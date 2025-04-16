@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Banner from "./components/banner";
 import WatchVideoRing from "./components/watch-video";
@@ -17,6 +19,9 @@ const watchImages = [
 ];
 
 const RingWatch = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Banner />
@@ -31,19 +36,20 @@ const RingWatch = () => {
       <HealthFeaturesSection />
 
       <OneRing
-     title="It's the One Watch for"
+        title="It's the One Watch for"
         highlightedText="Your Wellness"
         description={
           <>
-   Wellness Monitoring, Wrapped Around Your Finger
-   <br />
-   <br />
-
-   Use BioSense Ring to constantly monitor key metrics, day and night, for enhanced wellbeing. Vyvo Smart App makes that so easy, unlocking all the tracking features and benefits of the BioSense Ring. 
-<br />
-<br />
-<br />
-Download it from the Apple App Store or Google Play Store. 
+            Wellness Monitoring, Wrapped Around Your Finger
+            <br />
+            <br />
+            Use BioSense Ring to constantly monitor key metrics, day and night,
+            for enhanced wellbeing. Vyvo Smart App makes that so easy, unlocking
+            all the tracking features and benefits of the BioSense Ring.
+            <br />
+            <br />
+            <br />
+            Download it from the Apple App Store or Google Play Store.
           </>
         }
         images={watchImages}

@@ -78,13 +78,15 @@ const WatchBanner = () => {
           variants={fadeInUp}
           className="text-white font-light font-nb text-[24px] leading-[28px] md:text-[48px] md:leading-[52px] lg:text-[72px] lg:leading-[76px] text-center tracking-[-3%]"
         >
-          <span className="text-gradient">BioSense Watch </span>
+          <span className="text-gradient">BioSense Health Watch</span>
         </motion.h2>
         <motion.p
           variants={fadeInUp}
           className="text-white font-light font-nb text-[14px] leading-[18px] md:text-[24px] md:leading-[28px] text-center tracking-[-3%]"
         >
-          The New Face of Vyvo Technology.
+          Eligible buyers can now preorder BioSense Watch. Experience BioSense
+          Watch for yourself, and see how this first VAI OS companion can
+          transform your daily life!
         </motion.p>
         <motion.div variants={slideUp}>
           <SlashButton
