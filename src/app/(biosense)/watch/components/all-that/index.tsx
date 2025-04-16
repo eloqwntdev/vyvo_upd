@@ -338,7 +338,7 @@ const ExpandableCard = ({
   return (
     <motion.div
       ref={cardRef}
-      className="rounded-2xl p-4 md:p-6 w-full flex flex-col gap-3 md:gap-5"
+      className="p-4 md:p-6 w-full flex flex-col gap-3 md:gap-5 rounded-xl bg-blue-100/4 shadow-[6px_80px_80px_0px_rgba(148,168,237,0.02)_inset,_0px_-1px_1px_0px_rgba(148,168,237,0.20)_inset,_0px_1px_1px_0px_rgba(148,168,237,0.20)_inset] backdrop-blur-lg"
       initial={{ opacity: 0, y: 20 }}
       animate={{
         opacity: 1,
