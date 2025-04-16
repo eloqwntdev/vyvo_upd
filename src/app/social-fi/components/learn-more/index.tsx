@@ -1,14 +1,14 @@
 "use client";
-import PinkButton from "@/components/common/controllers/button/pink-button";
+import { PinkyButton } from "@/components/common/controllers/button/pink-button";
+
 import React from "react";
 // import { useLottie } from "lottie-react";
 import animationData from "../../../../../public/lottie/circles-bottom.json";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
 const LearnMore = () => {
-
-  const Lottie = dynamic(() => import('lottie-react'), { 
-    ssr: false
+  const Lottie = dynamic(() => import("lottie-react"), {
+    ssr: false,
   });
 
   // const options = {
@@ -33,17 +33,22 @@ const LearnMore = () => {
           As you help to grow the Vyvo community, you can unlock additional
           rewards, including the potential for residual income!
         </p>
-        <PinkButton
+        <PinkyButton
           label="Learn more"
           className="!max-w-[140px] md:!max-w-[150px]"
         />
       </div>
 
       <div className="absolute bottom-0 left-0 w-full">
-        <Lottie animationData={animationData} loop assetsPath="/lottie/4/images/" rendererSettings={{
-      progressiveLoad: true,
-      preserveAspectRatio: "xMidYMid slice",
-    }}/>
+        <Lottie
+          animationData={animationData}
+          loop
+          assetsPath="/lottie/4/images/"
+          rendererSettings={{
+            progressiveLoad: true,
+            preserveAspectRatio: "xMidYMid slice",
+          }}
+        />
       </div>
     </section>
   );

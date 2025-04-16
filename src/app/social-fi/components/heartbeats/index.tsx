@@ -3,13 +3,13 @@ import React from "react";
 // import { useLottie } from "lottie-react";
 import { motion } from "framer-motion";
 import animationData from "../../../../../public/lottie/4/data.json";
-import PinkButton from "@/components/common/controllers/button/pink-button";
+import { PinkyButton } from "@/components/common/controllers/button/pink-button";
 import dynamic from "next/dynamic";
 
 const HeartBeats = () => {
-    const Lottie = dynamic(() => import('lottie-react'), { 
-      ssr: false
-    });
+  const Lottie = dynamic(() => import("lottie-react"), {
+    ssr: false,
+  });
 
   // const options = {
   //   animationData,
@@ -104,7 +104,7 @@ const HeartBeats = () => {
               transition={{ duration: 0.3 }}
               className="flex"
             >
-              <PinkButton label="Level up as an Influencer!" />
+              <PinkyButton label="Level up as an Influencer!" />
             </motion.div>
           </motion.div>
         </motion.div>
@@ -125,7 +125,11 @@ const HeartBeats = () => {
           }}
           className="max-w-[630px] w-full"
         >
-          <Lottie animationData={animationData} loop assetsPath="/lottie/4/images/"/>
+          <Lottie
+            animationData={animationData}
+            loop
+            assetsPath="/lottie/4/images/"
+          />
         </motion.div>
       </motion.div>
     </motion.section>
