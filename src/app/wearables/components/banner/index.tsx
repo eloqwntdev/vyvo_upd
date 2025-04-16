@@ -10,7 +10,7 @@ const WearablesBanner = () => {
         className="absolute inset-0 w-full h-full object-cover"
         src="https://eloqwntmain.ams3.cdn.digitaloceanspaces.com/Vyvo/Werables_Page/w3-clip-1-site_drdCvWtI.mp4"
         autoPlay
-        loop
+        // loop
         muted
         playsInline
       />
