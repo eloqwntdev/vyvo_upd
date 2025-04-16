@@ -110,7 +110,7 @@ const Features = () => {
 
   // Set up tab visibility tracking with useInView
   const tabInViews = tabRefs.current.map((ref) =>
-    useInView(ref, { amount: 0.3 })
+    useInView(ref, { amount: 1 })
   );
 
   // Update active tab based on which tab is most visible in viewport
