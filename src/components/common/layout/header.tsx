@@ -35,9 +35,9 @@ const Header = () => {
     e.preventDefault();
     const targetId = href.replace("/", "");
     let element = null;
-if (typeof document !== "undefined") {
-  element = document.querySelector(targetId);
-}
+    if (typeof document !== "undefined") {
+      element = document.querySelector(targetId);
+    }
 
     if (element) {
       element.scrollIntoView({
@@ -55,12 +55,12 @@ if (typeof document !== "undefined") {
   useEffect(() => {
     if (isOpen) {
       if (typeof document !== "undefined") {
-  document.body.style.overflow = "hidden";
-}
+        document.body.style.overflow = "hidden";
+      }
     } else {
       if (typeof document !== "undefined") {
-  document.body.style.overflow = "auto";
-}
+        document.body.style.overflow = "auto";
+      }
     }
   }, [isOpen]);
 
@@ -116,61 +116,72 @@ if (typeof document !== "undefined") {
             <nav className="px-6 py-3 main-shadow max-w-[676px] w-full flex justify-between rounded-[16px] bg-[#77A9E80A] backdrop-blur-[20px]">
               <div className="container mx-auto flex justify-between items-center">
                 <ul className="flex space-x-8">
-                  {navLinks.map((link, index) => (
-                    <li
-                      key={index}
-                      className="relative"
-                      onMouseEnter={() => handleMouseEnter(index)}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      <a
-                        href={link.href}
-                        className={`relative group text-sm gradient-text transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100 ${
-                          pathname === link.href.replace("#", "")
-                            ? "link-gradient font-medium link-bg bg-blend-lighten"
-                            : "text-white"
-                        }`}
-                      >
-                        <img
-                          src="/link-gradient.png"
-                          alt=""
-                          className="absolute hidden group-hover:block inset-0 m-auto h-full w-full transition-all duration-300 -z-10 scale-[3]"
-                        />
-                        {pathname === link.href.replace("#", "") && (
-                          <img
-                            src="/link-gradient.png"
-                            alt=""
-                            className="absolute inset-0 m-auto h-full w-full -z-10 scale-[2.5]"
-                          />
+                  {navLinks.map((link, index) => {
+                    const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+
+                    return (
+                      <div key={index}>
+                        <li
+                          className="relative"
+                          onMouseEnter={() => {
+                            handleMouseEnter(index);
+                            setIsSubMenuOpen(true);
+                          }}
+                          onMouseLeave={() => {
+                            handleMouseLeave();
+                            setIsSubMenuOpen(false);
+                          }}
+                        >
+                          <a
+                            href={link.href}
+                            className={`relative group text-sm gradient-text transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100 ${
+                              pathname === link.href.replace("#", "")
+                                ? "link-gradient font-medium link-bg bg-blend-lighten"
+                                : "text-white"
+                            }`}
+                          >
+                            <img
+                              src="/link-gradient.png"
+                              alt=""
+                              className="absolute hidden group-hover:block inset-0 m-auto h-full w-full transition-all duration-300 -z-10 scale-[3]"
+                            />
+                            {pathname === link.href.replace("#", "") && (
+                              <img
+                                src="/link-gradient.png"
+                                alt=""
+                                className="absolute inset-0 m-auto h-full w-full -z-10 scale-[2.5]"
+                              />
+                            )}
+                            {link.label}
+                          </a>
+                        </li>
+                        {link.subMenu && isSubMenuOpen && (
+                          <div
+                            onMouseEnter={() => {
+                              handleMouseEnter(index);
+                              setIsSubMenuOpen(true);
+                            }}
+                            onMouseLeave={() => {
+                              handleMouseLeave();
+                              setIsSubMenuOpen(false);
+                            }}
+                            className="absolute flex-col mt-2 h-fit w-fit px-6 py-3 main-shadow max-w-[676px] flex justify-between rounded-[16px] bg-[#77A9E80A] backdrop-blur-[20px]"
+                          >
+                            {link.subMenu.map((sublink, subindex) => (
+                              <Link
+                                href={sublink.href}
+                                aria-label="Navigate to home page"
+                                className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px] cursor-pointer text-sm gradient-text transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100"
+                                key={subindex}
+                              >
+                                {sublink.label}
+                              </Link>
+                            ))}
+                          </div>
                         )}
-                        {link.label}
-                      </a>
-                      {/* {link.subMenu && (
-                        <AnimatePresence>
-                          {activeIndex === index && (
-                            <motion.ul
-                              initial={{ opacity: 0, y: -10 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              exit={{ opacity: 0, y: -10 }}
-                              transition={{ duration: 0.2 }}
-                              className="absolute top-full left-0 main-shadow bg-[#00000080] backdrop-blur-[20px] rounded-[20px] z-10 space-y-3 p-4 mt-4 w-[178px]"
-                            >
-                              {link.subMenu.map((subLink, subIndex) => (
-                                <li key={subIndex}>
-                                  <a
-                                    href={subLink.href}
-                                    className={`relative transition-all gradient-text duration-300 text-[14px] font-nb tracking-[-0.01em] leading-[18px] text-[#FFFFFFB2] hover:text-white hover:scale-105 hover:translate-x-1`}
-                                  >
-                                    {subLink.label}
-                                  </a>
-                                </li>
-                              ))}
-                            </motion.ul>
-                          )}
-                        </AnimatePresence>
-                      )} */}
-                    </li>
-                  ))}
+                      </div>
+                    );
+                  })}
                 </ul>
               </div>
             </nav>
@@ -421,7 +432,7 @@ const navigationData = [
 const navLinksMobile = [
   { label: "Home", href: "/home" },
   { label: "VAI OS", href: "/" },
-  { label: "Vyvo Tech", href: "/vyvo-tech" },
+  { label: "Vyvo Tech", href: "/wearables" },
   { label: "Vyvo Smart Chain", href: "/vyvo-smart-chain" },
   { label: "SocialFi", href: "/social-fi" },
   { label: "Store", href: "/store" },
