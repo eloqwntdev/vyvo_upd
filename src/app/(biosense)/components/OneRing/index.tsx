@@ -67,9 +67,10 @@ const OneRing: React.FC<OneRingProps> = ({
         centeredSlides={true}
         loop={true}
         autoplay={{
-          delay: 2000,
+          delay: 4000,
           disableOnInteraction: false,
         }}
+        speed={1000}
         modules={[Autoplay]}
         className="w-full h-full"
       >
@@ -80,7 +81,7 @@ const OneRing: React.FC<OneRingProps> = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{
-                duration: 0.5,
+                duration: 1,
                 ease: [0.4, 0.0, 0.2, 1],
               }}
               className="flex items-center justify-center"
