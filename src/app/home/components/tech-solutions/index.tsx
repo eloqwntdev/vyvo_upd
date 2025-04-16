@@ -200,25 +200,27 @@ const TechSolutions = () => {
       </div>
 
       {/* Stacked cards container */}
-      <div className="relative h-[300vh]">
+      <div className="relative flex flex-col">
         {solutionCards.map((card, index) => {
           const isActive = activeCard === index;
 
           return (
-            <div
-              key={index}
-              ref={(el) => {
-                // Properly assign ref without returning a value
-                cardRefs.current[index] = el;
-              }}
-              className={`min-h-screen w-full absolute top-0 left-0
-                ${index === 0 ? "z-30" : index === 1 ? "z-20" : "z-10"}`}
-              style={{
-                transform: `translateY(${index * 100}vh)`,
-              }}
-            >
-              <motion.div
-                className="sticky top-0 min-h-screen w-full"
+        <div
+          key={index}
+          ref={(el) => {
+            // Properly assign ref without returning a value
+            cardRefs.current[index] = el;
+          }}
+          className={`w-full top-0 left-0
+            ${index === 0 ? "z-30" : index === 1 ? "z-20" : "z-10"}`}
+        >
+          <motion.div
+            className="relative w-full"
+            style={{
+          minHeight: "fit-content", // Ensure each card takes at least full viewport height
+            }}
+          
+  
                 // initial={{ opacity: 0 }}
                 // animate={{
                 //   opacity: isActive ? 1 : 0.3,

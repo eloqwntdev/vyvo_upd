@@ -160,7 +160,7 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
                   src={image}
                   alt={`${title} - image ${index + 1}`}
                   className="object-cover rounded-lg"
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 50vw, 630px"
+                  sizes="(max-width: 1400px) 100vw, (max-width: 1200px) 90vw, (max-width: 1024px) 50vw, 630px"
                   priority={index === 0}
                 />
               </SwiperSlide>

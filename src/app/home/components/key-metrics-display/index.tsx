@@ -277,6 +277,7 @@ const KeyMetricsDisplay = () => {
             centeredSlides={true}
             centeredSlidesBounds={true}
             speed={800}
+            initialSlide={6} // Start from slide 3 (index 2)
             >
             {metrics.map((metric, index) => (
               <SwiperSlide
