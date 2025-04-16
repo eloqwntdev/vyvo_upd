@@ -82,10 +82,11 @@ const BiosenseBand = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-nb font-light text-[16px] leading-[20px] tracking-[-3%] text-black"
             >
-              The award-winning BioSense™ health band is unlike anything in its category,
-combining elegant design with powerful innovation. It’s equipped with advanced
-technology and carefully engineered by Vyvo Technology to empower you and
-effortlessly fit into your lifestyle.
+              The award-winning BioSense™ health band is unlike anything in its
+              category, combining elegant design with powerful innovation. It’s
+              equipped with advanced technology and carefully engineered by Vyvo
+              Technology to empower you and effortlessly fit into your
+              lifestyle.
             </motion.p>
 
             <motion.ul ref={listRef} className="flex flex-col gap-2">
@@ -103,13 +104,13 @@ effortlessly fit into your lifestyle.
                     isListInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }
                   }
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className="flex items-center gap-2"
+                  className="flex items-start gap-2"
                 >
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={isListInView ? { scale: 1 } : { scale: 0 }}
                     transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
-                    className="size-2 rounded-full bg-black"
+                    className="size-2 mt-1 rounded-full bg-black flex-shrink-0"
                   ></motion.div>
                   <span className="font-nb font-light text-[16px] leading-[20px] tracking-[-3%] text-black">
                     {item}
