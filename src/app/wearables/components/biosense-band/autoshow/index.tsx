@@ -26,7 +26,7 @@ const AutoShowBlock = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentCardIndex((prevIndex) => (prevIndex + 1) % cardData.length);
-    }, 3000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
