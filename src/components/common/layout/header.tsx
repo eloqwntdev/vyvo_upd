@@ -8,6 +8,7 @@ import SlashButton from "../controllers/button/slash-button";
 import { navLinks } from "@/constants/navlinks";
 import { motion, AnimatePresence } from "framer-motion";
 import useScrollDirection from "@/hooks/useScrollDirection";
+import path from "path";
 
 const centeredHeaderPages = ["/gpu-farm"];
 
@@ -47,7 +48,26 @@ const Header = () => {
       window.history.pushState({}, "", href);
     }
   };
+  const [otherTextColor, setOtherTextColor] = useState("");
+  const [baseTextColor, setBaseTextColor] = useState("");
 
+  useEffect(() => {
+    console.log(pathname);
+    switch (pathname) {
+      case "/social-fi":
+        setOtherTextColor("gradient-text-social-fi");
+        setBaseTextColor("text-[#FF0066]");
+        break;
+      case "/vyvo-smart-chain":
+        setOtherTextColor("gradient-text-vyvo-smart-chain");
+        setBaseTextColor("text-[#E749F0]");
+        break;
+      default:
+        setOtherTextColor("gradient-text");
+        setBaseTextColor("link-bg link-gradient");
+        break;
+    }
+  }, [pathname]);
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -135,28 +155,17 @@ const Header = () => {
                             setIsSubMenuOpen(true);
                           }}
                         >
-                          <a
+                          <Link
                             href={link.href}
-                            className={`relative group text-sm gradient-text transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100 ${
-                              pathname === link.href.replace("#", "")
-                                ? "link-gradient font-medium link-bg bg-blend-lighten"
-                                : "text-white"
-                            }`}
+                            className={`relative group text-sm transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100 
+                              ${
+                                pathname === link.href.replace("#", "")
+                                  ? "font-medium bg-blend-lighten"
+                                  : ""
+                              } ${baseTextColor} ${otherTextColor}`}
                           >
-                            <img
-                              src="/link-gradient.png"
-                              alt=""
-                              className="absolute hidden group-hover:block inset-0 m-auto h-full w-full transition-all duration-300 -z-10 scale-[3]"
-                            />
-                            {pathname === link.href.replace("#", "") && (
-                              <img
-                                src="/link-gradient.png"
-                                alt=""
-                                className="absolute inset-0 m-auto h-full w-full -z-10 scale-[2.5]"
-                              />
-                            )}
                             {link.label}
-                          </a>
+                          </Link>
                         </li>
                         {link.subMenu && (
                           <AnimatePresence>
@@ -181,7 +190,13 @@ const Header = () => {
                                     <Link
                                       href={sublink.href}
                                       aria-label="Navigate to home page"
-                                      className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px] cursor-pointer text-sm gradient-text transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100"
+                                      className={`relative group text-sm transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100 
+                                        ${
+                                          pathname ===
+                                          link.href.replace("#", "")
+                                            ? "font-medium bg-blend-lighten"
+                                            : ""
+                                        } ${baseTextColor} ${otherTextColor}`}
                                       key={subindex}
                                     >
                                       {sublink.label}
@@ -377,7 +392,7 @@ const Header = () => {
                     transition={{ delay: index * 0.1 }}
                     className={`text-white text-[16px] leading-[20px] font-light hover:text-gray-300 transition-colors ${
                       pathname === item.href.replace("#", "")
-                        ? "link-gradient font-medium link-bg bg-blend-lighten"
+                        ? "link-gradient link-bg font-medium bg-blend-lighten"
                         : "text-white"
                     }`}
                     onClick={() => setIsOpen(false)}

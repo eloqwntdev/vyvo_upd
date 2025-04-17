@@ -13,7 +13,8 @@ html {
 }
 
 .main-shadow {
-  box-shadow: 6px 80px 80px 0px rgba(148, 168, 237, 0.02) inset,
+  box-shadow:
+    6px 80px 80px 0px rgba(148, 168, 237, 0.02) inset,
     0px -1px 1px 0px rgba(148, 168, 237, 0.2) inset,
     0px 1px 1px 0px rgba(148, 168, 237, 0.2) inset;
   /*transition: all 0.3s ease-in-out;*/
@@ -56,7 +57,8 @@ button:not(.dropdown-menu-shadow button, .remove-hover-bg):hover {
 .tab-styles {
   border-radius: 12px;
   background: rgba(148, 168, 237, 0.16);
-  box-shadow: 6px 80px 80px 0px rgba(148, 168, 237, 0.02) inset,
+  box-shadow:
+    6px 80px 80px 0px rgba(148, 168, 237, 0.02) inset,
     0px -1px 1px 0px rgba(148, 168, 237, 0.2) inset,
     0px 1px 1px 0px rgba(148, 168, 237, 0.2) inset;
   backdrop-filter: blur(10px);
@@ -82,7 +84,8 @@ button:not(.dropdown-menu-shadow button, .remove-hover-bg):hover {
 .responsive-tag {
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.4);
-  box-shadow: 6px 80px 80px 0px rgba(255, 255, 255, 0.02) inset,
+  box-shadow:
+    6px 80px 80px 0px rgba(255, 255, 255, 0.02) inset,
     0px -1px 1px 0px rgba(255, 255, 255, 0.2) inset,
     0px 1px 1px 0px rgba(255, 255, 255, 0.2) inset;
   backdrop-filter: blur(5px);
@@ -100,7 +103,8 @@ button:not(.dropdown-menu-shadow button, .remove-hover-bg):hover {
 .menu-styles {
   border-radius: 20px;
   background: rgba(0, 0, 0, 0.5);
-  box-shadow: 6px 80px 80px 0px rgba(148, 168, 237, 0.02) inset,
+  box-shadow:
+    6px 80px 80px 0px rgba(148, 168, 237, 0.02) inset,
     0px -1px 1px 0px rgba(148, 168, 237, 0.2) inset,
     0px 1px 1px 0px rgba(148, 168, 237, 0.2) inset;
   backdrop-filter: blur(75.80000305175781px);
@@ -123,6 +127,46 @@ button:not(.dropdown-menu-shadow button, .remove-hover-bg):hover {
 }
 
 .gradient-text:hover {
+  background-position: top left 100%;
+}
+
+.gradient-text-social-fi {
+  color: #fff;
+  background-image: linear-gradient(
+    to right,
+    #fff,
+    #fff 0%,
+    #ff0066 100%,
+    #944b68
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  background-position: top left;
+  transition: all 0.2s ease-in-out;
+}
+
+.gradient-text-social-fi:hover {
+  background-position: top left 100%;
+}
+
+.gradient-text-vyvo-smart-chain {
+  color: #fff;
+  background-image: linear-gradient(
+    to right,
+    #fff,
+    #fff 0%,
+    #e749f0 100%,
+    #db7ce0
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  background-position: top left;
+  transition: all 0.2s ease-in-out;
+}
+
+.gradient-text-vyvo-smart-chain:hover {
   background-position: top left 100%;
 }
 
@@ -543,7 +587,9 @@ button:not(.dropdown-menu-shadow button, .remove-hover-bg):hover {
       rgba(119, 169, 232, 0.4) 105.47%
     )
     border-box;
-  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
 }
@@ -632,7 +678,9 @@ button:not(.dropdown-menu-shadow button, .remove-hover-bg):hover {
       rgba(119, 169, 232, 0.4) 105.18%
     )
     border-box;
-  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
 }
