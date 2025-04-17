@@ -158,31 +158,39 @@ const Header = () => {
                             {link.label}
                           </a>
                         </li>
-                        {link.subMenu && isSubMenuOpen && (
-                          <div
-                            onMouseEnter={() => {
-                              handleMouseEnter(index);
-                              setIsSubMenuOpen(true);
-                            }}
-                            onMouseLeave={() => {
-                              handleMouseLeave();
-                              setIsSubMenuOpen(false);
-                            }}
-                            className="absolute"
-                          >
-                            <div className="bg-black/50 backdrop-blur-[20px] flex-col mt-5 h-fit w-fit px-6 py-3 main-shadow max-w-[676px] flex justify-between rounded-[16px]">
-                              {link.subMenu.map((sublink, subindex) => (
-                                <Link
-                                  href={sublink.href}
-                                  aria-label="Navigate to home page"
-                                  className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px] cursor-pointer text-sm gradient-text transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100"
-                                  key={subindex}
-                                >
-                                  {sublink.label}
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
+                        {link.subMenu && (
+                          <AnimatePresence>
+                            {isSubMenuOpen && (
+                              <motion.div
+                                onMouseEnter={() => {
+                                  handleMouseEnter(index);
+                                  setIsSubMenuOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  handleMouseLeave();
+                                  setIsSubMenuOpen(false);
+                                }}
+                                className="absolute"
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.2 }}
+                              >
+                                <div className="bg-black/50 backdrop-blur-[20px] flex-col mt-5 h-fit w-fit px-6 py-3 main-shadow max-w-[676px] flex justify-between rounded-[16px]">
+                                  {link.subMenu.map((sublink, subindex) => (
+                                    <Link
+                                      href={sublink.href}
+                                      aria-label="Navigate to home page"
+                                      className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px] cursor-pointer text-sm gradient-text transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100"
+                                      key={subindex}
+                                    >
+                                      {sublink.label}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         )}
                       </div>
                     );
