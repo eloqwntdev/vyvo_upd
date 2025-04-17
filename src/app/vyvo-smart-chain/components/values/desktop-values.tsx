@@ -36,7 +36,7 @@ const DesktopValues = () => {
     offset: ["start start", "end end"],
   });
 
-  const activeIndex = useTransform(scrollYProgress, [0, 0.3, 0.6], [0, 1, 2]);
+  const activeIndex = useTransform(scrollYProgress, [0, 0.33, 0.66], [0, 1, 2]);
 
   return (
     <div ref={wrapperRef} className="h-[200vh] relative">
@@ -72,8 +72,14 @@ const DesktopValues = () => {
                 style={{
                   opacity: useTransform(
                     activeIndex,
-                    [index - 0.2, index, index + 0.2],
-                    [0.3, 1, 0.3]
+                    [
+                      index - 0.1,
+                      index - 0.05,
+                      index,
+                      index + 0.8,
+                      index + 0.9,
+                    ],
+                    [0.3, 1, 1, 1, 0.3]
                   ),
                 }}
               >
@@ -84,17 +90,34 @@ const DesktopValues = () => {
                   style={{
                     color: useTransform(
                       activeIndex,
-                      [index - 0.2, index, index + 0.2],
+                      [
+                        index - 0.9,
+                        index - 0.8,
+                        index,
+                        index + 0.8,
+                        index + 0.9,
+                      ],
+
                       [
                         "rgba(255, 255, 255, 0.3)",
+                        "#E749F0",
+
+                        "#E749F0",
+
                         "#E749F0",
                         "rgba(255, 255, 255, 0.3)",
                       ]
                     ),
                     scale: useTransform(
                       activeIndex,
-                      [index - 0.2, index, index + 0.2],
-                      [0.95, 1.05, 0.95]
+                      [
+                        index - 0.2,
+                        index - 0.1,
+                        index,
+                        index + 0.7,
+                        index + 0.8,
+                      ],
+                      [0.97, 1.05, 1.05, 1.05, 0.97]
                     ),
                   }}
                   className="font-nb font-light text-[32px] leading-[36px] tracking-[-1.0px] origin-left"
@@ -122,20 +145,20 @@ const DesktopValues = () => {
                 style={{
                   opacity: useTransform(
                     activeIndex,
-                    [index - 0.3, index - 0.1, index, index + 0.4, index + 0.8],
-                    [0, 0.5, 1, 0.8, 0]
+                    [index - 0.2, index - 0.1, index, index + 0.7, index + 0.8],
+                    [0, 1, 1, 1, 0]
                   ),
                   y: useTransform(
                     activeIndex,
-                    [index - 0.3, index, index + 0.3],
-                    [20, 0, -20]
+                    [index - 0.2, index - 0.1, index, index + 0.7, index + 0.8],
+                    [15, 0, 0, 0, -15]
                   ),
                 }}
               >
                 <Image
                   src={item.image}
-                  width={414}
-                  height={250}
+                  width={1656}
+                  height={1000}
                   alt={item.title}
                   className="rounded-2xl"
                 />
