@@ -1,12 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode } from "swiper/modules";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-
-import "swiper/css";
-import "swiper/css/free-mode";
 
 // Define type for metric item
 interface MetricItem {
@@ -23,6 +18,101 @@ interface ParsedNumber {
 
 const KeyMetricsDisplay = () => {
   const [progress, setProgress] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+
+  // Drag-to-scroll handlers
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const onMouseDown = (e: MouseEvent) => {
+      isDragging.current = true;
+      startX.current = e.pageX - container.offsetLeft;
+      scrollLeft.current = container.scrollLeft;
+      container.classList.add("dragging");
+    };
+
+    const onMouseLeave = () => {
+      isDragging.current = false;
+      container.classList.remove("dragging");
+    };
+
+    const onMouseUp = () => {
+      isDragging.current = false;
+      container.classList.remove("dragging");
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDragging.current) return;
+      e.preventDefault();
+      const x = e.pageX - container.offsetLeft;
+      const walk = x - startX.current;
+      container.scrollLeft = scrollLeft.current - walk;
+    };
+
+    // Touch events
+    const onTouchStart = (e: TouchEvent) => {
+      isDragging.current = true;
+      startX.current = e.touches[0].pageX - container.offsetLeft;
+      scrollLeft.current = container.scrollLeft;
+      container.classList.add("dragging");
+    };
+
+    const onTouchEnd = () => {
+      isDragging.current = false;
+      container.classList.remove("dragging");
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      if (!isDragging.current) return;
+      const x = e.touches[0].pageX - container.offsetLeft;
+      const walk = x - startX.current;
+      container.scrollLeft = scrollLeft.current - walk;
+    };
+
+    container.addEventListener("mousedown", onMouseDown);
+    container.addEventListener("mouseleave", onMouseLeave);
+    container.addEventListener("mouseup", onMouseUp);
+    container.addEventListener("mousemove", onMouseMove);
+
+    container.addEventListener("touchstart", onTouchStart, { passive: false });
+    container.addEventListener("touchend", onTouchEnd);
+    container.addEventListener("touchmove", onTouchMove, { passive: false });
+
+    return () => {
+      container.removeEventListener("mousedown", onMouseDown);
+      container.removeEventListener("mouseleave", onMouseLeave);
+      container.removeEventListener("mouseup", onMouseUp);
+      container.removeEventListener("mousemove", onMouseMove);
+
+      container.removeEventListener("touchstart", onTouchStart);
+      container.removeEventListener("touchend", onTouchEnd);
+      container.removeEventListener("touchmove", onTouchMove);
+    };
+  }, []);
+
+  // Progress bar update on scroll
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      const prog = maxScroll > 0 ? container.scrollLeft / maxScroll : 0;
+      setProgress(prog);
+    };
+
+    container.addEventListener("scroll", handleScroll);
+    // Initial set
+    handleScroll();
+
+    return () => {
+      container.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   // State to trigger the animation once
   const [shouldAnimate, setShouldAnimate] = useState(false);
   // State to track if the animation has finished
@@ -86,48 +176,48 @@ const KeyMetricsDisplay = () => {
       image: "/homepage/slider/card5.webp",
     },
     // Duplicates for looping slider
-    {
-      number: "100,000+",
-      label: "Active Users",
-      image: "/homepage/slider/card1.webp",
-    },
-    { number: "15+", label: "Countries", image: "/homepage/slider/card2.webp" },
-    {
-      number: "10+",
-      label: "Years Of Expertise",
-      image: "/homepage/slider/card3.webp",
-    },
-    {
-      number: "3.4+",
-      label: "Trillion Heartbeats Recorded",
-      image: "/homepage/slider/card4.webp",
-    },
-    {
-      number: "420+",
-      label: "Million Data Blocks Validated",
-      image: "/homepage/slider/card5.webp",
-    },
-    {
-      number: "100,000+",
-      label: "Active Users",
-      image: "/homepage/slider/card1.webp",
-    },
-    { number: "15+", label: "Countries", image: "/homepage/slider/card2.webp" },
-    {
-      number: "10+",
-      label: "Years Of Expertise",
-      image: "/homepage/slider/card3.webp",
-    },
-    {
-      number: "3.4+",
-      label: "Trillion Heartbeats Recorded",
-      image: "/homepage/slider/card4.webp",
-    },
-    {
-      number: "420+",
-      label: "Million Data Blocks Validated",
-      image: "/homepage/slider/card5.webp",
-    },
+    // {
+    //   number: "100,000+",
+    //   label: "Active Users",
+    //   image: "/homepage/slider/card1.webp",
+    // },
+    // { number: "15+", label: "Countries", image: "/homepage/slider/card2.webp" },
+    // {
+    //   number: "10+",
+    //   label: "Years Of Expertise",
+    //   image: "/homepage/slider/card3.webp",
+    // },
+    // {
+    //   number: "3.4+",
+    //   label: "Trillion Heartbeats Recorded",
+    //   image: "/homepage/slider/card4.webp",
+    // },
+    // {
+    //   number: "420+",
+    //   label: "Million Data Blocks Validated",
+    //   image: "/homepage/slider/card5.webp",
+    // },
+    // {
+    //   number: "100,000+",
+    //   label: "Active Users",
+    //   image: "/homepage/slider/card1.webp",
+    // },
+    // { number: "15+", label: "Countries", image: "/homepage/slider/card2.webp" },
+    // {
+    //   number: "10+",
+    //   label: "Years Of Expertise",
+    //   image: "/homepage/slider/card3.webp",
+    // },
+    // {
+    //   number: "3.4+",
+    //   label: "Trillion Heartbeats Recorded",
+    //   image: "/homepage/slider/card4.webp",
+    // },
+    // {
+    //   number: "420+",
+    //   label: "Million Data Blocks Validated",
+    //   image: "/homepage/slider/card5.webp",
+    // },
   ];
 
   // Preload images on component mount
@@ -274,50 +364,44 @@ const KeyMetricsDisplay = () => {
           Numbers That Define Us
         </h2>
 
-        <div className="relative w-full select-none cursor-grab">
-          <Swiper
-            modules={[FreeMode]}
-            slidesPerView="auto"
-            spaceBetween={24}
-            loop={true}
-            loopAdditionalSlides={2} // Preload additional slides for smoother looping
-            freeMode={{
-              enabled: true, // Enable free mode scrolling
-              momentum: true,
-            }}
-            className="w-full !px-4 md:!px-20"
-            allowTouchMove={true} // Enable touch and mouse movement
-            slideToClickedSlide={false} // Allow slide movement on click
-            centeredSlides={false} // Disable centered slides for better dragging
-            centeredSlidesBounds={false}
-            speed={800}
+        <div className="relative w-full select-none">
+          <style jsx global>{`
+            .hide-scrollbar {
+              scrollbar-width: none; /* Firefox */
+              -ms-overflow-style: none; /* IE 10+ */
+            }
+            .hide-scrollbar::-webkit-scrollbar {
+              display: none; /* Chrome/Safari/Webkit */
+            }
+          `}</style>
+          <div
+            ref={scrollContainerRef}
+            className="flex gap-6 md:gap-6 w-full overflow-x-auto px-4 md:px-20 cursor-grab hide-scrollbar"
+            style={{ WebkitOverflowScrolling: "touch" }}
+            tabIndex={0}
           >
             {metrics.map((metric, index) => (
-              <SwiperSlide
+              <div
                 key={index}
-                className="!w-[270px] !h-[350px] md:!w-[413px] md:!h-[500px]"
+                className="flex-shrink-0 w-[270px] h-[350px] md:w-[413px] md:h-[500px] rounded-[20px] overflow-hidden relative"
               >
-                <div className="w-full h-full rounded-[20px] overflow-hidden relative">
-                  <Image
-                    src={metric.image}
-                    alt={metric.label}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 270px, 413px"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="flex flex-col gap-1 md:gap-2 absolute bottom-5 left-5 md:bottom-8 md:left-8">
-                    {/* Use the simplified NumberDisplay component */}
-                    <NumberDisplay value={metric.number} />
-                    <span className="text-white text-[16px] md:text-[24px] leading-[20px] md:leading-[32px]">
-                      {metric.label}
-                    </span>
-                  </div>
+                <Image
+                  src={metric.image}
+                  alt={metric.label}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 270px, 413px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="flex flex-col gap-1 md:gap-2 absolute bottom-5 left-5 md:bottom-8 md:left-8">
+                  <NumberDisplay value={metric.number} />
+                  <span className="text-white text-[16px] md:text-[24px] leading-[20px] md:leading-[32px]">
+                    {metric.label}
+                  </span>
                 </div>
-              </SwiperSlide>
+              </div>
             ))}
-          </Swiper>
-
+          </div>
           {/* Progress bar - only visible on mobile */}
           <div className="md:hidden w-full px-4 mt-6">
             <div className="w-full h-[1px] bg-[#D1D1D1] relative">
