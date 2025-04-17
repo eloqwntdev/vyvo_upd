@@ -3,14 +3,14 @@ import React from "react";
 import VyvoCmartChainBanner from "./components/banner";
 import AboutVSC from "./components/about-vsc";
 import Values from "./components/values";
-import PinkButton from "@/components/common/controllers/button/pink-button";
+import { PurpleButton } from "@/components/common/controllers/button/pink-button";
 // import { useLottie } from "lottie-react";
 import animationBgPink from "../../../public/lottie/pink-bg/data.json";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
 const VyvoCmartChain = () => {
-  const Lottie = dynamic(() => import('lottie-react'), { 
-    ssr: false
+  const Lottie = dynamic(() => import("lottie-react"), {
+    ssr: false,
   });
   // const optionsBgPink = {
   //   animationData: animationBgPink,
@@ -32,14 +32,11 @@ const VyvoCmartChain = () => {
             the lastest Vyvo Smart Chain updates, exclusive promotions and
             practical insights.
           </p>
-          <PinkButton
-            label="Learn more"
-            className="!max-w-[140px] md:!max-w-[150px]"
-          />
+          <PurpleButton label="Learn more" />
         </div>
 
         <div className="absolute top-[-20%] w-full h-full scale-125">
-        <Lottie animationData={animationBgPink} loop/>
+          <Lottie animationData={animationBgPink} loop />
         </div>
       </section>
     </>

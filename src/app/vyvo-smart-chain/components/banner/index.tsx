@@ -1,5 +1,5 @@
 "use client";
-import PinkButton from "@/components/common/controllers/button/pink-button";
+import { PurpleButton } from "@/components/common/controllers/button/pink-button";
 import React from "react";
 // import { useLottie } from "lottie-react";
 import animationData from "../../../../../public/lottie/1/1.json";
@@ -49,10 +49,7 @@ const VyvoCmartChainBanner = () => {
               platform that directly connects users and researchers.
             </p>
           </div>
-          <PinkButton
-            label={"Start Mining"}
-            className="!bg-[#E749F029] !max-w-[150px] "
-          />
+          <PurpleButton label={"Start Mining"} />
         </div>
       </div>
     </section>
