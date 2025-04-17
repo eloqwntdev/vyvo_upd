@@ -56,15 +56,15 @@ const Header = () => {
     switch (pathname) {
       case "/social-fi":
         setOtherTextColor("gradient-text-social-fi");
-        // setBaseTextColor("text-[#FF0066]");
+        setBaseTextColor("link-gradient-social-fi");
         break;
       case "/vyvo-smart-chain":
         setOtherTextColor("gradient-text-vyvo-smart-chain");
-        // setBaseTextColor("text-[#E749F0]");
+        setBaseTextColor("link-gradient-vyvo-smart-chain");
         break;
       default:
         setOtherTextColor("gradient-text");
-        // setBaseTextColor("link-bg link-gradient");
+        setBaseTextColor("link-gradient");
         break;
     }
   }, [pathname]);
@@ -160,9 +160,9 @@ const Header = () => {
                             className={`relative group text-sm transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100 
                               ${
                                 pathname === link.href.replace("#", "")
-                                  ? "font-medium bg-blend-lighten"
-                                  : ""
-                              } ${baseTextColor} ${otherTextColor}`}
+                                  ? `font-medium bg-blend-lighten ${baseTextColor}`
+                                  : "text-white"
+                              } ${otherTextColor}`}
                           >
                             {link.label}
                           </Link>
@@ -193,10 +193,10 @@ const Header = () => {
                                       className={`relative group text-sm transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100 
                                         ${
                                           pathname ===
-                                          link.href.replace("#", "")
-                                            ? "font-medium bg-blend-lighten"
-                                            : ""
-                                        } ${baseTextColor} ${otherTextColor}`}
+                                          sublink.href.replace("#", "")
+                                            ? `font-medium bg-blend-lighten ${baseTextColor}`
+                                            : "text-white"
+                                        } ${otherTextColor}`}
                                       key={subindex}
                                     >
                                       {sublink.label}

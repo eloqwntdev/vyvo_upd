@@ -408,7 +408,34 @@ button:not(.dropdown-menu-shadow button, .remove-hover-bg):hover {
   background-position: top left;
   transition: all 0.5s ease-in-out;
 }
+.link-gradient-vyvo-smart-chain {
+  color: #fff;
+  background-image: radial-gradient(
+    36.21% 29.66% at 39.06% 38.97%,
+    #e749f0 0%,
+    #db7ce0 100%
+  );
 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  background-position: top left;
+  transition: all 0.5s ease-in-out;
+}
+.link-gradient-social-fi {
+  color: #fff;
+  background-image: radial-gradient(
+    36.21% 29.66% at 39.06% 38.97%,
+    #ff0066 0%,
+    #944b68 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  background-position: top left;
+  transition: all 0.5s ease-in-out;
+}
 .link-hover:hover {
   color: #fff;
   background-image: radial-gradient(
