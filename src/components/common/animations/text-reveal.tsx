@@ -1,7 +1,14 @@
 "use client";
 
 import { useScroll, MotionValue, useTransform, motion } from "framer-motion";
-import { ComponentPropsWithoutRef, FC, ReactNode, useRef, useState, useEffect } from "react";
+import {
+  ComponentPropsWithoutRef,
+  FC,
+  ReactNode,
+  useRef,
+  useState,
+  useEffect,
+} from "react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -63,7 +70,12 @@ export const TextReveal: FC<TextRevealProps> = ({
               const start = i / words.length;
               const end = start + 1 / words.length;
               return (
-                <Word key={i} progress={scrollYProgress} range={[start, end]} hasRevealed={hasRevealed}>
+                <Word
+                  key={i}
+                  progress={scrollYProgress}
+                  range={[start, end]}
+                  hasRevealed={hasRevealed}
+                >
                   {word}
                 </Word>
               );
@@ -86,11 +98,11 @@ const Word: FC<WordProps> = ({ children, progress, range, hasRevealed }) => {
   const opacity = useTransform(progress, range, [0, 1]);
   return (
     <span className="xl:lg-3 relative flex items-center justify-center mx-1 lg:mx-1.5 text-center">
-      <span className="absolute py-[2px] text-[#FFFFFF26]">{children}</span>
+      <span className="absolute py-[6px] text-[#FFFFFF26]">{children}</span>
       <motion.span
         style={{ opacity: hasRevealed ? 1 : opacity }}
         className={
-          "bg-gradient-to-r py-[2px] from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent"
+          "bg-gradient-to-r py-[6px] from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent"
         }
       >
         {children}

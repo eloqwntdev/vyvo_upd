@@ -3,11 +3,11 @@ export const navLinks = [
   {
     href: "/",
     label: "VAI OS",
-    // subMenu: [
-    //   { href: "/vai-os/tokenomics-roadmap", label: "Tokenomics Roadmap" },
-    //   { href: "/vai-os/getting-started", label: "Getting Started" },
-    //   { href: "/vai-os/using-agents", label: "Using Agents" },
-    // ],
+    subMenu: [
+      { href: "/vai-os/tokenomics-roadmap", label: "Tokenomics Roadmap" },
+      { href: "/vai-os/getting-started", label: "Getting Started" },
+      { href: "/vai-os/using-agents", label: "Using Agents" },
+    ],
   },
   {
     href: "/wearables",
