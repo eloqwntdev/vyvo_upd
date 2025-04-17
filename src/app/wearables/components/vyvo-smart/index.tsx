@@ -15,7 +15,7 @@ const VyvoSmart = () => {
     "/wearables-img/vyvo-smart/slider3.webp",
     "/wearables-img/vyvo-smart/slider4.webp",
     "/wearables-img/vyvo-smart/slider5.webp",
-    "/wearables-img/vyvo-smart/slider6.webp",
+    // "/wearables-img/vyvo-smart/slider6.webp",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
