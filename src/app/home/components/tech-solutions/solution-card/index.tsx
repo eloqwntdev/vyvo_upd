@@ -145,13 +145,15 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
             onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
             modules={[Pagination, Navigation, Autoplay]}
             autoplay={{
-              delay: 2000,
+              delay: 4000,
               disableOnInteraction: false,
             }}
             className="w-full h-full rounded-lg"
             slidesPerView={1}
             grabCursor={true}
-            speed={500}
+            speed={1000} // Increased speed for smoother transitions
+            effect="fade" // Added fade effect for smoother animation
+            fadeEffect={{ crossFade: true }} // Enable cross-fade for a seamless transition
           >
             {images.map((image, index) => (
               <SwiperSlide key={index} className="w-full h-full">

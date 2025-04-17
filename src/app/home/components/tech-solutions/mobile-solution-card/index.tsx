@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+// import { Pagination, Autoplay } from "swiper/modules";
 import { Pagination } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 
@@ -36,11 +37,18 @@ const MobileSolutionCard: React.FC<MobileSolutionCardProps> = ({
         <Swiper
           onSwiper={setSwiperInstance}
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+          // modules={[Pagination, Autoplay]}
           modules={[Pagination]}
           className="w-full h-full"
           slidesPerView={1}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+          }}
           grabCursor={true}
-          speed={500}
+          speed={1000} // Increased speed for smoother transitions
+          effect="fade" // Added fade effect for smoother animation
+          fadeEffect={{ crossFade: true }}
         >
           {images.map((image, index) => (
             <SwiperSlide key={index} className="w-full h-full">
