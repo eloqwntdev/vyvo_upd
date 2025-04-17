@@ -208,7 +208,7 @@ const WearablesSlider: React.FC<WearablesSliderProps> = ({ onCardClick }) => {
       {!isMobile && (
         <div className="w-full relative overflow-hidden">
           <div
-            className="w-full overflow-hidden"
+            className="w-full overflow-hidden select-none"
             style={{ scrollbarGutter: "stable" }}
           >
             <Swiper
@@ -308,7 +308,7 @@ const WearablesSlider: React.FC<WearablesSliderProps> = ({ onCardClick }) => {
               allowSlidePrev={true}
               allowTouchMove={true}
               grabCursor={true}
-              slideToClickedSlide={true}
+              slideToClickedSlide={false}
             >
               {sliderData.map((card, index) => (
                 <SwiperSlide
