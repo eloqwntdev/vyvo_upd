@@ -158,12 +158,13 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
             {images.map((image, index) => (
               <SwiperSlide key={index} className="w-full h-full">
                 <Image
-                  fill
                   src={image}
                   alt={`${title} - image ${index + 1}`}
                   className="object-cover rounded-lg"
-                  sizes="(max-width: 1400px) 100vw, (max-width: 1200px) 90vw, (max-width: 1024px) 50vw, 630px"
+                  width={3972}
+                  height={2640}
                   priority={index === 0}
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                 />
               </SwiperSlide>
             ))}
