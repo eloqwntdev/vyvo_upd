@@ -21,7 +21,6 @@
     "react": "^18",
     "react-dom": "^18",
     "react-player": "^2.16.0",
-    "react-scrollbars-custom": "^4.1.1",
     "resize-observer-polyfill": "^1.5.1",
     "scroller-motion": "^1.2.3",
     "swiper": "^11.2.4",
