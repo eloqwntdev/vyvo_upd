@@ -102,7 +102,7 @@ const HeartBeats = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.3 }}
-              className="flex"
+              className="flex z-50"
             >
               <PinkyButton label="Level up as an Influencer!" />
             </motion.div>
@@ -126,6 +126,7 @@ const HeartBeats = () => {
           className="max-w-[630px] w-full"
         >
           <Lottie
+            className="pointer-events-none"
             animationData={animationData}
             loop
             assetsPath="/lottie/4/images/"

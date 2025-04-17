@@ -17,7 +17,7 @@ const StepBlock = ({
   index,
   totalSteps,
 }: StepBlockProps) => {
-  const segmentSize = 1 / totalSteps;
+  const segmentSize = 0.9 / totalSteps;
   const isLastStep = index === totalSteps - 1;
 
   const textColor = useTransform(
