@@ -55,6 +55,14 @@ const KeyMetricsDisplay = () => {
     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
+  // Preload images
+  const preloadImages = (imageUrls: string[]) => {
+    imageUrls.forEach((url) => {
+      const img = document.createElement("img");
+      img.src = url;
+    });
+  };
+
   const metrics: MetricItem[] = [
     {
       number: "100,000+",
@@ -122,7 +130,12 @@ const KeyMetricsDisplay = () => {
     },
   ];
 
-  // Pre-calculate final display values for unique metric numbers
+  // Preload images on component mount
+  useEffect(() => {
+    const imageUrls = metrics.map((metric) => metric.image);
+    preloadImages(imageUrls);
+  }, []);
+
   useEffect(() => {
     const uniqueMetrics = Array.from(new Set(metrics.map((m) => m.number)));
     const finalVals: Record<string, string> = {};
@@ -261,24 +274,24 @@ const KeyMetricsDisplay = () => {
           Numbers That Define Us
         </h2>
 
-        <div className="relative pointer-events-none w-full">
-            <Swiper
+        <div className="relative w-full select-none cursor-grab">
+          <Swiper
             modules={[FreeMode]}
             slidesPerView="auto"
             spaceBetween={24}
-            loop={false}
+            loop={true}
+            loopAdditionalSlides={2} // Preload additional slides for smoother looping
             freeMode={{
-              enabled: false, // Disable free mode scrolling
-              momentum: false,
+              enabled: true, // Enable free mode scrolling
+              momentum: true,
             }}
             className="w-full !px-4 md:!px-20"
-            allowTouchMove={false} // Disable touch and mouse movement
-            slideToClickedSlide={false} // Prevent slide movement on click
-            centeredSlides={true}
-            centeredSlidesBounds={true}
+            allowTouchMove={true} // Enable touch and mouse movement
+            slideToClickedSlide={false} // Allow slide movement on click
+            centeredSlides={false} // Disable centered slides for better dragging
+            centeredSlidesBounds={false}
             speed={800}
-            initialSlide={6} // Start from slide 3 (index 2)
-            >
+          >
             {metrics.map((metric, index) => (
               <SwiperSlide
                 key={index}
