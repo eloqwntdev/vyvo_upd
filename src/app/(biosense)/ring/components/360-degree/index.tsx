@@ -253,33 +253,48 @@ const ExpandableCard = ({
 }: ExpandableCardProps) => {
   // Auto-expand the first card or all mobile cards
   const [isExpanded, setIsExpanded] = useState(id === 1 || isMobile);
+  const handleSetIsExpanded = (value: boolean) => {
+    console.log("handleSetIsExpanded called with value:", value);
+    console.log("Current isExpanded state:", isExpanded);
+    setIsExpanded(value);
 
+    let animationFrame: number;
+    const startTime = performance.now();
+
+    const animateScroll = (currentTime: number) => {
+      const elapsedTime = currentTime - startTime;
+
+      if (elapsedTime < 600) {
+        if (!isExpanded) {
+          if (isLast && scrollContainerRef && scrollContainerRef.current) {
+            // Scroll to end of container
+            if (isMobile) {
+              scrollContainerRef.current.scrollLeft =
+                scrollContainerRef.current.scrollWidth -
+                scrollContainerRef.current.clientWidth;
+            } else {
+              scrollContainerRef.current.scrollTop =
+                scrollContainerRef.current.scrollHeight -
+                scrollContainerRef.current.clientHeight;
+            }
+          } else if (cardRef.current) {
+            cardRef.current.scrollIntoView({
+              behavior: "smooth",
+              block: isMobile ? "nearest" : "center",
+              inline: isMobile ? "center" : "nearest",
+            });
+          }
+        }
+        animationFrame = requestAnimationFrame(animateScroll);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animateScroll);
+
+    return () => cancelAnimationFrame(animationFrame);
+  };
   // Ref for scrolling into view
   const cardRef = useRef<HTMLDivElement>(null);
-
-  // Scroll into view when expanded
-  useEffect(() => {
-    if (isExpanded) {
-      if (isLast && scrollContainerRef && scrollContainerRef.current) {
-        // Scroll to end of container
-        if (isMobile) {
-          scrollContainerRef.current.scrollLeft =
-            scrollContainerRef.current.scrollWidth -
-            scrollContainerRef.current.clientWidth;
-        } else {
-          scrollContainerRef.current.scrollTop =
-            scrollContainerRef.current.scrollHeight -
-            scrollContainerRef.current.clientHeight;
-        }
-      } else if (cardRef.current) {
-        cardRef.current.scrollIntoView({
-          behavior: "smooth",
-          block: isMobile ? "nearest" : "center",
-          inline: isMobile ? "center" : "nearest",
-        });
-      }
-    }
-  }, [isExpanded, isMobile, isLast, scrollContainerRef]);
 
   // Enhanced animation variants
   const contentVariants = {
@@ -342,7 +357,7 @@ const ExpandableCard = ({
         {!isMobile && (
           <motion.div
             className="size-10 md:size-12 rounded-full bg-[#77A9E829] main-shadow shrink-0 flex items-center justify-center cursor-pointer"
-            onClick={() => setIsExpanded(!isExpanded)}
+            onClick={() => handleSetIsExpanded(!isExpanded)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
