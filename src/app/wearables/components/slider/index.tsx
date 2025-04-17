@@ -49,8 +49,8 @@ const SliderCard: React.FC<SliderCardProps> = ({
         <span className="text-black font-nb text-[14px] sm:text-[15px] md:text-[16px] leading-[18px] sm:leading-[20px] font-medium">
           {title || "BioSense Ring"}
         </span>
-        <p className="text-black font-nb font-light text-[12px] sm:text-[13px] md:text-[14px] leading-[16px] sm:leading-[18px] opacity-80">
-          {description ||
+        <p className="text-black line-clamp-2 font-nb font-light text-[12px] sm:text-[13px] md:text-[14px] leading-[16px] sm:leading-[18px] opacity-80">
+          {description.split(" ").slice(0, 50).join(" ") ||
             "Lorem ipsum dolor sit amet consectetur. Pellentesque amet diam lorem purus."}
         </p>
 
@@ -68,75 +68,117 @@ const sliderData = [
   {
     imageSrc: "/wearables-img/slider/card1.webp",
     title: "Air Quality Index",
-    description:
-      "An Air Quality Index (AQI) reports air quality in reference to air pollution levels and associated health effects that might be of concern to the population",
+    description: `An Air Quality Index (AQI) reports air quality in reference to air pollution levels and associated health effects that might be of concern to the population. The drawback of AQI is that measurements are often captured miles from you and may not be accurate for your location. 
+
+With BioSense Watch, the monitoring sensors are on your wrist, capable of measuring both indoor and outdoor air quality. This device will automatically capture AQI data and report a general air quality index every 10 minutes, combining indoor and outdoor measurement data. Or you can measure manually at any time. Equipped with a greater awareness of the air quality around you, it's easier to make informed choices to protect your wellness.  
+
+For more information, visit: `,
   },
   {
     imageSrc: "/wearables-img/slider/card2.webp",
     title: "BIA",
-    description:
-      "Bioelectrical Impedance Analysis, or BIA, uses a minimal electrical current to measure fat and muscle in the body.",
+    description: `Bioelectrical Impedance Analysis, or BIA, uses a minimal electrical current to measure fat and muscle in the body. Fat and muscle react differently to the current, which enables numerous body composition insights that a traditional scale simply can’t match. 
+
+BIA with Vyvo Technology gives you 19 different measurements, including total body water, fat mass, visceral fat, basal metabolic rate, body mass index, body cell mass, biotypes, and more. This expanded awareness helps you better track the effectiveness of fitness training and dieting and pinpoint any areas of concern. 
+
+Through the Vyvo Smart app you can check your parameters and receive a complete report to keep track of your body. 
+
+For more information visit:
+
+Note: The BIA feature requires an active Wellness+ subscription.`,
   },
   {
     imageSrc: "/wearables-img/slider/card3.webp",
     title: "APG",
-    description:
-      "Cardiovascular disease (CVD) is the leading cause of death worldwide.",
+    description: `Cardiovascular disease (CVD) is the leading cause of death worldwide. CVD includes numerous diseases of the heart or blood vessels, including heart attack, coronary artery disease, stroke, heart failure, and more. Awareness of cardiovascular health is critical to avoiding a serious health incident. APG is an accurate optical method (acceleration photoplethysmography) for measuring arterial stiffness, which enables an estimate of cardiovascular health. Vyvo Technology wearables equipped with a medical-grade fingertip sensor capable of APG readings give you exceptional cardovascular awareness. 
+
+For more information, visit: 
+
+Note: The APG feature requires an active Wellness+ subscription.`,
   },
   {
     imageSrc: "/wearables-img/slider/card4.webp",
     title: "Oxygen Saturation",
-    description:
-      "Oxygen is indispensible for most forms of life. For humans, blood oxygen levels are typically 95 to 100 percent.",
+    description: `Oxygen is indispensible for most forms of life. For humans, blood oxygen levels are typically 95 to 100 percent. A saturation below 90 percent is hypoxemia, and below 80 percent is life-threatening. 
+
+The SpO2 (or oxygen saturation) measurement of your Vyvo Technology wearable reports your blood oxygen percentage at anytime. It will automatically capture blood oxygen data every hour, and you can complete a manual measurement whenever you want added awareness. You can breathe easier with this insight, especially when you know that the U.S. FDA has given 510(k) clearance to this function, a recognition of it's accuracy and efficacy. 
+
+For more information, visit: `,
   },
   {
     imageSrc: "/wearables-img/slider/card5.webp",
     title: "Blood Pressure",
-    description:
-      "As an important vital sign, blood pressure is frequently measured to assess health.",
+    description: `As an important vital sign, blood pressure is frequently measured to assess health. In general terms, blood pressure (BP) is the pressure of circulating blood against the walls of blood vessels. Normal blood pressure for most adults is defined as a systolic pressure of less than 120 and a diastolic pressure of less than 80. 
+
+Blood pressure below the desired range is considered hypotension; pressure within the desired range is normotension; and pressure consistently higher than the desired range (which is much more common) is hypertension. It is a potentially lethal condition that may result in heart attack, stroke, and congestive heart failure if not treated. 
+
+Your Vyvo Technology wearable device acurately and automatically captures blood pressure data every hour, or you can initiate a reading at any time, making it so easy to keep an eye on this very important health metric. 
+
+For more information, visit: `,
   },
 
   {
     imageSrc: "/wearables-img/slider/card6.webp",
     title: "Atrial Fibrilation",
-    description:
-      "Atrial Fibrilation (or AFib) is the most common  form of arrhythmia, or abnormal heart rhythm.",
+    description: `Atrial Fibrilation (or AFib) is the most common  form of arrhythmia, or abnormal heart rhythm. It is characterized as "irregularly irregular." AFib can have serious implications for your health, and the key to addressing it is to detect it.  
+
+WIth a Vyvo Technology wearable device, detection is easy, as it provides continual AFib monitoring benefits. Use one every day and leverage the awareness it gives you. 
+
+For more information, visit: `,
   },
   {
     imageSrc: "/wearables-img/slider/card7.webp",
     title: "Energy",
-    description:
-      "Demands on your energy are constant. Are you up for your next big meeting, or the walk to the subway station?",
+    description: `Demands on your energy are constant. Are you up for your next big meeting, or the walk to the subway station? What about your exercise regimen?
+
+Your Vyvo Technology wearable automatically estimates your energy levels every hour and you can also check it anytime on demand. A high number for your energy measurement reflects higher energy levels. This estimate is based on heart rate variability, or HRV. 
+
+HRV is an indication of how well the heart can change its rhythm in response to different situations and stimuli — adjusting from a resting rate to an active rate, and back again. A high HRV is good because it means your body can more quickly adjust to stimulation. 
+
+For more information, visit: do we have a document for HRV? NO - OK`,
   },
   {
     imageSrc: "/wearables-img/slider/card8.webp",
     title: "Heart Rate",
-    description:
-      "The human heart beats approximately 100,000 times a day.  In general, a normal resting HR is 60 to 100 beats per minute in adults.",
+    description: `The human heart beats approximately 100,000 times a day.  In general, a normal resting HR is 60 to 100 beats per minute in adults. How often does your heart beat per minute? Find out with your Vyvo Technology wearable. 
+
+Your device automatically tracks heart rate for you every 10 minutes. Or you can do a manual measurement at any time. Heart rate can be monitored to assess cardiovascular health and detect possible problems, such as arrhythmias or tachycardia. It is also used in physical training to adjust exercise intensity and improve sports performance. `,
   },
   {
     imageSrc: "/wearables-img/slider/card9.webp",
     title: "ECG",
-    description:
-      "Electrocardiography (ECG) is used to measure the rate and rhythm of heartbeats.",
+    description: `Electrocardiography (ECG) is used to measure the rate and rhythm of heartbeats, the size and position of the heart chambers, the presence of any damage to the heart’s muscle cells or conduction system, the effects of heart drugs, and the function of implanted pacemakers.
+
+Your Vyvo Technology wearable device features 4 electrodes to enable an ECG measurement. This can only be done manually, as your finger and thumb have to touch the electrodes to complete the measurement. Proprietary Vyvo algorithms analyze your data, which is accurately reported in the Vyvo Smart App. An ECG measurement from the wrist is highly convenient and informative, giving you exceptional awareness of your heart health.
+
+For more informaiton, visit: `,
   },
   {
     imageSrc: "/wearables-img/slider/card10.webp",
     title: "Skin Temperature",
-    description:
-      "Your Vyvo Technology wearable device will check your skin's temperature every 10 minutes.",
+    description: `Your Vyvo Technology wearable device will check your skin's temperature every 10 minutes, or you can initiate a measurement at any time from the Vyvo Smart App. Numerous factors affect skin temperature, including exercise or strenuous work, diet and the temperature of the surrounding environment. Your skin temperature will fluctuate slightly throughout the day, affected by work or exercise, diet, and the surrounding environment.`,
   },
   {
     imageSrc: "/wearables-img/slider/card11.webp",
     title: "Stress",
-    description:
-      "Everyone has some stress, which is the body's defense mechanism against threats and stimuli from social and environmental factors.",
+    description: `Everyone has some stress, which is the body's defense mechanism against threats and stimuli from social and environmental factors. But high stress can have significant negative impacts on your health. 
+
+Your Vyvo Technology wearable device estimates your stress levels by monitoring heart rate variability (HRV). It will automatically capture data and report a stress score every hour, or you can initiate an on-demand measurement at any time. When you see high levels of stress, you can use best practice techniques to manage stress and improve your mental health. 
+
+For more information, visit: `,
   },
   {
     imageSrc: "/wearables-img/slider/card12.webp",
     title: "Sleep",
-    description:
-      "Wear your Vyvo Technology device while you sleep and it will capture valuable data to help you to understand your sleep quality.",
+    description: `Wear your Vyvo Technology device while you sleep and it will capture valuable data to help you understand your sleep quality. This includes deep sleep, light sleep, awake time, and the critical measurements of REM and any sleep disturbances.
+
+REM is a critical, necessary sleep state that provides numerous health benefits. In this stage, the brain is highly active, the eyeballs will move quickly back and forth, and it’s easy to achieve a dream state, including vivid dreams. REM sleep has been shown to play an important role in mood regulation, learning, memory, and stress management.
+
+Sleep disturbances are more than just interruptions; they can have significant negative impacts on your health. Disturbances are characterized by loud snoring, periods of not breathing, gasping for air during sleep, waking with a dry mouth, morning headache, excessive daytime fatigue, and more. Gain a deeper awareness of both and use the app's tips to know how to improve in these areas.
+
+For more information, visit:
+
+Note: REM and sleep disturbance tracking require an active Wellness+ subscription and AFib monitoring turned on.`,
   },
 ];
 
@@ -196,7 +238,9 @@ const WearablesSlider: React.FC<WearablesSliderProps> = ({ onCardClick }) => {
                   {card.title}
                 </h3>
                 <p className="font-nb text-[14px] font-light text-black/70 line-clamp-2">
-                  {card.description}
+                  <span className="line-clamp-2">
+                    {card.description.split(" ").slice(0, 50).join(" ")}
+                  </span>
                 </p>
               </div>
             </div>
@@ -322,7 +366,10 @@ const WearablesSlider: React.FC<WearablesSliderProps> = ({ onCardClick }) => {
                     <SliderCard
                       imageSrc={card.imageSrc}
                       title={card.title}
-                      description={card.description}
+                      description={card.description
+                        .split(" ")
+                        .slice(0, 50)
+                        .join(" ")}
                       index={index}
                     />
                   </div>

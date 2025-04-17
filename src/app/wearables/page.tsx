@@ -18,6 +18,17 @@ interface ModalProps {
 }
 
 const Modal = ({ isOpen, onClose, title, content, imageSrc }: ModalProps) => {
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -37,7 +48,7 @@ const Modal = ({ isOpen, onClose, title, content, imageSrc }: ModalProps) => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.9 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative w-[90%] sm:w-[85%] md:w-[80%] max-w-[630px] backdrop-blur-[500px] bg-[#000000CC] rounded-[12px] sm:rounded-[16px] md:rounded-[20px] p-4 sm:p-6 md:p-8 modal-shadow"
+            className="relative h-[80vh] overflow-auto w-[90%] sm:w-[85%] md:w-[80%] max-w-[630px] backdrop-blur-[500px] bg-[#000000CC] rounded-[12px] sm:rounded-[16px] md:rounded-[20px] p-4 sm:p-6 md:p-8 modal-shadow"
           >
             <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
               {/* Title and Close Button */}
@@ -91,7 +102,7 @@ const Modal = ({ isOpen, onClose, title, content, imageSrc }: ModalProps) => {
                 <h3 className="text-white text-lg sm:text-xl md:text-2xl font-nb">
                   {title}
                 </h3>
-                <div className="text-white font-nb font-light text-sm sm:text-base md:text-lg leading-relaxed">
+                <div className="text-white font-nb font-light text-sm sm:text-base md:text-lg leading-relaxed h-fit overflow-y-auto hide-scrollbar whitespace-pre-wrap">
                   {content}
                 </div>
               </div>
