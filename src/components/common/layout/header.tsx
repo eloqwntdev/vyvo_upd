@@ -124,7 +124,7 @@ const Header = () => {
                   {navLinks.map((link, index) => {
                     const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
                     useEffect(() => {
-                      if (activeIndex === null) setIsSubMenuOpen(false);
+                      if (activeIndex !== index) setIsSubMenuOpen(false);
                     }, [activeIndex]);
                     return (
                       <div key={index}>
@@ -168,18 +168,20 @@ const Header = () => {
                               handleMouseLeave();
                               setIsSubMenuOpen(false);
                             }}
-                            className="absolute flex-col mt-2 h-fit w-fit px-6 py-3 main-shadow max-w-[676px] flex justify-between rounded-[16px] bg-[#77A9E80A] backdrop-blur-[20px]"
+                            className="absolute"
                           >
-                            {link.subMenu.map((sublink, subindex) => (
-                              <Link
-                                href={sublink.href}
-                                aria-label="Navigate to home page"
-                                className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px] cursor-pointer text-sm gradient-text transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100"
-                                key={subindex}
-                              >
-                                {sublink.label}
-                              </Link>
-                            ))}
+                            <div className="bg-black/50 backdrop-blur-[20px] flex-col mt-5 h-fit w-fit px-6 py-3 main-shadow max-w-[676px] flex justify-between rounded-[16px]">
+                              {link.subMenu.map((sublink, subindex) => (
+                                <Link
+                                  href={sublink.href}
+                                  aria-label="Navigate to home page"
+                                  className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px] cursor-pointer text-sm gradient-text transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100"
+                                  key={subindex}
+                                >
+                                  {sublink.label}
+                                </Link>
+                              ))}
+                            </div>
                           </div>
                         )}
                       </div>
