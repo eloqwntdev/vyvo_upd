@@ -185,7 +185,7 @@ const Header = () => {
                                 exit={{ opacity: 0, y: -10 }}
                                 transition={{ duration: 0.2 }}
                               >
-                                <div className="bg-black/50 backdrop-blur-[20px] flex-col mt-5 h-fit w-fit px-6 py-3 main-shadow max-w-[676px] flex justify-between rounded-[16px]">
+                                <div className="bg-black/50 backdrop-blur-[75px] flex-col mt-5 h-fit w-fit px-6 py-3 main-shadow max-w-[676px] flex justify-between rounded-[16px]">
                                   {link.subMenu.map((sublink, subindex) => (
                                     <Link
                                       href={sublink.href}
