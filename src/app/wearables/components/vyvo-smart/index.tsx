@@ -2,7 +2,12 @@
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
 
+// Import Swiper styles
+import "swiper/css";
 const VyvoSmart = () => {
   const solutionCards = [
     "/wearables-img/vyvo-smart/slider1.webp",
@@ -16,6 +21,7 @@ const VyvoSmart = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const contentRef = useRef(null);
+  const swiperRef = useRef<SwiperType | null>(null);
   const featuresRef = useRef(null);
   const downloadRef = useRef(null);
 
@@ -34,36 +40,67 @@ const VyvoSmart = () => {
   return (
     <section className="py-10 bg-white md:py-[120px] px-4 md:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center justify-center gap-8 md:gap-[129px]">
       <div className="wearables-card-gradient w-full max-w-[598px] rounded-[24px] relative overflow-hidden p-4">
-        <AnimatePresence initial={false} mode="popLayout">
-          <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{
-              duration: 1,
-              ease: [0.4, 0.0, 0.2, 1],
-            }}
-          >
-            <Image
-              src={solutionCards[currentIndex]}
-              width={598}
-              height={628}
-              alt={"Vyvo Smart Device"}
-              className="w-full h-auto mx-auto"
-              priority
-            />
-          </motion.div>
-        </AnimatePresence>
+        <Swiper
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+          onSlideChange={(swiper) => setCurrentIndex(swiper.realIndex)}
+          spaceBetween={0}
+          slidesPerView={1}
+          centeredSlides={true}
+          loop={true}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+          }}
+          speed={1000}
+          modules={[Autoplay]}
+          className="w-full h-full"
+        >
+          {solutionCards.map((image, index) => (
+            <SwiperSlide key={index}>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: 1,
+                  ease: [0.4, 0.0, 0.2, 1],
+                }}
+                className="flex items-center justify-center"
+              >
+                <Image
+                  src={image}
+                  width={1196}
+                  height={1256}
+                  alt={`Device ${index + 1}`}
+                  className="mx-auto"
+                  priority={index === 0}
+                />
+              </motion.div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-1.5">
+        <div
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-1.5 z-10"
+          style={{ transition: "opacity 0.3s ease" }}
+        >
           {solutionCards.map((_, index) => (
             <div
               key={index}
-              className={`size-2 rounded-full ${
-                index === currentIndex ? "bg-[#fff]" : "bg-[#FFFFFF80]"
-              }`}
-            ></div>
+              onClick={() => swiperRef.current?.slideToLoop(index)}
+              className="cursor-pointer"
+              aria-label={`Go to slide ${index + 1}`}
+            >
+              <div
+                className={`size-2 rounded-full transform transition-all duration-300 ${
+                  index === currentIndex
+                    ? "bg-white scale-110"
+                    : "bg-white/50 hover:bg-white/70"
+                }`}
+              />
+            </div>
           ))}
         </div>
       </div>
