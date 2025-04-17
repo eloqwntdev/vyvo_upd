@@ -56,15 +56,15 @@ const Header = () => {
     switch (pathname) {
       case "/social-fi":
         setOtherTextColor("gradient-text-social-fi");
-        setBaseTextColor("text-[#FF0066]");
+        // setBaseTextColor("text-[#FF0066]");
         break;
       case "/vyvo-smart-chain":
         setOtherTextColor("gradient-text-vyvo-smart-chain");
-        setBaseTextColor("text-[#E749F0]");
+        // setBaseTextColor("text-[#E749F0]");
         break;
       default:
         setOtherTextColor("gradient-text");
-        setBaseTextColor("link-bg link-gradient");
+        // setBaseTextColor("link-bg link-gradient");
         break;
     }
   }, [pathname]);

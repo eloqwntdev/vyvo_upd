@@ -37,7 +37,7 @@ const MainSection = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-5 pt-[96px] md:pt-[162px] pb-6 lg:pb-0">
         <div
           className="cursor-pointer card-1-gradient p-[2.5px] rounded-[18px] card-shadow"
-          onClick={() => window.location.href = "/"}
+          onClick={() => (window.location.href = "/")}
         >
           <div className="p-4 rounded-[18px] card-1-inner-gradient relative">
             <img
@@ -51,9 +51,9 @@ const MainSection = () => {
           </div>
         </div>
 
-        <div 
+        <div
           className="cursor-pointer card-2-gradient p-[2.5px] rounded-[18px] card-shadow"
-          onClick={() => window.location.href = "/vyvo-smart-chain"}
+          onClick={() => (window.location.href = "/vyvo-smart-chain")}
         >
           <div className="p-4 rounded-[18px] card-2-inner-gradient relative">
             <img
@@ -70,19 +70,20 @@ const MainSection = () => {
         <div
           onClick={() => {
             switch (selectedIcon) {
-              case "Icon1":
-              window.location.href = "/ring";
-              break;
-              case "Icon2":
-              window.location.href = "/band";
-              break;
-              case "Icon3":
-              window.location.href = "/watch";
-              break;
+              // case "Icon1":
+              //   window.location.href = "/ring";
+              //   break;
+              // case "Icon2":
+              //   window.location.href = "/band";
+              //   break;
+              // case "Icon3":
+              //   window.location.href = "/watch";
+              //   break;
               default:
-              break;
+                window.location.href = "/wearables";
+                break;
             }
-          }} 
+          }}
           className="cursor-pointer card-3-gradient p-[2.5px] rounded-[18px] card-shadow"
         >
           <div className="p-4 rounded-[18px] card-3-inner-gradient relative">
@@ -174,13 +175,38 @@ const MainSection = () => {
                   } grid place-content-center`}
                   onHoverStart={() => handleClick("Icon3")}
                 >
-                  <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.3335 8C1.3335 5.80835 1.3335 4.71252 1.9388 3.97495C2.04961 3.83993 2.17342 3.71612 2.30845 3.60531C3.04601 3 4.14184 3 6.3335 3C8.52515 3 9.62098 3 10.3585 3.60531C10.4936 3.71612 10.6174 3.83993 10.7282 3.97495C11.3335 4.71252 11.3335 5.80835 11.3335 8C11.3335 10.1917 11.3335 11.2875 10.7282 12.025C10.6174 12.1601 10.4936 12.2839 10.3585 12.3947C9.62098 13 8.52515 13 6.3335 13C4.14184 13 3.04601 13 2.30845 12.3947C2.17342 12.2839 2.04961 12.1601 1.9388 12.025C1.3335 11.2875 1.3335 10.1917 1.3335 8Z" fill="white" fill-opacity="0.2"/>
-<path d="M1.3335 8C1.3335 5.80835 1.3335 4.71252 1.9388 3.97495C2.04961 3.83993 2.17342 3.71612 2.30845 3.60531C3.04601 3 4.14184 3 6.3335 3C8.52515 3 9.62098 3 10.3585 3.60531C10.4936 3.71612 10.6174 3.83993 10.7282 3.97495C11.3335 4.71252 11.3335 5.80835 11.3335 8C11.3335 10.1917 11.3335 11.2875 10.7282 12.025C10.6174 12.1601 10.4936 12.2839 10.3585 12.3947C9.62098 13 8.52515 13 6.3335 13C4.14184 13 3.04601 13 2.30845 12.3947C2.17342 12.2839 2.04961 12.1601 1.9388 12.025C1.3335 11.2875 1.3335 10.1917 1.3335 8Z" stroke="white"/>
-<path d="M4.3335 14.6667H8.3335" stroke="white" stroke-linecap="round"/>
-<path d="M4.3335 1.33325H8.3335" stroke="white" stroke-linecap="round"/>
-<path d="M4.59207 6.22092C5.21779 5.85538 5.76391 6.00269 6.09198 6.23734C6.2265 6.33355 6.29376 6.38165 6.33333 6.38165C6.37291 6.38165 6.44016 6.33355 6.57468 6.23734C6.90276 6.00269 7.44888 5.85538 8.0746 6.22092C8.89578 6.70065 9.0816 8.2833 7.18744 9.61852C6.82667 9.87284 6.64628 10 6.33333 10C6.02039 10 5.84 9.87284 5.47922 9.61852C3.58507 8.2833 3.77088 6.70065 4.59207 6.22092Z" stroke="white" stroke-linecap="round"/>
-</svg>
+                  <svg
+                    width="12"
+                    height="16"
+                    viewBox="0 0 12 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1.3335 8C1.3335 5.80835 1.3335 4.71252 1.9388 3.97495C2.04961 3.83993 2.17342 3.71612 2.30845 3.60531C3.04601 3 4.14184 3 6.3335 3C8.52515 3 9.62098 3 10.3585 3.60531C10.4936 3.71612 10.6174 3.83993 10.7282 3.97495C11.3335 4.71252 11.3335 5.80835 11.3335 8C11.3335 10.1917 11.3335 11.2875 10.7282 12.025C10.6174 12.1601 10.4936 12.2839 10.3585 12.3947C9.62098 13 8.52515 13 6.3335 13C4.14184 13 3.04601 13 2.30845 12.3947C2.17342 12.2839 2.04961 12.1601 1.9388 12.025C1.3335 11.2875 1.3335 10.1917 1.3335 8Z"
+                      fill="white"
+                      fill-opacity="0.2"
+                    />
+                    <path
+                      d="M1.3335 8C1.3335 5.80835 1.3335 4.71252 1.9388 3.97495C2.04961 3.83993 2.17342 3.71612 2.30845 3.60531C3.04601 3 4.14184 3 6.3335 3C8.52515 3 9.62098 3 10.3585 3.60531C10.4936 3.71612 10.6174 3.83993 10.7282 3.97495C11.3335 4.71252 11.3335 5.80835 11.3335 8C11.3335 10.1917 11.3335 11.2875 10.7282 12.025C10.6174 12.1601 10.4936 12.2839 10.3585 12.3947C9.62098 13 8.52515 13 6.3335 13C4.14184 13 3.04601 13 2.30845 12.3947C2.17342 12.2839 2.04961 12.1601 1.9388 12.025C1.3335 11.2875 1.3335 10.1917 1.3335 8Z"
+                      stroke="white"
+                    />
+                    <path
+                      d="M4.3335 14.6667H8.3335"
+                      stroke="white"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M4.3335 1.33325H8.3335"
+                      stroke="white"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M4.59207 6.22092C5.21779 5.85538 5.76391 6.00269 6.09198 6.23734C6.2265 6.33355 6.29376 6.38165 6.33333 6.38165C6.37291 6.38165 6.44016 6.33355 6.57468 6.23734C6.90276 6.00269 7.44888 5.85538 8.0746 6.22092C8.89578 6.70065 9.0816 8.2833 7.18744 9.61852C6.82667 9.87284 6.64628 10 6.33333 10C6.02039 10 5.84 9.87284 5.47922 9.61852C3.58507 8.2833 3.77088 6.70065 4.59207 6.22092Z"
+                      stroke="white"
+                      stroke-linecap="round"
+                    />
+                  </svg>
                 </motion.div>
               </div>
               <span className="bg-gradient-to-r from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent font-light font-nb text-[48px] leading-[48px] max-w-[235px] text-center ">
