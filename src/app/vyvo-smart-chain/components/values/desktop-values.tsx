@@ -44,7 +44,7 @@ const DesktopValues = () => {
         ref={containerRef}
         className="py-20 flex flex-col gap-16 items-center justify-center bg-black min-h-screen sticky top-0"
       >
-        <div className="flex flex-col items-center justify-center gap-20">
+        <div className="flex flex-col items-center justify-center gap-10">
           <motion.span
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
