@@ -190,7 +190,27 @@ const ALLThat = () => {
           {/* Vertical scrollable cards column */}
           <div
             ref={vertScrollContainerRef}
-            className="flex flex-col gap-8 w-full max-h-[600px] overflow-y-auto pr-4 hide-scrollbar"
+            className="flex flex-col select-none gap-8 w-full max-h-[600px] overflow-y-auto pr-4 hide-scrollbar"
+            onMouseDown={(e) => {
+              const container = vertScrollContainerRef.current;
+              if (!container) return;
+
+              let startY = e.clientY;
+              let scrollTop = container.scrollTop;
+
+              const onMouseMove = (event: MouseEvent) => {
+                const deltaY = event.clientY - startY;
+                container.scrollTop = scrollTop - deltaY;
+              };
+
+              const onMouseUp = () => {
+                document.removeEventListener("mousemove", onMouseMove);
+                document.removeEventListener("mouseup", onMouseUp);
+              };
+
+              document.addEventListener("mousemove", onMouseMove);
+              document.addEventListener("mouseup", onMouseUp);
+            }}
           >
             {cards.map((card, index) => (
               <ExpandableCard
