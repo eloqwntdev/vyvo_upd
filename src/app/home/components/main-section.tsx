@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const MainSection = () => {
   const [selectedIcon, setSelectedIcon] = useState<string | null>("Icon3");
-  const [imageSrc, setImageSrc] = useState("/homepage/card-watch-1.png");
+  const [imageSrc, setImageSrc] = useState("/homepage/card-watch-3.png");
   const [textContent, setTextContent] = useState("BioSense Watch");
 
   const handleClick = (icon: string | null) => {
