@@ -424,11 +424,7 @@ button:not(.dropdown-menu-shadow button, .remove-hover-bg):hover {
 }
 .link-gradient-social-fi {
   color: #fff;
-  background-image: radial-gradient(
-    36.21% 29.66% at 39.06% 38.97%,
-    #ff0066 0%,
-    #944b68 100%
-  );
+  background-image: radial-gradient(#ff0066 0%, #944b68 100%);
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
