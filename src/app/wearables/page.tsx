@@ -8,6 +8,7 @@ import VyvoResearchDevelopment from "./components/vyvo-research-development";
 import VyvoSmart from "./components/vyvo-smart";
 import ProductLineup from "./components/product-lineup";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 interface ModalProps {
   isOpen: boolean;
@@ -90,10 +91,11 @@ const Modal = ({ isOpen, onClose, title, content, imageSrc }: ModalProps) => {
 
               {/* Image */}
               <div className="w-full aspect-[4/3] rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden">
-                <img
+                <Image
                   src={imageSrc}
                   alt={title}
                   className="w-full h-full object-cover"
+                  fill
                 />
               </div>
 
