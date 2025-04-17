@@ -57,7 +57,7 @@ const AboutVSC = () => {
           <div className="relative w-full">
             {/* {View} */}
             <Lottie animationData={animationData} loop />
-            <div className="flex flex-col gap-6 md:gap-8 lg:gap-[56px] absolute bottom-7 md:bottom-8 lg:bottom-12 left-7 md:left-8 lg:left-12">
+            <div className="flex flex-col gap-[25px] md:gap-[10px] lg:gap-[20px] absolute bottom-[7%] md:bottom-[4%] lg:bottom-[7%] left-7 md:left-8 lg:left-[10%]">
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -79,7 +79,7 @@ const AboutVSC = () => {
               loop
               assetsPath="/lottie/3/images/"
             />
-            <div className="flex flex-col gap-6 md:gap-8 lg:gap-[56px] absolute bottom-7 md:bottom-8 lg:bottom-12 left-7 md:left-8 lg:left-12">
+            <div className="flex flex-col gap-[25px] md:gap-[10px] lg:gap-[20px] absolute bottom-[7%] md:bottom-[4%] lg:bottom-[7%] left-7 md:left-8 lg:left-[10%]">
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
