@@ -2,7 +2,7 @@
 import React from "react";
 // import { useLottie } from "lottie-react";
 import { motion } from "framer-motion";
-import animationData from "../../../../../public/lottie/pink-bg/data.json";
+import animationData from "../../../../../public/lottie/pinky-bg/data.json";
 import dynamic from "next/dynamic";
 
 const SocialFiBanner = () => {
