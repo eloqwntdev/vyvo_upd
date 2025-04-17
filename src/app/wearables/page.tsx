@@ -95,7 +95,8 @@ const Modal = ({ isOpen, onClose, title, content, imageSrc }: ModalProps) => {
                   src={imageSrc}
                   alt={title}
                   className="w-full h-full object-cover"
-                  fill
+                  width={3000}
+                  height={2000}
                 />
               </div>
 
