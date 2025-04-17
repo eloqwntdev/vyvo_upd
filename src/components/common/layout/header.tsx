@@ -113,12 +113,19 @@ const Header = () => {
             {/* <div className="size-10 rounded-[12px] bg-[#94a8ed0a] backdrop-blur-[10px] main-shadow grid place-content-center">
               <SlashIcon />
             </div> */}
-            <nav className="px-6 py-3 main-shadow max-w-[676px] w-full flex justify-between rounded-[16px] bg-[#77A9E80A] backdrop-blur-[20px]">
+            <nav
+              onMouseLeave={() => {
+                handleMouseLeave();
+              }}
+              className="px-6 py-3 main-shadow max-w-[676px] w-full flex justify-between rounded-[16px] bg-[#77A9E80A] backdrop-blur-[20px]"
+            >
               <div className="container mx-auto flex justify-between items-center">
                 <ul className="flex space-x-8">
                   {navLinks.map((link, index) => {
                     const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
-
+                    useEffect(() => {
+                      if (activeIndex === null) setIsSubMenuOpen(false);
+                    }, [activeIndex]);
                     return (
                       <div key={index}>
                         <li
@@ -126,10 +133,6 @@ const Header = () => {
                           onMouseEnter={() => {
                             handleMouseEnter(index);
                             setIsSubMenuOpen(true);
-                          }}
-                          onMouseLeave={() => {
-                            handleMouseLeave();
-                            setIsSubMenuOpen(false);
                           }}
                         >
                           <a
