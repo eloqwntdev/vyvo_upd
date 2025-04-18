@@ -330,6 +330,10 @@ const WearablesSlider: React.FC<WearablesSliderProps> = ({ onCardClick }) => {
                   slidesPerView: 3.5,
                   spaceBetween: 20,
                 },
+                1600: {
+                  slidesPerView: 4.5,
+                  spaceBetween: 20,
+                },
               }}
               allowSlidePrev={true}
               allowTouchMove={true}
