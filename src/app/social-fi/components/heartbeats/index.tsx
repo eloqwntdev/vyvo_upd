@@ -2,7 +2,7 @@
 import React from "react";
 // import { useLottie } from "lottie-react";
 import { motion } from "framer-motion";
-import animationData from "../../../../../public/lottie/4/data.json";
+import animationData from "../../../../../public/lottie/pink-heart/alfa2.json";
 import { PinkyButton } from "@/components/common/controllers/button/pink-button";
 import dynamic from "next/dynamic";
 
