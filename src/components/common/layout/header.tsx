@@ -467,6 +467,6 @@ const navLinksMobile = [
   { label: "About Us", href: "/about-us" },
   { label: "Tokenomic", href: "/tokenomic" },
   { label: "News", href: "/news" },
-  { label: "Events", href: "/events" },
+  // { label: "Events", href: "/events" },
   { label: "Support", href: "https://www.vyvo.support/hc/en-us" },
 ];
