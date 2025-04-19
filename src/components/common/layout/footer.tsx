@@ -12,22 +12,22 @@ const Footer = () => {
     { label: "Vyvo Smart Chain", href: "/vyvo-smart-chain" },
     { label: "SocialFi", href: "/social-fi" },
     { label: "GPU Farm", href: "/gpu-farm" },
-    { label: "Store", href: "" },
+    { label: "Store", href: "https://shop.vyvo.com/" },
   ];
 
   const socialLinks = [
-    { label: "X", href: "" },
-    { label: "Facebook", href: "" },
-    { label: "Instagram", href: "" },
-    { label: "Telegram", href: "" },
-    { label: "Discord", href: "" },
+    { label: "X", href: "https://x.com/VyvoSmartChain" },
+    { label: "Facebook", href: "https://www.facebook.com/VyvoGroup/" },
+    { label: "Instagram", href: "https://www.instagram.com/vyvoofficial/" },
+    { label: "Telegram", href: "https://t.me/VyvoSmartChainEN" },
+    { label: "Discord", href: "https://discord.gg/wCd9NQEFbr" },
   ];
 
   const thirdLinks = [
     { label: "About Us", href: "/about-us" },
     { label: "News", href: "/news" },
     { label: "Events", href: "" },
-    { label: "Support", href: "" },
+    { label: "Support", href: "https://www.vyvo.support/hc/en-us" },
   ];
 
   const legalLinks = [
