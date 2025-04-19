@@ -28,8 +28,8 @@ export const navLinks = [
     label: "About us",
     subMenu: [
       { href: "/news", label: "News" },
-      { href: "/support", label: "Support" },
+      { href: "https://www.vyvo.support/hc/en-us", label: "Support" },
     ],
   },
-  { href: "/store", label: "Store" },
+  { href: "https://shop.vyvo.com/", label: "Store" },
 ];

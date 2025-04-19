@@ -463,10 +463,10 @@ const navLinksMobile = [
   { label: "Vyvo Tech", href: "/wearables" },
   { label: "Vyvo Smart Chain", href: "/vyvo-smart-chain" },
   { label: "SocialFi", href: "/social-fi" },
-  { label: "Store", href: "/store" },
+  { label: "Store", href: "https://shop.vyvo.com/" },
   { label: "About Us", href: "/about-us" },
   { label: "Tokenomic", href: "/tokenomic" },
   { label: "News", href: "/news" },
   { label: "Events", href: "/events" },
-  { label: "Support", href: "/support" },
+  { label: "Support", href: "https://www.vyvo.support/hc/en-us" },
 ];
