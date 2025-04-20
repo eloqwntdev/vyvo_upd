@@ -46,7 +46,11 @@ export const TextReveal: FC<TextRevealProps> = ({
 
   useEffect(() => {
     if (hasRevealed) {
-      window.scrollTo(0, window.innerHeight);
+      const html = document.documentElement;
+      const prevScrollBehavior = html.style.scrollBehavior;
+      html.style.scrollBehavior = "auto";
+      window.scrollTo(0, window.innerHeight * 0.9);
+      html.style.scrollBehavior = prevScrollBehavior;
     }
   }, [hasRevealed]);
 
