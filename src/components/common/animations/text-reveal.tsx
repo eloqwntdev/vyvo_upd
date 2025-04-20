@@ -49,7 +49,7 @@ export const TextReveal: FC<TextRevealProps> = ({
       const html = document.documentElement;
       const prevScrollBehavior = html.style.scrollBehavior;
       html.style.scrollBehavior = "auto";
-      window.scrollTo(0, window.innerHeight * 0.9);
+      window.scrollTo(0, window.innerHeight * 0.87);
       html.style.scrollBehavior = prevScrollBehavior;
     }
   }, [hasRevealed]);
