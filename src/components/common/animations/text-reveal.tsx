@@ -44,6 +44,12 @@ export const TextReveal: FC<TextRevealProps> = ({
     };
   }, [scrollYProgress, hasRevealed]);
 
+  useEffect(() => {
+    if (hasRevealed) {
+      window.scrollTo(0, window.innerHeight);
+    }
+  }, [hasRevealed]);
+
   if (typeof children !== "string") {
     throw new Error("TextReveal: children must be a string");
   }
@@ -51,11 +57,18 @@ export const TextReveal: FC<TextRevealProps> = ({
   const words = children.split(" ");
 
   return (
-    <div ref={targetRef} className={cn("relative z-0 h-[200vh]", className)}>
+    <div
+      ref={targetRef}
+      className={cn(
+        "relative z-0",
+        hasRevealed ? "flex flex-col justify-center h-[100vh]" : "h-[200vh]"
+      )}
+    >
       <div
-        className={
-          "sticky top-0 mx-auto flex h-[50%] max-w-4xl items-center bg-transparent px-[1rem] py-[5rem]"
-        }
+        className={cn(
+          "top-0 mx-auto flex h-[50%] max-w-4xl items-center bg-transparent px-[1rem] py-[5rem]",
+          hasRevealed ? "" : "sticky"
+        )}
       >
         <div className="flex flex-col items-center w-full">
           {!hasRevealed && icons && (
