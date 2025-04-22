@@ -138,8 +138,8 @@ const OneRing: React.FC<OneRingProps> = ({
             className="font-nb font-light text-white text-[24px] leading-[28px] md:text-[56px] md:tracking-[-1.4px] md:leading-[64px]"
           >
             {title}{" "}
-            <span className="banner-gradient-text">{highlightedText}</span>{" "}
-            Quest!
+            <span className="banner-gradient-text">{highlightedText}</span> —
+            and More!
           </motion.h2>
           <motion.p
             variants={fadeInUp}

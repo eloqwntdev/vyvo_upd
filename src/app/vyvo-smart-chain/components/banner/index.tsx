@@ -46,7 +46,7 @@ const VyvoCmartChainBanner = () => {
               y: 0,
             }}
             transition={{
-              duration: 0.8,
+              duration: 1.2,
               ease: [0.43, 0.13, 0.23, 0.96],
             }}
           >
