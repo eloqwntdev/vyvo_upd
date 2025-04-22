@@ -143,7 +143,7 @@ const OneRing: React.FC<OneRingProps> = ({
           </motion.h2>
           <motion.p
             variants={fadeInUp}
-            className="text-white font-nb text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] md:tracking-wider max-w-[387px]"
+            className="font-nb font-light text-white text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] md:tracking-wider max-w-[387px]"
           >
             {description}
           </motion.p>
