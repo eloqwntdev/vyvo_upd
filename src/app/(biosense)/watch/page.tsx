@@ -36,7 +36,7 @@ const BiosenseWatchPage = () => {
       <Privacy />
       <OneRing
         title="Everything You’d Want from a"
-        highlightedText="Wearable"
+        highlightedText="Wearable — and More!"
         description={
           <>
             From VAI OS and AQI, to advanced wellness features and a stunning,

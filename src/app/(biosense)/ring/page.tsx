@@ -36,13 +36,10 @@ const RingWatch = () => {
       <HealthFeaturesSection />
 
       <OneRing
-        title="It's the One Watch for"
-        highlightedText="Your Wellness"
+        title="Wellness Monitoring, "
+        highlightedText="Wrapped Around Your Finger"
         description={
           <>
-            Wellness Monitoring, Wrapped Around Your Finger
-            <br />
-            <br />
             Use BioSense Ring to constantly monitor key metrics, day and night,
             for enhanced wellbeing. Vyvo Smart App makes that so easy, unlocking
             all the tracking features and benefits of the BioSense Ring.
