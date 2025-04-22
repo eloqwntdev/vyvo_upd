@@ -45,7 +45,7 @@ const ProductLineup = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={isRingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="flex flex-col gap-6 md:gap-[111px] justify-end items-center"
+          className="flex flex-col gap-6 md:gap-[80px] justify-end items-center"
         >
           <Link href="/ring">
             <motion.div
@@ -63,7 +63,7 @@ const ProductLineup = () => {
                 alt={"BioSense Ring"}
                 width={206}
                 height={206}
-                className="w-[160px] md:w-[180px] lg:w-[206px] h-auto transition-transform duration-300 hover:scale-110"
+                className="w-[180px] md:w-[180px] lg:w-[230px] h-auto transition-transform duration-300 hover:scale-110"
               />
             </motion.div>
           </Link>
@@ -121,7 +121,7 @@ const ProductLineup = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={isBandInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
-          className="flex flex-col gap-6 md:gap-10 justify-between items-center"
+          className="flex flex-col gap-6 md:gap-[60px] justify-end items-center"
         >
           <Link href="/band">
             <motion.div
@@ -137,9 +137,9 @@ const ProductLineup = () => {
               <Image
                 src={"/wearables-img/lineup/biosense-band.webp"}
                 alt={"BioSense Band"}
-                width={289}
-                height={289}
-                className="w-[220px] md:w-[260px] lg:w-[289px] h-auto transition-transform duration-300 hover:scale-110"
+                width={206}
+                height={206}
+                className="w-[230px] md:w-[270px] lg:w-[270px] h-auto transition-transform duration-300 hover:scale-110"
               />
             </motion.div>
           </Link>
