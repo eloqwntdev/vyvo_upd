@@ -34,15 +34,15 @@ const VyvoCmartChainBanner = () => {
       <div className="w-full flex flex-col relative gap-20 md:gap-[160px] items-center pb-[31px] md:pb-20 px-4 md:px-6">
         <div className="flex flex-col items-center justify-center gap-6">
           <motion.div
-            className="h-fit w-fit opacity-100"
+            className="h-[450px] w-fit opacity-100"
             initial={{
               opacity: 0,
-              height: 0,
+              /*height: 0,*/
               y: 30,
             }}
             animate={{
               opacity: 1,
-              height: 450,
+              /* height: 450,*/
               y: 0,
             }}
             transition={{
