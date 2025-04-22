@@ -17,29 +17,23 @@ const StepBlock = ({
   index,
   totalSteps,
 }: StepBlockProps) => {
-  const segmentSize = 0.9 / totalSteps;
-  const isLastStep = index === totalSteps - 1;
+  const segmentSize = 0.5 / totalSteps;
 
   const textColor = useTransform(
     scrollYProgress,
-    [index * segmentSize, isLastStep ? 1 : (index + 0.5) * segmentSize],
+    [index * segmentSize, (index + 1) * segmentSize],
     ["rgba(255, 255, 255, 0.3)", "rgba(255, 255, 255, 1)"]
   );
 
   const dotColor = useTransform(
     scrollYProgress,
-    [index * segmentSize, isLastStep ? 1 : (index + 0.2) * segmentSize],
+    [index * segmentSize, (index + 1) * segmentSize],
     ["rgba(255, 255, 255, 0.3)", "#2A5FDD"]
   );
 
   const lineProgress = useTransform(
     scrollYProgress,
-    [
-      index * segmentSize,
-      isLastStep
-        ? Math.min(1, (index + 0.2) * segmentSize)
-        : (index + 0.2) * segmentSize,
-    ],
+    [index * segmentSize, (index + 1) * segmentSize],
     [0, 1],
     {
       clamp: true,
@@ -99,7 +93,7 @@ const Stepper = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"],
+    offset: ["start center", "end start"],
   });
 
   const steps = [
