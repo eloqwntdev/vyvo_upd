@@ -14,7 +14,7 @@ const TryNow = () => {
   const titleY = useTransform(scrollYProgress, [0, 0.5], [100, 0]);
   const titleOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
   const descriptionY = useTransform(scrollYProgress, [0.1, 0.6], [50, 0]);
-  const descriptionOpacity = useTransform(scrollYProgress, [0.1, 0.6], [0, 1]);
+  const descriptionOpacity = useTransform(scrollYProgress, [0.1, 0.4], [0, 1]);
   const buttonScale = useTransform(scrollYProgress, [0.2, 0.7], [0.8, 1]);
   const buttonOpacity = useTransform(scrollYProgress, [0.2, 0.7], [0, 1]);
   const imageScale = useTransform(scrollYProgress, [0, 0.5], [0.9, 1]);
@@ -45,7 +45,7 @@ const TryNow = () => {
             y: descriptionY,
             opacity: descriptionOpacity,
           }}
-          className="font-nb text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] text-[#FFFFFF99] max-w-[283px] md:max-w-[241px] text-center tracking-[0.03rem] font-light"
+          className="font-nb text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] text-[#FFFFFF] max-w-[283px] md:max-w-[241px] text-center tracking-[0.03rem] font-light"
         >
           Manage your life, work, and health effortlessly with VAI OS.
         </motion.p>
