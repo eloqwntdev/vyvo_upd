@@ -83,26 +83,28 @@ const Preorders = () => {
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={staggerContainer}
-        className="flex sm:items-center sm:justify-center gap-4 sm:gap-6 max-w-[610px] flex-col w-full z-10 px-4 md:px-6 pt-[39px] md:pt-[140px]"
+        className="flex sm:items-center sm:justify-center gap-4 sm:gap-6 max-w-[800px] flex-col w-full z-10 px-4 md:px-6 pt-[39px] md:pt-[140px]"
       >
         <motion.h2
           variants={fadeInUp}
           className="text-white font-light font-nb text-[24px] leading-[28px] md:text-[48px] md:leading-[52px] lg:text-[56px] lg:leading-[60px] sm:text-center tracking-[-3%]"
         >
-          Preorders <span className="text-gradient">Start Soon</span>
+          <span className="text-gradient">BioSense Watch</span> introduces a new
+          dimension in wearable devices.
         </motion.h2>
         <motion.p
           variants={fadeInUp}
           className="text-white font-light font-nb text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] sm:text-center tracking-[-3%]"
         >
-          Experience BioSense Watch for yourself, and see how this first VAI OS
-          companion can transform your daily life!
+          Eligible buyers can now preorder BioSense Watch. Experience BioSense
+          Watch for yourself, and see how this first VAI OS companion can
+          transform your daily life!
         </motion.p>
         <motion.div variants={fadeInUp}>
           <SlashButton
             showIcon={false}
-            label="Join to Waitlist"
-            className="!bg-[#77A9E829] !py-[12px] test !rounded-[16px] w-full !max-w-[170px]"
+            label="Preorder My BioSense Watch"
+            className="!bg-[#77A9E829] !py-[12px] test !rounded-[16px] w-full !max-w-[270px]"
             labelClassName="!tracking-[-0.2px]"
             containerStyles="!w-auto"
           />
