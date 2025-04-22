@@ -13,9 +13,9 @@ export const navLinks = [
     href: "/wearables",
     label: "Vyvo Tech",
     subMenu: [
+      { href: "/watch", label: "BioSense Watch" },
       { href: "/ring", label: "BioSense Ring" },
       { href: "/band", label: "BioSense Band" },
-      { href: "/watch", label: "BioSense Watch" },
     ],
   },
   {
