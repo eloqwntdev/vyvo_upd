@@ -84,9 +84,7 @@ const WatchBanner = () => {
           variants={fadeInUp}
           className="text-white font-light font-nb text-[14px] leading-[18px] md:text-[24px] md:leading-[28px] text-center tracking-[-3%]"
         >
-          Eligible buyers can now preorder BioSense Watch. Experience BioSense
-          Watch for yourself, and see how this first VAI OS companion can
-          transform your daily life!
+          The new face of Vyvo Technology.
         </motion.p>
         <motion.div variants={slideUp}>
           <SlashButton
