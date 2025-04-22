@@ -121,7 +121,7 @@ const ProductLineup = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={isBandInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
-          className="flex flex-col gap-6 md:gap-[60px] justify-end items-center"
+          className="flex flex-col gap-6 md:gap-[50px] justify-end items-center"
         >
           <Link href="/band">
             <motion.div
