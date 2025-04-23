@@ -389,8 +389,9 @@ const KeyMetricsDisplay = () => {
                   src={metric.image}
                   alt={metric.label}
                   fill
+                  quality={100}
                   className="object-cover"
-                  sizes="(max-width: 768px) 270px, 413px"
+                  sizes="(max-width: 768px) 100vw, 1239px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="flex flex-col gap-1 md:gap-2 absolute bottom-5 left-5 md:bottom-8 md:left-8">
