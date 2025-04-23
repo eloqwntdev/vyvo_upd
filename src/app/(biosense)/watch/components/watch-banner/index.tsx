@@ -2,8 +2,13 @@
 
 import SlashButton from "@/components/common/controllers/button/slash-button";
 import { motion, Variants } from "framer-motion";
+import dynamic from "next/dynamic";
+import animationData from "../../../../../../public/lottie/blue-back-lines-move/data.json";
 
 const WatchBanner = () => {
+  const Lottie = dynamic(() => import("lottie-react"), {
+    ssr: false,
+  });
   // Animation variants
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 30 },
@@ -46,13 +51,19 @@ const WatchBanner = () => {
     <section className="min-h-[568px] md:min-h-[800px] lg:min-h-[900px] w-full relative bg-black flex sm:items-center sm:justify-center">
       {/* Background GIF with positioning wrapper */}
       <div className="absolute w-full h-full left-0">
-        <motion.img
+        {/* <motion.img
           initial="hidden"
           animate="visible"
           variants={fadeIn}
           src="/banner/squares_gifs/Preloder-back.gif"
           alt="Background GIF"
           className="w-full h-full object-cover"
+        /> */}
+        <Lottie
+          className="pointer-events-none"
+          animationData={animationData}
+          loop
+          assetsPath="/lottie/4/images/"
         />
       </div>
 
