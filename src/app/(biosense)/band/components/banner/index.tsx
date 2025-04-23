@@ -65,7 +65,7 @@ const BannerBand = () => {
           className="w-full h-full max-w-[1190px] object-contain opacity-70 mx-auto"
         /> */}
         <Lottie
-          className="pointer-events-none"
+          className="w-full h-full pointer-events-none"
           animationData={animationData}
           loop
         />

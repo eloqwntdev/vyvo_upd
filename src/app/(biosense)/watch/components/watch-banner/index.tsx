@@ -60,7 +60,7 @@ const WatchBanner = () => {
           className="w-full h-full object-cover"
         /> */}
         <Lottie
-          className="pointer-events-none"
+          className="w-full h-full pointer-events-none"
           animationData={animationData}
           loop
         />

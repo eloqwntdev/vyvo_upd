@@ -66,7 +66,7 @@ const Banner = () => {
             priority
           /> */}
           <Lottie
-            className="pointer-events-none"
+            className="w-full h-full pointer-events-none"
             animationData={animationData}
             loop
           />
