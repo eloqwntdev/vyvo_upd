@@ -59,11 +59,22 @@ const WatchBanner = () => {
           alt="Background GIF"
           className="w-full h-full object-cover"
         /> */}
-        <Lottie
-          className="w-full h-full pointer-events-none"
-          animationData={animationData}
-          loop
-        />
+        <motion.div
+          className="w-full h-full"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            delay: 0.8,
+            duration: 2.0,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        >
+          <Lottie
+            className="w-full h-full pointer-events-none"
+            animationData={animationData}
+            loop
+          />
+        </motion.div>
       </div>
 
       {/* Watch image with positioning wrapper */}

@@ -52,19 +52,23 @@ const Banner = () => {
     <section className="bg-black min-h-[568px] sm:min-h-[100vh] w-full flex flex-col items-center justify-center relative">
       {/* Background GIF - using Image for better performance but keeping the full-screen positioning */}
       <div className="absolute inset-0 z-0">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-          className="w-full h-full"
-        >
-          {/* <Image
+        {/* <Image
             src="/banner/squares_gifs/Preloder-back.gif"
             alt="Background GIF"
             fill
             className="object-cover"
             priority
           /> */}
+        <motion.div
+          className="w-full h-full"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            delay: 0.8,
+            duration: 2.0,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        >
           <Lottie
             className="w-full h-full pointer-events-none"
             animationData={animationData}

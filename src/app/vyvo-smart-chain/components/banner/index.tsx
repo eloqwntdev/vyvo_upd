@@ -29,11 +29,22 @@ const VyvoCmartChainBanner = () => {
   return (
     <section className="min-h-[578px] md:min-h-[900px] w-full flex items-center justify-center bg-black relative overflow-hidden">
       <div className="absolute sm:top-[-20%] w-full h-full scale-125">
-        <Lottie
+        <motion.div
           className="w-full h-full"
-          animationData={animationBgPink}
-          loop
-        />
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            delay: 0.8,
+            duration: 2.0,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        >
+          <Lottie
+            className="w-full h-full"
+            animationData={animationBgPink}
+            loop
+          />
+        </motion.div>
       </div>
       <div className="w-full flex flex-col relative gap-20 md:gap-[160px] items-center pb-[31px] md:pb-20 px-4 md:px-6">
         <div className="flex flex-col items-center justify-center gap-6">

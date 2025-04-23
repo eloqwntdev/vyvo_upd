@@ -59,11 +59,22 @@ const SocialFiBanner = () => {
   return (
     <section className="min-h-[578px] md:min-h-[900px] w-full flex items-end bg-black rounded-b-[24px] relative overflow-hidden">
       <div className="absolute top-[-20%] w-full h-full scale-125">
-        <Lottie
-          className="w-full h-full pointer-events-none"
-          animationData={animationData}
-          loop
-        />
+        <motion.div
+          className="w-full h-full"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            delay: 0.8,
+            duration: 2.0,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        >
+          <Lottie
+            className="w-full h-full pointer-events-none"
+            animationData={animationData}
+            loop
+          />
+        </motion.div>
       </div>
       <div className="w-full flex flex-col gap-20 md:gap-[160px] items-center pb-[31px] md:pb-20 px-4 md:px-6 relative z-10">
         <motion.div

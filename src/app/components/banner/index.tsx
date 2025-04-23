@@ -46,11 +46,22 @@ const Banner = () => {
 
   return (
     <div className="bg-black relative z-50 w-full">
-      <Lottie
-        className="absolute z-[-1] w-full h-full left-0 object-cover pointer-events-none"
-        animationData={animationData}
-        loop
-      />
+      <motion.div
+        className="w-full h-full"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          delay: 0.8,
+          duration: 2.0,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+      >
+        <Lottie
+          className="absolute z-[-1] w-full h-full left-0 object-cover pointer-events-none"
+          animationData={animationData}
+          loop
+        />
+      </motion.div>
       <div className="max-w-[1280px] w-full mx-auto px-[16px] pb-20">
         <div className="h-[437px] overflow-hidden md:h-[500px] w-full flex justify-center relative">
           <AnimatePresence mode="wait">

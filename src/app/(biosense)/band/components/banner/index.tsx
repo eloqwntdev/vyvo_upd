@@ -64,11 +64,22 @@ const BannerBand = () => {
           alt="Background GIF"
           className="w-full h-full max-w-[1190px] object-contain opacity-70 mx-auto"
         /> */}
-        <Lottie
-          className="w-full h-full pointer-events-none"
-          animationData={animationData}
-          loop
-        />
+        <motion.div
+          className="w-full h-full"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            delay: 0.8,
+            duration: 2.0,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        >
+          <Lottie
+            className="w-full h-full pointer-events-none"
+            animationData={animationData}
+            loop
+          />
+        </motion.div>
       </div>
 
       {/* Band Image Desktop - Using a div wrapper to preserve positioning */}
