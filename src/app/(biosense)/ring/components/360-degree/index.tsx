@@ -9,6 +9,8 @@ import {
   MinusIcon,
   PlusIcon,
 } from "./icons";
+import dynamic from "next/dynamic";
+import animationData from "../../../../../../public/lottie/blue-back-lines-move/data.json";
 
 // Define interfaces for our components
 interface Card {
@@ -59,6 +61,9 @@ const Degree360 = ({
   description = "BioSense Watch makes it so easy to precisely monitor your wellness, using best-in-class sensors and proprietary algorithms to capture, analyze, and report your biodata.",
   className = "",
 }) => {
+  const Lottie = dynamic(() => import("lottie-react"), {
+    ssr: false,
+  });
   // Refs and state for scroll indicators
   const vertScrollContainerRef = useRef<HTMLDivElement>(null);
   const horizScrollContainerRef = useRef<HTMLDivElement>(null);
@@ -115,11 +120,22 @@ const Degree360 = ({
 
   return (
     <section className="pt-10 md:pt-20 flex flex-col gap-10 md:gap-[100px] bg-black px-0 md:px-8 relative">
-      <img
-        src="/banner/squares_gifs/Preloder-back.gif"
-        alt="Background GIF"
-        className="absolute w-full h-full left-0"
-      />
+      <motion.div
+        className="absolute w-full h-full"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          delay: 0.8,
+          duration: 2.0,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+      >
+        <Lottie
+          className="w-full h-full pointer-events-none"
+          animationData={animationData}
+          loop
+        />
+      </motion.div>
       {/* Mobile background image - shown only on mobile */}
       <div className="block md:hidden w-full px-4 relative">
         <img
