@@ -2,8 +2,13 @@
 import SlashButton from "@/components/common/controllers/button/slash-button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useRef } from "react";
+import dynamic from "next/dynamic";
+import animationData from "../../../../public/lottie/blue-back-lines-move/data.json";
 
 const TryNow = () => {
+  const Lottie = dynamic(() => import("lottie-react"), {
+    ssr: false,
+  });
   const sectionRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -59,11 +64,22 @@ const TryNow = () => {
         />
       </div>
 
-      <img
-        src="/Preloder-back.gif"
-        alt="Preloder-back"
-        className="absolute max-w-[1084px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-      />
+      <motion.div
+        className="absolute w-full h-full"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          delay: 0.8,
+          duration: 2.0,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+      >
+        <Lottie
+          className="w-full h-full pointer-events-none"
+          animationData={animationData}
+          loop
+        />
+      </motion.div>
     </section>
   );
 };
