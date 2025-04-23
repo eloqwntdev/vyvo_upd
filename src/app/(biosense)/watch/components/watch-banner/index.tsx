@@ -63,7 +63,6 @@ const WatchBanner = () => {
           className="pointer-events-none"
           animationData={animationData}
           loop
-          assetsPath="/lottie/4/images/"
         />
       </div>
 
