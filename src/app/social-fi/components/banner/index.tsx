@@ -2,7 +2,7 @@
 import React from "react";
 // import { useLottie } from "lottie-react";
 import { motion } from "framer-motion";
-import animationData from "../../../../../public/lottie/pinky-bg/data.json";
+import animationData from "../../../../../public/lottie/pink-back-lines-move/data.json";
 import dynamic from "next/dynamic";
 
 const SocialFiBanner = () => {
@@ -60,9 +60,9 @@ const SocialFiBanner = () => {
     <section className="min-h-[578px] md:min-h-[900px] w-full flex items-end bg-black rounded-b-[24px] relative overflow-hidden">
       <div className="absolute top-[-20%] w-full h-full scale-125">
         <Lottie
+          className="w-full h-full pointer-events-none"
           animationData={animationData}
           loop
-          assetsPath="/lottie/4/images/"
         />
       </div>
       <div className="w-full flex flex-col gap-20 md:gap-[160px] items-center pb-[31px] md:pb-20 px-4 md:px-6 relative z-10">
