@@ -81,8 +81,8 @@ export const ArticleCard = ({ article }: ArticleCardProps) => {
         >
           <Image
             src={imageUrl}
-            width={381}
-            height={210}
+            width={762}
+            height={420}
             alt={imageAlt}
             className="h-full w-full object-cover rounded-[12px] md:rounded-[16px]"
           />
