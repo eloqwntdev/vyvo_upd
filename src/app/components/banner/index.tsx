@@ -5,8 +5,14 @@ import AiListeningText from "./ai-listening-text/AiListeningText";
 import ScrollLogoSection from "@/app/components/banner/scroll-logo-section/ScrollLogoSection";
 import DynamicContentSection from "@/app/components/banner/dynamic-content-section/DynamicContentSection";
 import useStageStore from "@/store/useStageStore";
+import dynamic from "next/dynamic";
+import animationData from "../../../../public/lottie/blue-back-lines-move/data.json";
 
 const Banner = () => {
+  const Lottie = dynamic(() => import("lottie-react"), {
+    ssr: false,
+  });
+
   const currentStage = useStageStore((state) => state.currentStage);
   const [videoSrc, setVideoSrc] = useState("/banner/videos/1.mov");
   const [isVideoChanging, setIsVideoChanging] = useState(false);
@@ -40,6 +46,11 @@ const Banner = () => {
 
   return (
     <div className="bg-black relative z-50 w-full">
+      <Lottie
+        className="absolute z-[-1] w-full h-full left-0 object-cover pointer-events-none"
+        animationData={animationData}
+        loop
+      />
       <div className="max-w-[1280px] w-full mx-auto px-[16px] pb-20">
         <div className="h-[437px] overflow-hidden md:h-[500px] w-full flex justify-center relative">
           <AnimatePresence mode="wait">
@@ -59,7 +70,7 @@ const Banner = () => {
             )}
           </AnimatePresence>
 
-          <motion.img
+          {/* <motion.img
             src="/banner/squares_gifs/Preloder-back.gif"
             alt="Background GIF"
             className="absolute z-[-1] w-full h-full left-0 object-cover"
@@ -70,7 +81,7 @@ const Banner = () => {
               duration: 2.0,
               ease: [0.16, 1, 0.3, 1],
             }}
-          />
+          /> */}
 
           {/* AI Listening Text */}
           <AiListeningText />
