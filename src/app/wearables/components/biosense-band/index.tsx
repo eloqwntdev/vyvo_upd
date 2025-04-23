@@ -38,8 +38,8 @@ const BiosenseBand = () => {
             >
               <Image
                 src="/wearables-img/band/image1.webp"
-                width={305}
-                height={220}
+                width={610}
+                height={440}
                 alt=""
                 className="w-full h-auto sm:w-auto sm:h-auto transition-transform duration-300 hover:scale-110"
               />
@@ -54,8 +54,8 @@ const BiosenseBand = () => {
             >
               <Image
                 src="/wearables-img/band/image2.webp"
-                width={305}
-                height={220}
+                width={610}
+                height={440}
                 alt=""
                 className="w-full h-auto sm:w-auto sm:h-auto transition-transform duration-300 hover:scale-110"
               />
