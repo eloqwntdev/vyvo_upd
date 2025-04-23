@@ -4,8 +4,13 @@ import ScrollToSection from "@/components/common/animations/scroll-to-section";
 import SlashButton from "@/components/common/controllers/button/slash-button";
 import { motion, useAnimation, Variants } from "framer-motion";
 import { useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
+import animationData from "../../../../../../public/lottie/blue-back-lines-move/data.json";
 
 const BannerBand = () => {
+  const Lottie = dynamic(() => import("lottie-react"), {
+    ssr: false,
+  });
   const sectionRef = useRef<HTMLElement>(null);
   const controls = useAnimation();
 
@@ -51,13 +56,18 @@ const BannerBand = () => {
     >
       {/* Background GIF - Using a div wrapper to preserve positioning */}
       <div className="absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <motion.img
+        {/* <motion.img
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.7 }}
           transition={{ duration: 1.5 }}
           src="/banner/squares_gifs/Preloder-back.gif"
           alt="Background GIF"
           className="w-full h-full max-w-[1190px] object-contain opacity-70 mx-auto"
+        /> */}
+        <Lottie
+          className="pointer-events-none"
+          animationData={animationData}
+          loop
         />
       </div>
 
