@@ -38,8 +38,8 @@ const SliderCard: React.FC<SliderCardProps> = ({
         <div className="p-4">
           <Image
             src={imageSrc || "/wearables-img/slider/card1.webp"}
-            width={413}
-            height={210}
+            width={300}
+            height={167}
             alt={title || ""}
             className="w-full h-[150px] sm:h-[180px] md:h-[210px] object-cover"
           />
