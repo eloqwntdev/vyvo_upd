@@ -1,8 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+import animationData from "../../../../public/lottie/blue-back-lines-move/data.json";
 
 const MainSection = () => {
+  const Lottie = dynamic(() => import("lottie-react"), {
+    ssr: false,
+  });
   const [selectedIcon, setSelectedIcon] = useState<string | null>("Icon3");
   const [imageSrc, setImageSrc] = useState("/homepage/card-watch-3.png");
   const [textContent, setTextContent] = useState("BioSense Watch");
@@ -28,12 +33,23 @@ const MainSection = () => {
         alt=""
         className="px-10 sm:px-0 relative z-10"
       />
-      <img
-        src="/Preloder-back.gif"
-        alt=""
-        className="absolute top-0 left-0 w-full h-full"
-      />
 
+      <motion.div
+        className="absolute w-full h-full"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          delay: 0.8,
+          duration: 2.0,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+      >
+        <Lottie
+          className="w-full h-full pointer-events-none"
+          animationData={animationData}
+          loop
+        />
+      </motion.div>
       <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-5 pt-[96px] md:pt-[162px] pb-6 lg:pb-0">
         <div
           className="cursor-pointer card-1-gradient p-[2.5px] rounded-[18px] card-shadow"
