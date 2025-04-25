@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   HeightIcon,
   StressIcon,
-  BreathingIcon,
+  ActivityIcon,
   EnergyIcon,
   MinusIcon,
   PlusIcon,
@@ -44,9 +44,9 @@ const cards: Card[] = [
   },
   {
     id: 3,
-    title: "Breath Rate",
+    title: "Activity Tracking",
     content:
-      "Track your heart rate 24/7 and receive alerts for abnormal patterns to stay ahead of potential health issues.",
+      "Keep track of your daily movements, workouts, and calories burned to maintain an active lifestyle",
   },
   {
     id: 4,
@@ -360,7 +360,7 @@ const ExpandableCard = ({
       case 2:
         return <StressIcon />;
       case 3:
-        return <BreathingIcon />;
+        return <ActivityIcon />;
       case 4:
         return <EnergyIcon />;
       default:
