@@ -15,20 +15,6 @@ const AboutVSC = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
-  // const options = {
-  //   animationData,
-  //   loop: true,
-  // };
-
-  // const options2 = {
-  //   animationData: secondAnimationData,
-  //   loop: true,
-  //   assetsPath: "/lottie/3/images/",
-  // };
-
-  // const { View } = useLottie(options);
-  // const { View: View2 } = useLottie(options2);
-
   return (
     <section
       ref={sectionRef}

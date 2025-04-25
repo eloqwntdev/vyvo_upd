@@ -4,8 +4,14 @@ import animationData from "../../../../../public/lottie/heartbeat.json";
 import AnimatedCounter from "@/components/common/animations/animated-counter";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+import BoxsAnimationData from "../../../../../public/lottie/gpu-farm/GPU-Farm-card-with-boxes.json";
 
 const VyvoGPUFarms = () => {
+  const Lottie = dynamic(() => import("lottie-react"), {
+    ssr: false,
+  });
+
   const options = {
     animationData,
     loop: true,
@@ -45,19 +51,42 @@ const VyvoGPUFarms = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
           >
-            <div className="rounded-lg overflow-hidden">
-              <Image
+            <div
+              style={{
+                boxShadow:
+                  "inset 6px 80px 80px 0px rgba(148, 168, 237, 0.02), inset 0px -1px 1px 0px rgba(148, 168, 237, 0.20), inset 0px 1px 1px 0px rgba(148, 168, 237, 0.20)",
+              }}
+              className="rounded-[24px] overflow-hidden"
+            >
+              {/* <Image
                 src={"/DEFAULT/data-processing.webp"}
                 width={630}
                 height={450}
                 alt={"Data processing visualization"}
                 className="w-full h-auto object-cover"
-              />
+              /> */}
+              <motion.div
+                className="w-full h-full"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  delay: 0.8,
+                  duration: 2.0,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
+                <Lottie
+                  className=" w-full h-auto object-cover pointer-events-none"
+                  animationData={BoxsAnimationData}
+                  loop
+                />
+              </motion.div>
             </div>
             <div className="flex flex-col gap-3 sm:gap-4 md:gap-6 absolute bottom-4 sm:bottom-6 lg:bottom-12 left-4 sm:left-6 lg:left-12">
-              {/* <span className="text-white font-nb font-light text-sm sm:text-base md:text-lg leading-tight">
+              <span className="text-white font-nb font-light text-sm sm:text-base md:text-lg leading-tight">
                 Data Processing
-              </span> */}
+              </span>
               <AnimatedCounter
                 value={421559254}
                 className="banner-gradient-text font-nb font-light text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight tracking-tight"

@@ -65,9 +65,11 @@ const FarmsAsAProduct = () => {
                 "inset 6px 80px 80px 0px rgba(148, 168, 237, 0.02), inset 0px -1px 1px 0px rgba(148, 168, 237, 0.20), inset 0px 1px 1px 0px rgba(148, 168, 237, 0.20)",
             }}
           >
-            <motion.div className="absolute bottom-14 z-50 text-white flex flex-col gap-3 items-center">
-              <span className="font-normal text-3xl">Node Ownership</span>
-              <span className="text-center text- font-light w-[80%]">
+            <motion.div className="absolute bottom-14 z-50 text-white flex flex-col gap-0 lg:gap-3 items-center">
+              <span className="font-normal text-xl lg:text-3xl">
+                Node Ownership
+              </span>
+              <span className="text-center font-light w-[80%] text-sm lg:text-lg mt-2">
                 Users can purchase nodes in Vyvo’s GPU farms, becoming
                 stakeholders in a rapidly growing AI infrastructure.
               </span>
@@ -106,9 +108,11 @@ const FarmsAsAProduct = () => {
                 "inset 6px 80px 80px 0px rgba(148, 168, 237, 0.02), inset 0px -1px 1px 0px rgba(148, 168, 237, 0.20), inset 0px 1px 1px 0px rgba(148, 168, 237, 0.20)",
             }}
           >
-            <motion.div className="absolute bottom-14 z-50 text-white flex flex-col gap-3 items-center">
-              <span className="font-normal text-3xl">Performance Benefits</span>
-              <span className="text-center text- font-light w-[80%]">
+            <motion.div className="absolute bottom-14 z-50 text-white flex flex-col gap-0 lg:gap-3 items-center">
+              <span className="font-normal text-xl lg:text-3xl">
+                Performance Benefits
+              </span>
+              <span className="text-center font-light w-[80%] text-sm lg:text-lg mt-2">
                 Distributed across strategic global locations, these farms
                 ensure high-speed, low-latency support for VAI OS users.
               </span>
