@@ -1,6 +1,4 @@
 "use client";
-// import { useLottie } from "lottie-react";
-import animationData from "../../../../../public/lottie/heartbeat.json";
 import AnimatedCounter from "@/components/common/animations/animated-counter";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -11,13 +9,6 @@ const VyvoGPUFarms = () => {
   const Lottie = dynamic(() => import("lottie-react"), {
     ssr: false,
   });
-
-  const options = {
-    animationData,
-    loop: true,
-  };
-
-  // const { View } = useLottie(options);
 
   return (
     <section
@@ -83,15 +74,22 @@ const VyvoGPUFarms = () => {
                 />
               </motion.div>
             </div>
-            <div className="flex flex-col gap-3 sm:gap-4 md:gap-6 absolute bottom-4 sm:bottom-6 lg:bottom-12 left-4 sm:left-6 lg:left-12">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
+              className="flex w-full flex-col bottom-[10%] px-[7%] gap-[15px] absolute"
+            >
               <span className="text-white font-nb font-light text-sm sm:text-base md:text-lg leading-tight">
                 Data Processing
               </span>
+              <div className="bg-[#2A5FDD] w-full h-[1px]"></div>
               <AnimatedCounter
                 value={421559254}
                 className="banner-gradient-text font-nb font-light text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight tracking-tight"
               />
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Right Column - Text */}
