@@ -49,7 +49,14 @@ export const TextReveal: FC<TextRevealProps> = ({
       const html = document.documentElement;
       const prevScrollBehavior = html.style.scrollBehavior;
       html.style.scrollBehavior = "auto";
-      window.scrollTo(0, window.innerHeight * 0.87);
+      const element = document.getElementById("reveal-text");
+      if (element) {
+        const elementRect = element.getBoundingClientRect();
+        const offset = window.innerHeight / 2 - elementRect.height / 2;
+        window.scrollTo({
+          top: elementRect.top + window.scrollY - offset,
+        });
+      }
       html.style.scrollBehavior = prevScrollBehavior;
     }
   }, [hasRevealed]);
@@ -62,6 +69,7 @@ export const TextReveal: FC<TextRevealProps> = ({
 
   return (
     <div
+      id="reveal-text"
       ref={targetRef}
       className={cn(
         "relative z-0",
