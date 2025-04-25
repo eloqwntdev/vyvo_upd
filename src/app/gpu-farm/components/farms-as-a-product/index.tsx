@@ -55,7 +55,6 @@ const FarmsAsAProduct = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{
-              delay: 0.8,
               duration: 2.0,
               ease: [0.16, 1, 0.3, 1],
             }}
@@ -80,7 +79,6 @@ const FarmsAsAProduct = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{
-                delay: 0.8,
                 duration: 2.0,
                 ease: [0.16, 1, 0.3, 1],
               }}
@@ -98,7 +96,6 @@ const FarmsAsAProduct = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{
-              delay: 0.8,
               duration: 2.0,
               ease: [0.16, 1, 0.3, 1],
             }}
@@ -123,7 +120,6 @@ const FarmsAsAProduct = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{
-                delay: 0.8,
                 duration: 2.0,
                 ease: [0.16, 1, 0.3, 1],
               }}
