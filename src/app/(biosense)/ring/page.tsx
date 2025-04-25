@@ -23,7 +23,7 @@ const RingWatch = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <>
+    <div className="overflow-hidden">
       <Banner />
       <WatchVideoRing />
       <ProductOverview />
@@ -54,7 +54,7 @@ const RingWatch = () => {
         imagePosition="left"
       />
       <ButNowRing />
-    </>
+    </div>
   );
 };
 
