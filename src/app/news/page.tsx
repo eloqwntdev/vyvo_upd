@@ -20,13 +20,30 @@ async function fetchNewsArticles(pageSize = 6, page = 1) {
 }
 
 const News = async () => {
-  const client = await fetchNewsArticles();
+  const response = await fetchNewsArticles();
 
-  console.log(client);
+  const client = Array.isArray(response) ? response : response.results;
+
+  const tags = new Set(["Articles", "Press Releases"]);
+  const articlesArray: Array<Record<string, any>> = [];
+  const pressReleaseArray: Array<Record<string, any>> = [];
+
+  client.forEach((cli_data) => {
+    cli_data.tags.forEach((tag) => {
+      if (tags.has(tag)) {
+        if (tag === "Articles") {
+          articlesArray.push(cli_data);
+        } else if (tag === "Press Releases") {
+          pressReleaseArray.push(cli_data);
+        }
+      }
+    });
+  });
+
   return (
     <>
-      <Articles articles={client} />
-      {/* <PressRelease /> */}
+      <Articles articles={articlesArray} />
+      <PressRelease articles={pressReleaseArray} />
     </>
   );
 };

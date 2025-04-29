@@ -6,8 +6,6 @@ import { createClient } from "@/prismicio";
 import { ArticleCard } from "./ArticleCard";
 
 const Articles = async ({ articles }: { articles: any }) => {
-  console.log(articles);
-
   return (
     <section className="bg-black flex flex-col items-center justify-center gap-12 md:gap-[60px] lg:gap-[80px] pt-[60px] md:pt-[90px] lg:pt-[120px] relative z-[10]">
       <HeroNews />
@@ -32,15 +30,15 @@ const Articles = async ({ articles }: { articles: any }) => {
               </>
             )}
           </div>
-          {/* {articlesResponse.total_pages > 1 && (
+          {
             <SlashButton
               showIcon={false}
               label="Show More"
-              className="gap-[16px] !bg-[#77A9E829] py-[10px] test mx-auto !rounded-[16px] w-full grid place-content-center !max-w-[140px]"
+              className="gap-[16px] !bg-[#77A9E829] py-[12px] test mx-auto !rounded-[16px] w-full grid place-content-center !max-w-[140px]"
               labelClassName="!tracking-[-0.2px]"
               containerStyles="!w-auto"
             />
-          )} */}
+          }
         </div>
       </div>
     </section>
