@@ -4,12 +4,17 @@ import React from "react";
 import { motion } from "framer-motion";
 import { NewsPostDocument } from "@/../prismicio-types";
 import { format } from "date-fns";
+import animationData from "../../../../../../public/lottie/blue-back-lines-move/data.json";
+import dynamic from "next/dynamic";
 
 interface ArticleDetailsProps {
   article: NewsPostDocument;
 }
 
 const ArticleDetails = ({ article }: ArticleDetailsProps) => {
+  const Lottie = dynamic(() => import("lottie-react"), {
+    ssr: false,
+  });
   const { title, date, image } = article.data;
   const formattedDate = date ? format(new Date(date), "MMMM d, yyyy") : "";
 
@@ -23,14 +28,32 @@ const ArticleDetails = ({ article }: ArticleDetailsProps) => {
         transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
         className="w-full flex flex-col gap-5 sm:gap-6 md:gap-8"
       >
-        <div className="flex flex-col items-start gap-3 sm:gap-4 md:gap-6">
+        <div className="relative flex flex-col items-start gap-3 sm:gap-4 md:gap-6">
+          <div className="absolute w-full h-[100vh] top-[-25vh] left-0">
+            <motion.div
+              className="w-full h-full"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                delay: 0.8,
+                duration: 2.0,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            >
+              <Lottie
+                className="w-full h-full pointer-events-none"
+                animationData={animationData}
+                loop
+              />
+            </motion.div>
+          </div>
           <motion.h1
             transition={{
               duration: 0.8,
               ease: [0.43, 0.13, 0.23, 0.96],
               delay: 0.2,
             }}
-            className="text-white font-nb font-light 
+            className="text-white w-full md:w-[60%] font-nb font-light 
             text-2xl sm:text-3xl md:text-4xl lg:text-[48px]
             leading-tight sm:leading-tight md:leading-[44px] lg:leading-[52px] 
             tracking-[-0.8px] md:tracking-[-1.2px] lg:tracking-[-1.4px]"
