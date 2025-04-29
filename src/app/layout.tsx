@@ -19,7 +19,7 @@ const nbInternational = localFont({
     {
       path: "./fonts/NBInternational-Light.otf",
       weight: "300",
-      style: "normal",
+      style: "light",
     },
     {
       path: "./fonts/NBInternational-Regular.otf",
@@ -29,7 +29,7 @@ const nbInternational = localFont({
     {
       path: "./fonts/NBInternational-Bold.otf",
       weight: "700",
-      style: "normal",
+      style: "bold",
     },
   ],
   variable: "--font-nb-international",

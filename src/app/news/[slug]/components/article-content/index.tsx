@@ -23,7 +23,7 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
   console.log(articles);
   // Filter out invalid sections (those with null titles or empty descriptions)
   const validSections = articles.filter(
-    (section) => section.title && section.descriptions.length > 0
+    (section) => section.descriptions.length > 0
   );
 
   const [activeSection, setActiveSection] = useState<string>(
@@ -202,10 +202,10 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
-            className="hidden md:block w-full max-w-[160px] lg:max-w-[232px] sticky top-[100px]"
+            className="hidden md:block w-full max-w-[200px] lg:max-w-[250px] sticky top-[100px]"
           >
             <div className="flex flex-col gap-4 md:gap-6">
-              {validSections.map((section) => (
+              {validSections.slice(1).map((section) => (
                 <motion.button
                   key={section.title}
                   onClick={() => scrollToSection(section.title)}
@@ -215,16 +215,16 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
                   <div
                     className={`h-5 rounded-full w-0.5 transition-all duration-300 ${
                       activeSection === section.title
-                        ? "bg-gradient-to-t from-[#2A5FDD] to-[#77A9E8]"
+                        ? "bg-gradient-to-t from-[#77A9E8] to-[#77A9E8]"
                         : "bg-gradient-to-t from-[#000] to-[#000]"
                     }`}
                   />
                   <div
-                    className={`bg-transparent font-nb font-light text-sm md:text-[16px] leading-tight md:leading-[20px] tracking-[-0.3px] md:tracking-[-0.5px] transition-colors duration-300
+                    className={`bg-transparent font-nb font-light text-sm md:text-[16px] leading-tight md:leading-[20px] tracking-normal md:tracking-normal transition-colors duration-300
                       ${
                         activeSection === section.title
                           ? "text-white"
-                          : "text-white/50 hover:text-white/80"
+                          : "text-white/30 hover:text-white/60"
                       }`}
                   >
                     {section.title}
@@ -249,13 +249,13 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
           {/* Introduction paragraph - using first section's first description if available */}
           {validSections.length > 0 &&
             validSections[0].descriptions.length > 0 && (
-              <p className="text-white/90 font-light font-nb text-sm sm:text-base md:text-[16px] leading-relaxed md:leading-[20px] tracking-[-0.3px] md:tracking-[-0.5px] break-words overflow-hidden">
+              <p className="text-white/70 font-nb font-light text-sm sm:text-base md:text-[16px] leading-relaxed md:leading-[20px] tracking-normal md:tracking-normal break-words overflow-hidden">
                 {validSections[0].descriptions[0].text}
               </p>
             )}
 
           <div className="flex flex-col gap-8 sm:gap-10">
-            {validSections.map((section) => (
+            {validSections.slice(1).map((section) => (
               <motion.div
                 key={section.title}
                 ref={sectionRefs[section.title]}
@@ -265,14 +265,14 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
                 transition={{ duration: 0.5 }}
                 className="flex flex-col gap-3 sm:gap-4"
               >
-                <h3 className="text-white font-nb font-light text-2xl sm:text-3xl md:text-4xl leading-tight md:leading-[44px] tracking-[-0.8px] md:tracking-[-1.2px]">
+                <h3 className="text-white font-nb font-light text-2xl sm:text-3xl md:text-4xl leading-tight md:leading-[44px] tracking-normal md:tracking-normal">
                   {section.title}
                 </h3>
 
                 {section.descriptions.map((desc: any, index: number) => (
                   <p
                     key={index}
-                    className="font-nb text-sm sm:text-base md:text-[16px] font-light leading-relaxed md:leading-[20px] tracking-[-0.3px] md:tracking-[-0.5px] text-white/80 break-words overflow-hidden"
+                    className="whitespace-pre-line font-nb text-sm sm:text-base md:text-[16px] font-light leading-relaxed md:leading-[20px] tracking-normal md:tracking-normal text-white/70 break-words overflow-hidden"
                   >
                     {desc.text}
                   </p>
