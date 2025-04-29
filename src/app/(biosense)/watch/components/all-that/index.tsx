@@ -36,7 +36,7 @@ const ALLThat = () => {
       id: 3,
       title: "Electrocardiogram",
       content:
-        "TGet to the heart of the matter — capture an accurate ECG at any moment.",
+        "Get to the heart of the matter — capture an accurate ECG at any moment.",
     },
     {
       id: 4,
