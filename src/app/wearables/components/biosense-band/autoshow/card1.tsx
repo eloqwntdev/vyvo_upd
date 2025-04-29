@@ -31,7 +31,7 @@ const Card1 = ({
             transition={{ duration: 0.6, ease: "easeInOut" }}
             style={{ width: width, height: height }}
             className={`sm:object- object-contain ${
-              currentIndex === 1 ? "max-w-[113px] sm:max-w-full" : ""
+              currentIndex === 1 ? "max-w-[113px] sm:max-w-full mt-[20px]" : ""
             }`}
           />
         </AnimatePresence>
