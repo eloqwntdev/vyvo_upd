@@ -62,8 +62,9 @@ const FirstSmartWatch = () => {
       className="bg-black py-10 md:py-16 lg:py-[100px] px-4 md:px-6"
     >
       <div className="max-w-[1162px] w-full mx-auto flex flex-col md:flex-row md:justify-between gap-10 md:items-center">
-        <div className="w-full md:max-w-[400px] relative mx-auto md:mx-0 flex items-center justify-center">
+        <div className="w-full md:max-w-[500px] relative mx-auto md:mx-0 flex items-center justify-center">
           <motion.div
+            className="flex items-center justify-center"
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={scaleUp}
@@ -73,7 +74,7 @@ const FirstSmartWatch = () => {
               alt="watch-as-thin"
               width={963}
               height={751}
-              className="w-[100vw] scale-[1.3] md:w-[100vh] md:scale-100 max-w-[500px] md:max-w-none"
+              className="w-[100vw] md:w-[100%] md:scale-[2] max-w-[500px] md:max-w-none"
             />
           </motion.div>
         </div>
