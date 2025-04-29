@@ -83,7 +83,7 @@ const SecondGeneration = () => {
             <br />
             Use it with NFC contactless terminals around the world to pay for
             goods and services with a simple tap. It works even if the watch is
-            out of power!
+            out of power! Also compatible with OdeeCard.
           </motion.p>
         </div>
       </motion.div>
