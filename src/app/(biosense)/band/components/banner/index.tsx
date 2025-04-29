@@ -56,14 +56,6 @@ const BannerBand = () => {
     >
       {/* Background GIF - Using a div wrapper to preserve positioning */}
       <div className="absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        {/* <motion.img
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.7 }}
-          transition={{ duration: 1.5 }}
-          src="/banner/squares_gifs/Preloder-back.gif"
-          alt="Background GIF"
-          className="w-full h-full max-w-[1190px] object-contain opacity-70 mx-auto"
-        /> */}
         <motion.div
           className="w-full h-full"
           initial={{ opacity: 0 }}

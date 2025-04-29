@@ -1,7 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+import animationData from "../../../../../public/lottie/blue-back-lines-move/data.json";
 
 const AIInvestmentHero = () => {
+  const Lottie = dynamic(() => import("lottie-react"), {
+    ssr: false,
+  });
   return (
     <section className="bg-black py-12 sm:py-16 md:py-20 min-h-[500px] sm:min-h-[600px] md:min-h-[800px] relative flex items-center justify-center flex-col px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1280px] mx-auto w-full relative z-10 flex flex-col items-center gap-4 sm:gap-6">
@@ -34,18 +39,24 @@ const AIInvestmentHero = () => {
       </div>
 
       <div className="absolute inset-0 w-full h-full overflow-hidden">
-        <img
-          src="/banner/squares_gifs/Preloder-back.gif"
-          alt="Background GIF"
-          className="absolute z-[2] w-full h-full left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 object-cover hidden md:block"
-        />
-        {/* Mobile optimized version - different size/crop ratio for smaller screens */}
-        <div className="absolute z-[2] inset-0 bg-black/30 md:hidden"></div>
-        <img
-          src="/banner/squares_gifs/Preloder-back.gif"
-          alt="Background GIF"
-          className="absolute z-[1] w-full h-full left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 object-cover md:hidden"
-        />
+        <div className="absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <motion.div
+            className="w-full h-full"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              delay: 0.8,
+              duration: 2.0,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+          >
+            <Lottie
+              className="w-full h-full pointer-events-none"
+              animationData={animationData}
+              loop
+            />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
