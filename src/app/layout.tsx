@@ -17,17 +17,17 @@ import Footer from "@/components/common/layout/footer";
 const nbInternational = localFont({
   src: [
     {
-      path: "./fonts/NBInternational-Light.otf",
+      path: "./fonts/NB-International-Pro-Light.woff",
       weight: "300",
       style: "light",
     },
     {
-      path: "./fonts/NBInternational-Regular.otf",
+      path: "./fonts/NB-International-Pro-Regular.woff",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/NBInternational-Bold.otf",
+      path: "./fonts/NB-International-Pro-Bold.woff",
       weight: "700",
       style: "bold",
     },
