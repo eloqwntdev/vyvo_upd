@@ -10,14 +10,6 @@ const HeroNews = () => {
   return (
     <div className="max-w-[574px] w-full flex flex-col gap-4 md:gap-[24px] lg:gap-[32px] items-center justify-center px-[16px] md:px-[24px] lg:px-[0px]">
       <div className="absolute w-full h-full left-0">
-        {/* <motion.img
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-          src="/banner/squares_gifs/Preloder-back.gif"
-          alt="Background GIF"
-          className="w-full h-full object-cover"
-        /> */}
         <motion.div
           className="w-full h-full"
           initial={{ opacity: 0 }}
