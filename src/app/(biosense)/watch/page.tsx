@@ -4,6 +4,7 @@ import React from "react";
 import WatchBanner from "./components/watch-banner";
 import WatchVideo from "./components/watch-video";
 import AsThin from "./components/as-thin";
+import FirstSmartWatch from "./components/first-smart-watch";
 import ALLThat from "./components/all-that";
 import AccessibleInteligence from "./components/accessible-inteligence";
 import SecondGeneration from "./components/second-generation";
@@ -31,6 +32,7 @@ const BiosenseWatchPage = () => {
       <WatchVideo />
       <AccessibleInteligence />
       <AsThin />
+      <FirstSmartWatch />
       <ALLThat />
       <SecondGeneration />
       <Privacy />

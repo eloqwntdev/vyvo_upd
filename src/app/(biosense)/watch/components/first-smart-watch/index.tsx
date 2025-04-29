@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 
-const AsThin = () => {
+const FirstSmartWatch = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
@@ -61,7 +61,7 @@ const AsThin = () => {
       ref={sectionRef}
       className="bg-black py-10 md:py-16 lg:py-[100px] px-4 md:px-6"
     >
-      <div className="max-w-[1162px] w-full mx-auto flex flex-col md:flex-row-reverse md:justify-between gap-10 md:items-center">
+      <div className="max-w-[1162px] w-full mx-auto flex flex-col md:flex-row md:justify-between gap-10 md:items-center">
         <div className="w-full md:max-w-[400px] relative mx-auto md:mx-0 flex items-center justify-center">
           <motion.div
             initial="hidden"
@@ -69,31 +69,13 @@ const AsThin = () => {
             variants={scaleUp}
           >
             <Image
-              src="/biosense-products/watch/as-thin.webp"
+              src="/biosense-products/watch/first-smart-watch.webp"
               alt="watch-as-thin"
-              width={300}
-              height={300}
-              className="w-full md:w-full max-w-[200px] md:max-w-none"
+              width={963}
+              height={751}
+              className="w-[100vw] scale-[1.3] md:w-[100vh] md:scale-100 max-w-[500px] md:max-w-none"
             />
           </motion.div>
-
-          {/* Floating elements */}
-          <motion.img
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            src="/biosense-products/watch/top-info.webp"
-            className="absolute top-[8%] sm:top-0 right-[26%] sm:right-[-20%] md:right-[-38%] w-[30%] md:w-[80%]"
-            alt="Watch thickness specifications"
-          />
-          <motion.img
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
-            src="/biosense-products/watch/bottom-info.webp"
-            className="absolute bottom-0 right-[27%] sm:bottom-[-4%] sm:right-[-10%] md:right-[-5%] w-[40%] md:w-[80%]"
-            alt="Watch weight specifications"
-          />
         </div>
         <motion.div
           initial="hidden"
@@ -105,29 +87,35 @@ const AsThin = () => {
             variants={fadeInUp}
             className="text-white font-nb font-light text-[32px] leading-[38px] md:text-[56px] md:leading-[60px]"
           >
-            As Thin as a Smartwatch Gets
+            The First Smartwatch with Built-In Air Quality Monitoring
           </motion.h2>
           <motion.p
             variants={fadeInUp}
             className="text-white font-nb font-light text-[16px] leading-[20px]"
           >
-            The gorgeous bright OLED display — and the wealth of information it
-            gives you — will first grab your attention. Then you notice how
-            incredibly thin BioSense Watch is — just 6.5 mm! It's also feather
-            light at 49 grams.
+            The BioSense Watch is so much more than just a pretty face. It’s
+            also the world’s first smartwatch with advanced, German-made
+            on-board air quality index sensors and analysis. This enables
+            powerful monitoring and awareness of the world around you.
           </motion.p>
           <motion.p
             variants={fadeInUp}
             className="text-white font-nb font-light text-[16px] leading-[20px]"
           >
-            No other wearable packs so many sensors and features into such a
-            thin design.
+            Unlike other AQI measurements, BioSense Watch monitors the air in
+            your immediate vicinity — the actual air you are breathing, indoors
+            and out — with updated info every 10 minutes.
           </motion.p>
-
+          <motion.p
+            variants={fadeInUp}
+            className="text-white font-nb font-light text-[16px] leading-[20px]"
+          >
+            Think of it as your personal air guardian.
+          </motion.p>
           <motion.div variants={fadeInUp}>
             <SlashButton
               showIcon={false}
-              label="Join to Waitlist"
+              label="Preorder Now"
               className="!bg-[#77A9E829] !py-[12px] test !rounded-[16px] w-full !max-w-[170px]"
               labelClassName="!tracking-[-0.2px]"
               containerStyles="!w-auto"
@@ -139,4 +127,4 @@ const AsThin = () => {
   );
 };
 
-export default AsThin;
+export default FirstSmartWatch;
