@@ -1,7 +1,11 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Improvements = () => {
+  const [videoSrc, setVideoSrc] = useState(
+    "/gpu-farms-img/improvements/GPU-farm-anim.webm"
+  );
   return (
     <section className="bg-black py-10 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1280px] mx-auto w-full">
@@ -24,13 +28,25 @@ const Improvements = () => {
             transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
           >
             <div className="w-full h-auto aspect-[4/3] rounded-lg overflow-hidden">
-              <Image
+              {/* <Image
                 src={"/DEFAULT/card3.webp"}
                 width={630}
                 height={450}
                 alt="GPU Farms and VAI OS integration visualization"
                 className="w-full h-full object-cover"
-              />
+              /> */}
+              <motion.video
+                id="banner-video"
+                autoPlay
+                muted
+                playsInline
+                loop
+                key={videoSrc}
+                className="z-10 w-full"
+              >
+                <source src={videoSrc} />
+                Your browser does not support the video tag.
+              </motion.video>
             </div>
           </motion.div>
 
