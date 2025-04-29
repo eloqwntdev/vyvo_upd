@@ -33,7 +33,8 @@ const News = async () => {
       if (tags.has(tag)) {
         if (tag === "Articles") {
           articlesArray.push(cli_data);
-        } else if (tag === "Press Releases") {
+        }
+        if (tag === "Press Releases") {
           pressReleaseArray.push(cli_data);
         }
       }
