@@ -49,7 +49,7 @@ const DesktopValues = () => {
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="text-[#E749F0] font-nb text-[20px] leading-[24px] tracking-[-0.2px]"
+            className="text-[#E749F0] font-nb text-[20px] leading-[24px] tracking-[-0.5px]"
           >
             Values
           </motion.span>

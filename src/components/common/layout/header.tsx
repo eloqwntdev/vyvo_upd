@@ -87,7 +87,7 @@ const Header = () => {
   return (
     <>
       <div
-        className={`w-full ${1 ? "absolute left-1/2  top-0" : ""}
+        className={`w-full tracking-normal ${1 ? "absolute left-1/2  top-0" : ""}
         bg-black/50 backdrop-blur-[20px]
        sticky ${
          scrollDirection === "down" ? "-top-24 " : "top-0"

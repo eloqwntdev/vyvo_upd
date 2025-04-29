@@ -11,15 +11,15 @@ const ScrollLogoSection = () => {
   const currentStage = useStageStore((state) => state.currentStage);
 
   const handleScroll = () => {
-if (typeof document !== "undefined") {
-  const targetSection = document.getElementById("statement-section");
-  if (targetSection) {
-      targetSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start", // aligns the element at the top of the view
-      });
+    if (typeof document !== "undefined") {
+      const targetSection = document.getElementById("statement-section");
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start", // aligns the element at the top of the view
+        });
+      }
     }
-  }
   };
 
   //f
@@ -82,7 +82,7 @@ if (typeof document !== "undefined") {
           <span
             className={clsx(
               "bg-gradient-to-r from-[#94A8ED] to-[#FFFFFF] bg-clip-text text-transparent",
-              "text-[16px] md:text-[20px] font-[400] leading-[125%] md:leading-[100%] tracking-[-0.2px] font-nb"
+              "text-[16px] md:text-[20px] font-[400] leading-[125%] md:leading-[100%] tracking-[-0.5px] font-nb"
             )}
           >
             Ask again

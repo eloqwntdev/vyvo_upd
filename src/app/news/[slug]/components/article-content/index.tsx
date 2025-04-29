@@ -191,7 +191,7 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
   );
 
   return (
-    <section className="w-full bg-black">
+    <section className="w-full bg-black tracking-[-0.5px]">
       <div className="w-full flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-8 lg:gap-12">
         {/* Mobile navigation */}
         {isMobileView && <MobileSectionNav />}
@@ -220,7 +220,7 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
                     }`}
                   />
                   <div
-                    className={`bg-transparent font-nb font-light text-sm md:text-[16px] leading-tight md:leading-[20px] tracking-normal md:tracking-normal transition-colors duration-300
+                    className={`bg-transparent font-nb font-light text-sm md:text-[16px] leading-tight md:leading-[20px] transition-colors duration-300
                       ${
                         activeSection === section.title
                           ? "text-white"
@@ -249,7 +249,7 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
           {/* Introduction paragraph - using first section's first description if available */}
           {validSections.length > 0 &&
             validSections[0].descriptions.length > 0 && (
-              <p className="text-white/70 font-nb font-light text-sm sm:text-base md:text-[16px] leading-relaxed md:leading-[20px] tracking-normal md:tracking-normal break-words overflow-hidden">
+              <p className="text-white/70 font-nb font-light text-sm sm:text-base md:text-[16px] leading-relaxed md:leading-[20px] break-words overflow-hidden">
                 {validSections[0].descriptions[0].text}
               </p>
             )}

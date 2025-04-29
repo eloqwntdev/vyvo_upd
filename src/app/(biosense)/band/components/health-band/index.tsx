@@ -49,7 +49,7 @@ const HealthBand = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-[840px] w-full flex items-center justify-center bg-black relative py-[60px] sm:py-[80px] md:py-[100px] lg:py-[120px]"
+      className="min-h-[840px] w-full flex items-center justify-center bg-black relative py-[60px] sm:py-[80px] md:py-[100px] lg:py-[120px] tracking-[-0.5px]"
     >
       <motion.img
         initial={{ opacity: 0 }}
@@ -80,8 +80,8 @@ const HealthBand = () => {
             variants={fadeInUp}
             className="text-white font-nb font-light text-[24px] leading-[28px] sm:text-[42px] sm:leading-[46px] md:text-[48px] md:leading-[52px]"
           >
-            Meet the BioSense™ health band, a wearable device unlike anything in
-            its category.
+            Meet the BioSense™ health band, a wearable device unlike anything
+            in its category.
           </motion.h2>
           <motion.p
             variants={fadeInUp}
@@ -103,7 +103,7 @@ const HealthBand = () => {
               showIcon={false}
               label="Buy Now"
               className="!bg-[#77A9E829] !py-[12px] test !rounded-[16px] w-full !max-w-[170px]"
-              labelClassName="!tracking-[-0.2px]"
+              labelClassName="!tracking-[-0.5px]"
               containerStyles="!w-auto"
             />
           </motion.div>

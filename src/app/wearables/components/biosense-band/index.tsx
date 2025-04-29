@@ -80,7 +80,7 @@ const BiosenseBand = () => {
               initial={{ opacity: 0 }}
               animate={isContentInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-nb font-light text-[16px] leading-[20px] tracking-[-3%] text-black"
+              className="font-nb font-light text-[16px] leading-[20px] tracking-[-0.5px] text-black"
             >
               The award-winning BioSense™ health band is unlike anything in its
               category, combining elegant design with powerful innovation. It’s
@@ -112,7 +112,7 @@ const BiosenseBand = () => {
                     transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
                     className="size-2 mt-1 rounded-full bg-black flex-shrink-0"
                   ></motion.div>
-                  <span className="font-nb font-light text-[16px] leading-[20px] tracking-[-3%] text-black">
+                  <span className="font-nb font-light text-[16px] leading-[20px] tracking-[-0.5px] text-black">
                     {item}
                   </span>
                 </motion.li>

@@ -92,7 +92,7 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
             description.map((paragraph, index) => (
               <motion.p
                 key={index}
-                className="text-white font-nb font-light text-[14px] sm:text-[15px] md:text-[16px] lg:text-[20px] leading-[20px] md:leading-[24px] lg:leading-[28px] tracking-[-3%]"
+                className="text-white font-nb font-light text-[14px] sm:text-[15px] md:text-[16px] lg:text-[20px] leading-[20px] md:leading-[24px] lg:leading-[28px] tracking-[-0.5px]"
                 // initial={{ opacity: 0, y: 10 }}
                 // animate={{
                 //   opacity: isInView ? 1 : 0,
@@ -109,7 +109,7 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
             ))
           ) : (
             <motion.p
-              className="text-white font-nb font-light text-[14px] sm:text-[15px] md:text-[16px] lg:text-[20px] leading-[20px] md:leading-[24px] lg:leading-[28px] tracking-[-3%]"
+              className="text-white font-nb font-light text-[14px] sm:text-[15px] md:text-[16px] lg:text-[20px] leading-[20px] md:leading-[24px] lg:leading-[28px] tracking-[-0.5px]"
               // initial={{ opacity: 0, y: 10 }}
               // animate={{
               //   opacity: isInView ? 1 : 0,

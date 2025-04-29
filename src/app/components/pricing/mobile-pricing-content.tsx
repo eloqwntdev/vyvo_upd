@@ -240,7 +240,7 @@ const MobilePricingCard = ({
           showIcon={false}
           label="Try Now"
           className="!bg-[#77A9E829] !py-[10px] !rounded-[12px] w-full text-center !flex items-center justify-center"
-          labelClassName="!tracking-[-0.2px] text-center !text-[14px]"
+          labelClassName="!tracking-[-0.5px] text-center !text-[14px]"
           containerStyles="!w-auto text-center"
         />
       )}
@@ -269,10 +269,7 @@ const MobilePricingContent = ({
       </div>
 
       {/* Content area */}
-      <MobilePricingCard
-        plan={pricingPlans[activeTab]}
-        isYearly={isYearly}
-      />
+      <MobilePricingCard plan={pricingPlans[activeTab]} isYearly={isYearly} />
     </div>
   );
 };

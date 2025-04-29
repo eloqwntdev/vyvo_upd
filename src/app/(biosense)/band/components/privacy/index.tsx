@@ -64,7 +64,7 @@ const PrivacyBand = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-black flex flex-col md:flex-row items-center justify-center py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16"
+      className="bg-black flex flex-col md:flex-row items-center justify-center py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 tracking-[-0.5px]"
     >
       <motion.div
         initial="hidden"
@@ -115,7 +115,7 @@ const PrivacyBand = () => {
             showIcon={false}
             label="Buy Now"
             className="!bg-[#77A9E829] !py-[12px] test !rounded-[16px] w-full !max-w-[170px]"
-            labelClassName="!tracking-[-0.2px] text-[14px] sm:text-[15px] md:text-[16px]"
+            labelClassName="!tracking-[-0.5px] text-[14px] sm:text-[15px] md:text-[16px]"
             containerStyles="!w-auto"
           />
         </motion.div>

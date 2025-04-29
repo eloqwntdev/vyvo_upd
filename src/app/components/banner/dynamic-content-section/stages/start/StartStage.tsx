@@ -38,7 +38,7 @@ const StartStage = () => {
           )}
         >
           <span
-            className={`whitespace-nowrap text-[16px] md:text-[20px] leading-[125%] md:leading-[90%] tracking-[-0.2px] text-[rgba(255,255,255,1)] font-nb`}
+            className={`whitespace-nowrap text-[16px] md:text-[20px] leading-[125%] md:leading-[90%] tracking-[-0.5px] text-[rgba(255,255,255,1)] font-nb`}
           >
             Press to start
           </span>

@@ -52,7 +52,7 @@ const BannerBand = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-[600px] sm:min-h-screen w-full bg-black relative flex items-start  pt-[120px] lg:pt-0 justify-center overflow-hidden"
+      className="min-h-[600px] sm:min-h-screen w-full tracking-[-0.5px] bg-black relative flex items-start  pt-[120px] lg:pt-0 justify-center overflow-hidden"
     >
       {/* Background GIF - Using a div wrapper to preserve positioning */}
       <div className="absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -127,13 +127,13 @@ const BannerBand = () => {
         <div className="flex flex-col items-center gap-4 sm:gap-6 w-full">
           <motion.h2
             variants={fadeInUp}
-            className="text-white font-light font-nb text-[24px] sm:text-[36px] sm:leading-[40px] md:text-[48px] md:leading-[52px] lg:text-[72px] lg:leading-[76px] text-center tracking-[-3%]"
+            className="text-white font-light font-nb text-[24px] sm:text-[36px] sm:leading-[40px] md:text-[48px] md:leading-[52px] lg:text-[72px] lg:leading-[76px] text-center tracking-[-0.5px]"
           >
             <span className="text-gradient">BioSense Health Band</span>
           </motion.h2>
           <motion.p
             variants={fadeInUp}
-            className="text-white font-light font-nb text-[14px] leading-[18px] sm:text-[18px] sm:leading-[22px] md:text-[24px] md:leading-[28px] text-center tracking-[-3%]"
+            className="text-white font-light font-nb text-[14px] leading-[18px] sm:text-[18px] sm:leading-[22px] md:text-[24px] md:leading-[28px] text-center tracking-[-0.5px]"
           >
             Experience the world’s most advanced health band
           </motion.p>
@@ -142,7 +142,7 @@ const BannerBand = () => {
               showIcon={false}
               label="Buy Now"
               className="!bg-[#77A9E829] hover:!bg-[#77A9E840] transition-colors !py-[12px] test !rounded-[16px] w-full !max-w-[170px]"
-              labelClassName="!tracking-[-0.2px]"
+              labelClassName="!tracking-[-0.5px]"
               containerStyles="!w-auto"
             />
           </motion.div>

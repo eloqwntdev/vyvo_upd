@@ -13,7 +13,7 @@ const VyvoResearchDevelopment = () => {
   const isAwardInView = useInView(awardRef, { once: true, amount: 0.5 });
 
   return (
-    <section className=" bg-white ">
+    <section className=" bg-white tracking-[-0.5px]">
       <div className="w-full max-w-[1267px] mx-auto px-4 md:px-6 lg:px-8 flex flex-col md:flex-row justify-between py-10 md:py-20 gap-8 md:gap-12">
         <div className="max-w-full md:max-w-[509px] w-full flex flex-col gap-6 md:gap-8">
           <motion.div
@@ -45,7 +45,7 @@ const VyvoResearchDevelopment = () => {
               <h3 className="text-black font-nb text-[20px] md:text-[24px] leading-[1.25] md:leading-[30px]">
                 Creating Devices That People Love
               </h3>
-              <p className="font-nb font-light text-[14px] md:text-[16px] leading-[1.4] md:leading-[22px] tracking-wider">
+              <p className="font-nb font-light text-[14px] md:text-[16px] leading-[1.4] md:leading-[22px]">
                 Since its inception, Vyvo has been driven by the mission to
                 redefine wearables and create technology that empowers everyday
                 life. Vyvo, along with its technology partners, has continued to
@@ -66,7 +66,7 @@ const VyvoResearchDevelopment = () => {
               <h3 className="text-black font-nb text-[20px] md:text-[24px] leading-[1.25] md:leading-[30px]">
                 Our Dedication To Excellence
               </h3>
-              <p className="font-nb font-light text-[14px] md:text-[16px] leading-[1.4] md:leading-[22px] tracking-wider">
+              <p className="font-nb font-light text-[14px] md:text-[16px] leading-[1.4] md:leading-[22px]">
                 FDA clearance granted to Vyvo’s LifeWatch exemplifies our
                 commitment to quality and innovation in health monitoring. Our
                 unique wearables have been recognized with prestigious design

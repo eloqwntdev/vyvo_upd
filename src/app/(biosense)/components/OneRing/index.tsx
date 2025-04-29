@@ -129,20 +129,20 @@ const OneRing: React.FC<OneRingProps> = ({
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={staggerContainer}
-      className="max-w-[530px] w-full flex flex-col gap-6"
+      className="max-w-[530px] w-full flex flex-col gap-6 tracking-[-0.5px]"
     >
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-6 w-full">
           <motion.h2
             variants={fadeInUp}
-            className="font-nb font-light text-white text-[24px] leading-[28px] md:text-[56px] md:tracking-[-1.4px] md:leading-[64px]"
+            className="font-nb font-light text-white text-[24px] leading-[28px] md:text-[56px] md:leading-[64px]"
           >
             {title}{" "}
             <span className="banner-gradient-text">{highlightedText}</span>
           </motion.h2>
           <motion.p
             variants={fadeInUp}
-            className="font-nb font-light text-white text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] md:tracking-wider max-w-[387px]"
+            className="font-nb font-light text-white text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] max-w-[387px]"
           >
             {description}
           </motion.p>

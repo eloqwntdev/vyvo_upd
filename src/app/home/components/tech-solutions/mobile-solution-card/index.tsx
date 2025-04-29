@@ -53,13 +53,13 @@ const MobileSolutionCard: React.FC<MobileSolutionCardProps> = ({
           {images.map((image, index) => (
             <SwiperSlide key={index} className="w-full h-full">
               <Image
-              src={image}
-              alt={`${title} - image ${index + 1}`}
-              fill
-              className="object-cover rounded-[12px] shadow-lg"
-              sizes="100vw" // Ensure the image takes full width for higher resolution
-              priority={index === 0}
-              quality={100} // Maximum quality for the best image rendering
+                src={image}
+                alt={`${title} - image ${index + 1}`}
+                fill
+                className="object-cover rounded-[12px] shadow-lg"
+                sizes="100vw" // Ensure the image takes full width for higher resolution
+                priority={index === 0}
+                quality={100} // Maximum quality for the best image rendering
               />
             </SwiperSlide>
           ))}
@@ -94,13 +94,13 @@ const MobileSolutionCard: React.FC<MobileSolutionCardProps> = ({
           description.map((paragraph, index) => (
             <p
               key={index}
-              className="text-white/80 font-nb font-light text-[16px] leading-[22px] tracking-[-3%]"
+              className="text-white/80 font-nb font-light text-[16px] leading-[22px] tracking-[-0.5px]"
             >
               {paragraph}
             </p>
           ))
         ) : (
-          <p className="text-white/80 font-nb font-light text-[16px] leading-[22px] tracking-[-3%]">
+          <p className="text-white/80 font-nb font-light text-[16px] leading-[22px] tracking-[-0.5px]">
             {description}
           </p>
         )}

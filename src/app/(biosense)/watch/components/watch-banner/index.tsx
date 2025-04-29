@@ -97,13 +97,13 @@ const WatchBanner = () => {
       >
         <motion.h2
           variants={fadeInUp}
-          className="text-white font-light font-nb text-[24px] leading-[28px] md:text-[48px] md:leading-[52px] lg:text-[72px] lg:leading-[76px] text-center tracking-[-3%]"
+          className="text-white font-light font-nb text-[24px] leading-[28px] md:text-[48px] md:leading-[52px] lg:text-[72px] lg:leading-[76px] text-center tracking-[-0.5px]"
         >
           <span className="text-gradient">BioSense Health Watch</span>
         </motion.h2>
         <motion.p
           variants={fadeInUp}
-          className="text-white font-light font-nb text-[14px] leading-[18px] md:text-[24px] md:leading-[28px] text-center tracking-[-3%]"
+          className="text-white font-light font-nb text-[14px] leading-[18px] md:text-[24px] md:leading-[28px] text-center tracking-[-0.5px]"
         >
           The new face of Vyvo Technology.
         </motion.p>
@@ -112,7 +112,7 @@ const WatchBanner = () => {
             showIcon={false}
             label="Preorder Now"
             className="!bg-[#77A9E829] !py-[12px] test !rounded-[16px] w-full !max-w-[170px]"
-            labelClassName="!tracking-[-0.2px]"
+            labelClassName="!tracking-[-0.5px]"
             containerStyles="!w-auto"
           />
         </motion.div>

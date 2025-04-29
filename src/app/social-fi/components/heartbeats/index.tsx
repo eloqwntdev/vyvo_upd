@@ -51,7 +51,7 @@ const HeartBeats = () => {
     >
       <motion.span
         variants={fadeInUp}
-        className="text-[#FF0066] font-nb text-[16px] md:text-[20px] leading-[20px] md:leading-[24px] tracking-[-0.2px] text-center"
+        className="text-[#FF0066] font-nb text-[16px] md:text-[20px] leading-[20px] md:leading-[24px] tracking-[-0.5px] text-center"
       >
         Heartbeats-powered blockchain
       </motion.span>

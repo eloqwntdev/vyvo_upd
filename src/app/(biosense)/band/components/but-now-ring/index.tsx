@@ -49,7 +49,7 @@ const ButNowBand = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-[415px] md:min-h-[500px] lg:min-h-[600px] w-full relative bg-black flex sm:items-start sm:justify-center"
+      className="min-h-[415px] md:min-h-[500px] lg:min-h-[600px] w-full relative bg-black flex sm:items-start sm:justify-center tracking-[-0.5px]"
     >
       {/* Background GIF with positioning wrapper */}
       <div className="absolute w-full left-1/2 top-1/2 h-[560px] -translate-x-1/2 -translate-y-1/2 max-w-[1190px]">
@@ -95,14 +95,14 @@ const ButNowBand = () => {
       >
         <motion.h2
           variants={fadeInUp}
-          className="text-white font-light font-nb text-[24px] leading-[28px] md:text-[48px] md:leading-[52px] lg:text-[56px] lg:leading-[60px] sm:text-center tracking-[-3%]"
+          className="text-white font-light font-nb text-[24px] leading-[28px] md:text-[48px] md:leading-[52px] lg:text-[56px] lg:leading-[60px] sm:text-center"
         >
           Skip the Ordinary. <br />
           <span className="text-gradient">Choose the Extraordinary!</span>
         </motion.h2>
         <motion.p
           variants={fadeInUp}
-          className="text-white font-light font-nb text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] sm:text-center tracking-[-3%]"
+          className="text-white font-light font-nb text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] sm:text-center"
         >
           Choose the best, a health band as sophisticated <br />
           and stylish as you are. Powerful, yet elegant.
@@ -112,7 +112,7 @@ const ButNowBand = () => {
             showIcon={false}
             label="Buy Now"
             className="!bg-[#77A9E829] !py-[12px] test !rounded-[16px] w-full !max-w-[170px]"
-            labelClassName="!tracking-[-0.2px]"
+            labelClassName="!tracking-[-0.5px]"
             containerStyles="!w-auto"
           />
         </motion.div>

@@ -69,7 +69,7 @@ const OneRing = () => {
               It's the One Ring for{" "}
               <span className="banner-gradient-text">Your Wellness</span> Quest!
             </h2>
-            <p className="text-white font-nb text-[16px] leading-[20px] md:tracking-wider">
+            <p className="text-white font-nb text-[16px] leading-[20px] md:tracking-[-0.5px]">
               The shockingly light, amazingly thin, and utterly powerful
               BioSenseTM Ring transforms the way you think about wearable
               devices.

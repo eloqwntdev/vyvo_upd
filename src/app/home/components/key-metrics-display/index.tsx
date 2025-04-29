@@ -350,7 +350,7 @@ const KeyMetricsDisplay = () => {
     }
 
     return (
-      <span className="text-white text-[24px] md:text-[56px] leading-[28px] md:leading-[60px] tracking-[-3%]">
+      <span className="text-white text-[24px] md:text-[56px] leading-[28px] md:leading-[60px] tracking-[-0.5px]">
         {displayValueStr}
       </span>
     );
@@ -360,7 +360,7 @@ const KeyMetricsDisplay = () => {
     // Add ref to the section for useInView
     <section ref={sectionRef} className="bg-[#000000] py-8 md:py-20">
       <div className="flex flex-col gap-8 md:gap-[60px] w-full">
-        <h2 className="text-white text-left md:text-center font-nb font-light text-[20px] md:text-[48px] leading-[24px] md:leading-[56px] tracking-[-3%] px-4">
+        <h2 className="text-white text-left md:text-center font-nb font-light text-[20px] md:text-[48px] leading-[24px] md:leading-[56px] tracking-[-0.5px] px-4">
           Numbers That Define Us
         </h2>
 

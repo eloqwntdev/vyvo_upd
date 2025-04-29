@@ -29,7 +29,7 @@ const MobileValues = () => {
   return (
     <section className="py-10 flex flex-col gap-8 bg-black px-4">
       <div className="flex flex-col items-center gap-4 text-center">
-        <span className="text-[#E749F0] font-nb text-[16px] leading-[20px] tracking-[-0.2px]">
+        <span className="text-[#E749F0] font-nb text-[16px] leading-[20px] tracking-[-0.5px]">
           Values
         </span>
         <h3 className="text-center font-nb font-light text-[20px] leading-[24px] tracking-[-1px] text-white">

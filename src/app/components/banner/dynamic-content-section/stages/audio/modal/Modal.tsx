@@ -13,14 +13,14 @@ const Modal = () => {
   useEffect(() => {
     // Disable scrolling when the modal is open
     if (typeof document !== "undefined") {
-  document.body.style.overflow = "hidden";
-}
+      document.body.style.overflow = "hidden";
+    }
 
     return () => {
       // Re-enable scrolling when the modal is closed
       if (typeof document !== "undefined") {
-  document.body.style.overflow = "";
-}
+        document.body.style.overflow = "";
+      }
     };
   }, []);
 
@@ -62,7 +62,7 @@ const Modal = () => {
         <p
           className={clsx(
             "text-[14px] md:text-[20px] font-[300] leading-[128%] md:leading-[120%]",
-            "tracking-[0.14px] md:tracking-[-0.2px] font-nb text-white mt-[23px] md:mt-[40px]"
+            "tracking-[0.14px] md:tracking-[-0.5px] font-nb text-white mt-[23px] md:mt-[40px]"
           )}
         >
           {TEXT}
@@ -77,7 +77,7 @@ const Modal = () => {
             }}
             className={clsx(
               "text-[16px] md:text-[20px] font-[400] leading-[112%] md:leading-[90%]",
-              "tracking-[-0.2px] font-nb text-white w-full hover:!bg-[rgba(119,169,232,0.16)]",
+              "tracking-[-0.5px] font-nb text-white w-full hover:!bg-[rgba(119,169,232,0.16)]",
               "rounded-[16px] bg-[rgba(119,169,232,0.16)] backdrop-blur-[10px] px-[30px] py-[11px] md:py-[19px]",
               "transition-all relative z-[10]"
             )}

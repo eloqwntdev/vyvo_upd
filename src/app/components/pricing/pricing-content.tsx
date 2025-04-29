@@ -234,7 +234,7 @@ const PricingCard = ({
           showIcon={false}
           label="Try Now"
           className="!bg-[#77A9E829] !py-[12px] test !rounded-[16px] w-full text-center !flex items-center justify-center"
-          labelClassName="!tracking-[-0.2px] text-center"
+          labelClassName="!tracking-[-0.5px] text-center"
           containerStyles="!w-auto text-center"
         />
       )}

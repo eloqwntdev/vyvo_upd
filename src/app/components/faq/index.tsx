@@ -139,7 +139,7 @@ const FAQ = () => {
             showIcon={false}
             label="Vyvo Support"
             className="gap-4 bg-[#94a7ed28] py-4 md:py-[19px] test"
-            labelClassName="!tracking-[-0.2px]"
+            labelClassName="!tracking-[-0.5px]"
           />
         </div>
       </div>

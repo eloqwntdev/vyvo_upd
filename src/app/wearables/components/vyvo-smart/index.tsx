@@ -130,7 +130,7 @@ const VyvoSmart = () => {
                 isContentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
               }
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-black font-nb text-[14px] md:text-[16px] leading-[1.4] md:leading-[20px] tracking-wider"
+              className="text-black font-nb font-light text-[14px] md:text-[16px] leading-[1.4] md:leading-[20px] tracking-[-0.5px]"
             >
               All you need in one place. Whichever wearable you choose, the Vyvo
               Smart App collects your measurements so that you can track your
@@ -195,7 +195,7 @@ const VyvoSmart = () => {
                   />
                 </motion.div>
 
-                <p className="text-black font-nb text-[14px] md:text-[16px] leading-[1.4] md:leading-[20px]">
+                <p className="text-black font-nb font-normal text-[14px] md:text-[16px] leading-[1.4] md:leading-[20px]  tracking-[-0.5px]">
                   {item.text}
                 </p>
               </motion.div>

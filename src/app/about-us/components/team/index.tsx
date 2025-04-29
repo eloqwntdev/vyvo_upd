@@ -228,7 +228,7 @@ const TeamCard = ({ name, role, image, linkedin, index }: TeamCardProps) => {
               </motion.div>
             )}
           </div>
-          <span className="text-[#FFFFFF99] sm:text-white font-nb font-light text-[8px] sm:text-[14px] md:text-[16px] leading-[10px] md:leading-[20px] tracking-[-0.2px] md:tracking-[-0.5px]">
+          <span className="text-[#FFFFFF99] sm:text-white font-nb font-light text-[8px] sm:text-[14px] md:text-[16px] leading-[10px] md:leading-[20px] tracking-[-0.5px] md:tracking-[-0.5px]">
             {role}
           </span>
         </div>

@@ -47,7 +47,7 @@ const ThinLight = () => {
       ref={sectionRef}
       className="min-h-fit flex items-center justify-center lg:pt-[200px] bg-black"
     >
-      <div className="max-w-[1280px] w-full mx-auto flex flex-col lg:flex-row items-center justify-between px-4 md:px-6 gap-10 lg:gap-0">
+      <div className="max-w-[1280px] w-full mx-auto flex flex-col lg:flex-row items-center justify-between px-4 md:px-6 gap-10 lg:gap-0 tracking-[-0.5px]">
         {/* Left side with band image and floating items */}
         <div className="max-w-[530px] w-full flex items-center justify-center relative">
           <motion.div
@@ -159,7 +159,7 @@ const ThinLight = () => {
               showIcon={false}
               label="Buy Now"
               className="!bg-[#77A9E829] hover:!bg-[#77A9E840] transition-colors !py-[12px] test !rounded-[16px] w-full !max-w-[140px]"
-              labelClassName="!tracking-[-0.2px]"
+              labelClassName="!tracking-[-0.5px]"
               containerStyles="!w-auto"
             />
           </div>

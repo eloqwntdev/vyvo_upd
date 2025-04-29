@@ -118,7 +118,7 @@ const FirstSmartWatch = () => {
               showIcon={false}
               label="Preorder Now"
               className="!bg-[#77A9E829] !py-[12px] test !rounded-[16px] w-full !max-w-[170px]"
-              labelClassName="!tracking-[-0.2px]"
+              labelClassName="!tracking-[-0.5px]"
               containerStyles="!w-auto"
             />
           </motion.div>

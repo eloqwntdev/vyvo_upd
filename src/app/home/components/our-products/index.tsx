@@ -5,7 +5,7 @@ const OurProducts = () => {
   return (
     <section className="bg-black py-10 md:py-20">
       <div className="w-full flex flex-col gap-8 md:gap-[48px] items-center justify-center px-4 md:px-8">
-        <h2 className="text-white font-nb text-[20px] md:text-[48px] leading-[24px] md:leading-[52px] tracking-[-3%]">
+        <h2 className="text-white font-nb text-[20px] md:text-[48px] leading-[24px] md:leading-[52px] tracking-[-0.5px]">
           Our Partners
         </h2>
 

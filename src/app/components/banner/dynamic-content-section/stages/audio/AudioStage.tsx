@@ -44,7 +44,7 @@ const AudioStage = () => {
           <span
             className={clsx(
               "bg-gradient-to-r from-[#94A8ED] to-[#FFFFFF] bg-clip-text text-transparent",
-              "text-[20px] font-[400] leading-[100%] tracking-[-0.2px] font-nb"
+              "text-[20px] font-[400] leading-[100%] tracking-[-0.5px] font-nb"
             )}
           >
             Ask again

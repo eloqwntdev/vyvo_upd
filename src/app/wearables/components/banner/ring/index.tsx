@@ -65,7 +65,8 @@ const Ring = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
-The One Ring for Your Wellness Quest.            </motion.p>
+              The One Ring for Your Wellness Quest.{" "}
+            </motion.p>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -76,7 +77,7 @@ The One Ring for Your Wellness Quest.            </motion.p>
               showIcon={false}
               label="DISCOVER MORE"
               className="gap-3 md:gap-4 bg-[#94a7ed28] py-2 md:py-2.5 px-[16px] md:px-[18.5px] test"
-              labelClassName="!tracking-[-0.2px] text-[14px] md:text-base"
+              labelClassName="!tracking-[-0.5px] text-[14px] md:text-base"
               containerStyles={"flex items-center justify-center max-w-[200px]"}
             />
           </motion.div>

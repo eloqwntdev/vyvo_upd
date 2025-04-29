@@ -87,13 +87,13 @@ const ButNowRing = () => {
       >
         <motion.h2
           variants={fadeInUp}
-          className="text-white font-light font-nb text-[24px] leading-[28px] md:text-[48px] md:leading-[52px] lg:text-[56px] lg:leading-[60px] sm:text-center tracking-[-3%]"
+          className="text-white font-light font-nb text-[24px] leading-[28px] md:text-[48px] md:leading-[52px] lg:text-[56px] lg:leading-[60px] sm:text-center tracking-[-0.5px]"
         >
           Are you ready to find your perfect fit?
         </motion.h2>
         <motion.p
           variants={fadeInUp}
-          className="text-white font-light font-nb text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] sm:text-center tracking-[-3%]"
+          className="text-white font-light font-nb text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] sm:text-center tracking-[-0.5px]"
         >
           Make sure to use our "find your size" feature during your purchase for
           a tailored wellness experience.
@@ -103,7 +103,7 @@ const ButNowRing = () => {
             showIcon={false}
             label="Buy Now"
             className="!bg-[#77A9E829] !py-[12px] test !rounded-[16px] w-full !max-w-[170px]"
-            labelClassName="!tracking-[-0.2px]"
+            labelClassName="!tracking-[-0.5px]"
             containerStyles="!w-auto"
           />
         </motion.div>

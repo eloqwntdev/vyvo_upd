@@ -136,11 +136,11 @@ const TechSolutions = () => {
     return (
       <section className="bg-[#000000] py-10">
         <div className="w-full px-4">
-          <h2 className="font-nb font-light text-[24px] leading-[30px] tracking-[-3%] text-white text-center mb-8">
+          <h2 className="font-nb font-light text-[24px] leading-[30px] tracking-[-0.5px] text-white text-center mb-8">
             Vyvo drives innovation at the intersection of Web3, Wearable
             Technology, and AI.
           </h2>
-          <p className="text-white/80 font-nb font-light text-[16px] leading-[22px] tracking-[-3%] text-center mb-12">
+          <p className="text-white/80 font-nb font-light text-[16px] leading-[22px] tracking-[-0.5px] text-center mb-12">
             Smarter living with secure, personalized, and adaptive solutions.
           </p>
 
@@ -179,7 +179,7 @@ const TechSolutions = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
-            className="font-nb font-light text-[20px] md:text-[32px] lg:text-[48px] leading-[24px] md:leading-[40px] lg:leading-[56px] tracking-[-3%] text-white"
+            className="font-nb font-light text-[20px] md:text-[32px] lg:text-[48px] leading-[24px] md:leading-[40px] lg:leading-[56px] tracking-[-0.5px] text-white"
           >
             Vyvo drives innovation at the intersection of Web3, Wearable
             Technology, and AI.
@@ -192,7 +192,7 @@ const TechSolutions = () => {
               delay: 0.2,
               ease: [0.215, 0.61, 0.355, 1],
             }}
-            className="text-white/80 font-nb font-light text-[16px] md:text-[20px] lg:text-[24px] leading-[20px] md:leading-[28px] lg:leading-[32px] tracking-[-3%]"
+            className="text-white/80 font-nb font-light text-[16px] md:text-[20px] lg:text-[24px] leading-[20px] md:leading-[28px] lg:leading-[32px] tracking-[-0.5px]"
           >
             Smarter living with secure, personalized, and adaptive solutions.
           </motion.p>
@@ -205,22 +205,21 @@ const TechSolutions = () => {
           const isActive = activeCard === index;
 
           return (
-        <div
-          key={index}
-          ref={(el) => {
-            // Properly assign ref without returning a value
-            cardRefs.current[index] = el;
-          }}
-          className={`w-full top-0 left-0
+            <div
+              key={index}
+              ref={(el) => {
+                // Properly assign ref without returning a value
+                cardRefs.current[index] = el;
+              }}
+              className={`w-full top-0 left-0
             ${index === 0 ? "z-30" : index === 1 ? "z-20" : "z-10"}`}
-        >
-          <motion.div
-            className="relative w-full"
-            style={{
-          minHeight: "fit-content", // Ensure each card takes at least full viewport height
-            }}
-          
-  
+            >
+              <motion.div
+                className="relative w-full"
+                style={{
+                  minHeight: "fit-content", // Ensure each card takes at least full viewport height
+                }}
+
                 // initial={{ opacity: 0 }}
                 // animate={{
                 //   opacity: isActive ? 1 : 0.3,

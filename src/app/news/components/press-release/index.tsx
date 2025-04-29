@@ -23,7 +23,7 @@ const PressRelease = ({ articles }: { articles: any }) => {
             showIcon={false}
             label="Show More"
             className="gap-[16px] !bg-[#77A9E829] py-[10px] test mx-auto !rounded-[16px] w-full grid place-content-center !max-w-[140px]"
-            labelClassName="!tracking-[-0.2px]"
+            labelClassName="!tracking-[-0.5px]"
             containerStyles="!w-auto"
           />
         </div>

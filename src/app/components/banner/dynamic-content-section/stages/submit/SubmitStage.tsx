@@ -27,7 +27,7 @@ const SubmitStage = () => {
           "max-w-[380px] w-full",
           "px-[30px] py-[15px] md:py-[17px] rounded-[16px] backdrop-blur-[10px]",
           "bg-[rgba(119,169,232,0.04)] border border-[#000]",
-          "text-[16px] md:text-[20px] font-[300] font-nb leading-[112.5%] md:leading-[90%] tracking-[-0.2px] text-[rgba(255,255,255,1)]",
+          "text-[16px] md:text-[20px] font-[300] font-nb leading-[112.5%] md:leading-[90%] tracking-[-0.5px] text-[rgba(255,255,255,1)]",
           "placeholder:text-[rgba(255,255,255,0.20)] focus:outline-none"
         )}
         style={{
@@ -60,7 +60,7 @@ const SubmitStage = () => {
           )}
         >
           <span
-            className={`whitespace-nowrap text-[16px] md:text-[20px] leading-[125%] md:leading-[90%] tracking-[-0.2px] text-[rgba(255,255,255,1)] font-nb`}
+            className={`whitespace-nowrap text-[16px] md:text-[20px] leading-[125%] md:leading-[90%] tracking-[-0.5px] text-[rgba(255,255,255,1)] font-nb`}
           >
             Submit
           </span>

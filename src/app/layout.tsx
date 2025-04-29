@@ -53,7 +53,9 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${nbInternational.variable} antialiased`}>
+      <body
+        className={`${nbInternational.variable} tracking-[-0.5px] antialiased`}
+      >
         {/* <AnimatePresence> */}
         {/* {loading ? (
             <Preloader key={"preloader"} />
