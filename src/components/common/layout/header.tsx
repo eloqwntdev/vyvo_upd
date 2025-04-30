@@ -50,6 +50,8 @@ const Header = () => {
   };
   const [otherTextColor, setOtherTextColor] = useState("");
   const [baseTextColor, setBaseTextColor] = useState("");
+  const [glowBackground, setGlowBackground] = useState("");
+  const [underLine, setUnderLine] = useState("");
 
   useEffect(() => {
     console.log(pathname);
@@ -57,14 +59,20 @@ const Header = () => {
       case "/social-fi":
         setOtherTextColor("gradient-text-social-fi");
         setBaseTextColor("link-gradient-social-fi");
+        setGlowBackground("glowBackground-social-fi");
+        setUnderLine("underLine-social-fi");
         break;
       case "/vyvo-smart-chain":
         setOtherTextColor("gradient-text-vyvo-smart-chain");
         setBaseTextColor("link-gradient-vyvo-smart-chain");
+        setGlowBackground("glowBackground-vyvo-smart-chain");
+        setUnderLine("underLine-vyvo-smart-chain");
         break;
       default:
         setOtherTextColor("gradient-text");
         setBaseTextColor("link-gradient");
+        setGlowBackground("glowBackground");
+        setUnderLine("underLine");
         break;
     }
   }, [pathname]);
@@ -87,7 +95,7 @@ const Header = () => {
   return (
     <>
       <div
-        className={`w-full tracking-normal ${1 ? "absolute left-1/2  top-0" : ""}
+        className={`w-[100vw] tracking-normal ${1 ? "absolute left-1/2 top-0" : ""}
         bg-black/50 backdrop-blur-[20px]
        sticky ${
          scrollDirection === "down" ? "-top-24 " : "top-0"
@@ -120,7 +128,7 @@ const Header = () => {
           </Link>
 
           <motion.div
-            className="hidden lg:flex items-center w-full max-w-[676px]"
+            className="hidden select-none lg:flex items-center w-full max-w-[676px]"
             initial={{ y: -20, opacity: 0, gap: "10px" }}
             animate={{ y: 0, opacity: 1, gap: "16px" }}
             transition={{
@@ -155,6 +163,29 @@ const Header = () => {
                             setIsSubMenuOpen(true);
                           }}
                         >
+                          {pathname === link.href.replace("#", "") && (
+                            <div
+                              className={`absolute w-full h-full ${glowBackground}`}
+                            ></div>
+                          )}
+                          {pathname === link.href.replace("#", "") && (
+                            <motion.div
+                              initial={{
+                                opacity: 0,
+                                width: "0%",
+                              }}
+                              animate={{
+                                opacity: 1,
+                                width: "100%",
+                              }}
+                              transition={{
+                                delay: 0.6,
+                                duration: 2.4,
+                                ease: [0.16, 1, 0.3, 1],
+                              }}
+                              className={`absolute left-1/2 translate-x-[-50%] w-full h-[1px] bottom-[-0.75rem] ${underLine}`}
+                            ></motion.div>
+                          )}
                           <Link
                             href={link.href}
                             className={`relative group text-sm transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100 

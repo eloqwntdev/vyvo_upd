@@ -5,6 +5,7 @@
 html,
 body {
   overscroll-behavior: none;
+  overflow-x: hidden;
 }
 
 html {
@@ -199,6 +200,49 @@ button:not(.dropdown-menu-shadow button, .remove-hover-bg):hover {
   transition: all 0.5s ease-in-out;
 }
 
+.glowBackground {
+  border-radius: 500px;
+  opacity: 0.3;
+  background: var(
+    --Radial,
+    radial-gradient(29.68% 46.42% at 39.06% 38.97%, #2a5fdd 0%, #77a9e8 100%)
+  );
+  filter: blur(14.850000381469727px);
+}
+.glowBackground-vyvo-smart-chain {
+  border-radius: 500px;
+  opacity: 0.3;
+  background: #e749f0;
+  filter: blur(14.850000381469727px);
+}
+.glowBackground-social-fi {
+  border-radius: 500px;
+  opacity: 0.3;
+  background: #f06;
+
+  filter: blur(14.850000381469727px);
+}
+.underLine {
+  background: radial-gradient(
+    59.37% 59.37% at 50% 50%,
+    #77a9e8 0%,
+    rgba(119, 169, 232, 0) 100%
+  );
+}
+.underLine-vyvo-smart-chain {
+  background: radial-gradient(
+    59.37% 59.37% at 50% 50%,
+    #e749f0 0%,
+    rgba(231, 73, 240, 0) 100%
+  );
+}
+.underLine-social-fi {
+  background: radial-gradient(
+    59.37% 59.37% at 50% 50%,
+    #f06 0%,
+    rgba(255, 0, 102, 0) 100%
+  );
+}
 .card-shadow {
   box-shadow: 0px 0px 12.61px 0px #f8f8f840 inset;
   backdrop-filter: blur(400px);
