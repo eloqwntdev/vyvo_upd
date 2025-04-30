@@ -14,12 +14,12 @@ const centeredHeaderPages = ["/gpu-farm"];
 
 const Header = () => {
   const pathname = usePathname();
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const scrollDirection = useScrollDirection();
 
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const shouldCenterHeader = centeredHeaderPages.includes(pathname);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
+  const [leftSpace, setLeftSpace] = useState<number>(0);
+  const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
   const handleMouseEnter = (index: number | null) => {
     setActiveIndex(index);
@@ -76,9 +76,6 @@ const Header = () => {
         break;
     }
   }, [pathname]);
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
 
   useEffect(() => {
     if (isOpen) {
@@ -99,7 +96,7 @@ const Header = () => {
         bg-black/50 backdrop-blur-[20px]
        sticky ${
          scrollDirection === "down" ? "-top-24 " : "top-0"
-       }  z-[1000000] transition-all duration-500`}
+       }  z-[100] transition-all duration-500`}
       >
         <header
           className={`
@@ -141,19 +138,10 @@ const Header = () => {
             {/* <div className="size-10 rounded-[12px] bg-[#94a8ed0a] backdrop-blur-[10px] main-shadow grid place-content-center">
               <SlashIcon />
             </div> */}
-            <nav
-              onMouseLeave={() => {
-                handleMouseLeave();
-              }}
-              className="px-6 py-3 main-shadow max-w-[676px] w-full flex justify-between rounded-[16px] bg-[#77A9E80A] backdrop-blur-[20px]"
-            >
+            <nav className="px-6 py-3 main-shadow max-w-[676px] w-full flex justify-between rounded-[16px] bg-[#77A9E80A] backdrop-blur-[20px]">
               <div className="container mx-auto flex justify-between items-center">
                 <ul className="flex space-x-8">
                   {navLinks.map((link, index) => {
-                    const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
-                    useEffect(() => {
-                      if (activeIndex !== index) setIsSubMenuOpen(false);
-                    }, [activeIndex]);
                     return (
                       <div key={index}>
                         <li
@@ -161,6 +149,12 @@ const Header = () => {
                           onMouseEnter={() => {
                             handleMouseEnter(index);
                             setIsSubMenuOpen(true);
+                            const element =
+                              document.querySelectorAll("nav ul li")[index];
+                            if (element) {
+                              const rect = element.getBoundingClientRect();
+                              setLeftSpace(rect.left);
+                            }
                           }}
                         >
                           {pathname === link.href.replace("#", "") && (
@@ -198,46 +192,6 @@ const Header = () => {
                             {link.label}
                           </Link>
                         </li>
-                        {link.subMenu && (
-                          <AnimatePresence>
-                            {isSubMenuOpen && (
-                              <motion.div
-                                onMouseEnter={() => {
-                                  handleMouseEnter(index);
-                                  setIsSubMenuOpen(true);
-                                }}
-                                onMouseLeave={() => {
-                                  handleMouseLeave();
-                                  setIsSubMenuOpen(false);
-                                }}
-                                className="absolute"
-                                initial={{ opacity: 0, y: -10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -10 }}
-                                transition={{ duration: 0.2 }}
-                              >
-                                <div className="bg-black/80 backdrop-blur-[20px] flex-col mt-5 h-fit w-fit px-6 py-3 main-shadow max-w-[676px] gap-2 flex justify-between rounded-[16px]">
-                                  {link.subMenu.map((sublink, subindex) => (
-                                    <Link
-                                      href={sublink.href}
-                                      aria-label="Navigate to home page"
-                                      className={`relative group text-sm transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100 
-                                        ${
-                                          pathname ===
-                                          sublink.href.replace("#", "")
-                                            ? `font-medium bg-blend-lighten ${baseTextColor}`
-                                            : "text-white"
-                                        } ${otherTextColor}`}
-                                      key={subindex}
-                                    >
-                                      {sublink.label}
-                                    </Link>
-                                  ))}
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        )}
                       </div>
                     );
                   })}
@@ -339,70 +293,51 @@ const Header = () => {
           </button>
         </header>
       </div>
+      (
       <AnimatePresence>
-        {isModalOpen && (
-          <motion.div
-            className="fixed inset-0 z-[100] top-[96px] flex items-start justify-center"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{
-              duration: 0.3,
-              ease: "easeInOut",
-            }}
-          >
-            <div className="max-w-[955px] menu-styles w-full p-8 pb-[120px] pr-[87px]">
-              <motion.div
-                className="flex justify-between gap-12"
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  hidden: {},
-                  visible: {
-                    transition: {
-                      staggerChildren: 0.05,
-                    },
-                  },
-                }}
-              >
-                {navigationData.map((section, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex flex-col gap-6"
-                    variants={{
-                      hidden: { opacity: 0, y: -20 },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        transition: {
-                          duration: 0.3,
-                          ease: "easeOut",
-                        },
-                      },
-                    }}
-                  >
-                    <span className="text-[12px] leading-[18px] shrink-0 text-white/60 tracking-[-0.12px] uppercase">
-                      {section.section}
-                    </span>
-                    <div className="flex flex-col gap-3">
-                      {section.items.map((item, itemIndex) => (
-                        <Link
-                          key={itemIndex}
-                          href={item.href}
-                          className="text-[14px] font-light leading-[18px] text-white hover:text-gray-300 transition-colors"
-                        >
-                          {item.title}
-                        </Link>
-                      ))}
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
+        {isSubMenuOpen &&
+          activeIndex !== null &&
+          navLinks[activeIndex]?.subMenu && (
+            <motion.div
+              onMouseEnter={() => {
+                setIsSubMenuOpen(true);
+              }}
+              onMouseLeave={() => {
+                setIsSubMenuOpen(false);
+                handleMouseLeave();
+              }}
+              className="fixed z-[99] top-[0px] w-fit h-fit"
+              initial={{ opacity: 0, y: -10, left: leftSpace }}
+              animate={{ opacity: 1, y: 0, left: leftSpace }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="mt-[85px]">
+                <div className="bg-black/50 backdrop-blur-[20px] w-fit h-fit rounded-[16px]">
+                  <div className="bg-[#77a9e80a] backdrop-blur-[20px] flex-col h-auto w-auto px-6 py-3 main-shadow max-w-[676px] gap-2 flex justify-between rounded-[16px]">
+                    {navLinks[activeIndex]?.subMenu.map((sublink, subindex) => (
+                      <Link
+                        href={sublink.href}
+                        aria-label="Navigate to home page"
+                        className={`relative group text-sm transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100 
+                                        ${
+                                          pathname ===
+                                          sublink.href.replace("#", "")
+                                            ? `font-medium bg-blend-lighten ${baseTextColor}`
+                                            : "text-white"
+                                        } ${otherTextColor}`}
+                        key={subindex}
+                      >
+                        {sublink.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
       </AnimatePresence>
-
+      )
       <AnimatePresence>
         {isOpen && (
           <motion.div
