@@ -45,7 +45,6 @@ const RingWatch = () => {
             all the tracking features and benefits of the BioSense Ring.
             <br />
             <br />
-            <br />
             Download it from the Apple App Store or Google Play Store.
           </>
         }
