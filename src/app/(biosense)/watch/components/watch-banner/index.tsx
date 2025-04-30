@@ -99,7 +99,7 @@ const WatchBanner = () => {
           variants={fadeInUp}
           className="text-white font-light font-nb text-[24px] leading-[28px] md:text-[48px] md:leading-[52px] lg:text-[72px] lg:leading-[76px] text-center tracking-[-0.5px]"
         >
-          <span className="text-gradient">BioSense Health Watch</span>
+          <span className="text-gradient">BioSense Watch</span>
         </motion.h2>
         <motion.p
           variants={fadeInUp}

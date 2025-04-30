@@ -100,7 +100,7 @@ const Banner = () => {
           <div className="flex flex-col gap-4 md:gap-6 items-center">
             <motion.h1
               variants={fadeInUp}
-              className="text-gradient font-nb font-light text-[42px] leading-[48px] md:text-[72px] md:leading-[76px] text-center"
+              className="text-gradient font-nb font-light text-[42px] leading-[48px] md:text-[72px] md:leading-[85px] text-center"
             >
               BioSense Ring
             </motion.h1>
