@@ -93,49 +93,52 @@ const WayToPay = () => {
         </p>
       </motion.div>
 
-      {/* Mobile sensor image */}
-      <motion.div
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={floatAnimation}
-        className="block md:hidden w-full max-w-[400px] my-6"
-      >
-        <img
+      <div className="flex flex-col md:flex-row justify-center">
+        {/* Mobile sensor image */}
+        <motion.div
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={floatAnimation}
+          className="block md:hidden w-full max-w-[400px] my-6"
+        >
+          <img
+            src="/biosense-products/band/pay-sensor.webp"
+            className="w-full object-contain"
+            alt="Payment sensor visualization"
+          />
+        </motion.div>
+
+        {/* Desktop absolute positioned sensor image */}
+        <motion.img
+          style={{ scale: 1.2 }}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={fadeInRight}
           src="/biosense-products/band/pay-sensor.webp"
-          className="w-full object-contain"
+          className="w-1/2 h-full max-w-[500px] md:max-w-[600px] lg:max-w-[800px] object-contain hidden md:block"
           alt="Payment sensor visualization"
         />
-      </motion.div>
 
-      {/* Desktop absolute positioned sensor image */}
-      <motion.img
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={fadeInRight}
-        src="/biosense-products/band/pay-sensor.webp"
-        className="absolute w-full h-full max-w-[500px] md:max-w-[600px] lg:max-w-[800px] object-contain left-0 hidden md:block"
-        alt="Payment sensor visualization"
-      />
-
-      <motion.div
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={cardAnimation}
-        className="max-w-[360px] sm:max-w-[480px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] w-full mx-auto flex items-end justify-center md:justify-end z-10"
-      >
-        <div className="wearables-card-gradient w-full self-end max-w-[280px] sm:max-w-[350px] md:max-w-[450px] lg:max-w-[598px] rounded-[16px] sm:rounded-[20px] md:rounded-[24px] relative overflow-hidden p-2 sm:p-3 md:p-4">
-          <div className="transition-transform duration-300">
-            <Image
-              src={"/biosense-products/band/way-to-pay.webp"}
-              width={1196}
-              height={1256}
-              alt="BioSense payment device"
-              className="mx-auto w-full h-auto"
-              priority
-            />
+        <motion.div
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={cardAnimation}
+          className="max-w-[360px] sm:max-w-[480px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] w-full mx-auto flex items-end justify-center md:justify-end z-10"
+        >
+          <div className="wearables-card-gradient w-full self-end max-w-[380px] sm:max-w-[350px] md:max-w-[450px] lg:max-w-[598px] rounded-[16px] sm:rounded-[20px] md:rounded-[24px] relative overflow-hidden p-2 sm:p-3 md:p-4">
+            <div className="transition-transform duration-300">
+              <Image
+                src={"/biosense-products/band/way-to-pay.webp"}
+                width={1196}
+                height={1256}
+                alt="BioSense payment device"
+                className="mx-auto w-full h-auto"
+                priority
+              />
+            </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 };
