@@ -3,8 +3,13 @@
 import SlashButton from "@/components/common/controllers/button/slash-button";
 import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
+import dynamic from "next/dynamic";
+import animationData from "../../../../../../public/lottie/blue-back-lines-move/data.json";
 
 const ButNowRing = () => {
+  const Lottie = dynamic(() => import("lottie-react"), {
+    ssr: false,
+  });
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
@@ -55,15 +60,23 @@ const ButNowRing = () => {
       className="min-h-[315px] md:min-h-[600px] lg:min-h-[700px] w-full relative bg-black flex sm:items-start sm:justify-center"
     >
       {/* Background animation */}
-      <div className="absolute w-full h-full left-0">
-        <motion.img
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={fadeIn}
-          src="/banner/squares_gifs/Preloder-back.gif"
-          alt="Background GIF"
-          className="w-full h-full object-cover"
-        />
+      <div className="absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <motion.div
+          className="w-full h-full"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            delay: 0.8,
+            duration: 2.0,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        >
+          <Lottie
+            className="w-full h-full pointer-events-none"
+            animationData={animationData}
+            loop
+          />
+        </motion.div>
       </div>
 
       {/* Ring image animation */}
