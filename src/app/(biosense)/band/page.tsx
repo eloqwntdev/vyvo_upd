@@ -45,7 +45,6 @@ const BandPage = () => {
             weeks.
             <br />
             <br />
-            <br />
             Download it from the Apple App Store or Google Play Store.
           </>
         }
