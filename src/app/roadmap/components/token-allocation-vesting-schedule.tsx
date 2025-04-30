@@ -5,7 +5,7 @@ const TokenAllocationVestingSchedule = () => {
   return (
     <section className="py-20 flex flex-col gap-[60px] items-center justify-center">
       <h2 className="text-white px-4 md:px-20 w-full text-left md:text-center text-[20px] leading-[24px] tracking-[-0.6px] md:text-[56px] md:leading-[60px] md:tracking-[-1.68px] font-nb font-light">
-        Token Allocation & Vesting Schedule
+        Token Allocation & <br className="md:hidden" /> Vesting Schedule
       </h2>
       <div className="w-full h-fit flex flex-col px-4 md:px-20">
         <div className="w-full h-fit grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
