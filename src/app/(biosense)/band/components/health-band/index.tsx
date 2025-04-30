@@ -3,8 +3,13 @@
 import SlashButton from "@/components/common/controllers/button/slash-button";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import dynamic from "next/dynamic";
+import animationData from "../../../../../../public/lottie/blue-back-lines-move/data.json";
 
 const HealthBand = () => {
+  const Lottie = dynamic(() => import("lottie-react"), {
+    ssr: false,
+  });
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
 
@@ -51,6 +56,24 @@ const HealthBand = () => {
       ref={sectionRef}
       className="min-h-[840px] w-full flex items-center justify-center bg-black relative py-[60px] sm:py-[80px] md:py-[100px] lg:py-[120px] tracking-[-0.5px]"
     >
+      <div className="absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <motion.div
+          className="w-full h-full"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            delay: 0.8,
+            duration: 2.0,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        >
+          <Lottie
+            className="w-full h-full pointer-events-none"
+            animationData={animationData}
+            loop
+          />
+        </motion.div>
+      </div>
       <motion.img
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 0.2 } : { opacity: 0 }}
@@ -115,7 +138,7 @@ const HealthBand = () => {
         initial={{ opacity: 0, x: 100 }}
         animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 100 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="max-w-[856px] w-full hidden lg:block"
+        className="max-w-[856px] z-10 w-full hidden lg:block"
       >
         <img
           src="/biosense-products/band/biosense-bottom-sensors.webp"

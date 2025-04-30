@@ -4,8 +4,13 @@ import SlashButton from "@/components/common/controllers/button/slash-button";
 import Image from "next/image";
 import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
+import dynamic from "next/dynamic";
+import animationData from "../../../../../../public/lottie/blue-back-lines-move/data.json";
 
 const PrivacyBand = () => {
+  const Lottie = dynamic(() => import("lottie-react"), {
+    ssr: false,
+  });
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
@@ -64,9 +69,27 @@ const PrivacyBand = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-fit flex items-center justify-center py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20 bg-black"
+      className="relative min-h-fit flex items-center justify-center py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20 bg-black"
     >
-      <div className="max-w-[1280px] w-full mx-auto flex flex-col lg:flex-row items-center justify-between px-4 md:px-6 gap-10 lg:gap-0 tracking-[-0.5px]">
+      <div className="absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <motion.div
+          className="w-full h-full"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            delay: 0.8,
+            duration: 2.0,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        >
+          <Lottie
+            className="w-full h-full pointer-events-none"
+            animationData={animationData}
+            loop
+          />
+        </motion.div>
+      </div>
+      <div className="max-w-[1280px] z-10 w-full mx-auto flex flex-col lg:flex-row items-center justify-between px-4 md:px-6 gap-10 lg:gap-0 tracking-[-0.5px]">
         <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
