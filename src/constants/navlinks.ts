@@ -4,7 +4,7 @@ export const navLinks = [
     href: "/",
     label: "VAI OS",
     subMenu: [
-      { href: "/vai-os/tokenomics-roadmap", label: "Tokenomics Roadmap" },
+      { href: "/roadmap", label: "Tokenomics Roadmap" },
       { href: "/vai-os/getting-started", label: "Getting Started" },
       { href: "/gpu-farm", label: "GPU Farm" },
     ],
