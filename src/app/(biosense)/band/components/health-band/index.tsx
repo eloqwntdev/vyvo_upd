@@ -60,7 +60,7 @@ const HealthBand = () => {
         className="absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20"
       />
 
-      <div className="max-w-[1280px] w-full relative z-10 px-4 md:px-6">
+      <div className="max-w-[640px] w-full relative z-10 px-4 md:px-6">
         <motion.img
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -115,7 +115,7 @@ const HealthBand = () => {
         initial={{ opacity: 0, x: 100 }}
         animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 100 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="max-w-[856px] w-full absolute right-0 hidden lg:block"
+        className="max-w-[856px] w-full hidden lg:block"
       >
         <img
           src="/biosense-products/band/biosense-bottom-sensors.webp"
