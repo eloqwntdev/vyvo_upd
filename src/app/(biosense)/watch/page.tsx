@@ -46,6 +46,7 @@ const BiosenseWatchPage = () => {
             possible from a smart wearable. Pair your BioSense Watch with the
             Vyvo Smart App to experience all the benefits of this remarkable
             device. <br />
+            <br />
             Download it from the Apple App Store or Google Play Store.
           </>
         }
