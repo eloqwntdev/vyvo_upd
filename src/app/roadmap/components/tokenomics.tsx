@@ -1,14 +1,38 @@
-import Image from "next/image";
 import React from "react";
 import animationData from "../../../../public/lottie/1_3/data.json";
-import Link from "next/link";
 import dynamic from "next/dynamic";
+import Cards from "./tokenomics/cards";
 
 const Tokenomics = () => {
   const Lottie = dynamic(() => import("lottie-react"), {
     ssr: false,
   });
+  const cardsData = [
+    {
+      title: "Initial Supply",
+      value: "50,000,000 VSC",
+      icon: "/roadmap-img/tokenomics/icon1.svg",
+    },
 
+    {
+      title: "Total Supply",
+      value: "250,000,000 VSC",
+      icon: "/roadmap-img/tokenomics/icon2.svg",
+    },
+
+    {
+      title: "Blockchain",
+      value: "Vyvo Smart Chain",
+      icon: "/roadmap-img/tokenomics/icon3.svg",
+    },
+
+    {
+      title: "Smart Contract",
+      value: "View Contract",
+      link: "/smart-contract",
+      icon: "/roadmap-img/tokenomics/icon4.svg",
+    },
+  ];
   return (
     <section className="py-20 flex flex-col gap-[60px] items-center justify-center">
       <h2 className="text-white px-4 md:px-20 w-full text-left md:text-center text-[24px] leading-[28px] tracking-[-0.72px] md:text-[56px] md:leading-[60px] md:tracking-[-1.68px] font-nb font-light">
@@ -39,73 +63,15 @@ const Tokenomics = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-full md:max-w-[505px] lg:max-w-none">
-            <div className="rounded-[12px] py-3 px-4 flex items-center justify-start gap-3 bg-[#5348d70a] shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[10px]">
-              <Image
-                src="/roadmap-img/icon1.svg"
-                alt="VSC"
-                width={48}
-                height={48}
+            {cardsData.map((card, index) => (
+              <Cards
+                key={index}
+                title={card.title}
+                value={card.value}
+                link={card.link ? card.link : null}
+                icon={card.icon}
               />
-              <div className="flex flex-col gap-2">
-                <span className="text-white font-bn font-light text-[20px] leading-[24px]">
-                  Initial Supply
-                </span>
-                <span className="text-white font-bn font-normal text-[20px] leading-[24px]">
-                  50,000,000 VSC
-                </span>
-              </div>
-            </div>
-            <div className="rounded-[12px] py-3 px-4 flex items-center justify-start gap-3 bg-[#5348d70a] shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[10px]">
-              <Image
-                src="/roadmap-img/icon2.svg"
-                alt="VSC"
-                width={48}
-                height={48}
-              />
-              <div className="flex flex-col gap-2">
-                <span className="text-white font-bn font-light text-[20px] leading-[24px]">
-                  Total Supply
-                </span>
-                <span className="text-white font-bn font-normal text-[20px] leading-[24px]">
-                  250,000,000 VSC
-                </span>
-              </div>
-            </div>
-            <div className="rounded-[12px] py-3 px-4 flex items-center justify-start gap-3 bg-[#5348d70a] shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[10px]">
-              <Image
-                src="/roadmap-img/icon3.svg"
-                alt="VSC"
-                width={48}
-                height={48}
-              />
-              <div className="flex flex-col gap-2">
-                <span className="text-white font-bn font-light text-[20px] leading-[24px]">
-                  Blockchain
-                </span>
-                <span className="text-white font-bn font-normal text-[20px] leading-[24px]">
-                  Vyvo Smart Chain
-                </span>
-              </div>
-            </div>
-            <div className="rounded-[12px] py-3 px-4 flex items-center justify-start gap-3 bg-[#5348d70a] shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[10px]">
-              <Image
-                src="/roadmap-img/icon4.svg"
-                alt="VSC"
-                width={48}
-                height={48}
-              />
-              <div className="flex flex-col gap-2">
-                <span className="text-white font-bn font-light text-[20px] leading-[24px]">
-                  Smart Contract
-                </span>
-                <Link
-                  className="text-[#A170FF] underline font-bn font-normal text-[20px] leading-[24px]"
-                  href="/smart-contract"
-                >
-                  View Contract
-                </Link>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 

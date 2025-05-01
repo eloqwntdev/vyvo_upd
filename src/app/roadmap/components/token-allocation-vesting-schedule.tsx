@@ -6,27 +6,27 @@ import VestingSchedule from "./token-allocation-vesting-schedule/vestingSchedule
 const TokenAllocationVestingSchedule = () => {
   const cardData = [
     {
-      icon: EcosystemGrowthIcon,
+      icon: "/roadmap-img/token-allocation-vesting-schedule/icon1.svg",
       title: "Ecosystem Growth",
       percentage: "45% (100,000,000 tokens)",
       description:
         "Gradual distribution over 10 years to support ecosystem partners and projects.",
     },
     {
-      icon: TeamAdvisorsIcon,
+      icon: "/roadmap-img/token-allocation-vesting-schedule/icon2.svg",
       title: "Team & Advisors",
       percentage: "20% (50,000,000 tokens)",
       description:
         "12-month lock-up period, followed by linear unlocking over the next 36 months.",
     },
     {
-      icon: InvestorsIcon,
+      icon: "/roadmap-img/token-allocation-vesting-schedule/icon3.svg",
       title: "Investors",
       percentage: "15% (37,500,000 tokens)",
       description: "10% at TGE, remaining unlocked over 24 months.",
     },
     {
-      icon: StakingRewardsIcon,
+      icon: "/roadmap-img/token-allocation-vesting-schedule/icon4.svg",
       title: "Staking & Rewards",
       percentage: "20% (50,000,000 tokens)",
       description:
