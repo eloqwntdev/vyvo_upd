@@ -48,12 +48,12 @@ const LinesChart = ({
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-row gap-3 h-full w-full">
-        <div className="flex flex-col-reverse gap-5 items-end text-white font-nb font-light text-[14px] leading-[18px] tracking-[-0.42px]">
+        <div className="flex flex-col-reverse gap-5 items-end text-white font-nb font-light text-[8px] leading-[8px] tracking-[-0.24px] md:text-[14px] md:leading-[18px] md:tracking-[-0.42px]">
           {Array.from({ length: 11 }, (_, i) => (
             <span key={i}>{i * 10}%</span>
           ))}
         </div>
-        <div className="relative w-full h-[400px]">
+        <div className="relative w-full h-[280px] md:h-[400px]">
           <div className="absolute h-full w-[1px] left-0 bg-[#a175ff1a]"></div>
           <div className="absolute h-[1px] w-full bottom-0 bg-[#a175ff1a]"></div>
           <div className="w-full h-full gap-5">
@@ -61,9 +61,11 @@ const LinesChart = ({
           </div>
         </div>
       </div>
-      <div className="w-full h-fit flex pl-14 flex-row justify-between text-white font-nb font-light text-[14px] leading-[18px] tracking-[-0.42px]">
+      <div className="w-full h-fit flex pl-8 md:pl-14 flex-row justify-between text-white font-nb font-light text-[8px] leading-[8px] tracking-[-0.24px] md:text-[14px] md:leading-[18px] md:tracking-[-0.42px]">
         {Array.from({ length: 11 }, (_, i) => (
-          <span key={i}>{(i + 1) * 1}:00</span>
+          <span className={`${i % 2 !== 0 ? "hidden md:block" : ""}`} key={i}>
+            {(i + 1) * 1}:00
+          </span>
         ))}
         <div className="h-full w-0"></div>
       </div>
