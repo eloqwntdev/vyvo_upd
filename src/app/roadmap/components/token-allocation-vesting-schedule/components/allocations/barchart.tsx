@@ -44,7 +44,7 @@ const BarChart = ({
                 background: `rgb(${data.color})`,
               }}
             ></div>
-            <span className="text-white font-nb font-light text-[12px] leading-[8px] tracking-[-0.36px] md:text-[14px] md:leading-[18px] md:tracking-[-0.42px]">
+            <span className="text-white font-nb font-light text-[12px] leading-[14px] tracking-[-0.36px] md:text-[14px] md:leading-[18px] md:tracking-[-0.42px]">
               {data.label}
             </span>
           </div>

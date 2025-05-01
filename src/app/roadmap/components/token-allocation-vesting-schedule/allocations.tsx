@@ -46,8 +46,8 @@ const Allocations = () => {
     },
   ];
   return (
-    <div className="rounded-[24px] p-3 md:p-4 h-fit w-full bg-[rgba(83,72,215,0.04)] shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[75.8px]">
-      <div className="rounded-[24px] flex flex-col gap-10 p-4 md:p-8 border-[2px] border-[rgba(161,117,255,0.4)] backdrop-blur-[33.8px]">
+    <div className="rounded-xl md:rounded-3xl p-3 md:p-4 h-fit w-full bg-[rgba(83,72,215,0.04)] shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[75.8px]">
+      <div className="rounded-xl md:rounded-3xl flex flex-col gap-10 p-4 md:p-8 border-[2px] border-[rgba(161,117,255,0.4)] backdrop-blur-[33.8px]">
         <div className="flex flex-row justify-between">
           <span className="text-white font-normal text-[16px] leading-[20px] tracking-[-0.48] md:text-[24px] md:leading-[28px] md:tracking-[-0.72px]">
             Allocations
