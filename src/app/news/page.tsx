@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import React from "react";
 import Articles from "./components/articles";
 import PressRelease from "./components/press-release";
