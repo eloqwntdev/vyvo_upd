@@ -1,0 +1,63 @@
+import SortDropdown from "@/components/common/controllers/dropdowns/sort-dropdown";
+import React from "react";
+import Chart from "./components/allocations/chart";
+
+const Allocations = () => {
+  const chartdata = [
+    {
+      label: "Team",
+      value: 50,
+      color: "255, 142, 117",
+    },
+    {
+      label: "Investors",
+      value: 65,
+      color: "255, 227, 117",
+    },
+    {
+      label: "Product",
+      value: 50,
+      color: "117, 255, 131",
+    },
+    {
+      label: "Reserve Fund",
+      value: 25,
+      color: "255, 117, 250",
+    },
+    {
+      label: "Marketing & Growth",
+      value: 25,
+      color: "126, 117, 255",
+    },
+    {
+      label: "Community Rewards",
+      value: 15,
+      color: "255, 117, 117",
+    },
+    {
+      label: "Staking Rewards",
+      value: 15,
+      color: "117, 248, 255",
+    },
+    {
+      label: "Liquidity Pool",
+      value: 15,
+      color: "186, 117, 255",
+    },
+  ];
+  return (
+    <div className="rounded-[24px] p-4 h-fit w-full bg-[rgba(83,72,215,0.04)] shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[75.8px]">
+      <div className="rounded-[24px] flex flex-col gap-10 p-8 border-[2px] border-[rgba(161,117,255,0.4)] backdrop-blur-[33.8px]">
+        <div className="flex flex-row justify-between">
+          <span className="text-white font-normal text-[24px] leading-[28px] tracking-[-0.72px]">
+            Allocations
+          </span>
+          <SortDropdown />
+        </div>
+        <Chart chartdata={chartdata} />
+      </div>
+    </div>
+  );
+};
+
+export default Allocations;
