@@ -3,9 +3,19 @@ import Articles from "./components/articles";
 import PressRelease from "./components/press-release";
 import { createClient } from "@/prismicio";
 
-async function fetchNewsArticles(pageSize = 6, page = 1) {
+type NewsPost = {
+  tags: string[];
+  [key: string]: any;
+};
+
+type PrismicResponse = NewsPost[] | { results: NewsPost[] };
+
+async function fetchNewsArticles(
+  pageSize = 6,
+  page = 1
+): Promise<PrismicResponse> {
+  const client = createClient();
   try {
-    const client = createClient();
     const response = await client.getAllByType("news_post", {
       orderings: {
         field: "document.first_publication_date",
@@ -14,22 +24,49 @@ async function fetchNewsArticles(pageSize = 6, page = 1) {
     });
     return response;
   } catch (error) {
-    console.error("Error fetching news articles:", error);
-    return { results: [], total_pages: 0 };
+    // Rethrow error to be handled in the component
+    throw error;
   }
 }
 
 const News = async () => {
-  const response = await fetchNewsArticles();
+  let response: PrismicResponse | undefined;
+  let errorMessage = null;
 
-  const client = Array.isArray(response) ? response : response.results;
+  try {
+    response = await fetchNewsArticles();
+  } catch (error: any) {
+    errorMessage = error?.message || String(error);
+  }
+
+  if (errorMessage) {
+    return (
+      <div style={{ color: "red", padding: "2rem" }}>
+        <h2>Error fetching news articles</h2>
+        <pre>{errorMessage}</pre>
+        <p>
+          This error may indicate a problem with Prismic configuration,
+          environment variables, or network access on Vercel.
+        </p>
+      </div>
+    );
+  }
+
+  if (!response) {
+    // Should not happen, but for type safety
+    return null;
+  }
+
+  const client: NewsPost[] = Array.isArray(response)
+    ? response
+    : (response as { results: NewsPost[] }).results;
 
   const tags = new Set(["Articles", "Press Releases"]);
-  const articlesArray: Array<Record<string, any>> = [];
-  const pressReleaseArray: Array<Record<string, any>> = [];
+  const articlesArray: NewsPost[] = [];
+  const pressReleaseArray: NewsPost[] = [];
 
-  client.forEach((cli_data) => {
-    cli_data.tags.forEach((tag) => {
+  client.forEach((cli_data: NewsPost) => {
+    cli_data.tags.forEach((tag: string) => {
       if (tags.has(tag)) {
         if (tag === "Articles") {
           articlesArray.push(cli_data);

@@ -2,12 +2,9 @@
 import HeroNews from "./hero";
 import SortDropdown from "@/components/common/controllers/dropdowns/sort-dropdown";
 import SlashButton from "@/components/common/controllers/button/slash-button";
-import { createClient } from "@/prismicio";
 import { ArticleCard } from "./ArticleCard";
 
 const Articles = async ({ articles }: { articles: any }) => {
-  console.log(articles);
-
   return (
     <section className="bg-black flex flex-col items-center justify-center gap-12 md:gap-[60px] lg:gap-[80px] pt-[60px] md:pt-[90px] lg:pt-[120px] relative z-[10]">
       <HeroNews />
