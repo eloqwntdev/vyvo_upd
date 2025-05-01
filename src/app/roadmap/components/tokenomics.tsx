@@ -10,19 +10,19 @@ const Tokenomics = () => {
   });
 
   return (
-    <section className="py-20 px-4 flex flex-col gap-[60px] items-center justify-center">
+    <section className="py-20 flex flex-col gap-[60px] items-center justify-center">
       <h2 className="text-white px-4 md:px-20 w-full text-left md:text-center text-[24px] leading-[28px] tracking-[-0.72px] md:text-[56px] md:leading-[60px] md:tracking-[-1.68px] font-nb font-light">
         Tokenomics
       </h2>
 
-      <div className="flex flex-col md:flex-row max-w-[1281px] w-full gap-8 mx-ayto items-center justify-between">
+      <div className="flex flex-col md:flex-row max-w-[1600px] w-full gap-8 mx-ayto items-center justify-between px-4 md:px-20">
         <div className="flex flex-col gap-12 max-w-[570px] w-full">
           <div className="flex flex-col gap-6 max-w-[527px]">
             <h3 className="text-white font-nb font-light text-[20px] leading-[24px] tracking-[-0.6px] md:text-[48px] md:leading-[60px] md:tracking-[-1.44px]">
               Vyvo Smart Chain (VSC)
             </h3>
 
-            <p className="text-white font-nb font-light text-[16px] leading-[20px]">
+            <p className="text-white font-nb font-light text-[14px] leading-[18px] tracking-[-0.42px] md:text-[16px] md:leading-[20px] md:tracking-[-0.48px]">
               Vyvo Smart Chain is a HealthFi ecosystem that promotes and rewards
               positive lifestyle habits through health data monetization. The
               network runs on a validation protocol called Proof-of-Sensing
@@ -38,7 +38,7 @@ const Tokenomics = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-[505px] lg:max-w-none">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-full md:max-w-[505px] lg:max-w-none">
             <div className="rounded-[12px] py-3 px-4 flex items-center justify-start gap-3 bg-[#5348d70a] shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[10px]">
               <Image
                 src="/roadmap-img/icon1.svg"
