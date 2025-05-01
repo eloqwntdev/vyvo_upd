@@ -1,6 +1,6 @@
 import React from "react";
 
-const Chart = ({
+const BarChart = ({
   chartdata,
 }: {
   chartdata: Array<{ label: string; value: number; color: string }>;
@@ -54,4 +54,4 @@ const Chart = ({
   );
 };
 
-export default Chart;
+export default BarChart;

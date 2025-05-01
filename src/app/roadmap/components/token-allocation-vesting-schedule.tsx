@@ -1,6 +1,7 @@
 import React from "react";
 import Cards from "./token-allocation-vesting-schedule/cards";
 import Allocations from "./token-allocation-vesting-schedule/allocations";
+import VestingSchedule from "./token-allocation-vesting-schedule/vestingSchedule";
 
 const TokenAllocationVestingSchedule = () => {
   const cardData = [
@@ -52,7 +53,7 @@ const TokenAllocationVestingSchedule = () => {
         </div>
         <div className="w-full h-fit grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 gap-5">
           <Allocations />
-          <Allocations />
+          <VestingSchedule />
         </div>
       </div>
     </section>
