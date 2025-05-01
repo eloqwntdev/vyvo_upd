@@ -377,52 +377,6 @@ const Header = () => {
 
 export default Header;
 
-const navigationData = [
-  {
-    section: "VAI OS",
-    items: [
-      { title: "VAI OS", href: "/" },
-      { title: "Tokenomics Roadmap", href: "#" },
-      { title: "Getting Started", href: "#" },
-      { title: "Using Agents", href: "#" },
-    ],
-  },
-  {
-    section: "VYVO SMART CHAIN",
-    items: [{ title: "Vyvo Smart Chain", href: "#" }],
-  },
-  {
-    section: "VYVO TECH",
-    items: [
-      { title: "Overview", href: "#" },
-      { title: "BioSense Ring", href: "#" },
-      { title: "BioSense Band", href: "#" },
-      { title: "BioSense Watch", href: "#" },
-    ],
-  },
-  {
-    section: "SOCIALFI",
-    items: [{ title: "SocialFI", href: "/social-fi" }],
-  },
-  {
-    section: "ABOUT US",
-    items: [
-      { title: "About Us", href: "/about-us" },
-      { title: "News", href: "#" },
-      { title: "Support", href: "#" },
-    ],
-  },
-  {
-    section: "STORE",
-    items: [
-      { title: "Store", href: "#" },
-      { title: "Item", href: "#" },
-      { title: "Item", href: "#" },
-      { title: "Item", href: "#" },
-    ],
-  },
-];
-
 const navLinksMobile = [
   { label: "Home", href: "/home" },
   { label: "VAI OS", href: "/" },
