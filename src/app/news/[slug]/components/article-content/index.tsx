@@ -20,7 +20,6 @@ interface ArticleContentProps {
 }
 
 const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
-  console.log(articles);
   // Filter out invalid sections (those with null titles or empty descriptions)
   const validSections = articles.filter(
     (section) => section.descriptions.length > 0
@@ -92,7 +91,6 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
       const newActiveSection = currentSection || closestSection;
 
       if (newActiveSection && newActiveSection !== activeSection) {
-        console.log("Setting active section to:", newActiveSection);
         setActiveSection(newActiveSection);
       } else if (scrollPosition < 200 && validSections.length > 0) {
         // Near the top of the page, set the first section as active
@@ -121,7 +119,6 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
   }, [sectionRefs, activeSection, validSections]);
 
   const scrollToSection = (sectionTitle: string) => {
-    console.log("Scrolling to section:", sectionTitle);
     if (sectionRefs[sectionTitle]?.current) {
       const yOffset = -80; // Adjust for header height
       const element = sectionRefs[sectionTitle].current;

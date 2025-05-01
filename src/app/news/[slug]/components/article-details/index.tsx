@@ -21,7 +21,6 @@ const ArticleDetails = ({ article }: ArticleDetailsProps) => {
   // Default image placeholder in case the image is not available
   const imageUrl = image?.url || "/wearables-img/slider/card1.webp";
   const imageAlt = image?.alt || String(title || "Article featured image");
-  console.log(title);
   return (
     <section className="w-full bg-black">
       <motion.div
