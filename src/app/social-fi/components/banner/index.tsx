@@ -91,7 +91,7 @@ const SocialFiBanner = () => {
           </motion.h1>
           <motion.p
             variants={paragraphVariants}
-            className="max-w-[500px] text-center font-nb text-white font-light text-[14px] md:text-[16px] leading-[18px] md:leading-[20px] tracking-[-0.3px] md:tracking-[-0.5px]"
+            className="max-w-[500px] text-center font-nb text-white font-light text-sm sm:text-[14px] md:text-[16px] leading-[1.4] sm:leading-[1.3] md:leading-[24px] tracking-[-0.3px] md:tracking-[-0.5px]"
           >
             Vyvo SocialFi enables people of all backgrounds — and from all
             around the world — to benefit from Influencer Marketing in our

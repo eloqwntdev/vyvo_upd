@@ -84,7 +84,7 @@ const HeartBeats = () => {
           >
             <motion.p
               variants={fadeInUp}
-              className="text-black font-nb font-light text-[14px] md:text-[16px] leading-[18px] md:leading-[20px] tracking-[0.3px] md:tracking-[0.5px]"
+              className="text-black font-nb font-light text-sm sm:text-[14px] md:text-[16px] leading-[1.4] sm:leading-[1.3] md:leading-[24px] tracking-[-0.3px] md:tracking-[-0.5px]"
             >
               Introducing Vyvo, the trailblazer in heartbeats-powered
               blockchain. We leverage your body's signals to mine Vyvo Smart
