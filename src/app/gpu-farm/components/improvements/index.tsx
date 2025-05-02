@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const Improvements = () => {
   const [videoSrc, setVideoSrc] = useState(
-    "/gpu-farms-img/improvements/GPU-farm-anim.webm"
+    "/gpu-farms-img/improvements/GPU-farm-anim-new.webm"
   );
   return (
     <section className="bg-black py-10 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
