@@ -40,7 +40,7 @@ const ArticleDetails = ({ article }: ArticleDetailsProps) => {
               }}
             >
               <Lottie
-                className="w-full h-full pointer-events-none"
+                className="w-full h-full"
                 animationData={animationData}
                 loop
               />

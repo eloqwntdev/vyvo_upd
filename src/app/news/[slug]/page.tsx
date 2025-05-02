@@ -11,45 +11,11 @@ type Params = {
   };
 };
 
-export async function generateMetadata({ params }: Params) {
-  const client = createClient();
-  const article = await client
-    .getByUID("news_post", params.slug)
-    .catch(() => null);
-
-  if (!article) {
-    return {
-      title: "Article Not Found",
-      description: "The requested article could not be found",
-    };
-  }
-
-  return {
-    title: article.data.meta_title || article.data.title,
-    description: article.data.meta_description,
-    openGraph: {
-      title: article.data.meta_title || article.data.title,
-      description: article.data.meta_description,
-      images: article.data.meta_image.url ? [article.data.meta_image.url] : [],
-    },
-  };
-}
-
-export async function generateStaticParams() {
-  const client = createClient();
-  const articles = await client.getAllByType("news_post");
-
-  return articles.map((article) => ({
-    slug: article.uid,
-  }));
-}
-
 const NewsDynamicPage = async ({ params }: Params) => {
   const client = createClient();
   const article = await client
     .getByUID<NewsPostDocument>("news_post", params.slug)
     .catch(() => null);
-
   if (!article) {
     notFound();
   }
