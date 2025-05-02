@@ -96,7 +96,7 @@ const Header = () => {
         bg-black/50 backdrop-blur-[20px]
        sticky ${
          scrollDirection === "down" ? "-top-24 " : "top-0"
-       }  z-[100] transition-all duration-500`}
+       }  z-[99] transition-all duration-500`}
       >
         <header
           className={`
@@ -306,13 +306,16 @@ const Header = () => {
                 setIsSubMenuOpen(false);
                 handleMouseLeave();
               }}
-              className="fixed z-[99] top-[0px] w-fit h-fit"
+              className="fixed pointer-events-none z-[100] top-[0px] w-fit h-fit"
               initial={{ opacity: 0, y: -10, left: leftSpace }}
               animate={{ opacity: 1, y: 0, left: leftSpace }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="mt-[80px]">
+              <div
+                className="pointer-events-auto"
+                style={{ marginTop: "calc( 80px - 1rem)" }}
+              >
                 <div className="bg-black/50 backdrop-blur-[20px] w-fit h-fit rounded-b-[16px]">
                   <div className="bg-[#77a9e80a] backdrop-blur-[20px] flex-col h-auto w-auto px-6 py-3 sub-shadow max-w-[676px] gap-2 flex justify-between rounded-b-[16px]">
                     {navLinks[activeIndex]?.subMenu.map((sublink, subindex) => (
