@@ -37,7 +37,7 @@ const BiosenseBand = () => {
               className="w-full sm:w-auto overflow-hidden rounded-[24px]"
             >
               <Image
-                src="/wearables-img/band/image1.webp"
+                src="/wearables-img/band/card1.png"
                 width={610}
                 height={440}
                 alt=""
@@ -53,7 +53,7 @@ const BiosenseBand = () => {
               className="w-full sm:w-auto mt-5 sm:mt-0 overflow-hidden rounded-[24px]"
             >
               <Image
-                src="/wearables-img/band/image2.webp"
+                src="/wearables-img/band/card2.png"
                 width={610}
                 height={440}
                 alt=""

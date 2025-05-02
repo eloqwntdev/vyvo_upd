@@ -126,7 +126,7 @@ const VyvoResearchDevelopment = () => {
             className="overflow-hidden rounded-[24px]"
           >
             <Image
-              src="/wearables-img/research/medium-rectangle.webp"
+              src="/wearables-img/research/card1.png"
               width={1260}
               height={800}
               alt="Research Development"
@@ -136,7 +136,7 @@ const VyvoResearchDevelopment = () => {
           <div className="flex flex-col sm:flex-row gap-4 md:gap-5">
             <div className="overflow-hidden  w-full sm:w-1/2 rounded-[24px]">
               <Image
-                src="/wearables-img/research/medium-rectangle-second.webp"
+                src="/wearables-img/research/card2.png"
                 width={610}
                 height={452}
                 alt="Research Development"
@@ -146,7 +146,7 @@ const VyvoResearchDevelopment = () => {
 
             <div className="overflow-hidden  w-full sm:w-1/2 rounded-[24px]">
               <Image
-                src="/wearables-img/research/medium-rectangle-third.webp"
+                src="/wearables-img/research/card3.png"
                 width={610}
                 height={452}
                 alt="Research Development"

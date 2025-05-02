@@ -12,12 +12,11 @@ import OneRing from "../components/OneRing";
 import ButNowBand from "./components/but-now-ring";
 
 const watchImages = [
-  "/wearables-img/vyvo-smart/slider1.webp",
-  "/wearables-img/vyvo-smart/slider2.webp",
-  "/wearables-img/vyvo-smart/slider3.webp",
-  "/wearables-img/vyvo-smart/slider4.webp",
-  "/wearables-img/vyvo-smart/slider5.webp",
-  // "/wearables-img/vyvo-smart/slider6.webp",
+  "/wearables-img/vyvo-smart/card1.png",
+  "/wearables-img/vyvo-smart/card2.png",
+  "/wearables-img/vyvo-smart/card3.png",
+  "/wearables-img/vyvo-smart/card4.png",
+  "/wearables-img/vyvo-smart/card5.png",
 ];
 
 const BandPage = () => {
