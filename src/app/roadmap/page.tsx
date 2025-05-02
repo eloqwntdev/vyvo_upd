@@ -43,7 +43,6 @@ export default function RoadMap() {
           </motion.div>
         </div>
       </div>
-
       <Tokenomics />
       <TokenAllocationVestingSchedule />
     </div>
