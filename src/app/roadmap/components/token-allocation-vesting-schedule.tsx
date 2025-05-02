@@ -2,6 +2,7 @@ import React from "react";
 import Cards from "./token-allocation-vesting-schedule/cards";
 import Allocations from "./token-allocation-vesting-schedule/allocations";
 import VestingSchedule from "./token-allocation-vesting-schedule/vestingSchedule";
+import { motion } from "framer-motion";
 
 const TokenAllocationVestingSchedule = () => {
   const cardData = [
@@ -36,19 +37,36 @@ const TokenAllocationVestingSchedule = () => {
 
   return (
     <section className="py-20 flex flex-col gap-[60px] items-center justify-center">
-      <h2 className="text-white px-4 md:px-20 w-full text-left md:text-center text-[24px] leading-[28px] tracking-[-0.72px] md:text-[56px] md:leading-[60px] md:tracking-[-1.68px] font-nb font-light">
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
+        className="text-white px-4 md:px-20 w-full text-left md:text-center text-[24px] leading-[28px] tracking-[-0.72px] md:text-[56px] md:leading-[60px] md:tracking-[-1.68px] font-nb font-light"
+      >
         Token Allocation & <br className="md:hidden" /> Vesting Schedule
-      </h2>
+      </motion.h2>
       <div className="w-full h-fit flex flex-col max-w-[1600px] gap-5 px-4 md:px-20">
         <div className="w-full h-fit grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
           {cardData.map((card, index) => (
-            <Cards
-              key={index}
-              icon={card.icon}
-              title={card.title}
-              percentage={card.percentage}
-              description={card.description}
-            />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                delay: index / 5,
+                duration: 0.8,
+                ease: [0.43, 0.13, 0.23, 0.96],
+              }}
+            >
+              <Cards
+                key={index}
+                icon={card.icon}
+                title={card.title}
+                percentage={card.percentage}
+                description={card.description}
+              />
+            </motion.div>
           ))}
         </div>
         <div className="w-full h-fit grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 gap-5">

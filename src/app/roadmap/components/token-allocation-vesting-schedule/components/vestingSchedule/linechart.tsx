@@ -45,12 +45,29 @@ const LinesChart = ({
 }: {
   chartdata: Array<{ time: number; value: number }>;
 }) => {
+  const [saw, setSaw] = useState(false);
   return (
-    <div className="flex flex-col gap-5">
+    <motion.div
+      onViewportEnter={() => {
+        setSaw(true);
+      }}
+      className="flex flex-col gap-5"
+    >
       <div className="flex flex-row gap-3 h-full w-full">
         <div className="flex flex-col-reverse gap-5 items-end text-white font-nb font-light text-[8px] leading-[8px] tracking-[-0.24px] md:text-[14px] md:leading-[18px] md:tracking-[-0.42px]">
           {Array.from({ length: 11 }, (_, i) => (
-            <span key={i}>{i * 10}%</span>
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: saw ? 1 : 0, x: saw ? 0 : -20 }}
+              transition={{
+                delay: i / 15,
+                duration: 0.8,
+                ease: [0.43, 0.13, 0.23, 0.96],
+              }}
+              key={i}
+            >
+              {i * 10}%
+            </motion.span>
           ))}
         </div>
         <div className="relative w-full h-[280px] md:h-[400px]">
@@ -63,13 +80,23 @@ const LinesChart = ({
       </div>
       <div className="w-full h-fit flex pl-8 md:pl-14 flex-row justify-between text-white font-nb font-light text-[8px] leading-[8px] tracking-[-0.24px] md:text-[14px] md:leading-[18px] md:tracking-[-0.42px]">
         {Array.from({ length: 11 }, (_, i) => (
-          <span className={`${i % 2 !== 0 ? "hidden md:block" : ""}`} key={i}>
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: saw ? 1 : 0, y: saw ? 0 : -20 }}
+            transition={{
+              delay: i / 15,
+              duration: 0.8,
+              ease: [0.43, 0.13, 0.23, 0.96],
+            }}
+            className={`${i % 2 !== 0 ? "hidden md:block" : ""}`}
+            key={i}
+          >
             {(i + 1) * 1}:00
-          </span>
+          </motion.span>
         ))}
         <div className="h-full w-0"></div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
