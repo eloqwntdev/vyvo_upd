@@ -125,12 +125,12 @@ const AsThin = () => {
           </motion.p>
 
           <motion.div variants={fadeInUp}>
-            <SlashButton
-              showIcon={false}
-              label="Join to Waitlist"
-              className="!bg-[#77A9E829] !py-[12px] test !rounded-[16px] w-full !max-w-[170px]"
-              labelClassName="!tracking-[-0.5px]"
-              containerStyles="!w-auto"
+            <Image
+              src="/wearables-img/research/reddot-white.png"
+              width={157}
+              height={80}
+              alt="Award"
+              className="w-[120px] md:w-[157px] h-auto"
             />
           </motion.div>
         </motion.div>
