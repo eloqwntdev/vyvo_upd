@@ -19,7 +19,13 @@ html {
     0px 1px 1px 0px rgba(148, 168, 237, 0.2) inset;
   /*transition: all 0.3s ease-in-out;*/
 }
-
+.sub-shadow {
+  box-shadow:
+    6px 80px 80px 0px rgba(148, 168, 237, 0.02) inset,
+    0px -1px 1px 0px rgba(148, 168, 237, 0.2) inset,
+    0px 1px 1px 0px rgba(148, 168, 237, 0.2) inset;
+  /*transition: all 0.3s ease-in-out;*/
+}
 .glow-effect {
   position: absolute;
   content: "";

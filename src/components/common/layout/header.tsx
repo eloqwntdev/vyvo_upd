@@ -312,9 +312,9 @@ const Header = () => {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="mt-[85px]">
-                <div className="bg-black/50 backdrop-blur-[20px] w-fit h-fit rounded-[16px]">
-                  <div className="bg-[#77a9e80a] backdrop-blur-[20px] flex-col h-auto w-auto px-6 py-3 main-shadow max-w-[676px] gap-2 flex justify-between rounded-[16px]">
+              <div className="mt-[80px]">
+                <div className="bg-black/50 backdrop-blur-[20px] w-fit h-fit rounded-b-[16px]">
+                  <div className="bg-[#77a9e80a] backdrop-blur-[20px] flex-col h-auto w-auto px-6 py-3 sub-shadow max-w-[676px] gap-2 flex justify-between rounded-b-[16px]">
                     {navLinks[activeIndex]?.subMenu.map((sublink, subindex) => (
                       <Link
                         href={sublink.href}
