@@ -59,7 +59,7 @@ const Allocations = () => {
           <span className="text-white font-normal text-[16px] leading-[20px] tracking-[-0.48] md:text-[24px] md:leading-[28px] md:tracking-[-0.72px]">
             Allocations
           </span>
-          <SortDropdown />
+          {/* <SortDropdown /> */}
         </div>
         <BarChart chartdata={chartdata} />
       </div>

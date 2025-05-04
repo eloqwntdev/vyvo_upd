@@ -1,11 +1,13 @@
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
 
 interface CardsProps {
   title: string;
   percentage: string;
   description: string;
   icon?: string;
+  index?: number;
 }
 
 const Cards: React.FC<CardsProps> = ({
@@ -13,9 +15,20 @@ const Cards: React.FC<CardsProps> = ({
   percentage = "45% (100,000,000 tokens)",
   description = "Gradual distribution over 10 years to support ecosystem partners and projects.",
   icon = "/roadmap-img/token-allocation-vesting-schedule/icon1.svg",
+  index = 0,
 }) => {
   return (
-    <div className="w-full rounded-[12px] h-full flex flex-col gap-4 p-4 bg-[rgba(83,72,215,0.04)] shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[10px]">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{
+        delay: index / 5,
+        duration: 0.8,
+        ease: [0.43, 0.13, 0.23, 0.96],
+      }}
+      className="w-full rounded-[12px] h-full flex flex-col gap-4 p-4 bg-[rgba(83,72,215,0.04)] shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[10px]"
+    >
       <Image height={48} width={48} alt="VSC" src={icon} />
       <div className="flex flex-col gap-5">
         <span className="text-white text-[16px] leading-[20px] tracking-[-0.48px] md:text-[20px] md:leading-[24px] md:tracking-[-0.6px] font-nb font-light">
@@ -29,7 +42,7 @@ const Cards: React.FC<CardsProps> = ({
           {description}
         </span>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

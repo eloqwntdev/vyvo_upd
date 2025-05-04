@@ -219,7 +219,7 @@ const VestingSchedule = () => {
           <span className="text-white font-normal text-[16px] leading-[20px] tracking-[-0.48] md:text-[24px] md:leading-[28px] md:tracking-[-0.72px]">
             Vesting Schedule
           </span>
-          <SortDropdown />
+          {/* <SortDropdown /> */}
         </div>
         <LinesChart chartdata={chartdata} />
       </div>
