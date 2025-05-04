@@ -30,14 +30,13 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
   );
   const [isMobileView, setIsMobileView] = useState(false);
 
-  // Create refs for each section dynamically (memoized for stability)
-  const sectionRefs = React.useMemo(
-    () =>
-      validSections.reduce((acc, section) => {
-        acc[section.title] = React.createRef();
-        return acc;
-      }, {} as Record<string, React.RefObject<HTMLDivElement>>),
-    [validSections]
+  // Create refs for each section dynamically
+  const sectionRefs = validSections.reduce(
+    (acc, section) => {
+      acc[section.title] = useRef(null);
+      return acc;
+    },
+    {} as Record<string, React.RefObject<HTMLDivElement>>
   );
 
   // Handle responsive layout
@@ -117,7 +116,7 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
     handleScroll();
 
     return () => window.removeEventListener("scroll", scrollListener);
-  }, [sectionRefs, validSections]);
+  }, [sectionRefs, activeSection, validSections]);
 
   const scrollToSection = (sectionTitle: string) => {
     if (sectionRefs[sectionTitle]?.current) {
