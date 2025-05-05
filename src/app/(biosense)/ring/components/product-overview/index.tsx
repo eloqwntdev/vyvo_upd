@@ -80,10 +80,10 @@ const ProductOverview = () => {
             className="w-full md:w-full max-w-[400px] sm:block hidden"
           >
             <Image
-              src="/biosense-products/ring/ring-overview.webp"
+              src="/biosense-products/ring/ring-overview.png"
               alt="BioSense Ring Overview"
-              width={400}
-              height={400}
+              width={1600}
+              height={1600}
               className="w-full"
             />
           </motion.div>
@@ -110,7 +110,7 @@ const ProductOverview = () => {
             animate={isInView ? "visible" : "hidden"}
             variants={floatIn}
             src="/biosense-products/ring/left.webp"
-            className="absolute top-[8%] sm:top-[-2%] sm:block hidden right-[26%] sm:right-[-20%] md:right-[-10%] w-full max-w-[240px]"
+            className="absolute top-[8%] sm:top-[-2%] sm:block hidden right-[26%] sm:right-[-20%] md:right-[0%] w-full max-w-[240px]"
             alt="Ring features details"
           />
           <motion.img
@@ -118,7 +118,7 @@ const ProductOverview = () => {
             animate={isInView ? "visible" : "hidden"}
             variants={floatIn}
             src="/biosense-products/ring/bottom.webp"
-            className="absolute bottom-0 right-[27%] sm:block hidden sm:bottom-[-4%] sm:right-[-10%] md:right-[2%] w-full max-w-[240px]"
+            className="absolute bottom-0 right-[27%] sm:block hidden sm:bottom-[-4%] sm:right-[-10%] md:right-[20%] w-full max-w-[240px]"
             alt="Ring specifications"
           />
         </div>

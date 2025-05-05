@@ -85,7 +85,7 @@ const Banner = () => {
           className="w-[200px] md:w-auto"
         >
           <img
-            src="/biosense-products/ring/ring.webp"
+            src="/biosense-products/ring/ring.png"
             className="max-w-full md:max-w-[282px]"
             alt="BioSense Ring"
           />

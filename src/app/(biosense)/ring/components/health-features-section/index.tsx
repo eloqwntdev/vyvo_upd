@@ -100,11 +100,11 @@ const HealthFeaturesSection = () => {
             variants={scaleUp}
           >
             <Image
-              src="/biosense-products/ring/health-ring.webp"
+              src="/biosense-products/ring/health-ring.png"
               alt="BioSense Ring Health Features"
-              width={477}
-              height={349}
-              className="w-full max-w-[250px] sm:max-w-[400px] md:max-w-[477px]"
+              width={1908}
+              height={1396}
+              className="w-full scale-[1.2] max-w-[250px] sm:max-w-[400px] md:max-w-[520px]"
             />
           </motion.div>
 

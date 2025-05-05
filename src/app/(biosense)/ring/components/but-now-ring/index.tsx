@@ -85,7 +85,7 @@ const ButNowRing = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={floatUp}
-          src="/biosense-products/ring/buy-now.webp"
+          src="/biosense-products/ring/buy-now.png"
           alt="BioSense Ring Collection"
           className="w-full h-auto"
         />

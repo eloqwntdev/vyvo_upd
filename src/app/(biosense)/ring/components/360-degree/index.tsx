@@ -139,7 +139,7 @@ const Degree360 = ({
       {/* Mobile background image - shown only on mobile */}
       <div className="block md:hidden w-full px-4 relative">
         <img
-          src="/biosense-products/ring/slider-ring.webp"
+          src="/biosense-products/ring/slider-ring.png"
           className="w-full h-auto mb-6"
           alt="BioSense Watch with health features"
         />
@@ -159,8 +159,8 @@ const Degree360 = ({
       {/* Desktop vertical scroll layout */}
       <div className="hidden md:flex w-full mx-auto md:justify-end md:items-end relative md:max-w-[1280px]">
         <img
-          src="/biosense-products/ring/slider-ring.webp"
-          className="max-w-[699px] absolute top-0 -left-20"
+          src="/biosense-products/ring/slider-ring.png"
+          className="max-w-[900px] absolute top-0 -left-20"
           alt="BioSense Watch with health features"
         />
         <div className="flex items-start gap-20 w-full relative z-10 md:max-w-[600px]">
