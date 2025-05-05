@@ -224,7 +224,7 @@ const MainSection = () => {
                   </svg>
                 </motion.div>
               </div>
-              <span className="bg-gradient-to-r from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent font-light font-nb text-[48px] leading-[48px] max-w-[235px] text-center ">
+              <span className="bg-gradient-to-r from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent font-light font-nb text-[48px] leading-[55px] max-w-[235px] text-center ">
                 {textContent}
               </span>
             </div>
