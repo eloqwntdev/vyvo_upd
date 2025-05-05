@@ -7,21 +7,21 @@ const CONTENT_DATA = [
   {
     id: "01",
     title: "IoT Devices",
-    image: "/vyvo-smart-chain-img/card1.webp",
+    image: "/vyvo-smart-chain-img/card1.png",
     description:
       "Bridging the digital divide between wearable device users and Web3 through secure blockchain infrastructure. VSC enables transparent data transactions between users and institutions.",
   },
   {
     id: "02",
     title: "Hybrid Consensus PoS + PoSe",
-    image: "/vyvo-smart-chain-img/card2.webp",
+    image: "/vyvo-smart-chain-img/card2.png",
     description:
       "Merging Proof-of-Stake (PoS) with our special data validation checksum (Proof-of-Sensing or PoSe) creates trustly decentralized health data validation.",
   },
   {
     id: "03",
     title: "DDH Platform",
-    image: "/vyvo-smart-chain-img/card3.webp",
+    image: "/vyvo-smart-chain-img/card3.png",
     description:
       "Using blockchain and encrypted communication with IoT devices, VSC's Decentralized Digital Health (DDH) Platform allows keeping your data anonymous but also sharing with the world to move science forward.",
   },
@@ -157,8 +157,8 @@ const DesktopValues = () => {
               >
                 <Image
                   src={item.image}
-                  width={1656}
-                  height={1000}
+                  width={2452}
+                  height={1520}
                   alt={item.title}
                   className="rounded-2xl"
                 />

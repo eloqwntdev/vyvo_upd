@@ -127,8 +127,8 @@ const VyvoResearchDevelopment = () => {
           >
             <Image
               src="/wearables-img/research/card1.png"
-              width={1260}
-              height={800}
+              width={2520}
+              height={1600}
               alt="Research Development"
               className="w-full h-auto transition-transform duration-300 hover:scale-110"
             />
@@ -137,8 +137,8 @@ const VyvoResearchDevelopment = () => {
             <div className="overflow-hidden  w-full sm:w-1/2 rounded-[24px]">
               <Image
                 src="/wearables-img/research/card2.png"
-                width={610}
-                height={452}
+                width={1220}
+                height={904}
                 alt="Research Development"
                 className="w-full h-auto transition-transform duration-300 hover:scale-110"
               />
@@ -147,8 +147,8 @@ const VyvoResearchDevelopment = () => {
             <div className="overflow-hidden  w-full sm:w-1/2 rounded-[24px]">
               <Image
                 src="/wearables-img/research/card3.png"
-                width={610}
-                height={452}
+                width={1220}
+                height={904}
                 alt="Research Development"
                 className="w-full h-auto transition-transform duration-300 hover:scale-110"
               />
