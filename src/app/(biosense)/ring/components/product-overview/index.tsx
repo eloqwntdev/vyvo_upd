@@ -77,13 +77,13 @@ const ProductOverview = () => {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={scaleUp}
-            className="w-full md:w-full max-w-[400px] sm:block hidden"
+            className="w-full md:w-full max-w-[400px] hidden sm:block"
           >
             <Image
               src="/biosense-products/ring/ring-overview.png"
               alt="BioSense Ring Overview"
               width={1600}
-              height={1600}
+              height={1708}
               className="w-full"
             />
           </motion.div>
@@ -93,13 +93,13 @@ const ProductOverview = () => {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={scaleUp}
-            className="w-full md:w-full max-w-[224px] sm:hidden"
+            className="w-full md:w-full max-w-[450px] sm:hidden"
           >
             <Image
-              src="/biosense-products/ring/mobile-ring.webp"
+              src="/biosense-products/ring/mobile-ring.png"
               alt="BioSense Ring Mobile View"
-              width={224}
-              height={241}
+              width={900}
+              height={964}
               className="w-full"
             />
           </motion.div>
@@ -109,16 +109,16 @@ const ProductOverview = () => {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={floatIn}
-            src="/biosense-products/ring/left.webp"
-            className="absolute top-[8%] sm:top-[-2%] sm:block hidden right-[26%] sm:right-[-20%] md:right-[0%] w-full max-w-[240px]"
+            src="/biosense-products/ring/left.png"
+            className="absolute w-full md:w-full max-w-[400px] hidden sm:block"
             alt="Ring features details"
           />
           <motion.img
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={floatIn}
-            src="/biosense-products/ring/bottom.webp"
-            className="absolute bottom-0 right-[27%] sm:block hidden sm:bottom-[-4%] sm:right-[-10%] md:right-[20%] w-full max-w-[240px]"
+            src="/biosense-products/ring/bottom.png"
+            className="absolute w-full md:w-full max-w-[400px] hidden sm:block"
             alt="Ring specifications"
           />
         </div>
