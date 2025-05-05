@@ -88,7 +88,7 @@ const HealthBand = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          src="/biosense-products/band/biosense-bottom-sensors.webp"
+          src="/biosense-products/band/biosense-bottom-sensors.png"
           alt="BioSense Band Sensors"
           className="w-full max-w-[500px] mx-auto mb-8 lg:hidden"
         />
