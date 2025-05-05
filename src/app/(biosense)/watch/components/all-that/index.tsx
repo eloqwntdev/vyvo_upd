@@ -232,7 +232,7 @@ const ALLThat = () => {
 
         {/* Desktop background image */}
         <img
-          src="/biosense-products/watch/all-that.webp"
+          src="/biosense-products/watch/all-that.png"
           className="max-w-[1033px] h-[517px] absolute top-0 right-0"
           alt="BioSense Watch with health features"
         />
