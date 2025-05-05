@@ -58,7 +58,7 @@ const Preorders = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-[415px] md:min-h-[600px] lg:min-h-[700px] w-full relative bg-black flex sm:items-start sm:justify-center"
+      className="min-h-[415px] md:min-h-[600px] lg:min-h-[700px] h-[47vh] md:h-[85vh] w-full relative bg-black flex sm:items-start sm:justify-center"
     >
       {/* Background animation */}
       <motion.div
