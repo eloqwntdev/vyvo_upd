@@ -59,11 +59,11 @@ const ProductLineup = () => {
               className="overflow-hidden"
             >
               <Image
-                src={"/wearables-img/lineup/biosense-ring.webp"}
+                src={"/wearables-img/lineup/biosense-ring.png"}
                 alt={"BioSense Ring"}
-                width={206}
-                height={206}
-                className="w-[180px] md:w-[180px] lg:w-[230px] h-auto transition-transform duration-300 hover:scale-110"
+                width={4130}
+                height={3380}
+                className="w-full h-auto transition-transform duration-300 hover:scale-110"
               />
             </motion.div>
           </Link>
@@ -97,11 +97,11 @@ const ProductLineup = () => {
               className="overflow-hidden"
             >
               <Image
-                src={"/wearables-img/lineup/biosense-watch.webp"}
+                src={"/wearables-img/lineup/biosense-watch.png"}
                 alt={"BioSense Watch"}
-                width={308}
-                height={337}
-                className="w-[240px] md:w-[280px] lg:w-[308px] h-auto transition-transform duration-300 hover:scale-110"
+                width={4130}
+                height={3380}
+                className="w-full h-auto transition-transform duration-300 hover:scale-110"
               />
             </motion.div>
           </Link>
@@ -135,11 +135,11 @@ const ProductLineup = () => {
               className="overflow-hidden"
             >
               <Image
-                src={"/wearables-img/lineup/biosense-band.webp"}
+                src={"/wearables-img/lineup/biosense-band.png"}
                 alt={"BioSense Band"}
-                width={206}
-                height={206}
-                className="w-[230px] md:w-[270px] lg:w-[270px] h-auto transition-transform duration-300 hover:scale-110"
+                width={4130}
+                height={3380}
+                className="w-full h-auto transition-transform duration-300 hover:scale-110"
               />
             </motion.div>
           </Link>

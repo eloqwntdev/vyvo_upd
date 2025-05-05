@@ -1,6 +1,6 @@
 export const cardData = [
   {
-    mainImage: "/wearables-img/band/watch1.webp",
+    mainImage: "/wearables-img/band/watch1.png",
     width: 495,
     height: 400,
     content: [
@@ -29,7 +29,7 @@ export const cardData = [
     ],
   },
   {
-    mainImage: "/wearables-img/band/watch2.webp",
+    mainImage: "/wearables-img/band/watch2.png",
     width: 325,
     height: 385,
     content: [

@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 
 const Card1 = ({
-  mainImage = "/wearables-img/band/watch1.webp",
+  mainImage = "/wearables-img/band/watch1.png",
   width = 498,
   height = 400,
   children,
