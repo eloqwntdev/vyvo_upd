@@ -141,7 +141,7 @@ const HealthBand = () => {
         className="max-w-[856px] z-10 w-full hidden lg:block"
       >
         <img
-          src="/biosense-products/band/biosense-bottom-sensors.webp"
+          src="/biosense-products/band/biosense-bottom-sensors.png"
           alt="BioSense Band Sensors"
           className="w-full h-auto"
         />

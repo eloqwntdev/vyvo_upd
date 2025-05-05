@@ -106,7 +106,7 @@ const UnderstandBody = () => {
       {/* Mobile background image - shown only on mobile */}
       <div className="block md:hidden w-full px-4">
         <img
-          src="/biosense-products/band/BioSense_health_band-removebg-preview-transformed.webp"
+          src="/biosense-products/band/BioSense_health_band-removebg-preview-transformed.png"
           className="w-full h-auto mb-6"
           alt="BioSense Watch with health features"
         />
@@ -194,7 +194,7 @@ const UnderstandBody = () => {
 
         {/* Desktop background image */}
         <img
-          src="/biosense-products/band/BioSense_health_band-removebg-preview-transformed.webp"
+          src="/biosense-products/band/BioSense_health_band-removebg-preview-transformed.png"
           className="max-w-[1033px] h-[517px] absolute top-0 right-0"
           alt="BioSense Watch with health features"
         />

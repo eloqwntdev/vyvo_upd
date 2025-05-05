@@ -82,7 +82,7 @@ const ButNowBand = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          src="/biosense-products/band/cta.webp"
+          src="/biosense-products/band/cta.png"
           alt="BioSense Band Call To Action"
           className="w-full h-auto"
         />
@@ -94,7 +94,7 @@ const ButNowBand = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          src="/biosense-products/band/cta-mobile.webp"
+          src="/biosense-products/band/cta-mobile.png"
           alt="BioSense Band Call To Action Mobile"
           className="w-full h-auto"
         />

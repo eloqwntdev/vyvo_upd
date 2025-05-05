@@ -80,7 +80,7 @@ const BannerBand = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          src="/biosense-products/band/banner-band.webp"
+          src="/biosense-products/band/banner-band.png"
           alt="BioSense Band"
           className="w-full sm:max-w-[550px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1600px] mx-auto"
         />
@@ -92,7 +92,7 @@ const BannerBand = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          src="/biosense-products/band/band-mobile.webp"
+          src="/biosense-products/band/band-mobile.png"
           alt="BioSense Band"
           className="w-full mx-auto"
         />

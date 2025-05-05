@@ -56,11 +56,11 @@ const ThinLight = () => {
             variants={imageAnimation}
           >
             <Image
-              src="/biosense-products/band/thin-band.webp"
+              src="/biosense-products/band/thin-band.png"
               alt="BioSense Band"
-              width={325}
-              height={411}
-              className="w-[250px] sm:w-[280px] md:w-[325px]"
+              width={1293}
+              height={1155}
+              className="w-[250px] sm:w-[280px] md:w-[500px]"
             />
           </motion.div>
 

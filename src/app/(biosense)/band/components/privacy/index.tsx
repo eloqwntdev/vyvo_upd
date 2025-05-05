@@ -97,10 +97,10 @@ const PrivacyBand = () => {
           className="w-full md:w-full max-w-[750px] flex justify-center"
         >
           <Image
-            src="/biosense-products/band/Biosense-VSC-Chip.webp"
+            src="/biosense-products/band/Biosense-VSC-Chip.png"
             alt="BioSense Watch with encryption visualization"
-            width={732}
-            height={732}
+            width={2196}
+            height={2196}
             className="w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] xl:max-w-[732px] object-contain"
           />
         </motion.div>

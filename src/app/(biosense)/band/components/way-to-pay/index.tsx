@@ -102,7 +102,7 @@ const WayToPay = () => {
           className="block md:hidden w-full max-w-[400px] my-6"
         >
           <img
-            src="/biosense-products/band/pay-sensor.webp"
+            src="/biosense-products/band/pay-sensor.png"
             className="w-full object-contain"
             alt="Payment sensor visualization"
           />
@@ -114,7 +114,7 @@ const WayToPay = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeInRight}
-          src="/biosense-products/band/pay-sensor.webp"
+          src="/biosense-products/band/pay-sensor.png"
           className="w-1/2 h-full max-w-[500px] md:max-w-[600px] lg:max-w-[800px] object-contain hidden md:block"
           alt="Payment sensor visualization"
         />
