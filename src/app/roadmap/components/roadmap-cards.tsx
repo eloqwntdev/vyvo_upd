@@ -57,8 +57,8 @@ const RoadmapCards = () => {
               src="/roadmap-img/roadmap-cards/financial-management-launch.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"
-              width={380}
-              height={280}
+              width={1140}
+              height={840}
             />
           ),
           description:
@@ -72,8 +72,8 @@ const RoadmapCards = () => {
               src="/roadmap-img/roadmap-cards/health-metrics-wearables.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"
-              width={380}
-              height={280}
+              width={1140}
+              height={840}
             />
           ),
           description:
@@ -92,8 +92,8 @@ const RoadmapCards = () => {
               src="/roadmap-img/roadmap-cards/smart-home-productivity.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"
-              width={380}
-              height={280}
+              width={1140}
+              height={840}
             />
           ),
           description:
@@ -107,8 +107,8 @@ const RoadmapCards = () => {
               src="/roadmap-img/roadmap-cards/fitness-voice-coaching.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"
-              width={380}
-              height={280}
+              width={1140}
+              height={840}
             />
           ),
           description:
@@ -127,8 +127,8 @@ const RoadmapCards = () => {
               src="/roadmap-img/roadmap-cards/omni-model-integration.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"
-              width={380}
-              height={280}
+              width={1140}
+              height={840}
             />
           ),
           description:
@@ -142,8 +142,8 @@ const RoadmapCards = () => {
               src="/roadmap-img/roadmap-cards/desktop-browser-launch.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"
-              width={380}
-              height={280}
+              width={1140}
+              height={840}
             />
           ),
           description: "Launch of desktop and browser versions.",
@@ -161,8 +161,8 @@ const RoadmapCards = () => {
               src="/roadmap-img/roadmap-cards/language-voice-expansion.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"
-              width={380}
-              height={280}
+              width={1140}
+              height={840}
             />
           ),
           description:
@@ -176,8 +176,8 @@ const RoadmapCards = () => {
               src="/roadmap-img/roadmap-cards/financial-fitness-insights.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"
-              width={380}
-              height={280}
+              width={1140}
+              height={840}
             />
           ),
           description:
@@ -191,8 +191,8 @@ const RoadmapCards = () => {
               src="/roadmap-img/roadmap-cards/user-feedback-updates.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"
-              width={380}
-              height={280}
+              width={1140}
+              height={840}
             />
           ),
           description:

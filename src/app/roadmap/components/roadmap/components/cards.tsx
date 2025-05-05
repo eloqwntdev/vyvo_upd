@@ -14,6 +14,7 @@ interface CardsProps {
   isMobile?: boolean;
   side?: Side;
   saw?: boolean;
+  className?: string;
 }
 
 const Cards: React.FC<CardsProps> = ({
@@ -23,6 +24,7 @@ const Cards: React.FC<CardsProps> = ({
   isMobile = false,
   side = Side.Left,
   saw = false,
+  className = "",
 }) => {
   const [inView, SetInView] = useState(false);
   const [descriptionSpans, setDescriptionSpans] = useState<JSX.Element[]>([]);
@@ -91,19 +93,19 @@ const Cards: React.FC<CardsProps> = ({
         duration: 0.8,
         ease: [0.43, 0.13, 0.23, 0.96],
       }}
-      className="max-w-[450px] w-full flex items-center justify-start gap-3 "
+      className={`flex w-full md:w-[20vw] max-w-[500px] md:max-w-[500px] items-center justify-start gap-3 ${className}`}
     >
-      <div className="flex flex-col w-full gap-4">
+      <div className="relative w-full flex flex-col gap-4">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: inView ? 1 : inView ? 0.5 : 0.0 }}
           transition={{ duration: 2 }}
-          className="bg-[#5348d70a] rounded-[24px] py-3 px-3 shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[10px]"
+          className="bg-[#5348d70a] w-full rounded-[24px] py-3 px-3 shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[10px]"
         >
           {children}
         </motion.div>
-        <div className="relative">
-          <p className="font-nb font-light text-[14px] leading-[18px] tracking-[-0.42px] md:text-[20px] md:leading-[24px] md:tracking-[-0.6px]">
+        <div>
+          <p className="md:absolute font-nb font-light text-[14px] leading-[18px] tracking-[-0.42px] md:text-[20px] md:leading-[24px] md:tracking-[-0.6px]">
             {descriptionSpans}
           </p>
         </div>
