@@ -84,7 +84,7 @@ const Preorders = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={floatUp}
-          src="/biosense-products/watch/preorders.webp"
+          src="/biosense-products/watch/preorders.png"
           alt="BioSense Watch Preorder"
           className="w-full h-auto"
         />

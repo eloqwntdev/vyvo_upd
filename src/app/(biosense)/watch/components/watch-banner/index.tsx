@@ -83,7 +83,7 @@ const WatchBanner = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          src="/biosense-products/watch/banner.webp"
+          src="/biosense-products/watch/banner.png"
           alt="BioSense Watch"
           className="w-full h-auto"
         />

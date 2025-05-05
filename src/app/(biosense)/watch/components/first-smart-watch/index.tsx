@@ -70,10 +70,10 @@ const FirstSmartWatch = () => {
             variants={scaleUp}
           >
             <Image
-              src="/biosense-products/watch/first-smart-watch.webp"
+              src="/biosense-products/watch/first-smart-watch.png"
               alt="watch-as-thin"
-              width={963}
-              height={751}
+              width={2889}
+              height={2253}
               className="w-[100vw] md:w-[100%] md:scale-[2] max-w-[500px] md:max-w-none"
             />
           </motion.div>

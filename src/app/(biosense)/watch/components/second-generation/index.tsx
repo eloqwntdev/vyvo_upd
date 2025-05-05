@@ -95,10 +95,10 @@ const SecondGeneration = () => {
         className="max-w-[702px] w-full mt-8 md:mt-0"
       >
         <Image
-          src="/biosense-products/vyvo-pay/vyvo-pay-image.webp"
+          src="/biosense-products/vyvo-pay/vyvo-pay-image.png"
           alt="BioSense Watch with VyvoPay demonstration"
-          width={702}
-          height={605}
+          width={2106}
+          height={1815}
           className="w-full"
         />
       </motion.div>

@@ -68,10 +68,10 @@ const Privacy = () => {
         className="w-full md:w-1/2 flex justify-center"
       >
         <Image
-          src="/biosense-products/privacy/image.webp"
+          src="/biosense-products/privacy/image.png"
           alt="BioSense Watch with encryption visualization"
-          width={927}
-          height={900}
+          width={2781}
+          height={2700}
           className="w-full max-w-[450px] md:max-w-[600px] lg:max-w-[927px]"
         />
       </motion.div>

@@ -69,10 +69,10 @@ const AsThin = () => {
             variants={scaleUp}
           >
             <Image
-              src="/biosense-products/watch/as-thin.webp"
+              src="/biosense-products/watch/as-thin.png"
               alt="watch-as-thin"
-              width={300}
-              height={300}
+              width={900}
+              height={900}
               className="w-full md:w-full max-w-[200px] md:max-w-none"
             />
           </motion.div>
