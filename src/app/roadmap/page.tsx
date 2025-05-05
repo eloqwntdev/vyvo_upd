@@ -5,6 +5,7 @@ import Tokenomics from "./components/tokenomics";
 import dynamic from "next/dynamic";
 import animationData from "../../../public/lottie/blue-back-lines-move/data.json";
 import TokenAllocationVestingSchedule from "./components/token-allocation-vesting-schedule";
+import RoadmapCards from "./components/roadmap-cards";
 
 export default function RoadMap() {
   const Lottie = dynamic(() => import("lottie-react"), {
@@ -13,18 +14,18 @@ export default function RoadMap() {
 
   return (
     <div className=" bg-black py-10 sm:py-16 md:py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto h-fit max-h-[20px] md:max-h-none px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="max-w-[720px] flex items-center justify-center h-[300px] mx-auto mb-12 sm:mb-16 lg:mb-20"
+          className="max-w-[720px] flex items-center justify-center h-[50px] mx-auto mb-12 sm:mb-16 lg:mb-20"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
         >
-          <h1 className="text-white font-nb font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-center mb-4 sm:mb-6">
+          <h1 className="text-white w-full text-left font-nb font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight md:text-center mb-4 sm:mb-6">
             Roadmap
           </h1>
         </motion.div>
-        <div className="absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="absolute w-full h-full left-1/2 top-1/4 md:top-1/2 -translate-x-1/2 -translate-y-1/2">
           <motion.div
             className="w-full h-full"
             initial={{ opacity: 0 }}
@@ -43,6 +44,7 @@ export default function RoadMap() {
           </motion.div>
         </div>
       </div>
+      <RoadmapCards />
       <Tokenomics />
       <TokenAllocationVestingSchedule />
     </div>
