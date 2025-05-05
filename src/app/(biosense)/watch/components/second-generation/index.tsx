@@ -60,7 +60,7 @@ const SecondGeneration = () => {
       >
         <motion.div variants={fadeInUp}>
           <Image
-            src="/biosense-products/vyvo-pay/vyvo-pay.webp"
+            src="/biosense-products/vyvo-pay/vyvo-pay.png"
             alt="VyvoPay Logo"
             width={211}
             height={44}
