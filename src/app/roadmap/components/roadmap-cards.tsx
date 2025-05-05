@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import { motion } from "framer-motion";
-import Cards from "./roadmap/components/cards";
-import MobileDesign from "./roadmap/RoadmapMobile";
+import RoadmapMobile from "./roadmap/RoadmapMobile";
 import Image from "next/image";
+import RoadmapPc from "./roadmap/RoadmapPc";
 
 enum Side {
   Left = "left",
@@ -209,8 +208,8 @@ const RoadmapCards = () => {
 
   return (
     <section className="py-20 px-4 md:px-20 w-full flex flex-col gap-6 items-center justify-center">
-      {isMobile && <MobileDesign roadmap_datas={roadmap_datas} />}
-      {!isMobile && <MobileDesign roadmap_datas={roadmap_datas} />}
+      {isMobile && <RoadmapMobile roadmap_datas={roadmap_datas} />}
+      {!isMobile && <RoadmapPc roadmap_datas={roadmap_datas} />}
     </section>
   );
 };

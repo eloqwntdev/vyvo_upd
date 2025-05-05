@@ -13,6 +13,7 @@ interface CardsProps {
   index?: number;
   isMobile?: boolean;
   side?: Side;
+  saw?: boolean;
 }
 
 const Cards: React.FC<CardsProps> = ({
@@ -21,9 +22,14 @@ const Cards: React.FC<CardsProps> = ({
   index = 0,
   isMobile = false,
   side = Side.Left,
+  saw = false,
 }) => {
   const [inView, SetInView] = useState(false);
   const [descriptionSpans, setDescriptionSpans] = useState<JSX.Element[]>([]);
+
+  useEffect(() => {
+    SetInView(saw);
+  }, [saw]);
 
   useEffect(() => {
     if (inView) {
@@ -69,8 +75,16 @@ const Cards: React.FC<CardsProps> = ({
       //         : 0,
       // }}
       // whileInView={{ opacity: 1, x: 0, y: 0 }}
-      onViewportEnter={() => SetInView(true)}
-      onViewportLeave={() => SetInView(false)}
+      onViewportEnter={() => {
+        if (isMobile) {
+          SetInView(true);
+        }
+      }}
+      onViewportLeave={() => {
+        if (isMobile) {
+          SetInView(false);
+        }
+      }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{
         delay: 0.2,

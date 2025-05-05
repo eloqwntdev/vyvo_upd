@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Cards from "./components/cards";
 import { motion } from "framer-motion";
-import { tr } from "date-fns/locale";
 
 enum Side {
   Left = "left",
@@ -60,7 +59,7 @@ const TimeTitle = ({ text }: { text: string | null }) => {
     </motion.span>
   );
 };
-const MobileDesign = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
+const RoadmapMobile = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
   return (
     <>
       {roadmap_datas.map((roadmap_data, index) => (
@@ -83,4 +82,4 @@ const MobileDesign = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
   );
 };
 
-export default MobileDesign;
+export default RoadmapMobile;
