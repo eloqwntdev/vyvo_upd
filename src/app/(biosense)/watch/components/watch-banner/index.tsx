@@ -48,7 +48,7 @@ const WatchBanner = () => {
   };
 
   return (
-    <section className="min-h-[568px] md:min-h-[800px] lg:min-h-[900px] w-full relative bg-black flex sm:items-center sm:justify-center">
+    <section className="min-h-[568px] overflow-hidden md:min-h-[800px] lg:min-h-[900px] w-full relative bg-black flex sm:items-center sm:justify-center">
       {/* Background GIF with positioning wrapper */}
       <div className="absolute w-full h-full left-0">
         {/* <motion.img
@@ -78,7 +78,7 @@ const WatchBanner = () => {
       </div>
 
       {/* Watch image with positioning wrapper */}
-      <div className="absolute left-1/2 bottom-0 -translate-x-1/2 max-w-[450px] xs:max-w-[550px] md:max-w-[700px] lg:max-w-[1025px] w-full z-[5]">
+      <div className="absolute left-1/2 bottom-[-30px] -translate-x-1/2 max-w-[450px] xs:max-w-[550px] md:max-w-[700px] lg:max-w-[1025px] w-full z-[5]">
         <motion.img
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
