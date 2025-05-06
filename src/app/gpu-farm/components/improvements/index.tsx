@@ -28,13 +28,6 @@ const Improvements = () => {
             transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
           >
             <div className="w-full h-auto aspect-[4/3] rounded-lg overflow-hidden">
-              {/* <Image
-                src={"/DEFAULT/card3.webp"}
-                width={630}
-                height={450}
-                alt="GPU Farms and VAI OS integration visualization"
-                className="w-full h-full object-cover"
-              /> */}
               <motion.video
                 id="banner-video"
                 autoPlay

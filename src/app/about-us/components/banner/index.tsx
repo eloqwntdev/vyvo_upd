@@ -26,7 +26,7 @@ const AboutUsBanner = () => {
         className="absolute inset-0"
       >
         <img
-          src="/about-us-img/Hero.webp"
+          src="/about-us-img/Hero.png"
           alt="Vyvo About Us Hero Image"
           className="absolute top-0 left-0 w-full h-full object-cover sm:object-fill"
         />

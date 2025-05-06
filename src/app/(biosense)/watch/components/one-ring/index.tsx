@@ -5,12 +5,12 @@ import React, { useState, useEffect } from "react";
 
 const OneRing = () => {
   const solutionCards = [
-    "/wearables-img/vyvo-smart/slider1.webp",
-    "/wearables-img/vyvo-smart/slider2.webp",
-    "/wearables-img/vyvo-smart/slider3.webp",
-    "/wearables-img/vyvo-smart/slider4.webp",
-    "/wearables-img/vyvo-smart/slider5.webp",
-    "/wearables-img/vyvo-smart/slider6.webp",
+    "/wearables-img/vyvo-smart/slider1.png",
+    "/wearables-img/vyvo-smart/slider2.png",
+    "/wearables-img/vyvo-smart/slider3.png",
+    "/wearables-img/vyvo-smart/slider4.png",
+    "/wearables-img/vyvo-smart/slider5.png",
+    "/wearables-img/vyvo-smart/slider6.png",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

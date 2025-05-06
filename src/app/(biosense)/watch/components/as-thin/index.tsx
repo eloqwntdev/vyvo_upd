@@ -73,7 +73,7 @@ const AsThin = () => {
               alt="watch-as-thin"
               width={900}
               height={900}
-              className="w-full md:w-full max-w-[200px] md:max-w-none"
+              className="w-full md:w-full max-w-[200px] md:min-w-[450px] md:max-w-none"
             />
           </motion.div>
 
@@ -82,7 +82,7 @@ const AsThin = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            src="/biosense-products/watch/top-info.webp"
+            src="/biosense-products/watch/top-info.png"
             className="absolute top-[8%] sm:top-0 right-[26%] sm:right-[-20%] md:right-[-38%] w-[30%] md:w-[80%]"
             alt="Watch thickness specifications"
           />
@@ -90,7 +90,7 @@ const AsThin = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 1.2 }}
-            src="/biosense-products/watch/bottom-info.webp"
+            src="/biosense-products/watch/bottom-info.png"
             className="absolute bottom-0 right-[27%] sm:bottom-[-4%] sm:right-[-10%] md:right-[-5%] w-[40%] md:w-[80%]"
             alt="Watch weight specifications"
           />

@@ -177,7 +177,7 @@ const Hero = () => {
 
       <div className="absolute inset-0 w-full h-full">
         <Image
-          src="/hero/hero.webp"
+          src="/hero/hero.png"
           alt="Hero"
           fill
           className="object-cover"

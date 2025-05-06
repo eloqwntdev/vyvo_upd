@@ -92,7 +92,7 @@ const VyvoResearchDevelopment = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <Image
-              src="/wearables-img/research/award.webp"
+              src="/wearables-img/research/award.png"
               width={157}
               height={80}
               alt="Award"

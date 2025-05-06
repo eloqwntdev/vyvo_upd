@@ -41,7 +41,7 @@ const GPUBanner = () => {
         className="absolute inset-0 z-[1]"
       >
         <img
-          src="/gpu-farms-img/banner.webp"
+          src="/gpu-farms-img/banner.png"
           alt="GPU Farms Banner Image"
           className="absolute w-full h-full top-0 right-0 z-[1] object-cover"
         />

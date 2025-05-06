@@ -49,13 +49,6 @@ const VyvoGPUFarms = () => {
               }}
               className="rounded-[24px] overflow-hidden"
             >
-              {/* <Image
-                src={"/DEFAULT/data-processing.webp"}
-                width={630}
-                height={450}
-                alt={"Data processing visualization"}
-                className="w-full h-auto object-cover"
-              /> */}
               <motion.div
                 className="w-full h-full"
                 initial={{ opacity: 0, y: 20 }}

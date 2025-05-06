@@ -80,7 +80,7 @@ const AccessibleInteligence = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.7, delay: 0.9 }}
-            src="/biosense-products/accessible/bottom-info.webp"
+            src="/biosense-products/accessible/bottom-info.png"
             className="absolute max-w-[287px] bottom-[30%] left-[0%]"
             alt="Watch features details"
           />
@@ -88,7 +88,7 @@ const AccessibleInteligence = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
-            src="/biosense-products/accessible/top-info.webp"
+            src="/biosense-products/accessible/top-info.png"
             className="absolute max-w-[302px] top-[-20%] right-[0%]"
             alt="Watch intelligence details"
           />

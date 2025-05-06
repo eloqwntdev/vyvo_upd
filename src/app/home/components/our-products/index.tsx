@@ -54,7 +54,7 @@ const OurProducts = () => {
           {/* Second Row */}
           <div className="h-[136px] md:h-[305px] flex items-center justify-center border-gradient-reverse only-right gradient-partner-card-reverse">
             <Image
-              src={"/homepage/partners/vechain.webp"}
+              src={"/homepage/partners/vechain.png"}
               alt={"Vechain"}
               width={193}
               height={70}
@@ -72,7 +72,7 @@ const OurProducts = () => {
           </div>
           <div className="h-[136px] md:h-[305px] flex items-center justify-center border-gradient-reverse only-right gradient-partner-card-reverse">
             <Image
-              src={"/homepage/partners/tappy.webp"}
+              src={"/homepage/partners/tappy.png"}
               alt={"Tappy"}
               width={157}
               height={50}
@@ -81,7 +81,7 @@ const OurProducts = () => {
           </div>
           <div className="h-[136px] md:h-[305px] flex items-center justify-center border-gradient-reverse only-left gradient-partner-card-reverse">
             <Image
-              src={"/homepage/partners/subhosting.webp"}
+              src={"/homepage/partners/subhosting.png"}
               alt={"Subhosting"}
               width={221}
               height={35}

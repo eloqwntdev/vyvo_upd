@@ -104,7 +104,7 @@ const BannerBand = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.8 }}
-          src="/biosense-products/band/light.webp"
+          src="/biosense-products/band/light.png"
           alt="Light Effect"
           className="w-full max-w-[450px] sm:max-w-[550px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1600px] mx-auto"
         />

@@ -113,7 +113,7 @@ const HealthFeaturesSection = () => {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={floatIn}
-            src="/biosense-products/ring/health-top.webp"
+            src="/biosense-products/ring/health-top.png"
             className="absolute top-[-27%] sm:top-[-15%] md:top-[-25%] right-[15%] sm:right-[-10%] md:right-[-35%] w-full max-w-[180px] sm:max-w-[220px] md:max-w-[287px]"
             alt="Blood pressure monitoring feature"
           />
@@ -122,7 +122,7 @@ const HealthFeaturesSection = () => {
             animate={isInView ? "visible" : "hidden"}
             variants={floatIn}
             transition={{ delay: 1.0 }}
-            src="/biosense-products/ring/health-bottom.webp"
+            src="/biosense-products/ring/health-bottom.png"
             className="absolute bottom-[-25%] sm:bottom-[-15%] md:bottom-[-20%] right-[42%] sm:right-[0%] md:right-[60%] w-full max-w-[140px] sm:max-w-[170px] md:max-w-[202px]"
             alt="Blood oxygen tracking feature"
           />

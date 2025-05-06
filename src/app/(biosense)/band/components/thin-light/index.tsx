@@ -77,7 +77,7 @@ const ThinLight = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            src="/biosense-products/band/band-thick.webp"
+            src="/biosense-products/band/band-thick.png"
             className="absolute max-w-[200px] sm:hidden block sm:max-w-[240px] md:max-w-[287px] top-[-13%] right-[32%]"
             alt="Top Feature"
           />

@@ -177,7 +177,7 @@ const DesktopValues = () => {
           }}
         >
           <Image
-            src="/vyvo-smart-chain-img/card1.webp"
+            src="/vyvo-smart-chain-img/card1.png"
             width={414}
             height={250}
             alt="Vyvo Smart Chain"

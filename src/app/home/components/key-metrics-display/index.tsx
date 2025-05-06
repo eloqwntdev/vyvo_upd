@@ -175,49 +175,6 @@ const KeyMetricsDisplay = () => {
       label: "Million Data Blocks Validated",
       image: "/homepage/slider/card5.png",
     },
-    // Duplicates for looping slider
-    // {
-    //   number: "100,000+",
-    //   label: "Active Users",
-    //   image: "/homepage/slider/card1.webp",
-    // },
-    // { number: "15+", label: "Countries", image: "/homepage/slider/card2.webp" },
-    // {
-    //   number: "10+",
-    //   label: "Years Of Expertise",
-    //   image: "/homepage/slider/card3.webp",
-    // },
-    // {
-    //   number: "3.4+",
-    //   label: "Trillion Heartbeats Recorded",
-    //   image: "/homepage/slider/card4.webp",
-    // },
-    // {
-    //   number: "420+",
-    //   label: "Million Data Blocks Validated",
-    //   image: "/homepage/slider/card5.webp",
-    // },
-    // {
-    //   number: "100,000+",
-    //   label: "Active Users",
-    //   image: "/homepage/slider/card1.webp",
-    // },
-    // { number: "15+", label: "Countries", image: "/homepage/slider/card2.webp" },
-    // {
-    //   number: "10+",
-    //   label: "Years Of Expertise",
-    //   image: "/homepage/slider/card3.webp",
-    // },
-    // {
-    //   number: "3.4+",
-    //   label: "Trillion Heartbeats Recorded",
-    //   image: "/homepage/slider/card4.webp",
-    // },
-    // {
-    //   number: "420+",
-    //   label: "Million Data Blocks Validated",
-    //   image: "/homepage/slider/card5.webp",
-    // },
   ];
 
   // Preload images on component mount

@@ -19,7 +19,7 @@ const ArticleDetails = ({ article }: ArticleDetailsProps) => {
   const formattedDate = date ? format(new Date(date), "MMMM d, yyyy") : "";
 
   // Default image placeholder in case the image is not available
-  const imageUrl = image?.url || "/wearables-img/slider/card1.webp";
+  const imageUrl = image?.url || "/wearables-img/slider/card1.png";
   const imageAlt = image?.alt || String(title || "Article featured image");
   return (
     <section className="w-full bg-black">

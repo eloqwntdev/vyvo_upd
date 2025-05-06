@@ -16,7 +16,7 @@ export const ArticleCard = ({ article }: ArticleCardProps) => {
   const defaultDate = "May 30, 2025";
   const defaultExcerpt =
     'In an era where digital innovation is relentlessly advancing, the integration of social networking with financial empowerment — generally termed "SocialFi"';
-  const defaultImage = "/wearables-img/slider/card1.webp";
+  const defaultImage = "/wearables-img/slider/card1.png";
 
   // Extract data from Prismic document if available
   const title = article?.data.title || defaultTitle;

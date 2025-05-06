@@ -14,25 +14,25 @@ const foundingTeam: TeamMember[] = [
   {
     name: "Fabio Galdi",
     role: "CEO & Co-Founder",
-    image: "/about-us-img/avatars/fabio.webp",
+    image: "/about-us-img/avatars/fabio.png",
     linkedin: true,
   },
   {
     name: "Ivan Crnkovic",
     role: "CTO & Co-Founder",
-    image: "/about-us-img/avatars/ivan.webp",
+    image: "/about-us-img/avatars/ivan.png",
     linkedin: true,
   },
   {
     name: "Mariana Krym",
     role: "COO & Co-Founder",
-    image: "/about-us-img/avatars/mariana.webp",
+    image: "/about-us-img/avatars/mariana.png",
     linkedin: true,
   },
   {
     name: "Hakan Kozakli",
     role: "Chief Software Architect & Co-Founder",
-    image: "/about-us-img/avatars/hakan.webp",
+    image: "/about-us-img/avatars/hakan.png",
     linkedin: true,
   },
 ];
@@ -41,37 +41,37 @@ const teamMembers: TeamMember[] = [
   {
     name: "Alfonso Cioffi",
     role: "SVP of Wearable Tech",
-    image: "/about-us-img/avatars/alfonso.webp",
+    image: "/about-us-img/avatars/alfonso.png",
     linkedin: true,
   },
   {
     name: "Dorijan Jelinčić",
     role: "Head of Blockchain Development",
-    image: "/about-us-img/avatars/dorijan.webp",
+    image: "/about-us-img/avatars/dorijan.png",
     linkedin: true,
   },
   {
     name: "Antonio Senatore",
     role: "Advisor / CTO VeChain",
-    image: "/about-us-img/avatars/antonio.webp",
+    image: "/about-us-img/avatars/antonio.png",
     linkedin: true,
   },
   {
     name: "Alan Kelly",
     role: "Data Scientist",
-    image: "/about-us-img/avatars/alan.webp",
+    image: "/about-us-img/avatars/alan.png",
     linkedin: true,
   },
   {
     name: "Jorge Viera",
     role: "Head Graphic Designer",
-    image: "/about-us-img/avatars/jorge.webp",
+    image: "/about-us-img/avatars/jorge.png",
     linkedin: true,
   },
   {
     name: "Lijeesh SD",
     role: "Head of Systems & Network Security",
-    image: "/about-us-img/avatars/lijeesh.webp",
+    image: "/about-us-img/avatars/lijeesh.png",
     linkedin: true,
   },
 ];
