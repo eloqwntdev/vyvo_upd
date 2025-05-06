@@ -63,7 +63,7 @@ const ProductLineup = () => {
                 alt={"BioSense Ring"}
                 width={4130}
                 height={3380}
-                className="w-full h-auto transition-transform duration-300 hover:scale-110"
+                className="w-[180px] md:w-[180px] lg:w-[230px] h-auto transition-transform duration-300 hover:scale-110"
               />
             </motion.div>
           </Link>
@@ -101,7 +101,7 @@ const ProductLineup = () => {
                 alt={"BioSense Watch"}
                 width={4130}
                 height={3380}
-                className="w-full h-auto transition-transform duration-300 hover:scale-110"
+                className="w-[240px] md:w-[280px] lg:w-[308px] h-auto transition-transform duration-300 hover:scale-110"
               />
             </motion.div>
           </Link>
@@ -139,7 +139,7 @@ const ProductLineup = () => {
                 alt={"BioSense Band"}
                 width={4130}
                 height={3380}
-                className="w-full h-auto transition-transform duration-300 hover:scale-110"
+                className="w-[230px] md:w-[270px] lg:w-[270px] h-auto transition-transform duration-300 hover:scale-110"
               />
             </motion.div>
           </Link>
