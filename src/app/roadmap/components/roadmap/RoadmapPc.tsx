@@ -134,6 +134,7 @@ const Line = ({
   to = 0.0,
   scrollYProgress,
   className = "",
+  solid = false,
 }: {
   direction: Direction;
   side: Side;
@@ -142,6 +143,7 @@ const Line = ({
   to: number;
   scrollYProgress: MotionValue<number>;
   className?: string;
+  solid?: boolean;
 }) => {
   const [progress, SetProgress] = useState(0);
   const vwvh = direction === Direction.Horizontal ? "vw" : "vh";
@@ -200,14 +202,18 @@ const Line = ({
         transition={{ duration: 0.1 }}
         className={`absolute w-full h-full`}
         style={{
-          background: `linear-gradient(to ${
-            {
-              [Side.Left]: "left",
-              [Side.Right]: "right",
-              [Side.Top]: "top",
-              [Side.Bottom]: "bottom",
-            }[side]
-          }, rgba(42, 95, 221, 0), #2a60dd)`,
+          background: `${
+            solid
+              ? `#2a60dd`
+              : `linear-gradient(to ${
+                  {
+                    [Side.Left]: "left",
+                    [Side.Right]: "right",
+                    [Side.Top]: "top",
+                    [Side.Bottom]: "bottom",
+                  }[side]
+                }, rgba(42, 95, 221, 0), #2a60dd)`
+          }`,
           ...{
             [Side.Left]: { right: 0 },
             [Side.Right]: { left: 0 },
@@ -484,6 +490,7 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
               length={8}
               from={0.99}
               to={1}
+              solid={true}
               scrollYProgress={scrollYProgress}
               className="mt-[-2vh]"
             />
@@ -525,6 +532,7 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
               length={8}
               from={0.99}
               to={1}
+              solid={true}
               scrollYProgress={scrollYProgress}
               className="mt-[-2vh]"
             />
