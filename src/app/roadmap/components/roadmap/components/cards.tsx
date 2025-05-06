@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, MotionValue } from "framer-motion";
 
 enum Side {
   Left = "left",
@@ -13,8 +13,9 @@ interface CardsProps {
   index?: number;
   isMobile?: boolean;
   side?: Side;
-  saw?: boolean;
   className?: string;
+  from?: number;
+  scrollYProgress?: MotionValue<number>;
 }
 
 const Cards: React.FC<CardsProps> = ({
@@ -23,16 +24,30 @@ const Cards: React.FC<CardsProps> = ({
   index = 0,
   isMobile = false,
   side = Side.Left,
-  saw = false,
   className = "",
+  from,
+  scrollYProgress,
 }) => {
   const [inView, SetInView] = useState(false);
   const [descriptionSpans, setDescriptionSpans] = useState<JSX.Element[]>([]);
+  const [saw, SetSaw] = useState(false);
 
   useEffect(() => {
-    SetInView(saw);
-  }, [saw]);
-
+    if (scrollYProgress && from) {
+      const unsubscribe = scrollYProgress.on("change", (value: number) => {
+        if (value >= from) {
+          SetSaw(true);
+          SetInView(true);
+        } else {
+          SetSaw(false);
+          SetInView(false);
+        }
+      });
+      return () => {
+        unsubscribe();
+      };
+    }
+  }, [scrollYProgress, from]);
   useEffect(() => {
     if (inView) {
       const spans = description.split("").map((char, index) => (
