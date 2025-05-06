@@ -82,7 +82,7 @@ const BannerBand = () => {
           transition={{ duration: 1, delay: 0.5 }}
           src="/biosense-products/band/banner-band.png"
           alt="BioSense Band"
-          className="w-full sm:max-w-[550px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1600px] mx-auto"
+          className="w-full sm:max-w-[550px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1300px] mx-auto"
         />
       </div>
 
