@@ -45,7 +45,7 @@ const TimeTitle = ({ text, saw }: { text: string | null; saw: boolean }) => {
         setSpans(spans);
       } else {
         const spans = text.split("").map((char, index) => (
-          <span className="text-[#ffffff77]" key={index}>
+          <span className="opacity-[0.4] text-[#ffffff]" key={index}>
             {char}
           </span>
         ));
@@ -90,16 +90,18 @@ const Line = ({
   side,
   length = 20,
   progress = 0,
+  className = "",
 }: {
   direction: Direction;
   side: Side;
   length: number;
   progress: number;
+  className?: string;
 }) => {
   const vwvh = direction === Direction.Horizontal ? "vw" : "vh";
   return (
     <div
-      className={`relative overflow-hidden rounded-full flex ${direction === Direction.Horizontal ? "flex-row" : "flex-col"} ${
+      className={`${className} relative overflow-hidden rounded-full flex ${direction === Direction.Horizontal ? "flex-row" : "flex-col"} ${
         side === Side.Left
           ? "justify-end"
           : side === Side.Right
@@ -190,7 +192,7 @@ const Line = ({
 const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
   return (
     <>
-      <TimeTitle saw={false} text={roadmap_datas[0].title} />
+      <TimeTitle saw={true} text={roadmap_datas[0].title} />
       <div className="flex w-full flex-col items-center gap-2 mt-[50px] mb-[200px]">
         <Line
           side={Side.Bottom}
@@ -207,19 +209,21 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
             {roadmap_datas[0].cards[1].image}
           </Cards>
           <Dot saw={false} />
-          <Line
-            side={Side.Left}
-            direction={Direction.Horizontal}
-            length={10}
-            progress={0}
-          />
-          <Dot saw={false} />
-          <Line
-            side={Side.Right}
-            direction={Direction.Horizontal}
-            length={10}
-            progress={0}
-          />
+          <div className="flex flex-row gap-3 items-center">
+            <Line
+              side={Side.Left}
+              direction={Direction.Horizontal}
+              length={10}
+              progress={0}
+            />
+            <Dot saw={false} />
+            <Line
+              side={Side.Right}
+              direction={Direction.Horizontal}
+              length={10}
+              progress={0}
+            />
+          </div>
           <Dot saw={false} />
           <Cards
             className="ml-[-8px]"
@@ -251,19 +255,21 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
             {roadmap_datas[1].cards[1].image}
           </Cards>
           <Dot saw={false} />
-          <Line
-            side={Side.Left}
-            direction={Direction.Horizontal}
-            length={10}
-            progress={0}
-          />
-          <Dot saw={false} />
-          <Line
-            side={Side.Right}
-            direction={Direction.Horizontal}
-            length={10}
-            progress={0}
-          />
+          <div className="flex flex-row gap-3 items-center">
+            <Line
+              side={Side.Left}
+              direction={Direction.Horizontal}
+              length={10}
+              progress={0}
+            />
+            <Dot saw={false} />
+            <Line
+              side={Side.Right}
+              direction={Direction.Horizontal}
+              length={10}
+              progress={0}
+            />
+          </div>
           <Dot saw={false} />
           <Cards
             className="ml-[-8px]"
@@ -295,19 +301,21 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
             {roadmap_datas[2].cards[1].image}
           </Cards>
           <Dot saw={false} />
-          <Line
-            side={Side.Left}
-            direction={Direction.Horizontal}
-            length={10}
-            progress={0}
-          />
-          <Dot saw={false} />
-          <Line
-            side={Side.Right}
-            direction={Direction.Horizontal}
-            length={10}
-            progress={0}
-          />
+          <div className="flex flex-row gap-3 items-center">
+            <Line
+              side={Side.Left}
+              direction={Direction.Horizontal}
+              length={10}
+              progress={0}
+            />
+            <Dot saw={false} />
+            <Line
+              side={Side.Right}
+              direction={Direction.Horizontal}
+              length={10}
+              progress={0}
+            />
+          </div>
           <Dot saw={false} />
           <Cards
             className="ml-[-8px]"
@@ -323,7 +331,7 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
           length={32}
           progress={0}
         />
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row gap-3 items-center">
           <Line
             side={Side.Left}
             direction={Direction.Horizontal}
@@ -338,52 +346,57 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
             progress={0}
           />
         </div>
-        <div className="flex flex-col items-center">
-          <div className="flex flex-row gap-[20vw]">
+        <div className="flex flex-row gap-5">
+          <div className="flex flex-col items-center">
             <Line
               side={Side.Bottom}
               direction={Direction.Vertical}
-              length={6}
+              length={8}
               progress={0}
+              className="mt-[-2vh]"
             />
-            <Line
-              side={Side.Bottom}
-              direction={Direction.Vertical}
-              length={6}
-              progress={0}
-            />
-            <Line
-              side={Side.Bottom}
-              direction={Direction.Vertical}
-              length={6}
-              progress={0}
-            />
+            <Dot saw={false} />
+            <Cards
+              className="my-[-8px]"
+              saw={false}
+              description={roadmap_datas[3].cards[2].description}
+            >
+              {roadmap_datas[3].cards[2].image}
+            </Cards>
           </div>
-          <div className="flex flex-row gap-[20vw]">
+          <div className="flex flex-col items-center">
+            <Line
+              side={Side.Bottom}
+              direction={Direction.Vertical}
+              length={6}
+              progress={0}
+            />
             <Dot saw={false} />
-            <Dot saw={false} />
-            <Dot saw={false} />
+            <Cards
+              className="my-[-8px]"
+              saw={false}
+              description={roadmap_datas[3].cards[1].description}
+            >
+              {roadmap_datas[3].cards[1].image}
+            </Cards>
           </div>
-        </div>
-        <div className="flex flex-row gap-[100px] mt-[-16px]">
-          <Cards
-            saw={false}
-            description={roadmap_datas[3].cards[2].description}
-          >
-            {roadmap_datas[3].cards[2].image}
-          </Cards>
-          <Cards
-            saw={false}
-            description={roadmap_datas[3].cards[1].description}
-          >
-            {roadmap_datas[3].cards[1].image}
-          </Cards>
-          <Cards
-            saw={false}
-            description={roadmap_datas[3].cards[0].description}
-          >
-            {roadmap_datas[3].cards[0].image}
-          </Cards>
+          <div className="flex flex-col items-center">
+            <Line
+              side={Side.Bottom}
+              direction={Direction.Vertical}
+              length={8}
+              progress={0}
+              className="mt-[-2vh]"
+            />
+            <Dot saw={false} />
+            <Cards
+              className="my-[-8px]"
+              saw={false}
+              description={roadmap_datas[3].cards[0].description}
+            >
+              {roadmap_datas[3].cards[0].image}
+            </Cards>
+          </div>
         </div>
       </div>
     </>
