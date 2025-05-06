@@ -97,8 +97,10 @@ const Cards: React.FC<CardsProps> = ({
     >
       <div className="relative w-full flex flex-col gap-4">
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: inView ? 1 : inView ? 0.5 : 0.0 }}
+          initial={{ opacity: isMobile ? 0 : 0.5 }}
+          animate={{
+            opacity: inView ? 1 : inView ? 0.5 : isMobile ? 0.0 : 0.5,
+          }}
           transition={{ duration: 2 }}
           className="bg-[#5348d70a] w-full rounded-[24px] py-3 px-3 shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[10px]"
         >
