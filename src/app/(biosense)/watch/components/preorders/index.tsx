@@ -79,7 +79,7 @@ const Preorders = () => {
       </motion.div>
 
       {/* Watch image animation */}
-      <div className="absolute left-1/2 bottom-0 -translate-x-1/2 max-w-[450px] xs:max-w-[550px] md:max-w-[700px] lg:max-w-[849px] w-full z-[5]">
+      <div className="absolute left-1/2 bottom-0 -translate-x-1/2 max-w-[450px] xs:max-w-[550px] md:max-w-[700px] lg:max-w-[700px] w-full z-[5]">
         <motion.img
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}

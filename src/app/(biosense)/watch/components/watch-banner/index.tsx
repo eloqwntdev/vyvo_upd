@@ -78,7 +78,7 @@ const WatchBanner = () => {
       </div>
 
       {/* Watch image with positioning wrapper */}
-      <div className="absolute left-1/2 bottom-[-30px] -translate-x-1/2 max-w-[450px] xs:max-w-[550px] md:max-w-[700px] lg:max-w-[1025px] w-full z-[5]">
+      <div className="absolute left-1/2 bottom-0 -translate-x-1/2 max-w-[450px] xs:max-w-[550px] md:max-w-[700px] lg:max-w-[850px] w-full z-[5]">
         <motion.img
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
