@@ -1,5 +1,6 @@
 "use client";
 import { SlashIcon } from "@/components/svg";
+import Link from "next/link";
 
 interface ButtonProps {
   label: string;
@@ -9,6 +10,7 @@ interface ButtonProps {
   containerStyles?: string;
   labelClassName?: string;
   showIcon?: boolean;
+  link?: string;
 }
 
 const SlashButton = ({
@@ -19,9 +21,10 @@ const SlashButton = ({
   labelClassName = "",
   showIcon = true,
   containerStyles,
+  link = "",
 }: ButtonProps) => {
   return (
-    <div className={`relative w-full ${containerStyles}`}>
+    <Link href={link} className={`relative w-full ${containerStyles}`}>
       <button
         type={type}
         onClick={onClick}
@@ -35,7 +38,7 @@ const SlashButton = ({
         </span>
       </button>
       <div className="glow-effect transition-all duration-300 ease-in-out"></div>
-    </div>
+    </Link>
   );
 };
 

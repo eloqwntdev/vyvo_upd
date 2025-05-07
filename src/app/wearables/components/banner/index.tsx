@@ -57,6 +57,7 @@ const WearablesBanner = () => {
               className="gap-3 md:gap-4 bg-[#94a7ed28] py-2 md:py-2.5 px-[16px] md:px-[18.5px] test"
               labelClassName="!tracking-[-0.5px] text-[14px] md:text-base"
               containerStyles={"flex items-center justify-center max-w-[200px]"}
+              link="/watch"
             />
           </motion.div>
         </motion.div>

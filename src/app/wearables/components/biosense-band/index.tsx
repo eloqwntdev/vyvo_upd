@@ -120,9 +120,12 @@ const BiosenseBand = () => {
             </motion.ul>
           </div>
           <div className="relative z-10 flex items-start justify-start max-w-[140px] w-full">
-            <button className="text-black relative z-50 cursor-pointer hover:bg-[#94a7ed28] font-nb text-[16px] cross-btn-shadow leading-[20px] tracking-[-0.5px] py-2.5 max-w-[140px] w-full rounded-2xl bg-[#77A9E829] flex items-center justify-center">
+            <Link
+              href="/band"
+              className="text-black relative z-50 cursor-pointer hover:bg-[#94a7ed28] font-nb text-[16px] cross-btn-shadow leading-[20px] tracking-[-0.5px] py-2.5 max-w-[140px] w-full rounded-2xl bg-[#77A9E829] flex items-center justify-center"
+            >
               Learn More
-            </button>
+            </Link>
             <div className="glow-effect transition-all duration-300 ease-in-out"></div>
           </div>
         </div>
