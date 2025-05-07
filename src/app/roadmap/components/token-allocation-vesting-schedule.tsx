@@ -7,27 +7,27 @@ import { motion } from "framer-motion";
 const TokenAllocationVestingSchedule = () => {
   const cardData = [
     {
-      icon: "/roadmap-img/token-allocation-vesting-schedule/icon1.svg",
+      icon: "/roadmap-img/token-allocation-vesting-schedule/icon1.png",
       title: "Ecosystem Growth",
       percentage: "45% (100,000,000 tokens)",
       description:
         "Gradual distribution over 10 years to support ecosystem partners and projects.",
     },
     {
-      icon: "/roadmap-img/token-allocation-vesting-schedule/icon2.svg",
+      icon: "/roadmap-img/token-allocation-vesting-schedule/icon2.png",
       title: "Team & Advisors",
       percentage: "20% (50,000,000 tokens)",
       description:
         "12-month lock-up period, followed by linear unlocking over the next 36 months.",
     },
     {
-      icon: "/roadmap-img/token-allocation-vesting-schedule/icon3.svg",
+      icon: "/roadmap-img/token-allocation-vesting-schedule/icon3.png",
       title: "Investors",
       percentage: "15% (37,500,000 tokens)",
       description: "10% at TGE, remaining unlocked over 24 months.",
     },
     {
-      icon: "/roadmap-img/token-allocation-vesting-schedule/icon4.svg",
+      icon: "/roadmap-img/token-allocation-vesting-schedule/icon4.png",
       title: "Staking & Rewards",
       percentage: "20% (50,000,000 tokens)",
       description:
@@ -36,7 +36,7 @@ const TokenAllocationVestingSchedule = () => {
   ];
 
   return (
-    <section className="py-20 flex flex-col gap-[60px] items-center justify-center">
+    <section className="py-5 md:py-20 flex flex-col gap-[60px] items-center justify-center">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -12,30 +12,30 @@ const Tokenomics = () => {
     {
       title: "Initial Supply",
       value: "50,000,000 VSC",
-      icon: "/roadmap-img/tokenomics/icon1.svg",
+      icon: "/roadmap-img/tokenomics/icon1.png",
     },
 
     {
       title: "Total Supply",
       value: "250,000,000 VSC",
-      icon: "/roadmap-img/tokenomics/icon2.svg",
+      icon: "/roadmap-img/tokenomics/icon2.png",
     },
 
     {
       title: "Blockchain",
       value: "Vyvo Smart Chain",
-      icon: "/roadmap-img/tokenomics/icon3.svg",
+      icon: "/roadmap-img/tokenomics/icon3.png",
     },
 
     {
       title: "Smart Contract",
       value: "View Contract",
       link: "/smart-contract",
-      icon: "/roadmap-img/tokenomics/icon4.svg",
+      icon: "/roadmap-img/tokenomics/icon4.png",
     },
   ];
   return (
-    <section className="py-20 flex flex-col gap-[60px] items-center justify-center">
+    <section className="py-5 md:py-20 flex flex-col gap-[60px] items-center justify-center">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

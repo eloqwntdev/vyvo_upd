@@ -216,7 +216,7 @@ const RoadmapCards = () => {
   const isMobile = useIsMobile();
 
   return (
-    <section className="py-20 px-4 md:px-20 w-full flex flex-col gap-6 items-center justify-center">
+    <section className="py-5 md:py-20 px-4 md:px-20 w-full flex flex-col gap-6 items-center justify-center">
       {isMobile && <RoadmapMobile roadmap_datas={roadmap_datas} />}
       {!isMobile && <RoadmapPc roadmap_datas={roadmap_datas} />}
     </section>
