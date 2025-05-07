@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Cards from "./components/cards";
-import { motion, MotionValue, useScroll } from "framer-motion";
+import { motion, MotionValue, useMotionValue, useScroll } from "framer-motion";
 
 enum Side {
   Left = "left",
@@ -262,31 +262,43 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
     offset: ["start end", "end end"],
     target: containerRef,
   });
-  const [scrollYProgressVar, setScrollYProgressVar] =
-    useState<MotionValue<number>>(scrollYProgress);
+  // const [scrollYProgressVar, setScrollYProgressVar] =
+  //   useState<MotionValue<number>>(scrollYProgress);
+
+  const [scrollReachedEnd, SetScrollReachedEnd] = useState(false);
+
+  // useEffect(() => {
+  //   const unsubscribe = scrollYProgress.onChange((value) => {
+  //     if (value === 0.9) {
+  //       setScrollYProgressVar({
+  //         get: () => 0.9,
+  //         onChange: () => () => {},
+  //         clearListeners: () => {},
+  //         set: () => {},
+  //         stop: () => {},
+  //         version: 1,
+  //         events: {},
+  //         on: () => () => {},
+  //       } as unknown as MotionValue<number>);
+  //     } else if (scrollYProgressVar.get() !== 0.9) {
+  //       setScrollYProgressVar(scrollYProgress);
+  //     }
+  //   });
+
+  //   return () => {
+  //     unsubscribe();
+  //   };
+  // }, [scrollYProgress, scrollYProgressVar]);
 
   useEffect(() => {
-    const unsubscribe = scrollYProgress.onChange((value) => {
-      if (value === 0.9) {
-        setScrollYProgressVar({
-          get: () => 0.9,
-          onChange: () => () => {},
-          clearListeners: () => {},
-          set: () => {},
-          stop: () => {},
-          version: 1,
-          events: {},
-          on: () => () => {},
-        } as unknown as MotionValue<number>);
-      } else if (scrollYProgressVar.get() !== 0.9) {
-        setScrollYProgressVar(scrollYProgress);
-      }
-    });
+    if (scrollYProgress.get() >= 0.9) {
+      SetScrollReachedEnd(true);
+    }
+  }, [scrollYProgress]);
 
-    return () => {
-      unsubscribe();
-    };
-  }, [scrollYProgress, scrollYProgressVar]);
+  const scrollYProgressVar = scrollReachedEnd
+    ? useMotionValue(1)
+    : scrollYProgress;
 
   return (
     <section
