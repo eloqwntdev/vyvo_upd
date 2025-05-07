@@ -1,7 +1,7 @@
 "use client";
 
 import SlashButton from "@/components/common/controllers/button/slash-button";
-import Image from "next/image";
+
 import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 
@@ -99,7 +99,7 @@ const HealthFeaturesSection = () => {
             animate={isInView ? "visible" : "hidden"}
             variants={scaleUp}
           >
-            <Image
+            <img
               src="/biosense-products/ring/health-ring.png"
               alt="BioSense Ring Health Features"
               width={1908}

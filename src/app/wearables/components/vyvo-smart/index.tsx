@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence, motion, useInView } from "framer-motion";
-import Image from "next/image";
+
 import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -68,13 +68,13 @@ const VyvoSmart = () => {
                 }}
                 className="flex items-center justify-center"
               >
-                <Image
+                <img
+                  loading="lazy"
                   src={image}
                   width={2392}
                   height={2512}
                   alt={`Device ${index + 1}`}
                   className="mx-auto"
-                  priority={index === 0}
                 />
               </motion.div>
             </SwiperSlide>
@@ -185,7 +185,8 @@ const VyvoSmart = () => {
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                   className="size-10 md:size-12 shrink-0 bg-[#77A9E829] main-shadow flex items-center justify-center rounded-[16px]"
                 >
-                  <Image
+                  <img
+                    loading="lazy"
                     src={item.icon}
                     alt={""}
                     width={24}
@@ -231,7 +232,8 @@ const VyvoSmart = () => {
                 transition={{ duration: 0.5, delay: 0.6 }}
                 className="w-full sm:max-w-[166px] relative z-20 bg-[#77A9E829] hover:bg-[#94a7ed28] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]"
               >
-                <Image
+                <img
+                  loading="lazy"
                   src={"/google.svg"}
                   alt={""}
                   width={32}
@@ -260,7 +262,8 @@ const VyvoSmart = () => {
                 transition={{ duration: 0.5, delay: 0.6 }}
                 className="w-full sm:max-w-[166px] relative z-20 bg-[#77A9E829] hover:bg-[#94a7ed28] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]"
               >
-                <Image
+                <img
+                  loading="lazy"
                   src={"/apple.svg"}
                   alt={""}
                   width={32}

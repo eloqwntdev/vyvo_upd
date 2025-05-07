@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
@@ -58,7 +57,8 @@ const ProductLineup = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="overflow-hidden"
             >
-              <Image
+              <img
+                loading="lazy"
                 src={"/wearables-img/lineup/biosense-ring.png"}
                 alt={"BioSense Ring"}
                 width={4130}
@@ -96,7 +96,8 @@ const ProductLineup = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="overflow-hidden"
             >
-              <Image
+              <img
+                loading="lazy"
                 src={"/wearables-img/lineup/biosense-watch.png"}
                 alt={"BioSense Watch"}
                 width={4130}
@@ -134,7 +135,8 @@ const ProductLineup = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="overflow-hidden"
             >
-              <Image
+              <img
+                loading="lazy"
                 src={"/wearables-img/lineup/biosense-band.png"}
                 alt={"BioSense Band"}
                 width={4130}

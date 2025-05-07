@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -155,7 +155,8 @@ const DesktopValues = () => {
                   ),
                 }}
               >
-                <Image
+                <img
+                  loading="lazy"
                   src={item.image}
                   width={2452}
                   height={1520}
@@ -176,7 +177,8 @@ const DesktopValues = () => {
             opacity: useTransform(activeIndex, [0, 0.1, 0.9, 1], [0, 0, 0, 0]),
           }}
         >
-          <Image
+          <img
+            loading="lazy"
             src="/vyvo-smart-chain-img/card1.png"
             width={414}
             height={250}

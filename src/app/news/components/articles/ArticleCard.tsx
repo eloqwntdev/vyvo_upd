@@ -1,7 +1,7 @@
 "use client";
 import { format } from "date-fns";
 import { motion } from "framer-motion";
-import Image from "next/image";
+
 import Link from "next/link";
 import { NewsPostDocument } from "../../../../../prismicio-types";
 
@@ -79,7 +79,8 @@ export const ArticleCard = ({ article }: ArticleCardProps) => {
           }}
           className="h-[148px] md:h-[180px] lg:h-[210px] w-full rounded-[8px] md:rounded-[24px] overflow-hidden"
         >
-          <Image
+          <img
+            loading="lazy"
             src={imageUrl}
             width={762}
             height={420}

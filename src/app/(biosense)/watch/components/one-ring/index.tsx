@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
+
 import React, { useState, useEffect } from "react";
 
 const OneRing = () => {
@@ -38,13 +38,12 @@ const OneRing = () => {
               ease: [0.4, 0.0, 0.2, 1],
             }}
           >
-            <Image
+            <img
               src={solutionCards[currentIndex]}
               width={598}
               height={628}
               alt={"Vyvo Smart Device"}
               className="mx-auto"
-              priority
             />
           </motion.div>
         </AnimatePresence>
@@ -83,7 +82,13 @@ const OneRing = () => {
           </p>
           <div className="flex gap-4 md:gap-5">
             <div className="w-full bg-[#77A9E829] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]">
-              <Image src={"/google.svg"} alt={""} width={32} height={32} />
+              <img
+                loading="lazy"
+                src={"/google.svg"}
+                alt={""}
+                width={32}
+                height={32}
+              />
               <div className="flex flex-col">
                 <span className="text-white font-nb font-normal text-[12px] leading-[16px]">
                   Get it on
@@ -94,7 +99,8 @@ const OneRing = () => {
               </div>
             </div>
             <div className="w-full bg-[#77A9E829] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]">
-              <Image
+              <img
+                loading="lazy"
                 src={"/apple.svg"}
                 className="invert"
                 alt={""}
@@ -127,13 +133,13 @@ const OneRing = () => {
               ease: [0.4, 0.0, 0.2, 1],
             }}
           >
-            <Image
+            <img
+              loading="lazy"
               src={solutionCards[currentIndex]}
               width={598}
               height={628}
               alt={"Vyvo Smart Device"}
               className="mx-auto"
-              priority
             />
           </motion.div>
         </AnimatePresence>

@@ -1,7 +1,5 @@
 "use client";
 
-import SlashButton from "@/components/common/controllers/button/slash-button";
-import Image from "next/image";
 import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 
@@ -68,11 +66,12 @@ const AsThin = () => {
             animate={isInView ? "visible" : "hidden"}
             variants={scaleUp}
           >
-            <Image
+            <img
               src="/biosense-products/watch/as-thin.png"
               alt="watch-as-thin"
               width={900}
               height={900}
+              loading="lazy"
               className="w-full md:w-full max-w-[200px] md:min-w-[450px] md:max-w-none"
             />
           </motion.div>
@@ -85,6 +84,7 @@ const AsThin = () => {
             src="/biosense-products/watch/top-info.png"
             className="absolute top-[8%] sm:top-0 right-[26%] sm:right-[-20%] md:right-[-38%] w-[30%] md:w-[80%]"
             alt="Watch thickness specifications"
+            loading="lazy"
           />
           <motion.img
             initial={{ opacity: 0 }}
@@ -125,10 +125,11 @@ const AsThin = () => {
           </motion.p>
 
           <motion.div variants={fadeInUp}>
-            <Image
+            <img
               src="/wearables-img/research/reddot-white.png"
               width={157}
               height={80}
+              loading="lazy"
               alt="Award"
               className="w-[120px] md:w-[157px] h-auto"
             />

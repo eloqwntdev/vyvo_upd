@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
+
 import Link from "next/link";
 import React from "react";
 
@@ -41,7 +41,7 @@ const Footer = () => {
       <div className="max-w-[1280px] w-full mx-auto flex flex-col lg:flex-row justify-between gap-10">
         <div className="flex flex-col justify-between items-start mb-0">
           <motion.div className="relative w-[124.459px] h-[28.394px]">
-            <Image src={"/logo.svg"} alt={"Logo.svg"} fill priority />
+            <img loading="lazy" src={"/logo.svg"} alt={"Logo.svg"} />
           </motion.div>
 
           <div className="lg:block hidden">

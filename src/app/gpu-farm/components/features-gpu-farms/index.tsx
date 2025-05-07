@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -25,7 +24,8 @@ const FeaturesGPUFarms = () => {
             transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
           >
             <div className="size-12 sm:size-14 md:size-16 rounded-full vyvo-tech-bg-banner-tag flex items-center justify-center">
-              <Image
+              <img
+                loading="lazy"
                 src={"/gpu-farms-img/features-icons/icon1.svg"}
                 width={24}
                 height={24}
@@ -56,7 +56,8 @@ const FeaturesGPUFarms = () => {
             }}
           >
             <div className="size-12 sm:size-14 md:size-16 rounded-full vyvo-tech-bg-banner-tag flex items-center justify-center">
-              <Image
+              <img
+                loading="lazy"
                 src={"/gpu-farms-img/features-icons/icon2.svg"}
                 width={24}
                 height={24}
@@ -87,7 +88,8 @@ const FeaturesGPUFarms = () => {
             }}
           >
             <div className="size-12 sm:size-14 md:size-16 rounded-full vyvo-tech-bg-banner-tag flex items-center justify-center">
-              <Image
+              <img
+                loading="lazy"
                 src={"/gpu-farms-img/features-icons/icon3.svg"}
                 width={24}
                 height={24}

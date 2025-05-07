@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+
 import React from "react";
 import { motion } from "framer-motion";
 import { NewsPostDocument } from "@/../prismicio-types";
@@ -102,12 +102,12 @@ const ArticleDetails = ({ article }: ArticleDetailsProps) => {
             className="h-[200px] sm:h-[300px] md:h-[400px] lg:h-[616px] w-full 
             rounded-md sm:rounded-lg md:rounded-xl lg:rounded-2xl overflow-hidden"
           >
-            <Image
+            <img
+              loading="lazy"
               src={imageUrl}
               width={1280}
               height={616}
               alt={imageAlt}
-              priority
               className="h-full w-full object-cover 
                 rounded-md sm:rounded-lg md:rounded-xl lg:rounded-2xl"
             />

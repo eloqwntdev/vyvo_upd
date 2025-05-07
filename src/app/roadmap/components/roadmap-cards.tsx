@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import RoadmapMobile from "./roadmap/RoadmapMobile";
-import Image from "next/image";
+
 import RoadmapPc from "./roadmap/RoadmapPc";
 
 enum Side {
@@ -53,7 +53,8 @@ const RoadmapCards = () => {
       cards: [
         {
           image: (
-            <Image
+            <img
+              loading="lazy"
               src="/roadmap-img/roadmap-cards/financial-management-launch.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"
@@ -68,7 +69,8 @@ const RoadmapCards = () => {
         },
         {
           image: (
-            <Image
+            <img
+              loading="lazy"
               src="/roadmap-img/roadmap-cards/health-metrics-wearables.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"
@@ -88,7 +90,8 @@ const RoadmapCards = () => {
       cards: [
         {
           image: (
-            <Image
+            <img
+              loading="lazy"
               src="/roadmap-img/roadmap-cards/smart-home-productivity.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"
@@ -103,7 +106,8 @@ const RoadmapCards = () => {
         },
         {
           image: (
-            <Image
+            <img
+              loading="lazy"
               src="/roadmap-img/roadmap-cards/fitness-voice-coaching.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"
@@ -123,7 +127,8 @@ const RoadmapCards = () => {
       cards: [
         {
           image: (
-            <Image
+            <img
+              loading="lazy"
               src="/roadmap-img/roadmap-cards/omni-model-integration.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"
@@ -138,7 +143,8 @@ const RoadmapCards = () => {
         },
         {
           image: (
-            <Image
+            <img
+              loading="lazy"
               src="/roadmap-img/roadmap-cards/desktop-browser-launch.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"
@@ -157,7 +163,8 @@ const RoadmapCards = () => {
       cards: [
         {
           image: (
-            <Image
+            <img
+              loading="lazy"
               src="/roadmap-img/roadmap-cards/language-voice-expansion.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"
@@ -172,7 +179,8 @@ const RoadmapCards = () => {
         },
         {
           image: (
-            <Image
+            <img
+              loading="lazy"
               src="/roadmap-img/roadmap-cards/financial-fitness-insights.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"
@@ -187,7 +195,8 @@ const RoadmapCards = () => {
         },
         {
           image: (
-            <Image
+            <img
+              loading="lazy"
               src="/roadmap-img/roadmap-cards/user-feedback-updates.png"
               className="w-full object-cover"
               alt="Vyvo roadmap"

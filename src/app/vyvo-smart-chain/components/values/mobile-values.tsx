@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+
 import React from "react";
 
 const valuesData = [
@@ -40,7 +40,8 @@ const MobileValues = () => {
       <div className="flex flex-col gap-6">
         {valuesData.map((item, index) => (
           <div key={item.id} className="flex flex-col gap-5">
-            <Image
+            <img
+              loading="lazy"
               src={item.image}
               width={828}
               height={500}

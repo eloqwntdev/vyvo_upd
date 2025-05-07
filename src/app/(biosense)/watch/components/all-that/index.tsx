@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 
 // Define interfaces for our components
 interface Card {
@@ -137,10 +136,11 @@ const ALLThat = () => {
     <section className="pt-10 md:pt-20 flex flex-col gap-10 md:gap-[100px] bg-black px-0 md:px-8">
       {/* Mobile background image - shown only on mobile */}
       <div className="block md:hidden w-full px-4">
-        <Image
+        <img
           src="/biosense-products/watch/all-that.png"
           className="w-full h-auto mb-6"
           alt="BioSense Watch with health features"
+          loading="lazy"
           width={3099}
           height={1551}
         />

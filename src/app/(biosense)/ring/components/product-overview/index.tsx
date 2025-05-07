@@ -1,7 +1,7 @@
 "use client";
 
 import SlashButton from "@/components/common/controllers/button/slash-button";
-import Image from "next/image";
+
 import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 
@@ -79,7 +79,7 @@ const ProductOverview = () => {
             variants={scaleUp}
             className="w-full md:w-full max-w-[400px] hidden sm:block"
           >
-            <Image
+            <img
               src="/biosense-products/ring/ring-overview.png"
               alt="BioSense Ring Overview"
               width={1600}
@@ -95,7 +95,7 @@ const ProductOverview = () => {
             variants={scaleUp}
             className="w-full md:w-full max-w-[450px] sm:hidden"
           >
-            <Image
+            <img
               src="/biosense-products/ring/mobile-ring.png"
               alt="BioSense Ring Mobile View"
               width={900}

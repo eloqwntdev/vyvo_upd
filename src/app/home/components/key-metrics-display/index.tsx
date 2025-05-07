@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+
 import { motion, useInView } from "framer-motion";
 
 // Define type for metric item
@@ -342,11 +342,10 @@ const KeyMetricsDisplay = () => {
                 key={index}
                 className="flex-shrink-0 w-[270px] h-[350px] md:w-[413px] md:h-[500px] rounded-[20px] overflow-hidden relative"
               >
-                <Image
+                <img
+                  loading="lazy"
                   src={metric.image}
                   alt={metric.label}
-                  fill
-                  quality={100}
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 1239px"
                 />

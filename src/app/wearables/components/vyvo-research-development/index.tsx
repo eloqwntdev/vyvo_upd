@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
@@ -91,14 +90,16 @@ const VyvoResearchDevelopment = () => {
             }
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Image
+            <img
+              loading="lazy"
               src="/wearables-img/research/award.png"
               width={157}
               height={80}
               alt="Award"
               className="w-[120px] md:w-[157px] h-auto"
             />
-            <Image
+            <img
+              loading="lazy"
               src="/wearables-img/research/PD2025_RD.png"
               width={157}
               height={80}
@@ -125,7 +126,8 @@ const VyvoResearchDevelopment = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="overflow-hidden rounded-[24px]"
           >
-            <Image
+            <img
+              loading="lazy"
               src="/wearables-img/research/card1.png"
               width={2520}
               height={1600}
@@ -135,7 +137,8 @@ const VyvoResearchDevelopment = () => {
           </motion.div>
           <div className="flex flex-col sm:flex-row gap-4 md:gap-5">
             <div className="overflow-hidden  w-full sm:w-1/2 rounded-[24px]">
-              <Image
+              <img
+                loading="lazy"
                 src="/wearables-img/research/card2.png"
                 width={1220}
                 height={904}
@@ -145,7 +148,8 @@ const VyvoResearchDevelopment = () => {
             </div>
 
             <div className="overflow-hidden  w-full sm:w-1/2 rounded-[24px]">
-              <Image
+              <img
+                loading="lazy"
                 src="/wearables-img/research/card3.png"
                 width={1220}
                 height={904}

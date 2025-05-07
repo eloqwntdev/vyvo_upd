@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+
 import React, { useState, useEffect, useRef } from "react";
 import {
   motion,
@@ -157,14 +157,14 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
           >
             {images.map((image, index) => (
               <SwiperSlide key={index} className="w-full h-full">
-                <Image
+                <img
+                  loading="lazy"
                   src={image}
                   alt={`${title} - image ${index + 1}`}
                   className="object-cover rounded-lg"
                   width={3972}
                   height={2640}
                   sizes="(max-width: 640px) 60px,3972px"
-                  priority={index === 0}
                 />
               </SwiperSlide>
             ))}

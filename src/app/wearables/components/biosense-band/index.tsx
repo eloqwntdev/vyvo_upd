@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import AutoShowBlock from "./autoshow";
 import { motion } from "framer-motion";
@@ -36,7 +35,8 @@ const BiosenseBand = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="w-full sm:w-auto overflow-hidden rounded-[24px]"
             >
-              <Image
+              <img
+                loading="lazy"
                 src="/wearables-img/band/card1.png"
                 width={1220}
                 height={880}
@@ -52,7 +52,8 @@ const BiosenseBand = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="w-full sm:w-auto mt-5 sm:mt-0 overflow-hidden rounded-[24px]"
             >
-              <Image
+              <img
+                loading="lazy"
                 src="/wearables-img/band/card2.png"
                 width={1220}
                 height={880}

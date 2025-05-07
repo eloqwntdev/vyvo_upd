@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import { Pagination, Autoplay } from "swiper/modules";
@@ -52,14 +52,12 @@ const MobileSolutionCard: React.FC<MobileSolutionCardProps> = ({
         >
           {images.map((image, index) => (
             <SwiperSlide key={index} className="w-full h-full">
-              <Image
+              <img
+                loading="lazy"
                 src={image}
                 alt={`${title} - image ${index + 1}`}
-                fill
                 className="object-cover rounded-[12px] shadow-lg"
                 sizes="100vw" // Ensure the image takes full width for higher resolution
-                priority={index === 0}
-                quality={100} // Maximum quality for the best image rendering
               />
             </SwiperSlide>
           ))}

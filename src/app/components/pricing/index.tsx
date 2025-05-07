@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
+
 import PricingContent from "./pricing-content";
 import PricingToggler from "./pricing-toggler";
 import MobilePricingContent from "./mobile-pricing-content";

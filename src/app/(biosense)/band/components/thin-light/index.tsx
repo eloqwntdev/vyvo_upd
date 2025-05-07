@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import SlashButton from "@/components/common/controllers/button/slash-button";
@@ -55,7 +54,7 @@ const ThinLight = () => {
             animate={isInView ? "visible" : "hidden"}
             variants={imageAnimation}
           >
-            <Image
+            <img
               src="/biosense-products/band/thin-band.png"
               alt="BioSense Band"
               width={1293}

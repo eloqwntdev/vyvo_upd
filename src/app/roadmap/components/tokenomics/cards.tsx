@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -30,7 +30,7 @@ const Cards: React.FC<CardsProps> = ({
       }}
       className="rounded-[12px] py-3 px-4 flex items-center justify-start gap-3 bg-[#5348d70a] shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[10px]"
     >
-      <Image src={icon} alt="VSC" width={48} height={48} />
+      <img loading="lazy" src={icon} alt="VSC" width={48} height={48} />
       <div className="flex flex-col gap-2">
         <span className="text-white font-bn font-light text-[20px] leading-[24px]">
           {title}

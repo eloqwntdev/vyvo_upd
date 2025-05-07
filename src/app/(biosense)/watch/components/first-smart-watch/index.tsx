@@ -1,7 +1,7 @@
 "use client";
 
 import SlashButton from "@/components/common/controllers/button/slash-button";
-import Image from "next/image";
+
 import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 
@@ -69,11 +69,12 @@ const FirstSmartWatch = () => {
             animate={isInView ? "visible" : "hidden"}
             variants={scaleUp}
           >
-            <Image
+            <img
               src="/biosense-products/watch/first-smart-watch.png"
               alt="watch-as-thin"
               width={2889}
               height={2253}
+              loading="lazy"
               className="w-[100vw] md:w-[100%] md:scale-[2] max-w-[500px] md:max-w-none"
             />
           </motion.div>

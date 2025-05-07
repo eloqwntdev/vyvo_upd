@@ -1,6 +1,6 @@
 "use client";
 // import { useLottie } from "lottie-react";
-import Image from "next/image";
+
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import animationData from "../../../../../public/lottie/blue-back-lines-move/data.json";

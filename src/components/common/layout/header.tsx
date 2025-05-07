@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SlashIcon } from "../../svg";
-import Image from "next/image";
+
 import SlashButton from "../controllers/button/slash-button";
 import { navLinks } from "@/constants/navlinks";
 import { motion, AnimatePresence } from "framer-motion";
@@ -120,7 +120,7 @@ const Header = () => {
                 opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
               }}
             >
-              <Image src={"/logo.svg"} alt={"Vyvo Logo"} fill priority />
+              <img loading="lazy" src={"/logo.svg"} alt={"Vyvo Logo"} />
             </motion.div>
           </Link>
 

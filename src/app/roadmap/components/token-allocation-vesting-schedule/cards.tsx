@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -29,7 +28,7 @@ const Cards: React.FC<CardsProps> = ({
       }}
       className="w-full rounded-[12px] h-full flex flex-col gap-4 p-4 bg-[rgba(83,72,215,0.04)] shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[10px]"
     >
-      <Image height={48} width={48} alt="VSC" src={icon} />
+      <img loading="lazy" height={48} width={48} alt="VSC" src={icon} />
       <div className="flex flex-col gap-5">
         <span className="text-white text-[16px] leading-[20px] tracking-[-0.48px] md:text-[20px] md:leading-[24px] md:tracking-[-0.6px] font-nb font-light">
           {title}

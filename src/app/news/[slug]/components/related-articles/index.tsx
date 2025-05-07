@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
+
 import { NewsPostDocument } from "@/../prismicio-types";
 
 interface RelatedArticlesProps {
@@ -48,7 +48,8 @@ const ArticleCard = ({ article }: { article: NewsPostDocument }) => {
     >
       <div className="w-full h-[160px] lg:h-[180px] overflow-hidden rounded-lg">
         {article.data.image?.url ? (
-          <Image
+          <img
+            loading="lazy"
             src={article.data.image.url}
             alt={article.data.image.alt || article.data.title || ""}
             width={330}

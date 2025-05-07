@@ -1,6 +1,6 @@
 import SlashButton from "@/components/common/controllers/button/slash-button";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+
 import Link from "next/link";
 
 interface PricingContentProps {
@@ -92,7 +92,8 @@ const FeatureItem = ({
     return (
       <div className="flex items-center gap-3 mb-3">
         <div className="w-6 h-6 flex-shrink-0">
-          <Image
+          <img
+            loading="lazy"
             src={included ? "/icons/yes.svg" : "/icons/no.svg"}
             alt={included ? "Included" : "Not included"}
             width={24}
@@ -112,7 +113,8 @@ const FeatureItem = ({
   return (
     <div className="flex items-center gap-3 mb-3">
       <div className="w-6 h-6 flex-shrink-0">
-        <Image
+        <img
+          loading="lazy"
           src={included ? "/icons/yes.svg" : "/icons/no.svg"}
           alt={included ? "Included" : "Not included"}
           width={24}

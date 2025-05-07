@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+
 import Link from "next/link";
 import SlashButton from "@/components/common/controllers/button/slash-button";
 
@@ -93,7 +93,8 @@ const FeatureItem = ({
     return (
       <div className="flex items-center gap-2 mb-2.5">
         <div className="w-5 h-5 flex-shrink-0">
-          <Image
+          <img
+            loading="lazy"
             src={included ? "/icons/yes.svg" : "/icons/no.svg"}
             alt={included ? "Included" : "Not included"}
             width={20}
@@ -113,7 +114,8 @@ const FeatureItem = ({
   return (
     <div className="flex items-center gap-2 mb-2.5">
       <div className="w-5 h-5 flex-shrink-0">
-        <Image
+        <img
+          loading="lazy"
           src={included ? "/icons/yes.svg" : "/icons/no.svg"}
           alt={included ? "Included" : "Not included"}
           width={20}

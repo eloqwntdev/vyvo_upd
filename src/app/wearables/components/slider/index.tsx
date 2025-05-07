@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+
 import React, { useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -36,7 +36,8 @@ const SliderCard: React.FC<SliderCardProps> = ({
     <div className="p-0 rounded-[16px] sm:rounded-[20px] md:rounded-[24px] bg-[#F5F8FF] overflow-hidden flex flex-col w-full h-full">
       <div className="w-full overflow-hidden">
         <div className="p-4">
-          <Image
+          <img
+            loading="lazy"
             src={imageSrc || "/wearables-img/slider/card1.png"}
             width={900}
             height={506}

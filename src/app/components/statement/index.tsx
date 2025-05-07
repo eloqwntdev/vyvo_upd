@@ -2,7 +2,7 @@
 "use client";
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
+
 import { TextReveal } from "@/components/common/animations/text-reveal";
 
 const Statement = () => {
@@ -41,7 +41,12 @@ const Statement = () => {
             className={index === 3 ? "absolute left-0" : ""}
           >
             <div className="size-12 md:size-14 relative">
-              <Image src={icon.src} alt={`Icon ${index + 1}`} fill />
+              <img
+                loading="lazy"
+                src={icon.src}
+                alt={`Icon ${index + 1}`}
+                fill
+              />
             </div>
           </motion.div>
         );

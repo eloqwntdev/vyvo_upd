@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import { AnimatePresence, motion, useInView, Variants } from "framer-motion";
-import Image from "next/image";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
@@ -86,13 +86,13 @@ const OneRing: React.FC<OneRingProps> = ({
               }}
               className="flex items-center justify-center"
             >
-              <Image
+              <img
                 src={image}
                 width={1794}
                 height={1884}
+                loading="lazy"
                 alt={`${productName} Device ${index + 1}`}
                 className="mx-auto"
-                priority={index === 0}
               />
             </motion.div>
           </SwiperSlide>
@@ -158,7 +158,7 @@ const OneRing: React.FC<OneRingProps> = ({
         <div className="flex flex-row gap-4 md:gap-5">
           <div className="relative z-10 max-w-[166px] w-full">
             <motion.button className="w-full sm:max-w-[166px] relative z-20 bg-[#77A9E829] hover:bg-[#94a7ed28] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]">
-              <Image
+              <img
                 src={"/google.svg"}
                 alt={""}
                 width={32}
@@ -178,7 +178,7 @@ const OneRing: React.FC<OneRingProps> = ({
           </div>
           <div className="relative z-10 max-w-[166px] w-full">
             <motion.button className="w-full sm:max-w-[166px] relative z-20 bg-[#77A9E829] hover:bg-[#94a7ed28] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]">
-              <Image
+              <img
                 src={"/apple.svg"}
                 alt={""}
                 width={32}

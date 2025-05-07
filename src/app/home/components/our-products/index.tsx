@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 
 const OurProducts = () => {
@@ -12,7 +11,8 @@ const OurProducts = () => {
         <div className="max-w-[1280px] w-full grid grid-cols-2 md:grid-cols-4">
           {/* First Row */}
           <div className="h-[136px] md:h-[305px] flex items-center justify-center border-gradient only-right gradient-partner-card">
-            <Image
+            <img
+              loading="lazy"
               src={"/homepage/partners/mastercard.svg"}
               alt={"Mastercard"}
               width={235}
@@ -21,7 +21,8 @@ const OurProducts = () => {
             />
           </div>
           <div className="h-[136px] md:h-[305px] flex items-center justify-center border-gradient only-right gradient-partner-card">
-            <Image
+            <img
+              loading="lazy"
               src={"/homepage/partners/wert.svg"}
               alt={"Wert"}
               width={110}
@@ -30,7 +31,8 @@ const OurProducts = () => {
             />
           </div>
           <div className="h-[136px] md:h-[305px] flex items-center justify-center gradient-partner-card">
-            <Image
+            <img
+              loading="lazy"
               src={"/homepage/partners/odee.svg"}
               alt={"Odee"}
               width={106}
@@ -39,7 +41,8 @@ const OurProducts = () => {
             />
           </div>
           <div className="h-[136px] md:h-[305px] flex items-center justify-center border-gradient only-left !border-t-0 gradient-partner-card">
-            <Image
+            <img
+              loading="lazy"
               src={"/homepage/partners/infineon.svg"}
               alt={"Infineon"}
               width={135}
@@ -53,7 +56,8 @@ const OurProducts = () => {
 
           {/* Second Row */}
           <div className="h-[136px] md:h-[305px] flex items-center justify-center border-gradient-reverse only-right gradient-partner-card-reverse">
-            <Image
+            <img
+              loading="lazy"
               src={"/homepage/partners/vechain.png"}
               alt={"Vechain"}
               width={193}
@@ -62,7 +66,8 @@ const OurProducts = () => {
             />
           </div>
           <div className="h-[136px] md:h-[305px] flex items-center justify-center border-gradient-reverse only-right gradient-partner-card-reverse">
-            <Image
+            <img
+              loading="lazy"
               src={"/homepage/partners/onfido.svg"}
               alt={"Onfido"}
               width={177}
@@ -71,7 +76,8 @@ const OurProducts = () => {
             />
           </div>
           <div className="h-[136px] md:h-[305px] flex items-center justify-center border-gradient-reverse only-right gradient-partner-card-reverse">
-            <Image
+            <img
+              loading="lazy"
               src={"/homepage/partners/tappy.png"}
               alt={"Tappy"}
               width={157}
@@ -80,7 +86,8 @@ const OurProducts = () => {
             />
           </div>
           <div className="h-[136px] md:h-[305px] flex items-center justify-center border-gradient-reverse only-left gradient-partner-card-reverse">
-            <Image
+            <img
+              loading="lazy"
               src={"/homepage/partners/subhosting.png"}
               alt={"Subhosting"}
               width={221}

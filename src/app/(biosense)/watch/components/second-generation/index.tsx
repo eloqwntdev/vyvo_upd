@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 
@@ -59,7 +58,8 @@ const SecondGeneration = () => {
         className="max-w-[495px] w-full flex flex-col gap-6 md:gap-10"
       >
         <motion.div variants={fadeInUp}>
-          <Image
+          <img
+            loading="lazy"
             src="/biosense-products/vyvo-pay/vyvo-pay.png"
             alt="VyvoPay Logo"
             width={211}
@@ -94,7 +94,8 @@ const SecondGeneration = () => {
         variants={fadeInLeft}
         className="max-w-[702px] w-full mt-8 md:mt-0"
       >
-        <Image
+        <img
+          loading="lazy"
           src="/biosense-products/vyvo-pay/vyvo-pay-image.png"
           alt="BioSense Watch with VyvoPay demonstration"
           width={2106}

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 
@@ -127,13 +126,12 @@ const WayToPay = () => {
         >
           <div className="wearables-card-gradient w-full self-end max-w-[380px] sm:max-w-[350px] md:max-w-[450px] lg:max-w-[598px] rounded-[16px] sm:rounded-[20px] md:rounded-[24px] relative overflow-hidden p-2 sm:p-3 md:p-4">
             <div className="transition-transform duration-300">
-              <Image
+              <img
                 src={"/biosense-products/band/way-to-pay.png"}
                 width={2392}
                 height={2512}
                 alt="BioSense payment device"
                 className="mx-auto w-full h-auto"
-                priority
               />
             </div>
           </div>

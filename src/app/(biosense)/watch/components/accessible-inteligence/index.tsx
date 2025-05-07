@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 
@@ -66,7 +65,7 @@ const AccessibleInteligence = () => {
             animate={isInView ? "visible" : "hidden"}
             variants={scaleUp}
           >
-            <Image
+            <img
               src="/biosense-products/accessible/watch.png"
               alt="BioSense Watch"
               width={924}
@@ -100,7 +99,7 @@ const AccessibleInteligence = () => {
           className="max-w-[483px] w-full flex flex-col gap-10"
         >
           <motion.div variants={fadeIn}>
-            <Image
+            <img
               src="/biosense-products/watch/v-logo.svg"
               alt="Vyvo Logo"
               width={124}

@@ -2,7 +2,7 @@
 
 import SlashButton from "@/components/common/controllers/button/slash-button";
 import { motion, Variants } from "framer-motion";
-import Image from "next/image";
+
 import dynamic from "next/dynamic";
 import animationData from "../../../../../../public/lottie/blue-back-lines-move/data.json";
 
@@ -52,13 +52,6 @@ const Banner = () => {
     <section className="bg-black min-h-[568px] sm:min-h-[100vh] w-full flex flex-col items-center justify-center relative">
       {/* Background GIF - using Image for better performance but keeping the full-screen positioning */}
       <div className="absolute inset-0 z-0">
-        {/* <Image
-            src="/banner/squares_gifs/Preloder-back.gif"
-            alt="Background GIF"
-            fill
-            className="object-cover"
-            priority
-          /> */}
         <motion.div
           className="w-full h-full"
           initial={{ opacity: 0 }}

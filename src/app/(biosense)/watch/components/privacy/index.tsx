@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 
@@ -67,7 +66,8 @@ const Privacy = () => {
         variants={fadeInRight}
         className="w-full md:w-1/2 flex justify-center"
       >
-        <Image
+        <img
+          loading="lazy"
           src="/biosense-products/privacy/image.png"
           alt="BioSense Watch with encryption visualization"
           width={2781}

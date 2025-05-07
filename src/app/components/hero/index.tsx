@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
+
 import { motion, AnimatePresence } from "framer-motion";
 import { SlashIcon } from "@/components/svg";
 
@@ -176,13 +176,11 @@ const Hero = () => {
       </div>
 
       <div className="absolute inset-0 w-full h-full">
-        <Image
+        <img
+          loading="lazy"
           src="/hero/hero.png"
           alt="Hero"
-          fill
           className="object-cover"
-          priority
-          quality={100}
         />
       </div>
 

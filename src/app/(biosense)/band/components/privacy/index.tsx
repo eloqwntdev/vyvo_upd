@@ -1,7 +1,7 @@
 "use client";
 
 import SlashButton from "@/components/common/controllers/button/slash-button";
-import Image from "next/image";
+
 import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 import dynamic from "next/dynamic";
@@ -96,7 +96,7 @@ const PrivacyBand = () => {
           variants={imageAnimation}
           className="w-full md:w-full max-w-[750px] flex justify-center"
         >
-          <Image
+          <img
             src="/biosense-products/band/Biosense-VSC-Chip.png"
             alt="BioSense Watch with encryption visualization"
             width={2196}

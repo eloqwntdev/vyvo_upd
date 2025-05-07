@@ -1,6 +1,6 @@
 "use client";
 import AnimatedCounter from "@/components/common/animations/animated-counter";
-import Image from "next/image";
+
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import BoxsAnimationData from "../../../../../public/lottie/gpu-farm/GPU-Farm-card-with-boxes.json";

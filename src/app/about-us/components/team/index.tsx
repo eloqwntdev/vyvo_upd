@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -200,7 +200,8 @@ const TeamCard = ({ name, role, image, linkedin, index }: TeamCardProps) => {
           variants={imageVariants}
           className="h-[124px] sm:h-[200px] md:h-[381px] w-full rounded-[8px] md:rounded-2xl overflow-hidden"
         >
-          <Image
+          <img
+            loading="lazy"
             src={image}
             width={381}
             height={381}

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
+
 import { SlashIcon } from "@/components/svg";
 import clsx from "clsx";
 import useStageStore from "@/store/useStageStore";

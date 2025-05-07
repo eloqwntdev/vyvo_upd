@@ -2,7 +2,6 @@
 
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 
 const FeaturesList = ({ plan, isMobile = false }) => {
   if (isMobile) {
@@ -24,7 +23,13 @@ const FeaturesList = ({ plan, isMobile = false }) => {
             }}
             className="flex items-center gap-2"
           >
-            <Image src="/icons/yes.svg" alt="Included" width={24} height={24} />
+            <img
+              loading="lazy"
+              src="/icons/yes.svg"
+              alt="Included"
+              width={24}
+              height={24}
+            />
             <span className="font-nb text-[14px] md:text-[16px] font-light leading-[18px] md:leading-[20px] text-white">
               {feature.title}
             </span>
@@ -44,7 +49,8 @@ const FeaturesList = ({ plan, isMobile = false }) => {
             }}
             className="flex items-center gap-2"
           >
-            <Image
+            <img
+              loading="lazy"
               src="/icons/no.svg"
               alt="Not included"
               width={24}
@@ -72,7 +78,8 @@ const FeaturesList = ({ plan, isMobile = false }) => {
       }}
       className="flex items-center gap-2"
     >
-      <Image
+      <img
+        loading="lazy"
         src={feature.included ? "/icons/yes.svg" : "/icons/no.svg"}
         alt={feature.included ? "Included" : "Not included"}
         width={24}
