@@ -107,10 +107,10 @@ const Header = () => {
           <Link
             href="/home"
             aria-label="Navigate to home page"
-            className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px] cursor-pointer"
+            className="relative h-full cursor-pointer"
           >
             <motion.div
-              className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px] cursor-pointer"
+              className="relative flex flex-row items-center h-full cursor-pointer"
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{
@@ -120,7 +120,12 @@ const Header = () => {
                 opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
               }}
             >
-              <img loading="lazy" src={"/logo.svg"} alt={"Vyvo Logo"} />
+              <img
+                className="h-full"
+                loading="lazy"
+                src={"/logo.svg"}
+                alt={"Vyvo Logo"}
+              />
             </motion.div>
           </Link>
 
@@ -266,31 +271,26 @@ const Header = () => {
             </Link>
           </div>
 
-          <button
+          <div
             onClick={() => setIsOpen(!isOpen)}
-            className="relative bg-transparent focus:bg-transparent z-50 w-10 h-10 flex lg:hidden flex-col justify-center items-center gap-1.5"
+            className="relative rounded-[10px] cursor-pointer bg-[rgba(119,169,232,0.04)] shadow-[inset_8px_106.667px_106.667px_rgba(148,168,237,0.02),inset_0px_-1.333px_1.333px_rgba(148,168,237,0.20),inset_0px_1.333px_1.333px_rgba(148,168,237,0.20)] backdrop-blur-[13px] z-50 w-10 h-10 flex lg:hidden flex-col justify-center items-center gap-1.5"
           >
             <motion.span
               animate={{
                 rotate: isOpen ? 45 : 0,
-                y: isOpen ? 8 : 0,
+                y: isOpen ? 4 : 0,
               }}
               className="w-6 h-0.5 bg-white block"
             />
-            <motion.span
-              animate={{
-                opacity: isOpen ? 0 : 1,
-              }}
-              className="w-6 h-0.5 bg-white block"
-            />
+
             <motion.span
               animate={{
                 rotate: isOpen ? -45 : 0,
-                y: isOpen ? -8 : 0,
+                y: isOpen ? -4 : 0,
               }}
               className="w-6 h-0.5 bg-white block"
             />
-          </button>
+          </div>
         </header>
       </div>
       (
@@ -348,17 +348,28 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-black z-[100] pt-24"
+            className="fixed inset-0 h-full bg-black z-[90] pt-24"
           >
-            <div className="max-w-7xl mx-auto px-4">
-              <nav className="flex flex-col gap-5 pt-12">
+            <div className="max-w-7xl h-full mx-auto">
+              <nav className="overflow-auto h-full flex flex-col gap-5 pt-12 pb-20 px-4">
+                <motion.a
+                  key="MENU"
+                  href=""
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0 * 0.1 }}
+                  className={`text-[#ffffff99] text-[16px] leading-[20px] font-light hover:text-gray-300 transition-colors`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  MENU
+                </motion.a>
                 {navLinksMobile.map((item, index) => (
                   <motion.a
                     key={item.label}
                     href={item.href}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: (index + 1) * 0.1 }}
                     className={`text-white text-[16px] leading-[20px] font-light hover:text-gray-300 transition-colors ${
                       pathname === item.href.replace("#", "")
                         ? "link-gradient link-bg font-medium bg-blend-lighten"
@@ -370,6 +381,72 @@ const Header = () => {
                   </motion.a>
                 ))}
               </nav>
+              <div className="absolute bottom-6 flex items-center justify-center gap-5 h-[50px] w-full">
+                <Link
+                  href={"https://www.facebook.com/VyvoGroup/"}
+                  target="_blank"
+                  className="size-10 main-shadow bg-[#94A8ED0A] backdrop-blur-[20px] rounded-full grid place-content-center hover:bg-[#94A8ED33] hover:scale-105 transition-all duration-300 ease-in-out"
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M6.18182 10.3333C5.20406 10.3333 5 10.5252 5 11.4444V13.1111C5 14.0304 5.20406 14.2222 6.18182 14.2222H8.54545V20.8889C8.54545 21.8081 8.74951 22 9.72727 22H12.0909C13.0687 22 13.2727 21.8081 13.2727 20.8889V14.2222H15.9267C16.6683 14.2222 16.8594 14.0867 17.0631 13.4164L17.5696 11.7497C17.9185 10.6014 17.7035 10.3333 16.4332 10.3333H13.2727V7.55556C13.2727 6.94191 13.8018 6.44444 14.4545 6.44444H17.8182C18.7959 6.44444 19 6.25259 19 5.33333V3.11111C19 2.19185 18.7959 2 17.8182 2H14.4545C11.191 2 8.54545 4.48731 8.54545 7.55556V10.3333H6.18182Z"
+                      stroke="white"
+                      stroke-opacity="0.5"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </Link>
+
+                <Link
+                  href={"https://t.me/VyvoSmartChainEN"}
+                  target="_blank"
+                  className="size-10 main-shadow bg-[#94A8ED0A] backdrop-blur-[20px] rounded-full grid place-content-center hover:bg-[#94A8ED33] hover:scale-105 transition-all duration-300 ease-in-out"
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.9854 15.4083L15.2268 19.0936C16.4277 20.4589 17.0282 21.1416 17.6567 20.9754C18.2852 20.8092 18.5008 19.9108 18.9318 18.1138L21.3229 8.1459C21.9868 5.37832 22.3187 3.99454 21.5808 3.312C20.843 2.62947 19.564 3.13725 17.0061 4.15282L5.13876 8.86449C3.09293 9.67674 2.07001 10.0829 2.00507 10.7808C1.99842 10.8522 1.99831 10.9241 2.00474 10.9955C2.06754 11.6937 3.08921 12.1033 5.13255 12.9223C6.05838 13.2934 6.5213 13.479 6.8532 13.8344C6.89052 13.8743 6.9264 13.9157 6.96078 13.9584C7.26658 14.3384 7.39709 14.8371 7.65808 15.8344L8.14653 17.701C8.4005 18.6715 8.52749 19.1568 8.86008 19.223C9.19267 19.2891 9.48225 18.8867 10.0614 18.0819L11.9854 15.4083ZM11.9854 15.4083L11.6676 15.0771C11.3059 14.7001 11.1251 14.5117 11.1251 14.2775C11.1251 14.0433 11.3059 13.8548 11.6676 13.4778L15.2406 9.75409"
+                      stroke="white"
+                      stroke-opacity="0.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </Link>
+
+                <Link
+                  href={"https://x.com/VyvoSmartChain"}
+                  target="_blank"
+                  className="size-10 main-shadow bg-[#94A8ED0A] backdrop-blur-[20px] rounded-full grid place-content-center hover:bg-[#94A8ED33] hover:scale-105 transition-all duration-300 ease-in-out"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.6165 8.66L17.9453 1.25H16.4453L10.9515 7.68375L6.56152 1.25H1.49902L8.13652 10.98L1.49902 18.75H2.99902L8.80152 11.955L13.4378 18.75H18.5003L11.6165 8.66ZM9.56277 11.065L8.89027 10.0962L3.53902 2.3875H5.84277L10.1603 8.60875L10.8328 9.5775L16.4465 17.665H14.1428L9.56277 11.065Z"
+                      fill="white"
+                      fill-opacity="0.5"
+                    />
+                  </svg>
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}
