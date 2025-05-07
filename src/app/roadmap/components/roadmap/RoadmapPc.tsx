@@ -267,9 +267,9 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.onChange((value) => {
-      if (value === 1) {
+      if (value === 0.9) {
         setScrollYProgressVar({
-          get: () => 1,
+          get: () => 0.9,
           onChange: () => () => {},
           clearListeners: () => {},
           set: () => {},
@@ -278,7 +278,7 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
           events: {},
           on: () => () => {},
         } as unknown as MotionValue<number>);
-      } else if (scrollYProgressVar.get() !== 1) {
+      } else if (scrollYProgressVar.get() !== 0.9) {
         setScrollYProgressVar(scrollYProgress);
       }
     });
