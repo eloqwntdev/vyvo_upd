@@ -56,7 +56,7 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
     if (validSections.length === 0) return;
 
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 80; // Offset for better activation
+      const scrollPosition = window.scrollY + 120; // Offset for better activation
       let currentSection = "";
       let closestSection = null;
       let minDistance = Number.MAX_VALUE;
@@ -120,7 +120,7 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
 
   const scrollToSection = (sectionTitle: string) => {
     if (sectionRefs[sectionTitle]?.current) {
-      const yOffset = -80; // Adjust for header height
+      const yOffset = -120; // Adjust for header height
       const element = sectionRefs[sectionTitle].current;
       const y =
         element.getBoundingClientRect().top + window.pageYOffset + yOffset;
@@ -278,6 +278,7 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
             ))}
           </div>
         </motion.div>
+        <div className="hidden md:block w-full max-w-[200px] lg:max-w-[250px] "></div>
       </div>
     </section>
   );
