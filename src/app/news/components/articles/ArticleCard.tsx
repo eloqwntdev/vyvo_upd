@@ -59,7 +59,8 @@ export const ArticleCard = ({ article }: ArticleCardProps) => {
   const slug = article?.uid || "";
 
   return (
-    <motion.div
+    <motion.a
+      href={`/news/${slug}`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
@@ -119,15 +120,12 @@ export const ArticleCard = ({ article }: ArticleCardProps) => {
             <p className="text-white break-words font-nb font-light text-[12px] md:text-[15px] lg:text-[16px] leading-[18px] md:leading-[19px] lg:leading-[20px] tracking-[-0.5px] mt-[6px] pb-[12px]">
               {excerpt}
             </p>
-            <Link
-              href={`/news/${slug}`}
-              className="text-white font-nb text-[12px] md:text-[15px] lg:text-[16px] leading-[18px] md:leading-[19px] lg:leading-[20px] tracking-[-0.5px] underline"
-            >
+            <span className="text-white font-nb text-[12px] md:text-[15px] lg:text-[16px] leading-[18px] md:leading-[19px] lg:leading-[20px] tracking-[-0.5px] underline">
               Read more
-            </Link>
+            </span>
           </motion.div>
         </div>
       </div>
-    </motion.div>
+    </motion.a>
   );
 };
