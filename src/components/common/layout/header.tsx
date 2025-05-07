@@ -352,9 +352,8 @@ const Header = () => {
           >
             <div className="max-w-7xl h-full mx-auto">
               <nav className="overflow-auto h-full flex flex-col gap-5 pt-12 pb-20 px-4">
-                <motion.a
+                <motion.span
                   key="MENU"
-                  href=""
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0 * 0.1 }}
@@ -362,23 +361,64 @@ const Header = () => {
                   onClick={() => setIsOpen(false)}
                 >
                   MENU
-                </motion.a>
-                {navLinksMobile.map((item, index) => (
-                  <motion.a
+                </motion.span>
+                {navLinks.map((item, index) => (
+                  <motion.div
                     key={item.label}
-                    href={item.href}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 0 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: (index + 1) * 0.1 }}
-                    className={`text-white text-[16px] leading-[20px] font-light hover:text-gray-300 transition-colors ${
-                      pathname === item.href.replace("#", "")
-                        ? "link-gradient link-bg font-medium bg-blend-lighten"
-                        : "text-white"
-                    }`}
+                    className={`flex flex-col gap-5`}
                     onClick={() => setIsOpen(false)}
                   >
-                    {item.label}
-                  </motion.a>
+                    <div className="flex flex-row justify-between">
+                      <a
+                        className={`text-white text-[16px] leading-[20px] font-light hover:text-gray-300 transition-colors ${
+                          pathname === item.href.replace("#", "")
+                            ? "link-gradient link-bg font-medium bg-blend-lighten"
+                            : "text-white"
+                        }`}
+                        href={item.href}
+                      >
+                        {item.label}
+                      </a>
+                      {item.subMenu && (
+                        <div className="flex items-center px-4">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="14"
+                            height="8"
+                            viewBox="0 0 14 8"
+                            fill="none"
+                          >
+                            <path
+                              d="M13 1.00005C13 1.00005 8.58107 6.99999 6.99995 7C5.41884 7.00001 1 1 1 1"
+                              stroke="white"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </div>
+                      )}
+                    </div>
+                    {item.subMenu && (
+                      <div className="flex flex-col px-4 gap-5">
+                        {item.subMenu.map((subitem, index) => (
+                          <a
+                            href={subitem.href}
+                            className={`text-white text-[16px] leading-[20px] font-light hover:text-gray-300 transition-colors ${
+                              pathname === item.href.replace("#", "")
+                                ? "link-gradient link-bg font-medium bg-blend-lighten"
+                                : "text-white"
+                            }`}
+                          >
+                            {subitem.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </motion.div>
                 ))}
               </nav>
               <div className="absolute bottom-6 flex items-center justify-center gap-5 h-[50px] w-full">
