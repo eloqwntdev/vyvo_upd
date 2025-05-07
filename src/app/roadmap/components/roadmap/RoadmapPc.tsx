@@ -262,15 +262,32 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
     offset: ["start end", "end end"],
     target: containerRef,
   });
+  const [scrollYProgressVar, setScrollYProgressVar] =
+    useState<MotionValue<number>>(scrollYProgress);
+
   useEffect(() => {
     const unsubscribe = scrollYProgress.onChange((value) => {
-      console.log("scrollYProgress:", value);
+      if (value === 1) {
+        setScrollYProgressVar({
+          get: () => 1,
+          onChange: () => () => {},
+          clearListeners: () => {},
+          set: () => {},
+          stop: () => {},
+          version: 1,
+          events: {},
+          on: () => () => {},
+        } as unknown as MotionValue<number>);
+      } else if (scrollYProgressVar.get() !== 1) {
+        setScrollYProgressVar(scrollYProgress);
+      }
     });
 
     return () => {
       unsubscribe();
     };
-  }, [scrollYProgress]);
+  }, [scrollYProgress, scrollYProgressVar]);
+
   return (
     <section
       ref={containerRef}
@@ -278,7 +295,7 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
     >
       <TimeTitle
         from={0.08}
-        scrollYProgress={scrollYProgress}
+        scrollYProgress={scrollYProgressVar}
         text={roadmap_datas[0].title}
       />
       <div className="flex w-full flex-col items-center gap-2 mt-[50px] mb-[200px]">
@@ -288,18 +305,18 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
           length={20}
           from={0.08}
           to={0.15}
-          scrollYProgress={scrollYProgress}
+          scrollYProgress={scrollYProgressVar}
         />
         <div className="h-4 flex flex-row items-center">
           <Cards
             className="mr-[-8px]"
             from={0.17}
-            scrollYProgress={scrollYProgress}
+            scrollYProgress={scrollYProgressVar}
             description={roadmap_datas[0].cards[1].description}
           >
             {roadmap_datas[0].cards[1].image}
           </Cards>
-          <Dot from={0.17} scrollYProgress={scrollYProgress} />
+          <Dot from={0.17} scrollYProgress={scrollYProgressVar} />
           <div className="flex flex-row gap-3 items-center">
             <Line
               side={Side.Left}
@@ -307,24 +324,24 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
               length={10}
               from={0.15}
               to={0.17}
-              scrollYProgress={scrollYProgress}
+              scrollYProgress={scrollYProgressVar}
             />
-            <Dot from={0.15} scrollYProgress={scrollYProgress} />
+            <Dot from={0.15} scrollYProgress={scrollYProgressVar} />
             <Line
               side={Side.Right}
               direction={Direction.Horizontal}
               length={10}
               from={0.15}
               to={0.17}
-              scrollYProgress={scrollYProgress}
+              scrollYProgress={scrollYProgressVar}
             />
           </div>
-          <Dot from={0.17} scrollYProgress={scrollYProgress} />
+          <Dot from={0.17} scrollYProgress={scrollYProgressVar} />
 
           <Cards
             className="ml-[-8px]"
             from={0.17}
-            scrollYProgress={scrollYProgress}
+            scrollYProgress={scrollYProgressVar}
             description={roadmap_datas[0].cards[0].description}
           >
             {roadmap_datas[0].cards[0].image}
@@ -336,11 +353,11 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
           length={32}
           from={0.17}
           to={0.26}
-          scrollYProgress={scrollYProgress}
+          scrollYProgress={scrollYProgressVar}
         />
         <TimeTitle
           from={0.26}
-          scrollYProgress={scrollYProgress}
+          scrollYProgress={scrollYProgressVar}
           text={roadmap_datas[1].title}
         />
         <Line
@@ -349,18 +366,18 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
           length={30}
           from={0.26}
           to={0.42}
-          scrollYProgress={scrollYProgress}
+          scrollYProgress={scrollYProgressVar}
         />
         <div className="h-4 flex flex-row items-center">
           <Cards
             className="mr-[-8px]"
             from={0.44}
-            scrollYProgress={scrollYProgress}
+            scrollYProgress={scrollYProgressVar}
             description={roadmap_datas[1].cards[1].description}
           >
             {roadmap_datas[1].cards[1].image}
           </Cards>
-          <Dot from={0.44} scrollYProgress={scrollYProgress} />
+          <Dot from={0.44} scrollYProgress={scrollYProgressVar} />
 
           <div className="flex flex-row gap-3 items-center">
             <Line
@@ -369,24 +386,24 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
               length={10}
               from={0.42}
               to={0.44}
-              scrollYProgress={scrollYProgress}
+              scrollYProgress={scrollYProgressVar}
             />
-            <Dot from={0.42} scrollYProgress={scrollYProgress} />
+            <Dot from={0.42} scrollYProgress={scrollYProgressVar} />
             <Line
               side={Side.Right}
               direction={Direction.Horizontal}
               length={10}
               from={0.42}
               to={0.44}
-              scrollYProgress={scrollYProgress}
+              scrollYProgress={scrollYProgressVar}
             />
           </div>
-          <Dot from={0.44} scrollYProgress={scrollYProgress} />
+          <Dot from={0.44} scrollYProgress={scrollYProgressVar} />
 
           <Cards
             className="ml-[-8px]"
             from={0.44}
-            scrollYProgress={scrollYProgress}
+            scrollYProgress={scrollYProgressVar}
             description={roadmap_datas[1].cards[0].description}
           >
             {roadmap_datas[1].cards[0].image}
@@ -398,11 +415,11 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
           length={32}
           from={0.44}
           to={0.55}
-          scrollYProgress={scrollYProgress}
+          scrollYProgress={scrollYProgressVar}
         />
         <TimeTitle
           from={0.55}
-          scrollYProgress={scrollYProgress}
+          scrollYProgress={scrollYProgressVar}
           text={roadmap_datas[2].title}
         />
         <Line
@@ -411,18 +428,18 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
           length={30}
           from={0.55}
           to={0.7}
-          scrollYProgress={scrollYProgress}
+          scrollYProgress={scrollYProgressVar}
         />
         <div className="h-4 flex flex-row items-center">
           <Cards
             className="mr-[-8px]"
             from={0.72}
-            scrollYProgress={scrollYProgress}
+            scrollYProgress={scrollYProgressVar}
             description={roadmap_datas[2].cards[1].description}
           >
             {roadmap_datas[2].cards[1].image}
           </Cards>
-          <Dot from={0.72} scrollYProgress={scrollYProgress} />
+          <Dot from={0.72} scrollYProgress={scrollYProgressVar} />
 
           <div className="flex flex-row gap-3 items-center">
             <Line
@@ -431,24 +448,24 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
               length={10}
               from={0.7}
               to={0.72}
-              scrollYProgress={scrollYProgress}
+              scrollYProgress={scrollYProgressVar}
             />
-            <Dot from={0.7} scrollYProgress={scrollYProgress} />
+            <Dot from={0.7} scrollYProgress={scrollYProgressVar} />
             <Line
               side={Side.Right}
               direction={Direction.Horizontal}
               length={10}
               from={0.7}
               to={0.72}
-              scrollYProgress={scrollYProgress}
+              scrollYProgress={scrollYProgressVar}
             />
           </div>
-          <Dot from={0.72} scrollYProgress={scrollYProgress} />
+          <Dot from={0.72} scrollYProgress={scrollYProgressVar} />
 
           <Cards
             className="ml-[-8px]"
             from={0.72}
-            scrollYProgress={scrollYProgress}
+            scrollYProgress={scrollYProgressVar}
             description={roadmap_datas[2].cards[0].description}
           >
             {roadmap_datas[2].cards[0].image}
@@ -460,7 +477,7 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
           length={32}
           from={0.77}
           to={0.87}
-          scrollYProgress={scrollYProgress}
+          scrollYProgress={scrollYProgressVar}
         />
         <div className="flex flex-row gap-3 items-center">
           <Line
@@ -469,9 +486,9 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
             length={20}
             from={0.87}
             to={0.89}
-            scrollYProgress={scrollYProgress}
+            scrollYProgress={scrollYProgressVar}
           />
-          <Dot from={0.87} scrollYProgress={scrollYProgress} />
+          <Dot from={0.87} scrollYProgress={scrollYProgressVar} />
 
           <Line
             side={Side.Right}
@@ -479,7 +496,7 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
             length={20}
             from={0.87}
             to={0.89}
-            scrollYProgress={scrollYProgress}
+            scrollYProgress={scrollYProgressVar}
           />
         </div>
         <div className="flex flex-row gap-5">
@@ -491,15 +508,15 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
               from={0.89}
               to={0.9}
               solid={true}
-              scrollYProgress={scrollYProgress}
+              scrollYProgress={scrollYProgressVar}
               className="mt-[-2vh]"
             />
-            <Dot from={0.9} scrollYProgress={scrollYProgress} />
+            <Dot from={0.9} scrollYProgress={scrollYProgressVar} />
 
             <Cards
               className="my-[-8px]"
               from={0.9}
-              scrollYProgress={scrollYProgress}
+              scrollYProgress={scrollYProgressVar}
               description={roadmap_datas[3].cards[2].description}
             >
               {roadmap_datas[3].cards[2].image}
@@ -512,14 +529,14 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
               length={6}
               from={0.89}
               to={0.9}
-              scrollYProgress={scrollYProgress}
+              scrollYProgress={scrollYProgressVar}
             />
-            <Dot from={0.9} scrollYProgress={scrollYProgress} />
+            <Dot from={0.9} scrollYProgress={scrollYProgressVar} />
 
             <Cards
               className="my-[-8px]"
               from={0.9}
-              scrollYProgress={scrollYProgress}
+              scrollYProgress={scrollYProgressVar}
               description={roadmap_datas[3].cards[1].description}
             >
               {roadmap_datas[3].cards[1].image}
@@ -533,15 +550,15 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
               from={0.89}
               to={0.9}
               solid={true}
-              scrollYProgress={scrollYProgress}
+              scrollYProgress={scrollYProgressVar}
               className="mt-[-2vh]"
             />
-            <Dot from={0.9} scrollYProgress={scrollYProgress} />
+            <Dot from={0.9} scrollYProgress={scrollYProgressVar} />
 
             <Cards
               className="my-[-8px]"
               from={0.9}
-              scrollYProgress={scrollYProgress}
+              scrollYProgress={scrollYProgressVar}
               description={roadmap_datas[3].cards[0].description}
             >
               {roadmap_datas[3].cards[0].image}
