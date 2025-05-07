@@ -306,7 +306,7 @@ const Header = () => {
                 setIsSubMenuOpen(false);
                 handleMouseLeave();
               }}
-              className="fixed pointer-events-none z-[100] top-[0px] w-fit h-fit"
+              className="fixed pointer-events-none z-[100] top-[0px] hidden md:block w-fit h-fit"
               initial={{ opacity: 0, y: -10, left: leftSpace }}
               animate={{ opacity: 1, y: 0, left: leftSpace }}
               exit={{ opacity: 0, y: -10 }}
@@ -358,7 +358,6 @@ const Header = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0 * 0.1 }}
                   className={`text-[#ffffff99] text-[16px] leading-[20px] font-light hover:text-gray-300 transition-colors`}
-                  onClick={() => setIsOpen(false)}
                 >
                   MENU
                 </motion.span>
@@ -369,55 +368,103 @@ const Header = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: (index + 1) * 0.1 }}
                     className={`flex flex-col gap-5`}
-                    onClick={() => setIsOpen(false)}
                   >
-                    <div className="flex flex-row justify-between">
-                      <a
-                        className={`text-white text-[16px] leading-[20px] font-light hover:text-gray-300 transition-colors ${
-                          pathname === item.href.replace("#", "")
-                            ? "link-gradient link-bg font-medium bg-blend-lighten"
-                            : "text-white"
-                        }`}
-                        href={item.href}
-                      >
-                        {item.label}
-                      </a>
-                      {item.subMenu && (
-                        <div className="flex items-center px-4">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="14"
-                            height="8"
-                            viewBox="0 0 14 8"
-                            fill="none"
+                    <div className="flex flex-col items-start w-full">
+                      <div className="flex flex-row justify-between w-full">
+                        <a
+                          className={`text-white text-[16px] leading-[20px] font-light hover:text-gray-300 transition-colors ${
+                            pathname === item.href.replace("#", "")
+                              ? "link-gradient link-bg font-medium bg-blend-lighten"
+                              : "text-white"
+                          }`}
+                          onClick={() => setIsOpen(false)}
+                          href={item.href}
+                        >
+                          {item.label}
+                        </a>
+                        {item.subMenu && (
+                          <motion.div
+                            initial={{
+                              rotate: 0,
+                            }}
+                            animate={{
+                              rotate:
+                                activeIndex === index && isSubMenuOpen === true
+                                  ? 180
+                                  : 0,
+                            }}
+                            transition={{ duration: 0.25 }}
+                            onClick={() => {
+                              if (activeIndex !== index) {
+                                setIsSubMenuOpen(true);
+                                setActiveIndex(index);
+                              } else {
+                                setIsSubMenuOpen(false);
+                                setActiveIndex(null);
+                              }
+                            }}
+                            className="flex items-center px-4 cursor-pointer"
                           >
-                            <path
-                              d="M13 1.00005C13 1.00005 8.58107 6.99999 6.99995 7C5.41884 7.00001 1 1 1 1"
-                              stroke="white"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </div>
-                      )}
-                    </div>
-                    {item.subMenu && (
-                      <div className="flex flex-col px-4 gap-5">
-                        {item.subMenu.map((subitem, index) => (
-                          <a
-                            href={subitem.href}
-                            className={`text-white text-[16px] leading-[20px] font-light hover:text-gray-300 transition-colors ${
-                              pathname === item.href.replace("#", "")
-                                ? "link-gradient link-bg font-medium bg-blend-lighten"
-                                : "text-white"
-                            }`}
-                          >
-                            {subitem.label}
-                          </a>
-                        ))}
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="14"
+                              height="8"
+                              viewBox="0 0 14 8"
+                              fill="none"
+                            >
+                              <path
+                                d="M13 1.00005C13 1.00005 8.58107 6.99999 6.99995 7C5.41884 7.00001 1 1 1 1"
+                                stroke="white"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </motion.div>
+                        )}
                       </div>
-                    )}
+                      <AnimatePresence>
+                        {item.subMenu &&
+                          isSubMenuOpen &&
+                          activeIndex === index && (
+                            <motion.div
+                              initial={{
+                                opacity: 0,
+                                height: "0px",
+                                marginTop: 0,
+                              }}
+                              animate={{
+                                opacity: 1,
+                                height: "auto",
+                                marginTop: 20,
+                              }}
+                              exit={{
+                                opacity: 0,
+                                height: "0px",
+                                marginTop: 0,
+                              }}
+                              className="flex flex-col px-4 gap-5"
+                            >
+                              {item.subMenu.map((subitem, subindex) => (
+                                <motion.a
+                                  initial={{ opacity: 0, y: 0 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{ delay: (subindex + 1) * 0.1 }}
+                                  href={subitem.href}
+                                  onClick={() => setIsOpen(false)}
+                                  className={`text-white text-[16px] leading-[20px] font-light hover:text-gray-300 transition-colors ${
+                                    pathname === subitem.href.replace("#", "")
+                                      ? "link-gradient link-bg font-medium bg-blend-lighten"
+                                      : "text-white opacity-[0.8]"
+                                  }`}
+                                >
+                                  {subitem.label}
+                                </motion.a>
+                              ))}
+                            </motion.div>
+                          )}
+                      </AnimatePresence>
+                    </div>
                   </motion.div>
                 ))}
               </nav>
@@ -497,16 +544,16 @@ const Header = () => {
 
 export default Header;
 
-const navLinksMobile = [
-  { label: "Home", href: "/home" },
-  { label: "VAI OS", href: "/" },
-  { label: "Vyvo Tech", href: "/wearables" },
-  { label: "Vyvo Smart Chain", href: "/vyvo-smart-chain" },
-  { label: "SocialFi", href: "/social-fi" },
-  { label: "Store", href: "https://shop.vyvo.com/" },
-  { label: "About Us", href: "/about-us" },
-  { label: "Tokenomic", href: "/tokenomic" },
-  { label: "News", href: "/news" },
-  // { label: "Events", href: "/events" },
-  { label: "Support", href: "https://www.vyvo.support/hc/en-us" },
-];
+// const navLinksMobile = [
+//   { label: "Home", href: "/home" },
+//   { label: "VAI OS", href: "/" },
+//   { label: "Vyvo Tech", href: "/wearables" },
+//   { label: "Vyvo Smart Chain", href: "/vyvo-smart-chain" },
+//   { label: "SocialFi", href: "/social-fi" },
+//   { label: "Store", href: "https://shop.vyvo.com/" },
+//   { label: "About Us", href: "/about-us" },
+//   { label: "Tokenomic", href: "/tokenomic" },
+//   { label: "News", href: "/news" },
+//   // { label: "Events", href: "/events" },
+//   { label: "Support", href: "https://www.vyvo.support/hc/en-us" },
+// ];
