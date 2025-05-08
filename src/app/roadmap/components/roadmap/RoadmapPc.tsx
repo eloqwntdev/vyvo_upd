@@ -262,17 +262,14 @@ const RoadmapPc = ({ roadmap_datas }: { roadmap_datas: RoadmapData[] }) => {
     offset: ["start end", "end end"],
     target: containerRef,
   });
-  const [scrollYProgressVar, setScrollYProgressVar] =
-    useState<MotionValue<number>>(scrollYProgress);
+  const scrollYProgressVar = useMotionValue(0);
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.onChange((value) => {
-      if (value === 0.9) {
-        setScrollYProgressVar(useMotionValue(0.9));
-      } else if (scrollYProgressVar.get() !== 0.9) {
-        setScrollYProgressVar(scrollYProgress);
-        console.log("Sp:" + String(scrollYProgress.get()));
-        console.log("SpVar:" + String(scrollYProgressVar.get()));
+      if (value >= 0.9) {
+        scrollYProgressVar.set(0.9);
+      } else if (scrollYProgressVar.get() < 0.9) {
+        scrollYProgressVar.set(scrollYProgress.get());
       }
     });
 
