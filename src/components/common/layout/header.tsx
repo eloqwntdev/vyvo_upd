@@ -458,7 +458,7 @@ const Header = () => {
                                       : "text-white opacity-[0.8]"
                                   }`}
                                 >
-                                  {subitem.label}
+                                  - {subitem.label}
                                 </motion.a>
                               ))}
                             </motion.div>
