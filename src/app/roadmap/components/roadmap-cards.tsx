@@ -11,6 +11,7 @@ import soundWavesAnimationData from "../../../../public/lottie/roadmap/sound wav
 import brainCardAnimationData from "../../../../public/lottie/roadmap/brain card/data.json";
 
 import RoadmapPc from "./roadmap/RoadmapPc";
+import DevicesCards from "./roadmap/components/devicesCards";
 
 enum Side {
   Left = "left",
@@ -57,6 +58,7 @@ const RoadmapCards = () => {
   const [videoSrc, setVideoSrc] = useState(
     "/gpu-farms-img/improvements/GPU-farm-anim-new.webm"
   );
+
   const roadmap_datas: RoadmapData[] = [
     {
       title: "Short-Term (0-6 Months)",
@@ -75,16 +77,7 @@ const RoadmapCards = () => {
           side: Side.Right,
         },
         {
-          image: (
-            <img
-              loading="lazy"
-              src="/roadmap-img/roadmap-cards/health-metrics-wearables.png"
-              className="w-full object-cover"
-              alt="Vyvo roadmap"
-              width={1140}
-              height={840}
-            />
-          ),
+          image: <DevicesCards />,
           description:
             "Release of enhanced health metrics and initial integrations with wearable devices like Amazfit and Samsung Watch.",
           index: 0,
