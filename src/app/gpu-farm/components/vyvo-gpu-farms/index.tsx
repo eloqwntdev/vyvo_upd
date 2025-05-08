@@ -24,7 +24,7 @@ const VyvoGPUFarms = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
         >
-          <h2 className="font-nb font-light text-2xl sm:text-3xl md:text-4xl lg:text-[48px] leading-tight sm:leading-tight lg:leading-[52px] tracking-[-0.8px] sm:tracking-[-1px] lg:tracking-[-1.4px] text-white sm:text-center">
+          <h2 className="font-nb font-light text-2xl sm:text-3xl md:text-4xl lg:text-[48px] leading-[40px] sm:leading-[40px] lg:leading-[52px] tracking-[-0.8px] sm:tracking-[-1px] lg:tracking-[-1.4px] text-white sm:text-center">
             Vyvo GPU Farms:{" "}
             <span className="banner-gradient-text">
               Powering the Future of AI

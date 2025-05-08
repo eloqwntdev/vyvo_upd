@@ -9,7 +9,7 @@ const Improvements = () => {
     <section className="bg-black py-10 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1280px] mx-auto w-full">
         <motion.h2
-          className="text-white font-nb font-light text-2xl sm:text-3xl md:text-4xl lg:text-[48px] leading-tight sm:leading-tight lg:leading-[52px] tracking-[-0.8px] sm:tracking-[-1px] lg:tracking-[-1.4px] text-center mb-8 sm:mb-12 md:mb-[60px]"
+          className="text-white font-nb font-light text-2xl sm:text-3xl md:text-4xl lg:text-[48px] leading-tight sm:leading-tight lg:leading-[52px] tracking-[-0.8px] sm:tracking-[-1px] lg:tracking-[-1.4px] mb-8 sm:mb-12 md:mb-[60px] md:text-center"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}

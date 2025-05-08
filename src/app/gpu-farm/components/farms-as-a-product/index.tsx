@@ -13,7 +13,7 @@ const FarmsAsAProduct = () => {
   });
 
   return (
-    <section className="bg-[#050505] py-10 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 flex relative flex-col items-center justify-center">
+    <section className="bg-[#050505] w-full py-10 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 flex relative flex-col items-center justify-center">
       <motion.div
         className="absolute w-full h-full"
         initial={{ opacity: 0 }}
@@ -33,7 +33,7 @@ const FarmsAsAProduct = () => {
 
       <div className="max-w-[1280px] mx-auto w-full relative z-10">
         <motion.div
-          className="max-w-[320px] sm:max-w-[450px] md:max-w-[584px] w-full mx-auto flex flex-col gap-4 sm:gap-6 mb-8 sm:mb-12 md:mb-[60px]"
+          className="max-w-[400px] sm:max-w-[450px] md:max-w-[584px] w-full mx-auto flex flex-col gap-4 sm:gap-6 mb-8 sm:mb-12 md:mb-[60px]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
