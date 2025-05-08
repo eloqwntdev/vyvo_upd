@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import RoadmapMobile from "./roadmap/RoadmapMobile";
+import barChartCirclesAnimationData from "../../../../public/lottie/roadmap/bar chart + circles/9.json";
+import barChartAnimationData from "../../../../public/lottie/roadmap/bar chart/6.json";
+import houseIconAnimationData from "../../../../public/lottie/roadmap/house icon animiaiton.json";
+import circlesAnimationData from "../../../../public/lottie/roadmap/circles.json";
+import headAnimationData from "../../../../public/lottie/roadmap/Head animation/data.json";
+import soundWavesAnimationData from "../../../../public/lottie/roadmap/sound waves/data.json";
+import brainCardAnimationData from "../../../../public/lottie/roadmap/brain card/data.json";
 
 import RoadmapPc from "./roadmap/RoadmapPc";
 
@@ -46,20 +54,19 @@ const RoadmapCards = () => {
   const Lottie = dynamic(() => import("lottie-react"), {
     ssr: false,
   });
-
+  const [videoSrc, setVideoSrc] = useState(
+    "/gpu-farms-img/improvements/GPU-farm-anim-new.webm"
+  );
   const roadmap_datas: RoadmapData[] = [
     {
       title: "Short-Term (0-6 Months)",
       cards: [
         {
           image: (
-            <img
-              loading="lazy"
-              src="/roadmap-img/roadmap-cards/financial-management-launch.png"
-              className="w-full object-cover"
-              alt="Vyvo roadmap"
-              width={1140}
-              height={840}
+            <Lottie
+              className="w-full object-cover rounded-[24px]"
+              animationData={barChartAnimationData}
+              assetsPath="/lottie/roadmap/bar chart/images/"
             />
           ),
           description:
@@ -90,13 +97,9 @@ const RoadmapCards = () => {
       cards: [
         {
           image: (
-            <img
-              loading="lazy"
-              src="/roadmap-img/roadmap-cards/smart-home-productivity.png"
-              className="w-full object-cover"
-              alt="Vyvo roadmap"
-              width={1140}
-              height={840}
+            <Lottie
+              className="w-full object-cover rounded-[24px]"
+              animationData={houseIconAnimationData}
             />
           ),
           description:
@@ -106,13 +109,9 @@ const RoadmapCards = () => {
         },
         {
           image: (
-            <img
-              loading="lazy"
-              src="/roadmap-img/roadmap-cards/fitness-voice-coaching.png"
-              className="w-full object-cover"
-              alt="Vyvo roadmap"
-              width={1140}
-              height={840}
+            <Lottie
+              className="w-full object-cover rounded-[24px]"
+              animationData={circlesAnimationData}
             />
           ),
           description:
@@ -127,13 +126,10 @@ const RoadmapCards = () => {
       cards: [
         {
           image: (
-            <img
-              loading="lazy"
-              src="/roadmap-img/roadmap-cards/omni-model-integration.png"
-              className="w-full object-cover"
-              alt="Vyvo roadmap"
-              width={1140}
-              height={840}
+            <Lottie
+              className="w-full object-cover rounded-[24px]"
+              animationData={headAnimationData}
+              assetsPath="/lottie/roadmap/Head animation/images/"
             />
           ),
           description:
@@ -143,14 +139,20 @@ const RoadmapCards = () => {
         },
         {
           image: (
-            <img
-              loading="lazy"
-              src="/roadmap-img/roadmap-cards/desktop-browser-launch.png"
-              className="w-full object-cover"
-              alt="Vyvo roadmap"
-              width={1140}
-              height={840}
-            />
+            <div className="w-full p-3 h-auto aspect-[4/3] rounded-lg overflow-hidden">
+              <motion.video
+                id="banner-video"
+                autoPlay
+                muted
+                playsInline
+                loop
+                key={videoSrc}
+                className="z-10 w-full"
+              >
+                <source src={videoSrc} />
+                Your browser does not support the video tag.
+              </motion.video>
+            </div>
           ),
           description: "Launch of desktop and browser versions.",
           index: 2,
@@ -163,13 +165,10 @@ const RoadmapCards = () => {
       cards: [
         {
           image: (
-            <img
-              loading="lazy"
-              src="/roadmap-img/roadmap-cards/language-voice-expansion.png"
-              className="w-full object-cover"
-              alt="Vyvo roadmap"
-              width={1140}
-              height={840}
+            <Lottie
+              className="w-full object-cover rounded-[24px]"
+              animationData={soundWavesAnimationData}
+              assetsPath="/lottie/roadmap/sound waves/images/"
             />
           ),
           description:
@@ -179,13 +178,10 @@ const RoadmapCards = () => {
         },
         {
           image: (
-            <img
-              loading="lazy"
-              src="/roadmap-img/roadmap-cards/financial-fitness-insights.png"
-              className="w-full object-cover"
-              alt="Vyvo roadmap"
-              width={1140}
-              height={840}
+            <Lottie
+              className="w-full object-cover rounded-[24px]"
+              animationData={barChartCirclesAnimationData}
+              assetsPath="/lottie/roadmap/bar chart + circles/images/"
             />
           ),
           description:
@@ -195,13 +191,10 @@ const RoadmapCards = () => {
         },
         {
           image: (
-            <img
-              loading="lazy"
-              src="/roadmap-img/roadmap-cards/user-feedback-updates.png"
-              className="w-full object-cover"
-              alt="Vyvo roadmap"
-              width={1140}
-              height={840}
+            <Lottie
+              className="w-full object-cover rounded-[24px]"
+              animationData={brainCardAnimationData}
+              assetsPath="/lottie/roadmap/brain card/images/"
             />
           ),
           description:
