@@ -18,7 +18,7 @@ const Improvements = () => {
           How GPU Farms Enhance VAI OS
         </motion.h2>
 
-        <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-16 items-center">
+        <div className="w-full flex flex-col-reverse lg:flex-row gap-8 lg:gap-12 xl:gap-16 items-center">
           <motion.div
             className="w-full lg:w-1/2"
             initial={{ opacity: 0, x: -20 }}
