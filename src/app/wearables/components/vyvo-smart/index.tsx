@@ -104,7 +104,7 @@ const VyvoSmart = () => {
         </div>
       </div>
 
-      <div className="max-w-full md:max-w-[424px] w-full flex flex-col gap-8 md:gap-12">
+      <div className="max-w-full md:max-w-[480px] w-full flex flex-col gap-8 md:gap-12">
         <div className="flex flex-col gap-6 md:gap-10">
           <motion.div
             ref={contentRef}
@@ -195,7 +195,7 @@ const VyvoSmart = () => {
                   />
                 </motion.div>
 
-                <p className="text-black font-nb font-normal text-[14px] md:text-[16px] leading-[1.4] md:leading-[20px]  tracking-[-0.5px]">
+                <p className="text-black font-nb font-light text-[14px] md:text-[16px] leading-[1.4] md:leading-[20px]  tracking-[-0.5px]">
                   {item.text}
                 </p>
               </motion.div>
