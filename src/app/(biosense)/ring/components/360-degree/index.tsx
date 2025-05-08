@@ -120,7 +120,7 @@ const Degree360 = ({
 
   return (
     <section className="pt-10 md:pt-20 flex flex-col gap-10 md:gap-[100px] bg-black px-0 md:px-8 relative">
-      <motion.div
+      {/* <motion.div
         className="absolute w-full h-full"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -135,7 +135,7 @@ const Degree360 = ({
           animationData={animationData}
           loop
         />
-      </motion.div>
+      </motion.div> */}
       {/* Mobile background image - shown only on mobile */}
       <div className="block md:hidden w-full px-4 relative">
         <img
