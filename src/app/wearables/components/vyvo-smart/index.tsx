@@ -215,7 +215,7 @@ const VyvoSmart = () => {
             initial={{ opacity: 0 }}
             animate={isDownloadInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="text-black font-nb text-[14px] md:text-[16px] leading-[1.4] md:leading-[20px]"
+            className="text-black font-light font-nb text-[14px] md:text-[16px] leading-[1.4] md:leading-[20px]"
           >
             Download the Vyvo Smart App from the Apple App Store or Google Play
             Store.
@@ -241,10 +241,10 @@ const VyvoSmart = () => {
                   className="w-8 h-8"
                 />
                 <div className="flex flex-col items-start">
-                  <span className="text-black font-nb font-normal text-[10px] md:text-[12px] leading-[1.4] md:leading-[16px]">
+                  <span className="text-black font-nb font-light text-[10px] md:text-[12px] leading-[1.4] md:leading-[16px]">
                     Get it on
                   </span>
-                  <span className="text-black font-nb font-medium text-[14px] md:text-[16px] leading-[1.2] md:leading-[18px]">
+                  <span className="text-black font-nb font-light text-[14px] md:text-[16px] leading-[1.2] md:leading-[18px]">
                     Google Play
                   </span>
                 </div>
@@ -271,10 +271,10 @@ const VyvoSmart = () => {
                   className="w-8 h-8"
                 />
                 <div className="flex flex-col items-start">
-                  <span className="text-black font-nb font-normal text-[10px] md:text-[12px] leading-[1.4] md:leading-[16px]">
+                  <span className="text-black font-nb font-light text-[10px] md:text-[12px] leading-[1.4] md:leading-[16px]">
                     Get it on
                   </span>
-                  <span className="text-black font-nb font-medium text-[14px] md:text-[16px] leading-[1.2] md:leading-[18px]">
+                  <span className="text-black font-nb font-light text-[14px] md:text-[16px] leading-[1.2] md:leading-[18px]">
                     App Store
                   </span>
                 </div>
