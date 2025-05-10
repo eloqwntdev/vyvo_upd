@@ -56,7 +56,7 @@ const RoadmapCards = () => {
     ssr: false,
   });
   const [videoSrc, setVideoSrc] = useState(
-    "/gpu-farms-img/improvements/GPU-farm-anim-new.webm"
+    "/roadmap-img/roadmap-cards/vyvo.webm"
   );
 
   const roadmap_datas: RoadmapData[] = [
@@ -69,6 +69,7 @@ const RoadmapCards = () => {
               className="w-full object-cover rounded-[24px]"
               animationData={barChartAnimationData}
               assetsPath="/lottie/roadmap/bar chart/images/"
+              loop={false}
             />
           ),
           description:
@@ -93,6 +94,7 @@ const RoadmapCards = () => {
             <Lottie
               className="w-full object-cover rounded-[24px]"
               animationData={houseIconAnimationData}
+              loop={false}
             />
           ),
           description:
@@ -105,6 +107,7 @@ const RoadmapCards = () => {
             <Lottie
               className="w-full object-cover rounded-[24px]"
               animationData={circlesAnimationData}
+              loop={false}
             />
           ),
           description:
@@ -123,6 +126,7 @@ const RoadmapCards = () => {
               className="w-full object-cover rounded-[24px]"
               animationData={headAnimationData}
               assetsPath="/lottie/roadmap/Head animation/images/"
+              loop={false}
             />
           ),
           description:
@@ -138,7 +142,6 @@ const RoadmapCards = () => {
                 autoPlay
                 muted
                 playsInline
-                loop
                 key={videoSrc}
                 className="z-10 w-full"
               >
@@ -162,6 +165,7 @@ const RoadmapCards = () => {
               className="w-full object-cover rounded-[24px]"
               animationData={soundWavesAnimationData}
               assetsPath="/lottie/roadmap/sound waves/images/"
+              loop={false}
             />
           ),
           description:
@@ -175,6 +179,7 @@ const RoadmapCards = () => {
               className="w-full object-cover rounded-[24px]"
               animationData={barChartCirclesAnimationData}
               assetsPath="/lottie/roadmap/bar chart + circles/images/"
+              loop={false}
             />
           ),
           description:
@@ -188,6 +193,7 @@ const RoadmapCards = () => {
               className="w-full object-cover rounded-[24px]"
               animationData={brainCardAnimationData}
               assetsPath="/lottie/roadmap/brain card/images/"
+              loop={false}
             />
           ),
           description:

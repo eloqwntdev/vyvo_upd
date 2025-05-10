@@ -119,7 +119,7 @@ const Cards: React.FC<CardsProps> = ({
           transition={{ duration: 2 }}
           className="bg-[#5348d70a] w-full rounded-[24px] shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[10px]"
         >
-          {children}
+          {inView && children}
         </motion.div>
         <div>
           <p className="md:absolute font-nb font-light text-[14px] leading-[18px] tracking-[-0.42px] md:text-[20px] md:leading-[24px] md:tracking-[-0.6px]">
