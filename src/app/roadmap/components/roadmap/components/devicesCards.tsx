@@ -1,10 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { motion, MotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 
-const DevicesCards = () => {
+const DevicesCards = ({
+  id,
+  isMobile,
+  saw,
+}: {
+  id?: string;
+  isMobile: boolean;
+  saw?: boolean;
+}) => {
   const [selectedIcon, setSelectedIcon] = useState<string | null>("Icon3");
   const [imageSrc, setImageSrc] = useState("/homepage/card-watch-3.png");
   const [textContent, setTextContent] = useState("BioSense Watch");
+  const [inView, SetInView] = useState(false);
+
+  useEffect(() => {
+    if (saw) {
+      SetInView(saw);
+    }
+  }, [saw]);
   const handleClick = (icon: string | null) => {
     setSelectedIcon(icon);
 
@@ -21,7 +36,12 @@ const DevicesCards = () => {
   };
 
   return (
-    <div
+    <motion.div
+      onViewportEnter={() => {
+        if (isMobile) {
+          SetInView(true);
+        }
+      }}
       onClick={() => {
         switch (selectedIcon) {
           // case "Icon1":
@@ -38,25 +58,56 @@ const DevicesCards = () => {
             break;
         }
       }}
-      className="cursor-pointer p-[2.5px] rounded-[18px]"
+      className="cursor-pointer rounded-[18px]"
     >
-      <div className="p-4 rounded-[18px] relative">
+      <div
+        style={{
+          border: "1px solid rgba(119, 169, 232, 0.15)",
+        }}
+        className="rounded-[18px] relative"
+      >
         <img
           src="/roadmap-img/roadmap-cards/health-metrics-wearables.png"
           alt=""
           className="pointer-events-none opacity-0 mix-blend-color-dodge"
         />
-        <img
+        <motion.img
+          initial={{
+            opacity: 0.5,
+          }}
+          animate={{
+            opacity: inView ? 1 : 0.5,
+          }}
+          transition={{ duration: 1, delay: 1 }}
           src={imageSrc}
           alt=""
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 scale-110"
-        />{" "}
-        <div className="absolute top-[20px] left-1/2 transform -translate-x-1/2 flex flex-col gap-5 items-center">
+        />
+        <motion.span
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: inView ? 1 : 0,
+          }}
+          transition={{ duration: 1, delay: 0.8 }}
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent font-light font-nb text-[48px] leading-[55px] max-w-[235px] text-center "
+        >
+          {textContent}
+        </motion.span>
+        <div className="absolute z-20 top-1/2 w-full left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col gap-3 items-center">
           <div className="flex gap-[10.67px]">
             <motion.div
               className={`size-[32px] rounded-full cursor-pointer bg-[#fff] ${
                 selectedIcon === "Icon3" ? "card-3-tag" : ""
               } grid place-content-center`}
+              initial={{
+                opacity: 0.5,
+              }}
+              animate={{
+                opacity: inView ? 1 : 0.5,
+              }}
+              transition={{ duration: 1 }}
               onHoverStart={() => handleClick("Icon3")}
             >
               {selectedIcon === "Icon3" ? (
@@ -132,6 +183,13 @@ const DevicesCards = () => {
                 selectedIcon === "Icon1" ? "card-3-tag" : ""
               } grid place-content-center`}
               onHoverStart={() => handleClick("Icon1")}
+              initial={{
+                opacity: 0.5,
+              }}
+              animate={{
+                opacity: inView ? 1 : 0.5,
+              }}
+              transition={{ duration: 1, delay: 0.4 }}
             >
               {selectedIcon === "Icon1" ? (
                 <svg
@@ -191,6 +249,13 @@ const DevicesCards = () => {
                 selectedIcon === "Icon2" ? "card-3-tag" : ""
               } grid place-content-center`}
               onHoverStart={() => handleClick("Icon2")}
+              initial={{
+                opacity: 0.5,
+              }}
+              animate={{
+                opacity: inView ? 1 : 0.5,
+              }}
+              transition={{ duration: 1, delay: 0.8 }}
             >
               {selectedIcon === "Icon2" ? (
                 <svg
@@ -251,15 +316,26 @@ const DevicesCards = () => {
               )}
             </motion.div>
           </div>
-          <span className="bg-gradient-to-r from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent font-light font-nb text-[48px] leading-[55px] max-w-[235px] text-center ">
+          <span className="bg-gradient-to-r opacity-0 from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent font-light font-nb text-[48px] leading-[55px] max-w-[235px] text-center ">
             {textContent}
           </span>
+          <motion.span
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            animate={{
+              opacity: inView ? 1 : 0,
+              y: inView ? 0 : 20,
+            }}
+            transition={{ duration: 1, delay: 1.2 }}
+            className="capitalize w-full text-center font-nb text-[24px] leading-[28px] text-white"
+          >
+            Vyvo Devices
+          </motion.span>
         </div>
-        <span className="capitalize font-nb text-[24px] leading-[28px] text-white absolute bottom-[30px] left-1/2 transform -translate-x-1/2">
-          Vyvo Devices
-        </span>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

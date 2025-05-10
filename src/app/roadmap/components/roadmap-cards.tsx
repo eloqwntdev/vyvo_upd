@@ -58,7 +58,7 @@ const RoadmapCards = () => {
   const [videoSrc, setVideoSrc] = useState(
     "/roadmap-img/roadmap-cards/vyvo.webm"
   );
-
+  const isMobile = useIsMobile();
   const roadmap_datas: RoadmapData[] = [
     {
       title: "Short-Term (0-6 Months)",
@@ -66,6 +66,7 @@ const RoadmapCards = () => {
         {
           image: (
             <Lottie
+              id="lottie"
               className="w-full object-cover rounded-[24px]"
               animationData={barChartAnimationData}
               assetsPath="/lottie/roadmap/bar chart/images/"
@@ -78,7 +79,7 @@ const RoadmapCards = () => {
           side: Side.Right,
         },
         {
-          image: <DevicesCards />,
+          image: <DevicesCards id="deviceCard" isMobile={isMobile} />,
           description:
             "Release of enhanced health metrics and initial integrations with wearable devices like Amazfit and Samsung Watch.",
           index: 0,
@@ -92,6 +93,7 @@ const RoadmapCards = () => {
         {
           image: (
             <Lottie
+              id="lottie"
               className="w-full object-cover rounded-[24px]"
               animationData={houseIconAnimationData}
               loop={false}
@@ -105,6 +107,7 @@ const RoadmapCards = () => {
         {
           image: (
             <Lottie
+              id="lottie"
               className="w-full object-cover rounded-[24px]"
               animationData={circlesAnimationData}
               loop={false}
@@ -123,6 +126,7 @@ const RoadmapCards = () => {
         {
           image: (
             <Lottie
+              id="lottie"
               className="w-full object-cover rounded-[24px]"
               animationData={headAnimationData}
               assetsPath="/lottie/roadmap/Head animation/images/"
@@ -136,19 +140,17 @@ const RoadmapCards = () => {
         },
         {
           image: (
-            <div className="w-full p-3 h-auto aspect-[4/3] rounded-lg overflow-hidden">
-              <motion.video
-                id="banner-video"
-                autoPlay
-                muted
-                playsInline
-                key={videoSrc}
-                className="z-10 w-full"
-              >
-                <source src={videoSrc} />
-                Your browser does not support the video tag.
-              </motion.video>
-            </div>
+            <video
+              id="video"
+              autoPlay
+              muted
+              playsInline
+              key={videoSrc}
+              className="z-10 w-full"
+            >
+              <source src={videoSrc} />
+              Your browser does not support the video tag.
+            </video>
           ),
           description: "Launch of desktop and browser versions.",
           index: 2,
@@ -162,6 +164,7 @@ const RoadmapCards = () => {
         {
           image: (
             <Lottie
+              id="lottie"
               className="w-full object-cover rounded-[24px]"
               animationData={soundWavesAnimationData}
               assetsPath="/lottie/roadmap/sound waves/images/"
@@ -176,6 +179,7 @@ const RoadmapCards = () => {
         {
           image: (
             <Lottie
+              id="lottie"
               className="w-full object-cover rounded-[24px]"
               animationData={barChartCirclesAnimationData}
               assetsPath="/lottie/roadmap/bar chart + circles/images/"
@@ -190,6 +194,7 @@ const RoadmapCards = () => {
         {
           image: (
             <Lottie
+              id="lottie"
               className="w-full object-cover rounded-[24px]"
               animationData={brainCardAnimationData}
               assetsPath="/lottie/roadmap/brain card/images/"
@@ -204,8 +209,6 @@ const RoadmapCards = () => {
       ],
     },
   ];
-
-  const isMobile = useIsMobile();
 
   return (
     <section className="py-5 md:py-20 px-4 md:px-20 w-full flex flex-col gap-6 items-center justify-center">

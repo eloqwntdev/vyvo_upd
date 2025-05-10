@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, MotionValue } from "framer-motion";
+import CardImage from "./cardImage";
 
 enum Side {
   Left = "left",
@@ -16,6 +17,7 @@ interface CardsProps {
   className?: string;
   from?: number;
   scrollYProgress?: MotionValue<number>;
+  saw?: boolean;
 }
 
 const Cards: React.FC<CardsProps> = ({
@@ -27,19 +29,17 @@ const Cards: React.FC<CardsProps> = ({
   className = "",
   from,
   scrollYProgress,
+  saw,
 }) => {
   const [inView, SetInView] = useState(false);
   const [descriptionSpans, setDescriptionSpans] = useState<JSX.Element[]>([]);
-  const [saw, SetSaw] = useState(false);
 
   useEffect(() => {
     if (scrollYProgress && from) {
       const unsubscribe = scrollYProgress.on("change", (value: number) => {
         if (value >= from) {
-          SetSaw(true);
           SetInView(true);
         } else {
-          SetSaw(false);
           SetInView(false);
         }
       });
@@ -117,9 +117,9 @@ const Cards: React.FC<CardsProps> = ({
             opacity: inView ? 1 : inView ? 0.5 : isMobile ? 0.0 : 0.5,
           }}
           transition={{ duration: 2 }}
-          className="bg-[#5348d70a] w-full rounded-[24px] shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[10px]"
+          className="bg-[#5348d70a] p-3 w-full rounded-[24px] shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[10px]"
         >
-          {inView && children}
+          <CardImage saw={inView}>{children}</CardImage>
         </motion.div>
         <div>
           <p className="md:absolute font-nb font-light text-[14px] leading-[18px] tracking-[-0.42px] md:text-[20px] md:leading-[24px] md:tracking-[-0.6px]">
