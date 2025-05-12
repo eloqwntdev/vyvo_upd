@@ -16,14 +16,14 @@ const TryNow = () => {
     offset: ["start end", "end start"],
   });
 
-  const titleY = useTransform(scrollYProgress, [0, 0.5], [100, 0]);
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const descriptionY = useTransform(scrollYProgress, [0.1, 0.6], [50, 0]);
+  const titleY = useTransform(scrollYProgress, [0, 0.25], [100, 0]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.25], [0, 1]);
+  const descriptionY = useTransform(scrollYProgress, [0.1, 0.3], [50, 0]);
   const descriptionOpacity = useTransform(scrollYProgress, [0.1, 0.4], [0, 1]);
-  const buttonScale = useTransform(scrollYProgress, [0.2, 0.7], [0.8, 1]);
-  const buttonOpacity = useTransform(scrollYProgress, [0.2, 0.7], [0, 1]);
-  const imageScale = useTransform(scrollYProgress, [0, 0.5], [0.9, 1]);
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.5], [0.5, 1]);
+  const buttonScale = useTransform(scrollYProgress, [0.2, 0.35], [0.8, 1]);
+  const buttonOpacity = useTransform(scrollYProgress, [0.2, 0.35], [0, 1]);
+  const imageScale = useTransform(scrollYProgress, [0, 0.25], [0.9, 1]);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.25], [0.5, 1]);
 
   return (
     <section
