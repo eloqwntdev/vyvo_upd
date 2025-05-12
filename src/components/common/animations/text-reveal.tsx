@@ -52,11 +52,11 @@ export const TextReveal: FC<TextRevealProps> = ({
       const element = document.getElementById("reveal-text");
       if (element) {
         const elementRect = element.getBoundingClientRect();
-        //   const offset = window.innerHeight / 2 - elementRect.height / 2;
-        //   window.scrollTo({
-        //     top: window.scrollY - window.innerHeight - offset - 60,
-        //   });
-        element.scrollIntoView();
+        const offset = window.innerHeight / 2 - elementRect.height;
+        window.scrollTo({
+          top: window.scrollY - window.innerHeight - offset - 60,
+        });
+        // element.scrollIntoView();
       }
       html.style.scrollBehavior = prevScrollBehavior;
     }
@@ -70,7 +70,6 @@ export const TextReveal: FC<TextRevealProps> = ({
 
   return (
     <div
-      id="reveal-text"
       ref={targetRef}
       className={cn(
         "relative z-0",
@@ -88,6 +87,7 @@ export const TextReveal: FC<TextRevealProps> = ({
             <div className="mb-12 md:mb-16 w-full relative h-20">{icons}</div>
           )}
           <span
+            id="reveal-text"
             className={
               "flex flex-wrap sm:p-5 items-center justify-center text-[28px] font-normal text-[#FFFFFF26] md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-[40px] leading-[40px] md:leading-[48px]"
             }
