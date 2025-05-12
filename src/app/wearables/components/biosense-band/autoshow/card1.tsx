@@ -32,7 +32,7 @@ const Card1 = ({
             style={{ width: width, height: height }}
             className={`sm:object- object-contain ${
               currentIndex === 1
-                ? "scale-[1.5] ml-[10px] max-w-[113px] sm:max-w-full mt-[20px]"
+                ? "scale-[1.5] md:scale-[1] ml-[10px] md:ml-0 max-w-[113px] sm:max-w-full mt-[20px]"
                 : ""
             }`}
           />

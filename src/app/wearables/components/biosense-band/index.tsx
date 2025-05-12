@@ -26,7 +26,7 @@ const BiosenseBand = () => {
           className="max-w-full md:max-w-[630px] w-full flex flex-col gap-5"
         >
           <AutoShowBlock />
-          <div className="flex flex-col sm:flex-row gap-5">
+          <div className="hidden md:flex flex-col sm:flex-row gap-5">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={
@@ -130,6 +130,52 @@ const BiosenseBand = () => {
             <div className="glow-effect transition-all duration-300 ease-in-out"></div>
           </div>
         </div>
+        <motion.div
+          ref={imageRef}
+          initial={{ opacity: 0, x: -30 }}
+          animate={
+            isImageInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }
+          }
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="flex md:hidden max-w-full md:max-w-[630px] w-full flex flex-col gap-5"
+        >
+          <div className=" flex-col sm:flex-row gap-5">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={
+                isImageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+              }
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="w-full sm:w-auto overflow-hidden rounded-[24px]"
+            >
+              <img
+                loading="lazy"
+                src="/wearables-img/band/card1.png"
+                width={1220}
+                height={880}
+                alt=""
+                className="w-full h-auto sm:w-auto sm:h-auto transition-transform duration-300 hover:scale-110"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={
+                isImageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+              }
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="w-full sm:w-auto mt-5 sm:mt-0 overflow-hidden rounded-[24px]"
+            >
+              <img
+                loading="lazy"
+                src="/wearables-img/band/card2.png"
+                width={1220}
+                height={880}
+                alt=""
+                className="w-full h-auto sm:w-auto sm:h-auto transition-transform duration-300 hover:scale-110"
+              />
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
