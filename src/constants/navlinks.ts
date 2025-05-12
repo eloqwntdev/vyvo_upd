@@ -5,7 +5,7 @@ export const navLinks = [
     label: "VAI OS",
     subMenu: [
       { href: "/roadmap", label: "Tokenomics Roadmap" },
-      { href: "/vai-os/getting-started", label: "Getting Started" },
+      // { href: "/vai-os/getting-started", label: "Getting Started" },
       { href: "/gpu-farm", label: "GPU Farm" },
     ],
   },
@@ -25,7 +25,7 @@ export const navLinks = [
   { href: "/social-fi", label: "SocialFi" },
   {
     href: "/about-us",
-    label: "About us",
+    label: "About Us",
     subMenu: [
       { href: "/news", label: "News" },
       { href: "https://www.vyvo.support/hc/en-us", label: "Support" },
