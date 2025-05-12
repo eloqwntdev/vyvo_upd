@@ -1,9 +1,14 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 
-const SortDropdown = () => {
+const SortDropdown = ({
+  selectedOption,
+  setSelectedOption,
+}: {
+  selectedOption: string;
+  setSelectedOption: any;
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("Most recent");
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -18,16 +23,16 @@ const SortDropdown = () => {
     };
 
     if (typeof document !== "undefined") {
-  document.addEventListener("mousedown", handleClickOutside);
-}
+      document.addEventListener("mousedown", handleClickOutside);
+    }
     return () => {
-  if (typeof document !== "undefined") {
-    document.removeEventListener("mousedown", handleClickOutside);
-  }
-};
+      if (typeof document !== "undefined") {
+        document.removeEventListener("mousedown", handleClickOutside);
+      }
+    };
   }, []);
 
-  const options = ["Most recent", "Title", "Title"];
+  const options = ["Most recent", "Oldest"];
 
   return (
     <div className="relative" ref={dropdownRef}>

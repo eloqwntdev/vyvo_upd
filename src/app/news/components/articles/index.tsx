@@ -3,8 +3,12 @@ import HeroNews from "./hero";
 import SortDropdown from "@/components/common/controllers/dropdowns/sort-dropdown";
 import SlashButton from "@/components/common/controllers/button/slash-button";
 import { ArticleCard } from "./ArticleCard";
+import { useState } from "react";
 
 const Articles = async ({ articles }: { articles: any }) => {
+  const [selectedOption, setSelectedOption] = useState("Most recent");
+  const sortedArticles =
+    selectedOption === "Oldest" ? [...articles].reverse() : articles;
   return (
     <section className="bg-black flex flex-col items-center justify-center gap-12 md:gap-[60px] lg:gap-[80px] pt-[60px] md:pt-[90px] lg:pt-[120px] relative z-[10]">
       <HeroNews />
@@ -13,21 +17,16 @@ const Articles = async ({ articles }: { articles: any }) => {
           <h2 className="text-white font-nb font-light text-[20px] md:text-[40px] lg:text-[48px] leading-[24px] md:leading-[44px] lg:leading-[52px] tracking-[-1.4px]">
             Articles
           </h2>
-          <SortDropdown />
+          <SortDropdown
+            selectedOption={selectedOption}
+            setSelectedOption={setSelectedOption}
+          />
         </div>
         <div className="flex flex-col gap-[30px] md:gap-[40px] lg:gap-[40px] items-center justify-center pb-[40px] md:pb-[60px] lg:pb-[80px]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px] md:gap-[24px] lg:gap-[20px]">
-            {articles.length > 0 ? (
-              articles.map((article: any) => (
-                <ArticleCard key={article.id} article={article} />
-              ))
-            ) : (
-              <>
-                <ArticleCard />
-                <ArticleCard />
-                <ArticleCard />
-              </>
-            )}
+            {sortedArticles.map((article: any) => (
+              <ArticleCard key={article.id} article={article} />
+            ))}
           </div>
           {
             <SlashButton

@@ -1,9 +1,13 @@
 import SlashButton from "@/components/common/controllers/button/slash-button";
 import SortDropdown from "@/components/common/controllers/dropdowns/sort-dropdown";
-import React from "react";
+import React, { useState } from "react";
 import { ArticleCard } from "../articles/ArticleCard";
 
 const PressRelease = ({ articles }: { articles: any }) => {
+  const [selectedOption, setSelectedOption] = useState("Most recent");
+  const sortedArticles =
+    selectedOption === "Oldest" ? [...articles].reverse() : articles;
+
   return (
     <section className="bg-black flex flex-col items-center justify-center gap-[40px] md:gap-[60px] lg:gap-[80px] py-[40px] md:py-[60px] lg:py-[80px] relative z-[10]">
       <div className="max-w-[1280px] w-full mx-auto flex flex-col gap-6 md:gap-[40px] lg:gap-[40px] px-[16px] md:px-[24px] lg:px-[0px]">
@@ -11,11 +15,14 @@ const PressRelease = ({ articles }: { articles: any }) => {
           <h2 className="text-white font-nb font-light text-[20px] md:text-[40px] lg:text-[48px] leading-[24px] md:leading-[44px] lg:leading-[52px] tracking-[-1.4px]">
             Press Releases
           </h2>
-          <SortDropdown />
+          <SortDropdown
+            selectedOption={selectedOption}
+            setSelectedOption={setSelectedOption}
+          />
         </div>
         <div className="flex flex-col gap-[30px] md:gap-[40px] lg:gap-[40px] items-center justify-center">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px] md:gap-[24px] lg:gap-[20px] w-full">
-            {articles.map((article: any) => (
+            {sortedArticles.map((article: any) => (
               <ArticleCard key={article.id} article={article} />
             ))}
           </div>
