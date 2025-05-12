@@ -73,7 +73,7 @@ export const TextReveal: FC<TextRevealProps> = ({
       ref={targetRef}
       className={cn(
         "relative z-0",
-        hasRevealed ? "flex flex-col justify-center h-[100vh]" : "h-[200vh]"
+        hasRevealed ? "flex flex-col justify-center h-[100svh]" : "h-[200svh]"
       )}
     >
       <div
