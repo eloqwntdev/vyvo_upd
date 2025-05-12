@@ -32,18 +32,50 @@ export const TextReveal: FC<TextRevealProps> = ({
   });
 
   const [hasRevealed, setHasRevealed] = useState(false);
+  const [touched, setTouched] = useState(false);
+  const [prevRevealed, setPrevRevealed] = useState(false);
+  const [firstPointScroll, setFirstPointScroll] = useState(0);
+  const [lastPointScroll, setLastPointScroll] = useState(0);
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (v) => {
       if (v >= 0.99 && !hasRevealed) {
-        setHasRevealed(true);
+        if (touched) {
+          setFirstPointScroll(window.scrollY);
+          console.log(window.scrollY);
+          setPrevRevealed(true);
+        } else if (prevRevealed === false) {
+          setHasRevealed(true);
+        }
       }
     });
     return () => {
       unsubscribe && unsubscribe();
     };
-  }, [scrollYProgress, hasRevealed]);
+  }, [scrollYProgress, hasRevealed, prevRevealed, touched]);
 
+  useEffect(() => {
+    const handleTouchStart = () => {
+      setTouched(true);
+    };
+
+    const handleTouchEnd = () => {
+      setTouched(false);
+      if (prevRevealed && !hasRevealed) {
+        setLastPointScroll(window.scrollY);
+        console.log(window.scrollY);
+        setHasRevealed(true);
+      }
+    };
+
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchend", handleTouchEnd);
+
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [prevRevealed, hasRevealed]);
   useEffect(() => {
     if (hasRevealed) {
       const html = document.documentElement;
@@ -54,7 +86,7 @@ export const TextReveal: FC<TextRevealProps> = ({
         const elementRect = element.getBoundingClientRect();
         const offset = window.innerHeight / 2 - elementRect.height / 2;
         window.scrollTo({
-          top: window.innerHeight,
+          top: window.scrollY - window.innerHeight - offset - 60,
         });
       }
       html.style.scrollBehavior = prevScrollBehavior;
