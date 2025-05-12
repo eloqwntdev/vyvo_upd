@@ -52,10 +52,11 @@ export const TextReveal: FC<TextRevealProps> = ({
       const element = document.getElementById("reveal-text");
       if (element) {
         const elementRect = element.getBoundingClientRect();
-        const offset = window.innerHeight / 2 - elementRect.height / 2;
-        window.scrollTo({
-          top: window.scrollY - window.innerHeight - offset - 60,
-        });
+        //   const offset = window.innerHeight / 2 - elementRect.height / 2;
+        //   window.scrollTo({
+        //     top: window.scrollY - window.innerHeight - offset - 60,
+        //   });
+        element.scrollIntoView();
       }
       html.style.scrollBehavior = prevScrollBehavior;
     }
