@@ -54,7 +54,7 @@ export const TextReveal: FC<TextRevealProps> = ({
         const elementRect = element.getBoundingClientRect();
         const offset = window.innerHeight / 2 - elementRect.height / 2;
         window.scrollTo({
-          top: elementRect.top + window.scrollY - offset - 60,
+          top: window.scrollY - window.innerHeight - offset - 60,
         });
       }
       html.style.scrollBehavior = prevScrollBehavior;
