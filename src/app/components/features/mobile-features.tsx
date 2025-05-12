@@ -10,7 +10,17 @@ const MobileFeatures = () => {
     <section className="bg-[#050505] min-h-[568px] px-4 py-[28px] rounded-[24px] pb-16 lg:hidden block">
       <div className="flex flex-col mb-[28px]">
         <h2 className="text-[24px] leading-[28px] font-nb font-light tracking-[-0.72px] text-center mb-[71px]">
-          <span className="text-[#94A8ED] block mb-1">A Companion That</span>
+          <span
+            style={{
+              background:
+                "radial-gradient(29.68% 46.42% at 39.06% 38.97%, #2A5FDD 0%, #77A9E8 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+            className="block mb-1"
+          >
+            A Companion That
+          </span>
           <span className="text-white">Anticipates Your Needs</span>
         </h2>
       </div>

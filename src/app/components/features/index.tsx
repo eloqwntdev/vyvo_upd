@@ -135,7 +135,17 @@ const Features = () => {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-[40px] md:text-[64px] sticky top-0 leading-[44px] text-center md:leading-[68px] font-light tracking-[-1.92px] text-white max-w-[649px] font-nb">
-              <span className="text-[#94A8ED]">A Companion That</span>{" "}
+              <span
+                style={{
+                  background:
+                    "radial-gradient(29.68% 46.42% at 39.06% 38.97%, #2A5FDD 0%, #77A9E8 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  display: "inline-block",
+                }}
+              >
+                A Companion That
+              </span>
               Anticipates Your Needs
             </h2>
           </motion.div>
