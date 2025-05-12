@@ -18,12 +18,12 @@ export const cardData = [
     contentMobile: [
       {
         src: "/wearables-img/mobile-top.png",
-        className: "absolute top-[4.5rem] right-[41%] z-10 max-w-[152px]",
+        className: "absolute top-[4.5rem] right-[41%] z-10 max-w-[165px]",
         alt: "Fingertip control",
       },
       {
         src: "/wearables-img/mobile-bottom.png",
-        className: "absolute bottom-[8.5rem] right-[27%] z-10",
+        className: "absolute bottom-[8.5rem] right-[27%] z-10 max-w-[190px]",
         alt: "Pose tracking",
       },
     ],
