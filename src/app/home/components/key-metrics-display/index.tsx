@@ -350,7 +350,7 @@ const KeyMetricsDisplay = () => {
                   sizes="(max-width: 768px) 100vw, 1239px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="flex flex-col gap-1 md:gap-2 absolute bottom-5 left-5 md:bottom-8 md:left-8">
+                <div className="flex flex-col gap-1 md:gap-2 absolute bottom-9 left-5 md:bottom-8 md:left-8">
                   <NumberDisplay value={metric.number} />
                   <span className="text-white text-[16px] md:text-[24px] leading-[20px] md:leading-[32px]">
                     {metric.label}
