@@ -1,3 +1,4 @@
+"use client";
 import SlashButton from "@/components/common/controllers/button/slash-button";
 import SortDropdown from "@/components/common/controllers/dropdowns/sort-dropdown";
 import React, { useState } from "react";
