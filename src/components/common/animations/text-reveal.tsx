@@ -48,7 +48,9 @@ export const TextReveal: FC<TextRevealProps> = ({
     if (hasRevealed) {
       const html = document.documentElement;
       const prevScrollBehavior = html.style.scrollBehavior;
+      const prevOverflow = html.style.overflow;
       html.style.scrollBehavior = "auto";
+      html.style.overflow = "hidden";
       const element = document.getElementById("reveal-text");
       if (element) {
         const elementRect = element.getBoundingClientRect();
@@ -56,9 +58,9 @@ export const TextReveal: FC<TextRevealProps> = ({
         window.scrollTo({
           top: window.scrollY - window.innerHeight - offset - 60,
         });
-        // element.scrollIntoView();
       }
       html.style.scrollBehavior = prevScrollBehavior;
+      html.style.overflow = prevOverflow;
     }
   }, [hasRevealed]);
 
