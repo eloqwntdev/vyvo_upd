@@ -1,14 +1,21 @@
 "use client";
 import SlashButton from "@/components/common/controllers/button/slash-button";
 import SortDropdown from "@/components/common/controllers/dropdowns/sort-dropdown";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ArticleCard } from "../articles/ArticleCard";
+import Cards from "../cards";
 
 const PressRelease = ({ articles }: { articles: any }) => {
   const [selectedOption, setSelectedOption] = useState("Most recent");
   const sortedArticles =
     selectedOption === "Oldest" ? [...articles].reverse() : articles;
-
+  const [cards, setCards] = useState<JSX.Element[]>([]);
+  useEffect(() => {
+    const jsxCards = sortedArticles.map((article: any) => (
+      <ArticleCard key={article.id} article={article} />
+    ));
+    setCards(jsxCards);
+  }, [selectedOption]);
   return (
     <section className="bg-black flex flex-col items-center justify-center gap-[40px] md:gap-[60px] lg:gap-[80px] py-[40px] md:py-[60px] lg:py-[80px] relative z-[10]">
       <div className="max-w-[1280px] w-full mx-auto flex flex-col gap-6 md:gap-[40px] lg:gap-[40px] px-[16px] md:px-[24px] lg:px-[0px]">
@@ -23,9 +30,7 @@ const PressRelease = ({ articles }: { articles: any }) => {
         </div>
         <div className="flex flex-col gap-[30px] md:gap-[40px] lg:gap-[40px] items-center justify-center">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px] md:gap-[24px] lg:gap-[20px] w-full">
-            {sortedArticles.map((article: any) => (
-              <ArticleCard key={article.id} article={article} />
-            ))}
+            <Cards cards={cards} />
           </div>
           <SlashButton
             showIcon={false}
