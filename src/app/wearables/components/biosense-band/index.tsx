@@ -137,7 +137,7 @@ const BiosenseBand = () => {
             isImageInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }
           }
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="flex md:hidden max-w-full md:max-w-[630px] w-full flex flex-col gap-5"
+          className="flex md:hidden max-w-full md:max-w-[630px] w-full flex-col gap-5"
         >
           <div className=" flex-col sm:flex-row gap-5">
             <motion.div
