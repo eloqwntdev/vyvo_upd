@@ -49,7 +49,7 @@ const ProductsCard = () => {
         <img
           src={imageSrc}
           alt=""
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 scale-110"
+          className="absolute w-[100px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 scale-110"
         />{" "}
         <div className="absolute top-[36px] left-1/2 transform -translate-x-1/2 flex flex-col gap-10 items-center">
           <div className="flex gap-[10.67px]">
