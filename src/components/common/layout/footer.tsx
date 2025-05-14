@@ -166,7 +166,7 @@ const Footer = () => {
         </div>
 
         <div className="w-full flex lg:hidden gap-[34px] md:gap-10  justify-between flex-col">
-          <span className="text-white text-[20px] leading-[24px] font-light font-nb ">
+          <span className="text-white hidden md:block text-[20px] leading-[24px] font-light font-nb ">
             Your Life CoPilot
           </span>
 
@@ -199,7 +199,7 @@ const Footer = () => {
               </svg>
             </Link>
             <span className="text-white/60 font-nb text-[12px] leading-[16px] tracking-[-0.03em]">
-              © 2025 VYVO AI
+              © 2025 Vyvo
             </span>
           </div>
         </div>
