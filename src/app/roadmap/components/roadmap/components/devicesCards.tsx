@@ -81,7 +81,7 @@ const DevicesCards = ({
           transition={{ duration: 1, delay: 1 }}
           src={imageSrc}
           alt=""
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 scale-110"
+          className="absolute w-[100px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 scale-110"
         />
         <motion.span
           initial={{
