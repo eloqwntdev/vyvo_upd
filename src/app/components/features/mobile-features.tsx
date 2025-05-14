@@ -106,7 +106,7 @@ const MobileFeatures = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="pb-6  flex flex-col gap-4">
+                    <div className="pb-6 flex flex-col gap-6">
                       {tab.sections.map((section, sectionIndex) => (
                         <div key={sectionIndex} className="flex flex-col gap-2">
                           <h3 className="font-nb text-[16px] leading-[20px] tracking-[-0.03em] text-white">
