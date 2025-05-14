@@ -104,9 +104,16 @@ const Tokenomics = () => {
         >
           <div className="flex items-center justify-center">
             <Lottie
-              className="w-full h-full pointer-events-none"
+              className="hidden md:block w-full h-full pointer-events-none"
               animationData={animationData}
               loop
+              assetsPath="/lottie/1_3/images/"
+            />
+            <Lottie
+              className="block md:hidden w-full h-full pointer-events-none"
+              animationData={animationData}
+              loop
+              autoplay={false}
               assetsPath="/lottie/1_3/images/"
             />
           </div>
