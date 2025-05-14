@@ -2,13 +2,10 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { SlashIcon } from "../../svg";
 
-import SlashButton from "../controllers/button/slash-button";
 import { navLinks } from "@/constants/navlinks";
 import { motion, AnimatePresence } from "framer-motion";
 import useScrollDirection from "@/hooks/useScrollDirection";
-import path from "path";
 
 const centeredHeaderPages = ["/gpu-farm"];
 
@@ -402,7 +399,7 @@ const Header = () => {
                     <div className="flex flex-col items-start w-full">
                       <div className="flex flex-row justify-between w-full">
                         <a
-                          className={`text-white text-[16px] leading-[20px] font-light hover:text-gray-300 transition-colors ${
+                          className={`text-white text-[16px] leading-[20px] font-light hover:text-gray-300 ${
                             pathname === item.href.replace("#", "")
                               ? "link-gradient link-bg font-medium bg-blend-lighten"
                               : "text-white"
