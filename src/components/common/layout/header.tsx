@@ -479,7 +479,7 @@ const Header = () => {
                                   transition={{ delay: (subindex + 1) * 0.1 }}
                                   href={subitem.href}
                                   onClick={() => setIsOpen(false)}
-                                  className={`text-white text-[16px] leading-[20px] font-light hover:text-gray-300 transition-colors ${
+                                  className={`text-white text-[16px] leading-[20px] font-light hover:text-gray-300 ${
                                     pathname === subitem.href.replace("#", "")
                                       ? "link-gradient link-bg font-medium bg-blend-lighten"
                                       : "text-white opacity-[0.8]"
