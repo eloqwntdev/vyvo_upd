@@ -474,9 +474,9 @@ const Header = () => {
                             >
                               {item.subMenu.map((subitem, subindex) => (
                                 <motion.a
-                                  initial={{ opacity: 0, y: 0 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{ delay: (subindex + 1) * 0.1 }}
+                                  // initial={{ opacity: 0, y: 0 }}
+                                  // animate={{ opacity: 1, y: 0 }}
+                                  // transition={{ delay: (subindex + 1) * 0.1 }}
                                   href={subitem.href}
                                   onClick={() => setIsOpen(false)}
                                   className={`text-white text-[16px] leading-[20px] font-light hover:text-gray-300 ${
