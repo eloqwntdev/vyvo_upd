@@ -30,7 +30,7 @@ function useIsMobile() {
 }
 
 const Pricing = () => {
-  const [isYearly, setIsYearly] = useState(false);
+  const [isYearly, setIsYearly] = useState(true);
   const isMobile = useIsMobile();
 
   const handleToggle = () => {

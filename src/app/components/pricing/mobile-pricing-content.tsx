@@ -253,7 +253,7 @@ const MobilePricingCard = ({
 const MobilePricingContent = ({
   isYearly = false,
 }: MobilePricingContentProps) => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(1);
 
   return (
     <div className="w-full mt-6">
