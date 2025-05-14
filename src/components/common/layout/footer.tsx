@@ -86,7 +86,7 @@ const Footer = () => {
 
         <div className="flex flex-col justify-between lg:gap-[140px] w-full sm:w-auto">
           <div className="flex gap-[34px]">
-            <div className="flex flex-col gap-4 text-left">
+            <div className="flex flex-col w-[130px] md:w-fit gap-4 text-left">
               {navItems.map((item, index) => (
                 <Link
                   key={index}
@@ -116,8 +116,8 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col md:justify-between gap-[140px] w-full sm:w-auto">
-          <div className="flex gap-20 md:gap-[170px] flex-row">
-            <div className="flex flex-col gap-4 text-left">
+          <div className="flex gap-[34px] md:gap-[170px] flex-row">
+            <div className="flex flex-col gap-4 text-left w-[130px] md:w-fit">
               {thirdLinks.map((item, index) => (
                 <Link
                   key={index}
