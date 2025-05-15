@@ -24,7 +24,7 @@ const BandPage = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden relative">
       <BannerBand />
       <WatchVideoBand />
       <HealthBand />

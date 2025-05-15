@@ -52,7 +52,7 @@ const BannerBand = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-[90svh] sm:min-h-screen w-full tracking-[-0.5px] bg-black relative flex items-start  pt-[120px] lg:pt-0 justify-center overflow-hidden"
+      className="min-h-[100svh] sm:min-h-screen w-full tracking-[-0.5px] bg-black relative flex items-start  pt-[120px] lg:pt-0 justify-center overflow-hidden"
     >
       {/* Background GIF - Using a div wrapper to preserve positioning */}
       <div className="absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -75,19 +75,19 @@ const BannerBand = () => {
       </div>
 
       {/* Band Image Desktop - Using a div wrapper to preserve positioning */}
-      <div className="absolute left-1/2 md:bottom-10 lg:bottom-0 -translate-x-1/2 w-full sm:block hidden z-[5]">
+      <div className="absolute left-1/2 bottom-10 sm:bottom-20 md:bottom-10 lg:bottom-0 -translate-x-1/2 w-full sm:block hidden z-[5]">
         <motion.img
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
           src="/biosense-products/band/banner-band.png"
           alt="BioSense Band"
-          className="w-full sm:max-w-[550px] md:max-w-[1200px] lg:max-w-[1200px] xl:max-w-[1300px] mx-auto"
+          className="w-full sm:max-w-[800px] md:max-w-[1200px] lg:max-w-[1200px] xl:max-w-[1300px] mx-auto"
         />
       </div>
 
       {/* Band Image Mobile - Using a div wrapper to preserve positioning */}
-      <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-full sm:hidden z-[5]">
+      <div className="absolute left-1/2 bottom-24 -translate-x-1/2 w-full sm:hidden z-[5]">
         <motion.img
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -99,7 +99,7 @@ const BannerBand = () => {
       </div>
 
       {/* Light Effect - Using a div wrapper to preserve positioning */}
-      <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-full z-[5]">
+      <div className="absolute left-1/2 bottom-24 xl:bottom-0 -translate-x-1/2 w-full z-[5]">
         <motion.img
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -114,7 +114,7 @@ const BannerBand = () => {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="flex items-center justify-center gap-4 sm:gap-6 w-full max-w-[400px] sm:max-w-[500px] pt-10 md:pt-[220px] md:max-w-[610px] z-10 px-4 md:px-6"
+        className="flex items-center justify-center gap-4 sm:gap-6 w-full max-w-[400px] sm:max-w-[500px] pt-28 md:pt-[220px] md:max-w-[610px] z-10 px-4 md:px-6"
       >
         <div className="flex flex-col items-center gap-4 sm:gap-6 w-full">
           <motion.h2
@@ -142,7 +142,7 @@ const BannerBand = () => {
       </motion.div>
 
       {/* Bottom Text - Using a div wrapper to preserve positioning */}
-      <div className="absolute bottom-8 sm:bottom-12 md:bottom-32 lg:bottom-32 left-1/2 -translate-x-1/2 w-full z-10 px-4">
+      <div className="absolute bottom-32 sm:bottom-28 md:bottom-32 lg:bottom-32 left-1/2 -translate-x-1/2 w-full z-10 px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
