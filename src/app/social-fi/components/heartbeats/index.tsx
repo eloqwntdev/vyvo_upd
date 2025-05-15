@@ -126,7 +126,14 @@ const HeartBeats = () => {
           className="max-w-[630px] w-full"
         >
           <Lottie
-            className="pointer-events-none"
+            className="block md:hidden pointer-events-none"
+            autoplay={false}
+            animationData={animationData}
+            loop
+            assetsPath="/lottie/4/images/"
+          />
+          <Lottie
+            className="hidden md:block pointer-events-none"
             animationData={animationData}
             loop
             assetsPath="/lottie/4/images/"
