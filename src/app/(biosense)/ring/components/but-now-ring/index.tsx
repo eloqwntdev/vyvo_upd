@@ -111,7 +111,7 @@ const ButNowRing = () => {
           Make sure to use our "find your size" feature during your purchase for
           a tailored wellness experience.
         </motion.p>
-        <motion.div variants={fadeInUp}>
+        <motion.div className="flex justify-center w-full" variants={fadeInUp}>
           <SlashButton
             showIcon={false}
             label="Buy Now"
