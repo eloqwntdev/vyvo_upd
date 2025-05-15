@@ -7,6 +7,7 @@ import SlashButton from "@/components/common/controllers/button/slash-button";
 
 interface MobilePricingContentProps {
   isYearly?: boolean;
+  setHasRevealed: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface PricingPlan {
@@ -171,9 +172,11 @@ const TabButton = ({
 const MobilePricingCard = ({
   plan,
   isYearly,
+  setHasRevealed,
 }: {
   plan: PricingPlan;
   isYearly: boolean;
+  setHasRevealed: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const price = isYearly ? plan.yearlyPrice : plan.monthlyPrice;
 
@@ -232,7 +235,7 @@ const MobilePricingCard = ({
               />
             ))}
       </div>
-
+      <motion.div onViewportEnter={() => setHasRevealed(true)}></motion.div>
       {!plan.isPopular ? (
         <button className="py-2 w-full rounded-xl border transition-all duration-300 border-white text-white font-nb font-light text-[14px] leading-[18px]">
           Try Now
@@ -252,6 +255,7 @@ const MobilePricingCard = ({
 
 const MobilePricingContent = ({
   isYearly = false,
+  setHasRevealed,
 }: MobilePricingContentProps) => {
   const [activeTab, setActiveTab] = useState(1);
 
@@ -269,9 +273,12 @@ const MobilePricingContent = ({
           />
         ))}
       </div>
-
       {/* Content area */}
-      <MobilePricingCard plan={pricingPlans[activeTab]} isYearly={isYearly} />
+      <MobilePricingCard
+        setHasRevealed={setHasRevealed}
+        plan={pricingPlans[activeTab]}
+        isYearly={isYearly}
+      />
     </div>
   );
 };

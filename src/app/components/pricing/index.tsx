@@ -29,7 +29,11 @@ function useIsMobile() {
   return isMobile;
 }
 
-const Pricing = () => {
+const Pricing = ({
+  setHasRevealed,
+}: {
+  setHasRevealed: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const [isYearly, setIsYearly] = useState(true);
   const isMobile = useIsMobile();
 
@@ -47,7 +51,10 @@ const Pricing = () => {
         <PricingToggler isYearly={isYearly} onToggle={handleToggle} />
 
         {isMobile ? (
-          <MobilePricingContent isYearly={isYearly} />
+          <MobilePricingContent
+            setHasRevealed={setHasRevealed}
+            isYearly={isYearly}
+          />
         ) : (
           <PricingContent isYearly={isYearly} />
         )}
