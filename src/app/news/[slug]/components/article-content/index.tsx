@@ -28,7 +28,6 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
   const [activeSection, setActiveSection] = useState<string>(
     validSections.length > 0 ? validSections[0].title : ""
   );
-  const [isMobileView, setIsMobileView] = useState(false);
 
   // Create refs for each section dynamically
   const sectionRefs = validSections.reduce(
@@ -39,29 +38,39 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
     {} as Record<string, React.RefObject<HTMLDivElement>>
   );
 
-  // Handle responsive layout
-  useEffect(() => {
-    const checkWidth = () => {
-      setIsMobileView(window.innerWidth < 768);
-    };
+  function useIsMobile() {
+    const [isMobile, setIsMobile] = useState(false);
 
-    checkWidth();
-    window.addEventListener("resize", checkWidth);
-    return () => window.removeEventListener("resize", checkWidth);
-  }, []);
+    useEffect(() => {
+      // Function to check if viewport is mobile
+      const checkMobile = () => {
+        setIsMobile(window.innerWidth < 768);
+      };
+
+      // Check on initial load
+      checkMobile();
+
+      // Add event listener for resize
+      window.addEventListener("resize", checkMobile);
+
+      // Cleanup
+      return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
+    return isMobile;
+  }
+  const isMobile = useIsMobile();
 
   // Handle scroll spy
   useEffect(() => {
-    // Only set up scroll spy if there are valid sections
     if (validSections.length === 0) return;
 
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 120; // Offset for better activation
+      const scrollPosition = window.scrollY + 300;
       let currentSection = "";
       let closestSection = null;
       let minDistance = Number.MAX_VALUE;
 
-      // Find the closest section to the current scroll position
       for (const sectionTitle in sectionRefs) {
         const ref = sectionRefs[sectionTitle];
         if (ref.current) {
@@ -70,35 +79,30 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
             scrollPosition - (offsetTop + offsetHeight / 2)
           );
 
-          // If this section is closer than the previous closest, update
           if (distance < minDistance) {
             minDistance = distance;
             closestSection = sectionTitle;
           }
 
-          // Also check if we're inside this section
           if (
             scrollPosition >= offsetTop &&
             scrollPosition < offsetTop + offsetHeight
           ) {
             currentSection = sectionTitle;
-            break; // Found the section we're in, no need to check further
+            break;
           }
         }
       }
 
-      // Use either the section we're in, or the closest section
       const newActiveSection = currentSection || closestSection;
 
       if (newActiveSection && newActiveSection !== activeSection) {
         setActiveSection(newActiveSection);
       } else if (scrollPosition < 200 && validSections.length > 0) {
-        // Near the top of the page, set the first section as active
         setActiveSection(validSections[0].title);
       }
     };
 
-    // Use requestAnimationFrame for better performance
     let ticking = false;
     const scrollListener = () => {
       if (!ticking) {
@@ -111,12 +115,12 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
     };
 
     window.addEventListener("scroll", scrollListener);
-
-    // Initial call to set the correct section on page load
     handleScroll();
 
     return () => window.removeEventListener("scroll", scrollListener);
-  }, [sectionRefs, activeSection, validSections]);
+
+    // 🔧 Removed activeSection from the dependency array
+  }, [sectionRefs, validSections]);
 
   const scrollToSection = (sectionTitle: string) => {
     if (sectionRefs[sectionTitle]?.current) {
@@ -133,7 +137,7 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
       // Update active section immediately for better UX
       setActiveSection(sectionTitle);
     } else {
-      console.warn(`Section ref for "${sectionTitle}" not found`);
+      console.log(`Section ref for "${sectionTitle}" not found`);
     }
   };
 
@@ -157,32 +161,33 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
       className="w-full mb-6"
     >
       <div className="flex flex-col gap-4 pb-2">
-        {validSections.map((section) => (
-          <motion.button
-            key={section.title}
-            onClick={() => scrollToSection(section.title)}
-            whileHover={{ x: 2 }}
-            className="flex items-center remove-hover-bg gap-2 relative group text-left"
-          >
-            <div
-              className={`h-5 rounded-full w-0.5 transition-all duration-300 ${
-                activeSection === section.title
-                  ? "bg-gradient-to-t from-[#2A5FDD] to-[#77A9E8]"
-                  : "bg-gradient-to-t from-[#000] to-[#000]"
-              }`}
-            />
-            <div
-              className={`bg-transparent font-nb font-light text-sm md:text-[16px] leading-tight md:leading-[20px] tracking-[-0.3px] md:tracking-[-0.5px] transition-colors duration-300
-                      ${
-                        activeSection === section.title
-                          ? "text-white"
-                          : "text-white/50 hover:text-white/80"
-                      }`}
+        {validSections.map((section) =>
+          section.title !== null ? (
+            <motion.button
+              key={section.title}
+              onClick={() => scrollToSection(section.title)}
+              whileHover={{ x: 2 }}
+              className="flex items-center remove-hover-bg gap-2 relative group text-left"
             >
-              {section.title}
-            </div>
-          </motion.button>
-        ))}
+              <div
+                className={`h-5 rounded-full w-0.5 transition-all duration-300 ${
+                  activeSection === section.title
+                    ? "bg-gradient-to-t from-[#2A5FDD] to-[#77A9E8]"
+                    : "bg-gradient-to-t from-[#000] to-[#000]"
+                }`}
+              />
+              <div
+                className={`bg-transparent font-nb font-light text-sm md:text-[16px] leading-tight md:leading-[20px] tracking-[-0.3px] md:tracking-[-0.5px] transition-colors duration-300 ${
+                  activeSection === section.title
+                    ? "text-white"
+                    : "text-white/50 hover:text-white/80"
+                }`}
+              >
+                {section.title}
+              </div>
+            </motion.button>
+          ) : null
+        )}
       </div>
     </motion.div>
   );
@@ -191,10 +196,10 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
     <section className="w-full bg-black tracking-[-0.5px]">
       <div className="w-full flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-8 lg:gap-12">
         {/* Mobile navigation */}
-        {isMobileView && <MobileSectionNav />}
+        {isMobile && <MobileSectionNav />}
 
         {/* Desktop Navigation - Sticky */}
-        {!isMobileView && (
+        {!isMobile && (
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -278,7 +283,7 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ articles }) => {
             ))}
           </div>
         </motion.div>
-        <div className="hidden md:block w-full max-w-[200px] lg:max-w-[250px] "></div>
+        <div className="hidden md:block w-full max-w-[200px] lg:max-w-[250px]"></div>
       </div>
     </section>
   );
