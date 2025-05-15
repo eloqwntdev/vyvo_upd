@@ -72,17 +72,34 @@ const AsThin = () => {
               width={900}
               height={900}
               loading="lazy"
-              className="w-full md:w-full max-w-[200px] md:min-w-[450px] md:max-w-none"
+              className="w-full md:w-full max-w-[100%] md:min-w-[450px] md:max-w-none"
             />
           </motion.div>
-
-          {/* Floating elements */}
+          {/* Floating elements Mobile*/}
+          <motion.img
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            src="/biosense-products/watch/top-info-mobile.png"
+            className="block md:hidden absolute top-[4%] sm:top-0 right-[10%] md:right-[-38%] h-[24%] md:w-[80%]"
+            alt="Watch thickness specifications"
+            loading="lazy"
+          />
+          <motion.img
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
+            src="/biosense-products/watch/bottom-info-mobile.png"
+            className="block md:hidden absolute bottom-[3%] right-[10%] sm:right-[20%] sm:bottom-[3%] md:right-[-5%] h-[24%] md:w-[80%]"
+            alt="Watch weight specifications"
+          />
+          {/* Floating elements Desktop*/}
           <motion.img
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
             src="/biosense-products/watch/top-info.png"
-            className="absolute top-[8%] sm:top-0 right-[26%] sm:right-[-20%] md:right-[-38%] w-[30%] md:w-[80%]"
+            className="hidden md:block absolute top-[8%] sm:top-0 right-[26%] sm:right-[-20%] md:right-[-38%] w-[30%] md:w-[80%]"
             alt="Watch thickness specifications"
             loading="lazy"
           />
@@ -91,7 +108,7 @@ const AsThin = () => {
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 1.2 }}
             src="/biosense-products/watch/bottom-info.png"
-            className="absolute bottom-0 right-[27%] sm:bottom-[-4%] sm:right-[-10%] md:right-[-5%] w-[40%] md:w-[80%]"
+            className="hidden md:block absolute bottom-0 right-[27%] sm:bottom-[-4%] sm:right-[-10%] md:right-[-5%] w-[40%] md:w-[80%]"
             alt="Watch weight specifications"
           />
         </div>
