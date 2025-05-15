@@ -122,7 +122,7 @@ const WayToPay = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={cardAnimation}
-          className="max-w-[360px] sm:max-w-[480px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] w-full mx-auto flex items-end justify-center md:justify-end z-10"
+          className="max-w-[360px] hidden md:flex sm:max-w-[480px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] w-full mx-auto items-end justify-center md:justify-end z-10"
         >
           <div className="wearables-card-gradient w-full self-end max-w-[380px] sm:max-w-[350px] md:max-w-[450px] lg:max-w-[598px] rounded-[16px] sm:rounded-[20px] md:rounded-[24px] relative overflow-hidden p-2 sm:p-3 md:p-4">
             <div className="transition-transform duration-300">
