@@ -112,7 +112,10 @@ const Preorders = () => {
           Watch for yourself, and see how this first VAI OS companion can
           transform your daily life!
         </motion.p>
-        <motion.div variants={fadeInUp}>
+        <motion.div
+          className="flex justify-center md:justify-start"
+          variants={fadeInUp}
+        >
           <SlashButton
             showIcon={false}
             label="Preorder My BioSense Watch"
