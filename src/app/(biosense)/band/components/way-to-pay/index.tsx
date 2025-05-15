@@ -101,7 +101,7 @@ const WayToPay = () => {
           className="block md:hidden w-full max-w-[400px] my-6"
         >
           <img
-            src="/biosense-products/band/pay-sensor.png"
+            src="/biosense-products/band/pay-sensor-mobile.png"
             className="w-full object-contain"
             alt="Payment sensor visualization"
           />
