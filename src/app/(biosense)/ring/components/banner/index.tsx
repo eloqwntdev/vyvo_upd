@@ -49,7 +49,7 @@ const Banner = () => {
   };
 
   return (
-    <section className="bg-black min-h-[568px] sm:min-h-[100vh] w-full flex flex-col items-center justify-center relative">
+    <section className="bg-black min-h-[100vh] sm:min-h-[100vh] w-full flex flex-col items-center justify-center relative">
       {/* Background GIF - using Image for better performance but keeping the full-screen positioning */}
       <div className="absolute inset-0 z-0">
         <motion.div
