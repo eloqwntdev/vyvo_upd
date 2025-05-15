@@ -46,9 +46,9 @@ const ThinLight = () => {
       ref={sectionRef}
       className="min-h-fit flex items-center justify-center lg:pt-[200px] bg-black"
     >
-      <div className="max-w-[1280px] w-full mx-auto flex flex-col lg:flex-row items-center justify-between px-4 md:px-6 gap-10 lg:gap-0 tracking-[-0.5px]">
+      <div className="max-w-[1280px] py-0 md:py-24 w-full mx-auto flex flex-col lg:flex-row items-center justify-between px-4 md:px-6 gap-10 lg:gap-0 tracking-[-0.5px]">
         {/* Left side with band image and floating items */}
-        <div className="max-w-[530px] w-full flex items-center justify-center relative">
+        <div className="max-w-[530px] my-16 md:my-0 w-full flex items-center justify-center relative">
           <motion.div
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -59,43 +59,65 @@ const ThinLight = () => {
               alt="BioSense Band"
               width={1293}
               height={1155}
-              className="w-[250px] sm:w-[280px] md:w-[500px]"
+              className="w-[380px] sm:w-[480px] md:w-[500px]"
             />
           </motion.div>
 
           {/* Floating elements - appearing one by one with simple fade */}
-          <motion.img
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            src="/biosense-products/band/top-item.svg"
-            className="absolute max-w-[200px] sm:block hidden sm:max-w-[240px] md:max-w-[287px] top-[-5%] right-[0%]"
-            alt="Top Feature"
-          />
-          <motion.img
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            src="/biosense-products/band/band-thick.png"
-            className="absolute max-w-[200px] sm:hidden block sm:max-w-[240px] md:max-w-[287px] top-[-13%] right-[32%]"
-            alt="Top Feature"
-          />
-          <motion.img
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.6, delay: 1.0 }}
-            src="/biosense-products/band/middle-item.svg"
-            className="absolute max-w-[220px] sm:max-w-[260px] md:max-w-[302px] top-[30%] right-[0%]"
-            alt="Middle Feature"
-          />
-          <motion.img
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.6, delay: 1.5 }}
-            src="/biosense-products/band/bottom-item.svg"
-            className="absolute max-w-[220px] sm:max-w-[260px] md:max-w-[302px] top-[72%] right-[2%]"
-            alt="Bottom Feature"
-          />
+          {/* Desktop */}
+          <div className="lg:block hidden">
+            <motion.img
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              src="/biosense-products/band/band-thick-desktop-top.png"
+              className="absolute h-full lg:max-h-[107px] right-0 top-0"
+              alt="Top Feature"
+            />
+            <motion.img
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
+              src="/biosense-products/band/band-thick-desktop-middle.png"
+              className="absolute h-full lg:max-h-[95px] right-0"
+              alt="Middle Feature"
+            />
+            <motion.img
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.6, delay: 1.5 }}
+              src="/biosense-products/band/band-thick-desktop-bottom.png"
+              className="absolute h-full lg:max-h-[123px] right-0 bottom-0"
+              alt="Bottom Feature"
+            />
+          </div>
+          {/* Mobile */}
+          <div className="lg:hidden block">
+            <motion.img
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              src="/biosense-products/band/band-thick-mobile-top.png"
+              className="absolute h-full max-h-[100px] left-1/2 -translate-x-[80%] top-[-2rem] sm:max-h-[127px] sm:translate-x-0 sm:left-24 sm:top-[-2rem]"
+              alt="Top Feature"
+            />
+            <motion.img
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
+              src="/biosense-products/band/band-thick-mobile-middle.png"
+              className="absolute h-full max-h-[100px] right-1/2 translate-x-[80%] top-24 sm:max-h-[123px] sm:translate-x-0 sm:right-20 sm:top-32"
+              alt="Middle Feature"
+            />
+            <motion.img
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.6, delay: 1.5 }}
+              src="/biosense-products/band/band-thick-mobile-bottom.png"
+              className="absolute h-full max-h-[100px] right-1/2 translate-x-[60%] bottom-0 sm:max-h-[132px] sm:translate-x-0 sm:right-28 sm:bottom-0"
+              alt="Bottom Feature"
+            />
+          </div>
         </div>
 
         {/* Right side content */}
