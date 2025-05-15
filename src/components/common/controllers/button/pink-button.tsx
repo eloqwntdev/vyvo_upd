@@ -32,7 +32,7 @@ export const PinkyButton = ({ label, className }: ButtonProps) => {
 export const PurpleButton = ({ label, className }: ButtonProps) => {
   return (
     <button
-      className={`rounded-2xl remove-hover-bg py-3 px-8 bg-purple-500/16 text-white shadow-[0px_-1px_1px_0px_rgba(231,73,240,0.40)_inset,_0px_1px_1px_0px_rgba(231,73,240,0.40)_inset] backdrop-blur-lg hover:bg-[rgba(231,73,240,0.40)] hover:text-white hover:shadow-none transition-all duration-300 ease-in-out${
+      className={`rounded-2xl w-fit remove-hover-bg py-3 px-8 bg-purple-500/16 text-white shadow-[0px_-1px_1px_0px_rgba(231,73,240,0.40)_inset,_0px_1px_1px_0px_rgba(231,73,240,0.40)_inset] backdrop-blur-lg hover:bg-[rgba(231,73,240,0.40)] hover:text-white hover:shadow-none transition-all duration-300 ease-in-out${
         className || ""
       }`}
     >
