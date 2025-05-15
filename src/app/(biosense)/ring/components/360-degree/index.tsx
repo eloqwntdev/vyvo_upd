@@ -145,7 +145,7 @@ const Degree360 = ({
         />
         <img
           src="/biosense-products/ring/slider-ring-mobile.png"
-          className="block md:hidden w-full h-auto mb-6"
+          className="block md:hidden w-full h-auto"
           alt="BioSense Watch with health features"
         />
       </div>
