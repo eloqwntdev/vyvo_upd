@@ -73,7 +73,7 @@ const StepBlock = ({
 
           <motion.div
             style={{ backgroundColor: dotColor }}
-            className="size-4 rounded-full"
+            className="absolute -bottom-5 size-4 rounded-full"
           />
         </div>
       </div>
