@@ -66,7 +66,14 @@ const VyvoCmartChainBanner = () => {
             }}
           >
             <Lottie
-              className="pointer-events-none"
+              className="block md:hidden pointer-events-none"
+              animationData={animationData}
+              loop
+              autoplay={false}
+              assetsPath="/lottie/1/images/"
+            />
+            <Lottie
+              className="hidden md:block pointer-events-none"
               animationData={animationData}
               loop
               assetsPath="/lottie/1/images/"
