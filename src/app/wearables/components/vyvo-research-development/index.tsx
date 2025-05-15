@@ -135,7 +135,7 @@ const VyvoResearchDevelopment = () => {
               className="w-full h-auto transition-transform duration-300 hover:scale-110"
             />
           </motion.div>
-          <div className="flex flex-col sm:flex-row gap-4 md:gap-5">
+          <div className="flex flex-row gap-4 md:gap-5">
             <div className="overflow-hidden  w-full sm:w-1/2 rounded-[24px]">
               <img
                 loading="lazy"
