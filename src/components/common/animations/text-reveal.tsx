@@ -19,79 +19,79 @@ export function cn(...inputs: ClassValue[]) {
 export interface TextRevealProps extends ComponentPropsWithoutRef<"div"> {
   children: string;
   icons?: ReactNode;
+  hasRevealed: boolean;
 }
 
 export const TextReveal: FC<TextRevealProps> = ({
   children,
   className,
   icons,
+  hasRevealed,
 }) => {
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
 
-  const [hasRevealed, setHasRevealed] = useState(false);
   const [touched, setTouched] = useState(false);
   const [prevRevealed, setPrevRevealed] = useState(false);
   const [firstPointScroll, setFirstPointScroll] = useState(0);
   const [lastPointScroll, setLastPointScroll] = useState(0);
 
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (v) => {
-      if (v >= 0.99 && !hasRevealed) {
-        if (touched) {
-          setFirstPointScroll(window.scrollY);
-          console.log(window.scrollY);
-          setPrevRevealed(true);
-        } else if (prevRevealed === false) {
-          setHasRevealed(true);
-        }
-      }
-    });
-    return () => {
-      unsubscribe && unsubscribe();
-    };
-  }, [scrollYProgress, hasRevealed, prevRevealed, touched]);
+  // useEffect(() => {
+  //   const unsubscribe = scrollYProgress.on("change", (v) => {
+  //     if (v >= 0.99 && !hasRevealed) {
+  //       if (touched) {
+  //         setFirstPointScroll(window.scrollY);
+  //         setPrevRevealed(true);
+  //       } else if (prevRevealed === false) {
+  //         setHasRevealed(true);
+  //       }
+  //     }
+  //   });
+  //   return () => {
+  //     unsubscribe && unsubscribe();
+  //   };
+  // }, [scrollYProgress, hasRevealed, prevRevealed, touched]);
 
-  useEffect(() => {
-    const handleTouchStart = () => {
-      setTouched(true);
-    };
+  // useEffect(() => {
+  //   const handleTouchStart = () => {
+  //     setTouched(true);
+  //   };
 
-    const handleTouchEnd = () => {
-      setTouched(false);
-      if (prevRevealed && !hasRevealed) {
-        setLastPointScroll(window.scrollY);
-        console.log(window.scrollY);
-        setHasRevealed(true);
-      }
-    };
+  //   const handleTouchEnd = () => {
+  //     setTouched(false);
+  //     if (prevRevealed && !hasRevealed) {
+  //       setLastPointScroll(window.scrollY);
+  //       console.log(window.scrollY);
+  //       setHasRevealed(true);
+  //     }
+  //   };
 
-    window.addEventListener("touchstart", handleTouchStart);
-    window.addEventListener("touchend", handleTouchEnd);
+  //   window.addEventListener("touchstart", handleTouchStart);
+  //   window.addEventListener("touchend", handleTouchEnd);
 
-    return () => {
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, [prevRevealed, hasRevealed]);
-  useEffect(() => {
-    if (hasRevealed) {
-      const html = document.documentElement;
-      const prevScrollBehavior = html.style.scrollBehavior;
-      html.style.scrollBehavior = "auto";
-      const element = document.getElementById("reveal-text");
-      if (element) {
-        const elementRect = element.getBoundingClientRect();
-        const offset = window.innerHeight / 2 - elementRect.height / 2;
-        window.scrollTo({
-          top: window.scrollY - window.innerHeight - offset - 60,
-        });
-      }
-      html.style.scrollBehavior = prevScrollBehavior;
-    }
-  }, [hasRevealed]);
+  //   return () => {
+  //     window.removeEventListener("touchstart", handleTouchStart);
+  //     window.removeEventListener("touchend", handleTouchEnd);
+  //   };
+  // }, [prevRevealed, hasRevealed]);
+  // useEffect(() => {
+  //   if (hasRevealed) {
+  //     const html = document.documentElement;
+  //     const prevScrollBehavior = html.style.scrollBehavior;
+  //     html.style.scrollBehavior = "auto";
+  //     const element = document.getElementById("reveal-text");
+  //     if (element) {
+  //       const elementRect = element.getBoundingClientRect();
+  //       const offset = window.innerHeight / 2 - elementRect.height / 2;
+  //       window.scrollTo({
+  //         top: window.scrollY - window.innerHeight - offset - 60,
+  //       });
+  //     }
+  //     html.style.scrollBehavior = prevScrollBehavior;
+  //   }
+  // }, [hasRevealed]);
 
   if (typeof children !== "string") {
     throw new Error("TextReveal: children must be a string");
