@@ -56,7 +56,7 @@ const OneRing: React.FC<OneRingProps> = ({
   };
 
   const SliderComponent = (
-    <div className="wearables-card-gradient w-full max-w-[598px] rounded-[24px] relative overflow-hidden p-4">
+    <div className="wearables-card-gradient max-w-[90vw] md:w-full md:max-w-[598px] rounded-[24px] relative overflow-hidden p-4">
       <Swiper
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
@@ -100,7 +100,7 @@ const OneRing: React.FC<OneRingProps> = ({
       </Swiper>
 
       <div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-1.5 z-10"
+        className="absolute bottom-7 md:bottom-10 left-1/2 -translate-x-1/2 flex gap-1.5 z-10"
         style={{ transition: "opacity 0.3s ease" }}
       >
         {images.map((_, index) => (
@@ -111,7 +111,7 @@ const OneRing: React.FC<OneRingProps> = ({
             aria-label={`Go to slide ${index + 1}`}
           >
             <div
-              className={`size-2 rounded-full transform transition-all duration-300 ${
+              className={`size-1 md:size-2 rounded-full transform transition-all duration-300 ${
                 index === currentIndex
                   ? "bg-white scale-110"
                   : "bg-white/50 hover:bg-white/70"
