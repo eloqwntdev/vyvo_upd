@@ -6,10 +6,15 @@ import { useInView } from "framer-motion";
 
 const BiosenseBand = () => {
   const imageRef = useRef(null);
+  const imageMobileRef = useRef(null);
   const contentRef = useRef(null);
   const listRef = useRef(null);
 
   const isImageInView = useInView(imageRef, { once: true, amount: 0.3 });
+  const isMobileImageInView = useInView(imageMobileRef, {
+    once: true,
+    amount: 0.3,
+  });
   const isContentInView = useInView(contentRef, { once: true, amount: 0.3 });
   const isListInView = useInView(listRef, { once: true, amount: 0.3 });
 
@@ -131,10 +136,10 @@ const BiosenseBand = () => {
           </div>
         </div>
         <motion.div
-          ref={imageRef}
+          ref={imageMobileRef}
           initial={{ opacity: 0, x: -30 }}
           animate={
-            isImageInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }
+            isMobileImageInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }
           }
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="flex md:hidden max-w-full md:max-w-[630px] w-full flex-col gap-5"
