@@ -332,7 +332,7 @@ const WearablesSlider: React.FC<WearablesSliderProps> = ({ onCardClick }) => {
             </Swiper>
           </div>
 
-          <div className="w-full max-w-[1280px] mx-auto flex items-center gap-4 sm:gap-6 md:gap-10 mt-8 sm:mt-12 md:mt-20 px-4 sm:px-6 md:px-8">
+          <div className="w-full mb-8 max-w-[1280px] mx-auto flex items-center gap-4 sm:gap-6 md:gap-10 mt-8 sm:mt-12 md:mt-20 px-4 sm:px-6 md:px-8">
             <div className="w-full relative h-[1px]">
               {/* Progress indicator */}
               <div className="absolute top-0 left-0 w-full h-[1px] bg-[#D1D1D1]"></div>
@@ -342,7 +342,7 @@ const WearablesSlider: React.FC<WearablesSliderProps> = ({ onCardClick }) => {
               ></div>
             </div>
 
-            <div className="flex gap-2 sm:gap-3">
+            {/* <div className="flex gap-2 sm:gap-3">
               <div
                 ref={navigationPrevRef}
                 className={`size-8 sm:size-9 md:size-10 cross-btn-shadow ${
@@ -360,7 +360,7 @@ const WearablesSlider: React.FC<WearablesSliderProps> = ({ onCardClick }) => {
               >
                 <RightArrow active={!isEnd} />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       )}
