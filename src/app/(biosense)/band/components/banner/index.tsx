@@ -52,7 +52,7 @@ const BannerBand = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-[600px] sm:min-h-screen w-full tracking-[-0.5px] bg-black relative flex items-start  pt-[120px] lg:pt-0 justify-center overflow-hidden"
+      className="min-h-[90svh] sm:min-h-screen w-full tracking-[-0.5px] bg-black relative flex items-start  pt-[120px] lg:pt-0 justify-center overflow-hidden"
     >
       {/* Background GIF - Using a div wrapper to preserve positioning */}
       <div className="absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -75,14 +75,14 @@ const BannerBand = () => {
       </div>
 
       {/* Band Image Desktop - Using a div wrapper to preserve positioning */}
-      <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-full sm:block hidden z-[5]">
+      <div className="absolute left-1/2 md:bottom-10 lg:bottom-0 -translate-x-1/2 w-full sm:block hidden z-[5]">
         <motion.img
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
           src="/biosense-products/band/banner-band.png"
           alt="BioSense Band"
-          className="w-full sm:max-w-[550px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1300px] mx-auto"
+          className="w-full sm:max-w-[550px] md:max-w-[1200px] lg:max-w-[1200px] xl:max-w-[1300px] mx-auto"
         />
       </div>
 
@@ -142,7 +142,7 @@ const BannerBand = () => {
       </motion.div>
 
       {/* Bottom Text - Using a div wrapper to preserve positioning */}
-      <div className="absolute bottom-8 sm:bottom-12 md:bottom-16 lg:bottom-20 left-1/2 -translate-x-1/2 w-full z-10 px-4">
+      <div className="absolute bottom-8 sm:bottom-12 md:bottom-32 lg:bottom-32 left-1/2 -translate-x-1/2 w-full z-10 px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
