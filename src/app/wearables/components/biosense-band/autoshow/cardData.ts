@@ -34,28 +34,28 @@ export const cardData = [
     height: 385,
     content: [
       {
-        src: "/wearables-img/band/card2/btn1.svg",
-        className: "absolute top-10 left-0 z-10",
+        src: "/wearables-img/band/card2/btn1.png",
+        className: "absolute top-10 left-0 z-10 h-[50px] md:h-[60px]",
         alt: "Fingertip control",
       },
       {
-        src: "/wearables-img/band/card2/btn2.svg",
-        className: "absolute top-[122px] left-5 z-10",
+        src: "/wearables-img/band/card2/btn2.png",
+        className: "absolute top-[122px] left-5 z-10 h-[50px] md:h-[60px]",
         alt: "Pose tracking",
       },
       {
-        src: "/wearables-img/band/card2/btn3.svg",
-        className: "absolute top-[202px] left-7 z-10",
+        src: "/wearables-img/band/card2/btn3.png",
+        className: "absolute top-[202px] left-7 z-10 h-[50px] md:h-[60px]",
         alt: "Pose tracking",
       },
       {
-        src: "/wearables-img/band/card2/btn4.svg",
-        className: "absolute top-[282px] left-5 z-10",
+        src: "/wearables-img/band/card2/btn4.png",
+        className: "absolute top-[282px] left-5 z-10 h-[50px] md:h-[60px]",
         alt: "Pose tracking",
       },
       {
-        src: "/wearables-img/band/card2/btn5.svg",
-        className: "absolute bottom-10 left-0 z-10",
+        src: "/wearables-img/band/card2/btn5.png",
+        className: "absolute bottom-10 left-0 z-10 h-[50px] md:h-[60px]",
         alt: "Pose tracking",
       },
     ],

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cardData } from "./cardData";
 
 const AutoShowBlock = () => {
-  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [currentCardIndex, setCurrentCardIndex] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -23,13 +23,13 @@ const AutoShowBlock = () => {
     return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentCardIndex((prevIndex) => (prevIndex + 1) % cardData.length);
-    }, 4000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentCardIndex((prevIndex) => (prevIndex + 1) % cardData.length);
+  //   }, 4000);
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   const currentCard = cardData[currentCardIndex];
 
@@ -44,7 +44,7 @@ const AutoShowBlock = () => {
         <motion.img
           key={`${currentCardIndex}-${index}`}
           src={item.src}
-          className={`${item.className} `}
+          className={`${item.className}`}
           alt={item.alt}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -59,7 +59,7 @@ const AutoShowBlock = () => {
     } else {
       return (
         <motion.div
-          className="w-[350px] absolute top-0 right-[-22%] sm:right-0 h-full scale-75 sm:scale-100"
+          className="w-[200px] md:w-[350px] absolute top-0 right-[5%] sm:right-0 h-full scale-75 sm:scale-100"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
