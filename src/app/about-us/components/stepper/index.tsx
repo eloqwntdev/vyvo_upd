@@ -1,6 +1,12 @@
 "use client";
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  MotionValue,
+  useMotionValue,
+} from "framer-motion";
 
 interface StepBlockProps {
   title: string;
@@ -95,7 +101,21 @@ const Stepper = () => {
     target: containerRef,
     offset: ["start center", "end start"],
   });
+  const scrollYProgressVar = useMotionValue(0);
 
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.onChange((value) => {
+      if (value >= 0.5) {
+        scrollYProgressVar.set(0.5);
+      } else if (scrollYProgressVar.get() < 0.5) {
+        scrollYProgressVar.set(scrollYProgress.get());
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, [scrollYProgress, scrollYProgressVar]);
   const steps = [
     {
       title: "Innovation",
@@ -139,7 +159,7 @@ const Stepper = () => {
             key={step.title}
             title={step.title}
             description={step.description}
-            scrollYProgress={scrollYProgress}
+            scrollYProgress={scrollYProgressVar}
             index={index}
             totalSteps={steps.length}
           />
