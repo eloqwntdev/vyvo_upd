@@ -140,7 +140,12 @@ const Degree360 = ({
       <div className="block md:hidden w-full px-4 relative">
         <img
           src="/biosense-products/ring/slider-ring.png"
-          className="w-full h-auto mb-6"
+          className="hidden md:block w-full h-auto mb-6"
+          alt="BioSense Watch with health features"
+        />
+        <img
+          src="/biosense-products/ring/slider-ring-mobile.png"
+          className="block md:hidden w-full h-auto mb-6"
           alt="BioSense Watch with health features"
         />
       </div>
