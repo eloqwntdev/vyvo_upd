@@ -92,7 +92,11 @@ const FAQCard = ({
   );
 };
 
-const FAQ = () => {
+const FAQ = ({
+  setHasRevealed,
+}: {
+  setHasRevealed: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [openCardId, setOpenCardId] = useState<number | null>(null);
 
@@ -134,14 +138,14 @@ const FAQ = () => {
             />
           ))}
         </div>
-        <div className="">
+        <motion.div onViewportEnter={() => setHasRevealed(true)} className="">
           <SlashButton
             showIcon={false}
             label="Vyvo Support"
             className="gap-4 bg-[#94a7ed28] py-4 md:py-[19px] test"
             labelClassName="!tracking-[-0.5px]"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

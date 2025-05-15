@@ -20,8 +20,8 @@ export default function Home() {
       <Statement hasRevealed={hasRevealed} />
       <div className="w-full relative">
         <Features setHasRevealed={setHasRevealed} />
-        <Pricing setHasRevealed={setHasRevealed}/>
-        <FAQ />
+        <Pricing />
+        <FAQ setHasRevealed={setHasRevealed}/>
         <TryNow />
       </div>
     </main>
