@@ -13,9 +13,6 @@ module.exports = {
       fontFamily: {
         nb: ["var(--font-nb-international)"],
       },
-      backgroundImage: {
-        "blue-gradient": "linear-gradient(to right, #2A5FDD, #77A9E8)",
-      },
     },
   },
   plugins: [],

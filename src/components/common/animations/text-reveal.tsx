@@ -72,7 +72,7 @@ export const TextReveal: FC<TextRevealProps> = ({
     return words.map((word, i) => (
       <span
         key={i}
-        className="py-[6px] bg-blue-gradient bg-clip-text text-transparent xl:lg-3 relative flex items-center justify-center mx-1 lg:mx-1.5 text-center"
+        className="py-[6px] blue-gradient xl:lg-3 relative flex items-center justify-center mx-1 lg:mx-1.5 text-center"
       >
         {word}
       </span>
@@ -158,7 +158,7 @@ const Word: FC<WordProps> = ({ children, progress, range, hasRevealed }) => {
       <span className="absolute py-[6px] text-[#FFFFFF26]">{children}</span>
       <motion.span
         style={{ opacity: hasRevealed ? 1 : opacity }}
-        className={"py-[6px] bg-blue-gradient  bg-clip-text text-transparent"}
+        className={"py-[6px] blue-gradient"}
       >
         {children}
       </motion.span>
