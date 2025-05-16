@@ -114,6 +114,9 @@ export const TextReveal: FC<TextRevealProps> = ({
       animate={{ height: hasRevealed ? targetHeight : initialHeight }}
       transition={{ duration: 1, ease: "easeInOut" }}
       className={cn("relative z-0")}
+      style={{
+        willChange: "height",
+      }}
     >
       <motion.div
         initial={{ height: "60%" }}
@@ -122,6 +125,9 @@ export const TextReveal: FC<TextRevealProps> = ({
         className={cn(
           "top-0 h-[100%] mx-auto flex max-w-4xl items-center bg-transparent px-[1rem] py-[5rem] sticky"
         )}
+        style={{
+          willChange: "height",
+        }}
       >
         <div className="flex flex-col items-center w-full">
           {!hasRevealed && icons && (
