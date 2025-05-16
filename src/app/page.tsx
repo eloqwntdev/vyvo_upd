@@ -7,10 +7,20 @@ import Hero from "./components/hero";
 import Pricing from "./components/pricing";
 import Statement from "./components/statement";
 import TryNow from "./components/try-now";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [hasRevealed, setHasRevealed] = useState(false);
+  const [hasRevealedSave, setHasRevealedSave] = useState(false);
+  useEffect(() => {
+    if (hasRevealed) {
+      const timer = setTimeout(() => {
+        setHasRevealedSave(true);
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [hasRevealed]);
   return (
     <main
       className="flex flex-col items-center justify-start bg-black"
@@ -20,7 +30,7 @@ export default function Home() {
       <Statement hasRevealed={hasRevealed} setHasRevealed={setHasRevealed} />
       <div className="w-full relative">
         <Features />
-        {hasRevealed && (
+        {hasRevealedSave && (
           <>
             <Pricing />
             <FAQ />
