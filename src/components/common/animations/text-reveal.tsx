@@ -17,6 +17,7 @@ import {
 } from "react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { useViewportHeight } from "@/hooks/useViewportHeight";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -41,7 +42,9 @@ export const TextReveal: FC<TextRevealProps> = ({
   const [firstPointScroll, setFirstPointScroll] = useState(0);
   const [lastPointScroll, setLastPointScroll] = useState(0);
   const [hasRevealed, setHasRevealed] = useState(false);
-
+  const vh = useViewportHeight();
+  const initialHeight = vh * 1.5;
+  const targetHeight = vh;
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (v) => {
       if (v >= 0.99 && !hasRevealed) {
@@ -107,8 +110,8 @@ export const TextReveal: FC<TextRevealProps> = ({
     <motion.div
       id="reveal-text"
       ref={targetRef}
-      initial={{ height: 2000 }}
-      animate={{ height: hasRevealed ? 700 : 2000 }}
+      initial={{ height: initialHeight }}
+      animate={{ height: hasRevealed ? targetHeight : initialHeight }}
       transition={{ duration: 1, ease: "easeInOut" }}
       className={cn("relative z-0")}
     >
