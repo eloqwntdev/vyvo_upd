@@ -227,7 +227,7 @@ const Features = () => {
                       key={tab.id}
                       ref={tabRefs.current[tabIndex]}
                       className="space-y-20"
-                      initial={{ opacity: 0, y: 50 }}
+                      initial={{ opacity: 1, y: 50 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: false, amount: 0.3 }}
                       transition={{ duration: 0.5 }}
@@ -262,10 +262,7 @@ const Features = () => {
                             initial={{ y: 20, opacity: 0 }}
                             whileInView={{
                               y: 0,
-                              opacity:
-                                tabIndex === tabsData.length - 1
-                                  ? 1
-                                  : undefined,
+                              opacity: tabIndex === tabsData.length - 1 ? 1 : 1,
                             }}
                             viewport={{ once: false, amount: 0.5 }}
                             transition={{

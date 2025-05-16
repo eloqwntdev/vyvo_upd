@@ -45,7 +45,7 @@ export const TextReveal: FC<TextRevealProps> = ({
   const [lastPointScroll, setLastPointScroll] = useState(0);
   const [hasRevealed, setHasRevealed] = useState(false);
   const vh = useViewportHeight();
-  const initialHeight = vh * 1.5;
+  const initialHeight = vh * 1.8;
   const targetHeight = vh;
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (v) => {
@@ -63,45 +63,6 @@ export const TextReveal: FC<TextRevealProps> = ({
     };
   }, [scrollYProgress, hasRevealed, prevRevealed, touched]);
 
-  // useEffect(() => {
-  //   const handleTouchStart = () => {
-  //     setTouched(true);
-  //   };
-
-  //   const handleTouchEnd = () => {
-  //     setTouched(false);
-  //     if (prevRevealed && !hasRevealed) {
-  //       setLastPointScroll(window.scrollY);
-  //       console.log(window.scrollY);
-  //       setHasRevealed(true);
-  //     }
-  //   };
-
-  //   window.addEventListener("touchstart", handleTouchStart);
-  //   window.addEventListener("touchend", handleTouchEnd);
-
-  //   return () => {
-  //     window.removeEventListener("touchstart", handleTouchStart);
-  //     window.removeEventListener("touchend", handleTouchEnd);
-  //   };
-  // }, [prevRevealed, hasRevealed]);
-  // useEffect(() => {
-  //   if (hasRevealed) {
-  //     const html = document.documentElement;
-  //     const prevScrollBehavior = html.style.scrollBehavior;
-  //     html.style.scrollBehavior = "auto";
-  //     const element = document.getElementById("reveal-text");
-  //     if (element) {
-  //       const elementRect = element.getBoundingClientRect();
-  //       const offset = window.innerHeight / 2 - elementRect.height / 2;
-  //       window.scrollTo({
-  //         top: window.scrollY - window.innerHeight - offset - 60,
-  //       });
-  //     }
-  //     html.style.scrollBehavior = prevScrollBehavior;
-  //   }
-  // }, [hasRevealed]);
-
   if (typeof children !== "string") {
     throw new Error("TextReveal: children must be a string");
   }
@@ -111,7 +72,7 @@ export const TextReveal: FC<TextRevealProps> = ({
     return words.map((word, i) => (
       <span
         key={i}
-        className="bg-gradient-to-r py-[6px] from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent xl:lg-3 relative flex items-center justify-center mx-1 lg:mx-1.5 text-center"
+        className="py-[6px] bg-blue-gradient bg-clip-text text-transparent xl:lg-3 relative flex items-center justify-center mx-1 lg:mx-1.5 text-center"
       >
         {word}
       </span>
@@ -131,8 +92,8 @@ export const TextReveal: FC<TextRevealProps> = ({
       }}
     >
       <motion.div
-        initial={{ height: "60%" }}
-        animate={{ height: hasRevealed ? "100%" : "60%" }}
+        initial={{ height: "50%" }}
+        animate={{ height: hasRevealed ? "100%" : "50%" }}
         transition={{ duration: 1, ease: "easeInOut" }}
         className={cn(
           "top-0 h-[100%] mx-auto flex max-w-4xl items-center bg-transparent px-[1rem] py-[5rem] sticky"
@@ -197,9 +158,7 @@ const Word: FC<WordProps> = ({ children, progress, range, hasRevealed }) => {
       <span className="absolute py-[6px] text-[#FFFFFF26]">{children}</span>
       <motion.span
         style={{ opacity: hasRevealed ? 1 : opacity }}
-        className={
-          "bg-gradient-to-r py-[6px] from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent"
-        }
+        className={"py-[6px] bg-blue-gradient  bg-clip-text text-transparent"}
       >
         {children}
       </motion.span>
