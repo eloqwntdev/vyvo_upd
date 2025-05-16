@@ -1,6 +1,12 @@
 "use client";
 
-import { useScroll, MotionValue, useTransform, motion } from "framer-motion";
+import {
+  useScroll,
+  MotionValue,
+  useTransform,
+  motion,
+  animate,
+} from "framer-motion";
 import {
   ComponentPropsWithoutRef,
   FC,
@@ -19,40 +25,38 @@ export function cn(...inputs: ClassValue[]) {
 export interface TextRevealProps extends ComponentPropsWithoutRef<"div"> {
   children: string;
   icons?: ReactNode;
-  hasRevealed: boolean;
 }
 
 export const TextReveal: FC<TextRevealProps> = ({
   children,
   className,
   icons,
-  hasRevealed,
 }) => {
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
-
   const [touched, setTouched] = useState(false);
   const [prevRevealed, setPrevRevealed] = useState(false);
   const [firstPointScroll, setFirstPointScroll] = useState(0);
   const [lastPointScroll, setLastPointScroll] = useState(0);
+  const [hasRevealed, setHasRevealed] = useState(false);
 
-  // useEffect(() => {
-  //   const unsubscribe = scrollYProgress.on("change", (v) => {
-  //     if (v >= 0.99 && !hasRevealed) {
-  //       if (touched) {
-  //         setFirstPointScroll(window.scrollY);
-  //         setPrevRevealed(true);
-  //       } else if (prevRevealed === false) {
-  //         setHasRevealed(true);
-  //       }
-  //     }
-  //   });
-  //   return () => {
-  //     unsubscribe && unsubscribe();
-  //   };
-  // }, [scrollYProgress, hasRevealed, prevRevealed, touched]);
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on("change", (v) => {
+      if (v >= 0.99 && !hasRevealed) {
+        if (touched) {
+          setFirstPointScroll(window.scrollY);
+          setPrevRevealed(true);
+        } else if (prevRevealed === false) {
+          setHasRevealed(true);
+        }
+      }
+    });
+    return () => {
+      unsubscribe && unsubscribe();
+    };
+  }, [scrollYProgress, hasRevealed, prevRevealed, touched]);
 
   // useEffect(() => {
   //   const handleTouchStart = () => {
@@ -100,18 +104,20 @@ export const TextReveal: FC<TextRevealProps> = ({
   const words = children.split(" ");
 
   return (
-    <div
+    <motion.div
       id="reveal-text"
       ref={targetRef}
-      className={cn(
-        "relative z-0",
-        hasRevealed ? "flex flex-col justify-center h-[100svh]" : "h-[200svh]"
-      )}
+      initial={{ height: "150svh" }}
+      animate={{ height: hasRevealed ? "100svh" : "150svh" }}
+      transition={{ duration: 3 }}
+      className={cn("relative z-0")}
     >
-      <div
+      <motion.div
+        initial={{ height: "60%" }}
+        animate={{ height: hasRevealed ? "100%" : "60%" }}
+        transition={{ duration: 3 }}
         className={cn(
-          "top-0 mx-auto flex h-[50%] max-w-4xl items-center bg-transparent px-[1rem] py-[5rem]",
-          hasRevealed ? "" : "sticky"
+          "top-0 mx-auto flex max-w-4xl items-center bg-transparent px-[1rem] py-[5rem] sticky"
         )}
       >
         <div className="flex flex-col items-center w-full">
@@ -139,8 +145,8 @@ export const TextReveal: FC<TextRevealProps> = ({
             })}
           </span>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

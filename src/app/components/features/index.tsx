@@ -96,11 +96,7 @@ const tabsData = [
   },
 ];
 
-const Features = ({
-  setHasRevealed,
-}: {
-  setHasRevealed: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+const Features = () => {
   const [activeTab, setActiveTab] = useState(0);
   const targetRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef(tabsData.map(() => React.createRef()));
@@ -122,9 +118,6 @@ const Features = ({
     const activeIndex = tabInViews.findIndex((isInView) => isInView);
     if (activeIndex !== -1) {
       setActiveTab(activeIndex);
-      if (activeIndex === 2) {
-        setHasRevealed(true);
-      }
     }
   }, [tabInViews]);
 
