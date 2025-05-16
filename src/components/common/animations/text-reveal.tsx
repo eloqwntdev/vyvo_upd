@@ -25,12 +25,16 @@ export function cn(...inputs: ClassValue[]) {
 export interface TextRevealProps extends ComponentPropsWithoutRef<"div"> {
   children: string;
   icons?: ReactNode;
+  setHasRevealed: React.Dispatch<React.SetStateAction<boolean>>;
+  hasRevealed: boolean;
 }
 
 export const TextReveal: FC<TextRevealProps> = ({
   children,
   className,
   icons,
+  setHasRevealed,
+  hasRevealed,
 }) => {
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -40,7 +44,6 @@ export const TextReveal: FC<TextRevealProps> = ({
   const [prevRevealed, setPrevRevealed] = useState(false);
   const [firstPointScroll, setFirstPointScroll] = useState(0);
   const [lastPointScroll, setLastPointScroll] = useState(0);
-  const [hasRevealed, setHasRevealed] = useState(false);
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (v) => {
