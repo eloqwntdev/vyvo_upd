@@ -25,16 +25,12 @@ export function cn(...inputs: ClassValue[]) {
 export interface TextRevealProps extends ComponentPropsWithoutRef<"div"> {
   children: string;
   icons?: ReactNode;
-  setHasRevealed: React.Dispatch<React.SetStateAction<boolean>>;
-  hasRevealed: boolean;
 }
 
 export const TextReveal: FC<TextRevealProps> = ({
   children,
   className,
   icons,
-  setHasRevealed,
-  hasRevealed,
 }) => {
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -44,6 +40,7 @@ export const TextReveal: FC<TextRevealProps> = ({
   const [prevRevealed, setPrevRevealed] = useState(false);
   const [firstPointScroll, setFirstPointScroll] = useState(0);
   const [lastPointScroll, setLastPointScroll] = useState(0);
+  const [hasRevealed, setHasRevealed] = useState(false);
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (v) => {
@@ -110,15 +107,15 @@ export const TextReveal: FC<TextRevealProps> = ({
     <motion.div
       id="reveal-text"
       ref={targetRef}
-      initial={{ maxHeight: "150svh" }}
-      animate={{ maxHeight: hasRevealed ? "100svh" : "150svh" }}
-      transition={{ duration: 1 }}
-      className={cn("relative z-0 h-[150svh]")}
+      initial={{ maxHeight: 2000 }}
+      animate={{ maxHeight: hasRevealed ? 700 : 2000 }}
+      transition={{ duration: 1, ease: "easeInOut" }}
+      className={cn("relative z-0 h-[150svh] will-change-transform")}
     >
       <motion.div
         initial={{ maxHeight: "60%" }}
         animate={{ maxHeight: hasRevealed ? "100%" : "60%" }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
         className={cn(
           "top-0 h-[100%] mx-auto flex max-w-4xl items-center bg-transparent px-[1rem] py-[5rem] sticky"
         )}

@@ -5,13 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 import { TextReveal } from "@/components/common/animations/text-reveal";
 
-const Statement = ({
-  setHasRevealed,
-  hasRevealed,
-}: {
-  setHasRevealed: React.Dispatch<React.SetStateAction<boolean>>;
-  hasRevealed: boolean;
-}) => {
+const Statement = () => {
   const sectionRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -65,11 +59,7 @@ const Statement = ({
       className="flex items-center justify-center md:block bg-black w-full z-50 relative"
       ref={sectionRef}
     >
-      <TextReveal
-        hasRevealed={hasRevealed}
-        setHasRevealed={setHasRevealed}
-        icons={iconsComponent}
-      >
+      <TextReveal icons={iconsComponent}>
         VAI OS is a secure Web3 AI operating system built to be your Life
         CoPilot. It simplifies the way you approach your work, health, and more,
         allowing you to focus on what matters most.

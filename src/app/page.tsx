@@ -10,24 +10,18 @@ import TryNow from "./components/try-now";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [hasRevealed, setHasRevealed] = useState(false);
-
   return (
     <main
       className="flex flex-col items-center justify-start bg-black"
       id="top"
     >
       <Banner />
-      <Statement hasRevealed={hasRevealed} setHasRevealed={setHasRevealed} />
+      <Statement />
       <div className="w-full relative">
         <Features />
-        {hasRevealed && (
-          <>
-            <Pricing />
-            <FAQ />
-            <TryNow />
-          </>
-        )}
+        <Pricing />
+        <FAQ />
+        <TryNow />
       </div>
     </main>
   );
