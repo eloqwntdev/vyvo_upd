@@ -47,6 +47,7 @@ export const TextReveal: FC<TextRevealProps> = ({
   const vh = useViewportHeight();
   const initialHeight = vh * 1.8;
   const targetHeight = vh;
+
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (v) => {
       if (v >= 0.99 && !hasRevealed) {
@@ -107,11 +108,7 @@ export const TextReveal: FC<TextRevealProps> = ({
             <div className="mb-12 md:mb-16 w-full relative h-20">{icons}</div>
           )}
           {!hasRevealed && (
-            <span
-              className={
-                "flex flex-wrap sm:p-5 items-center justify-center text-[28px] font-normal text-[#FFFFFF26] md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-[40px] leading-[40px] md:leading-[48px]"
-              }
-            >
+            <span className="flex flex-wrap sm:p-5 items-center justify-center text-[28px] font-normal text-[#FFFFFF26] md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-[40px] leading-[40px] md:leading-[48px]">
               {words.map((word, i) => {
                 const start = i / words.length;
                 const end = start + 1 / words.length;
@@ -131,11 +128,15 @@ export const TextReveal: FC<TextRevealProps> = ({
 
           {hasRevealed && (
             <span
-              className={
-                "flex flex-wrap sm:p-5 items-center justify-center text-[28px] font-normal text-[#FFFFFF26] md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-[40px] leading-[40px] md:leading-[48px]"
-              }
+              style={{
+                background:
+                  "radial-gradient(29.68% 46.42% at 39.06% 38.97%, #2A5FDD 0%, #77A9E8 100%)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+              }}
+              className="flex flex-wrap sm:p-5 items-center justify-center text-[28px] font-normal text-[#FFFFFF26] md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-[40px] leading-[40px] md:leading-[48px]"
             >
-              {memoizedSpans}
+              {children}
             </span>
           )}
         </div>
