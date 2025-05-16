@@ -134,7 +134,7 @@ export const TextReveal: FC<TextRevealProps> = ({
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
               }}
-              className="flex flex-wrap sm:p-5 items-center justify-center text-[28px] font-normal text-[#FFFFFF26] md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-[40px] leading-[40px] md:leading-[48px]"
+              className="flex py-[6px] blue-gradient xl:lg-3 relative mx-1 lg:mx-1.5 text-center flex-wrap sm:p-5 items-center justify-center text-[28px] font-normal text-[#FFFFFF26] md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-[40px] leading-[55px] md:!leading-[60px]"
             >
               {children}
             </span>
