@@ -107,14 +107,14 @@ export const TextReveal: FC<TextRevealProps> = ({
     <motion.div
       id="reveal-text"
       ref={targetRef}
-      initial={{ maxHeight: 2000 }}
-      animate={{ maxHeight: hasRevealed ? 700 : 2000 }}
+      initial={{ height: 2000 }}
+      animate={{ height: hasRevealed ? 700 : 2000 }}
       transition={{ duration: 1, ease: "easeInOut" }}
-      className={cn("relative z-0 h-[150svh] will-change-transform")}
+      className={cn("relative z-0")}
     >
       <motion.div
-        initial={{ maxHeight: "60%" }}
-        animate={{ maxHeight: hasRevealed ? "100%" : "60%" }}
+        initial={{ height: "60%" }}
+        animate={{ height: hasRevealed ? "100%" : "60%" }}
         transition={{ duration: 1, ease: "easeInOut" }}
         className={cn(
           "top-0 h-[100%] mx-auto flex max-w-4xl items-center bg-transparent px-[1rem] py-[5rem] sticky"
