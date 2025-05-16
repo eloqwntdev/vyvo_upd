@@ -134,34 +134,28 @@ export const TextReveal: FC<TextRevealProps> = ({
           {!hasRevealed && icons && (
             <div className="mb-12 md:mb-16 w-full relative h-20">{icons}</div>
           )}
-          <AnimatePresence>
-            {!hasRevealed && (
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1 }}
-                className={
-                  "flex flex-wrap sm:p-5 items-center justify-center text-[28px] font-normal text-[#FFFFFF26] md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-[40px] leading-[40px] md:leading-[48px]"
-                }
-              >
-                {words.map((word, i) => {
-                  const start = i / words.length;
-                  const end = start + 1 / words.length;
-                  return (
-                    <Word
-                      key={i}
-                      progress={scrollYProgress}
-                      range={[start, end]}
-                      hasRevealed={hasRevealed}
-                    >
-                      {word}
-                    </Word>
-                  );
-                })}
-              </motion.span>
-            )}
-          </AnimatePresence>
+          {!hasRevealed && (
+            <span
+              className={
+                "flex flex-wrap sm:p-5 items-center justify-center text-[28px] font-normal text-[#FFFFFF26] md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-[40px] leading-[40px] md:leading-[48px]"
+              }
+            >
+              {words.map((word, i) => {
+                const start = i / words.length;
+                const end = start + 1 / words.length;
+                return (
+                  <Word
+                    key={i}
+                    progress={scrollYProgress}
+                    range={[start, end]}
+                    hasRevealed={hasRevealed}
+                  >
+                    {word}
+                  </Word>
+                );
+              })}
+            </span>
+          )}
         </div>
       </motion.div>
     </motion.div>
