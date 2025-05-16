@@ -109,13 +109,13 @@ export const TextReveal: FC<TextRevealProps> = ({
       ref={targetRef}
       initial={{ height: "150svh" }}
       animate={{ height: hasRevealed ? "100svh" : "150svh" }}
-      transition={{ duration: 3 }}
+      transition={{ duration: 1 }}
       className={cn("relative z-0")}
     >
       <motion.div
         initial={{ height: "60%" }}
         animate={{ height: hasRevealed ? "100%" : "60%" }}
-        transition={{ duration: 3 }}
+        transition={{ duration: 1 }}
         className={cn(
           "top-0 mx-auto flex max-w-4xl items-center bg-transparent px-[1rem] py-[5rem] sticky"
         )}
