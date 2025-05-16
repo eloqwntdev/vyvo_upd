@@ -141,16 +141,23 @@ export const TextReveal: FC<TextRevealProps> = ({
             {words.map((word, i) => {
               const start = i / words.length;
               const end = start + 1 / words.length;
-              return (
-                <span>{word}</span>
-                // <Word
-                //   key={i}
-                //   progress={scrollYProgress}
-                //   range={[start, end]}
-                //   hasRevealed={hasRevealed}
-                // >
-                //   {word}
-                // </Word>
+
+              return hasRevealed ? (
+                <span
+                  key={i}
+                  className="bg-gradient-to-r py-[6px] from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent xl:lg-3 relative flex items-center justify-center mx-1 lg:mx-1.5 text-center"
+                >
+                  {word}
+                </span>
+              ) : (
+                <Word
+                  key={i}
+                  progress={scrollYProgress}
+                  range={[start, end]}
+                  hasRevealed={hasRevealed}
+                >
+                  {word}
+                </Word>
               );
             })}
           </span>
