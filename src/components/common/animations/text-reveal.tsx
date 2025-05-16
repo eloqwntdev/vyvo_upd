@@ -142,14 +142,15 @@ export const TextReveal: FC<TextRevealProps> = ({
               const start = i / words.length;
               const end = start + 1 / words.length;
               return (
-                <Word
-                  key={i}
-                  progress={scrollYProgress}
-                  range={[start, end]}
-                  hasRevealed={hasRevealed}
-                >
-                  {word}
-                </Word>
+                <span>{word}</span>
+                // <Word
+                //   key={i}
+                //   progress={scrollYProgress}
+                //   range={[start, end]}
+                //   hasRevealed={hasRevealed}
+                // >
+                //   {word}
+                // </Word>
               );
             })}
           </span>
