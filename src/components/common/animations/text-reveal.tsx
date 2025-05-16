@@ -156,6 +156,23 @@ export const TextReveal: FC<TextRevealProps> = ({
               })}
             </span>
           )}
+          {hasRevealed && (
+            <span
+              className={
+                "flex flex-wrap sm:p-5 items-center justify-center text-[28px] font-normal text-[#FFFFFF26] md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-[40px] leading-[40px] md:leading-[48px]"
+              }
+            >
+              {words.map((word, i) => {
+                const start = i / words.length;
+                const end = start + 1 / words.length;
+                return (
+                  <span className="xl:lg-3 relative flex items-center justify-center mx-1 lg:mx-1.5 text-center ">
+                    {word}
+                  </span>
+                );
+              })}
+            </span>
+          )}
         </div>
       </motion.div>
     </motion.div>
