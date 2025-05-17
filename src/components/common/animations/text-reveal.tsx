@@ -148,18 +148,32 @@ export const TextReveal: FC<TextRevealProps> = ({
             />
           )}
           {hasRevealed && (
-            <span
-              style={{
-                background:
-                  "radial-gradient(29.68% 46.42% at 39.06% 38.97%, #2A5FDD 0%, #77A9E8 100%)",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-              className="flex py-[6px] w-[94%] blue-gradient xl:lg-3 relative mx-1 lg:mx-1.5 text-center flex-wrap sm:p-5 items-center justify-center text-[28px] font-normal text-[#FFFFFF26] md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-[40px] leading-[55px] md:!leading-[60px]"
-            >
-              {children}
-            </span>
+            <div className="relative">
+              <span
+                className="flex flex-wrap xl:lg-3 relative mx-1 lg:mx-1.5 text-center sm:p-5 items-center justify-center text-[28px] font-normal text-transparent md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-[40px] leading-[55px] md:!leading-[60px]"
+                style={{
+                  background:
+                    "radial-gradient(29.68% 46.42% at 39.06% 38.97%, #2A5FDD 0%, #77A9E8 100%)",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                }}
+              >
+                {children &&
+                  children.split(" ").map((word, index) => {
+                    return (
+                      <span
+                        key={index}
+                        style={{
+                          color: "rgba(255, 255,255,0)",
+                        }}
+                        className="mx-1 lg:mx-1.5"
+                      >
+                        {word}
+                      </span>
+                    );
+                  })}
+              </span>
+            </div>
           )}
         </div>
       </motion.div>
