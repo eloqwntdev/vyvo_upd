@@ -44,10 +44,16 @@ export const TextReveal: FC<TextRevealProps> = ({
   const [firstPointScroll, setFirstPointScroll] = useState(0);
   const [lastPointScroll, setLastPointScroll] = useState(0);
   const [hasRevealed, setHasRevealed] = useState(false);
-  const vh = useViewportHeight();
-  const initialHeight = vh * 1.8;
-  const targetHeight = vh;
+  const [vh, setVh] = useState<number | null>(null);
+  const [initialHeight, setInitialHeight] = useState<number | null>(null);
+  const [targetHeight, setTargetHeight] = useState<number | null>(null);
 
+  useEffect(() => {
+    const height = window.innerHeight;
+    setVh(height);
+    setInitialHeight(height * 1.8);
+    setTargetHeight(height);
+  }, []);
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (v) => {
       if (v >= 0.99 && !hasRevealed) {
