@@ -44,9 +44,9 @@ export const TextReveal: FC<TextRevealProps> = ({
   const [firstPointScroll, setFirstPointScroll] = useState(0);
   const [lastPointScroll, setLastPointScroll] = useState(0);
   const [hasRevealed, setHasRevealed] = useState(false);
-  const [vh, setVh] = useState<number | null>(null);
-  const [initialHeight, setInitialHeight] = useState<number | null>(null);
-  const [targetHeight, setTargetHeight] = useState<number | null>(null);
+  const [vh, setVh] = useState<number>(1000);
+  const [initialHeight, setInitialHeight] = useState<number>(1500);
+  const [targetHeight, setTargetHeight] = useState<number>(1000);
 
   useEffect(() => {
     const height = window.innerHeight;
