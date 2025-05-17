@@ -107,8 +107,17 @@ export const TextReveal: FC<TextRevealProps> = ({
           {!hasRevealed && icons && (
             <div className="mb-12 md:mb-16 w-full relative h-20">{icons}</div>
           )}
-          {!hasRevealed && (
-            <span className="flex flex-wrap sm:p-5 items-center justify-center text-[28px] font-normal text-[#FFFFFF26] md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-[40px] leading-[40px] md:leading-[48px]">
+          {/* {!hasRevealed && (
+            <span
+              style={{
+                background:
+                  "radial-gradient(29.68% 46.42% at 39.06% 38.97%, #2A5FDD 0%, #77A9E8 100%)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+              className="flex flex-wrap sm:p-5 items-center justify-center text-[28px] font-normal text-[#FFFFFF26] md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-[40px] leading-[40px] md:leading-[48px]"
+            >
               {words.map((word, i) => {
                 const start = i / words.length;
                 const end = start + 1 / words.length;
@@ -124,8 +133,15 @@ export const TextReveal: FC<TextRevealProps> = ({
                 );
               })}
             </span>
+          )} */}
+          {!hasRevealed && (
+            <TimeTitle
+              scrollYProgress={scrollYProgress}
+              from={0.2}
+              text={children}
+              hasRevealed={hasRevealed}
+            />
           )}
-
           {hasRevealed && (
             <span
               style={{
@@ -133,8 +149,9 @@ export const TextReveal: FC<TextRevealProps> = ({
                   "radial-gradient(29.68% 46.42% at 39.06% 38.97%, #2A5FDD 0%, #77A9E8 100%)",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
               }}
-              className="flex py-[6px] blue-gradient xl:lg-3 relative mx-1 lg:mx-1.5 text-center flex-wrap sm:p-5 items-center justify-center text-[28px] font-normal text-[#FFFFFF26] md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-[40px] leading-[55px] md:!leading-[60px]"
+              className="flex py-[6px] w-[94%] blue-gradient xl:lg-3 relative mx-1 lg:mx-1.5 text-center flex-wrap sm:p-5 items-center justify-center text-[28px] font-normal text-[#FFFFFF26] md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-[40px] leading-[55px] md:!leading-[60px]"
             >
               {children}
             </span>
@@ -145,24 +162,49 @@ export const TextReveal: FC<TextRevealProps> = ({
   );
 };
 
-interface WordProps {
-  children: ReactNode;
-  progress: MotionValue<number>;
-  range: [number, number];
+const TimeTitle = ({
+  text,
+  from,
+  scrollYProgress,
+  hasRevealed,
+}: {
+  text: string | null;
+  from: number;
+  scrollYProgress: MotionValue<number>;
   hasRevealed?: boolean;
-}
-
-const Word: FC<WordProps> = ({ children, progress, range, hasRevealed }) => {
-  const opacity = useTransform(progress, range, [0, 1]);
+}) => {
   return (
-    <span className="xl:lg-3 relative flex items-center justify-center mx-1 lg:mx-1.5 text-center">
-      <span className="absolute py-[6px] text-[#FFFFFF26]">{children}</span>
-      <motion.span
-        style={{ opacity: hasRevealed ? 1 : opacity }}
-        className={"py-[6px] blue-gradient"}
-      >
-        {children}
-      </motion.span>
-    </span>
+    <motion.span
+      className="flex flex-wrap xl:lg-3 relative mx-1 lg:mx-1.5 text-center sm:p-5 items-center justify-center text-[28px] font-normal text-transparent md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-[40px] leading-[55px] md:!leading-[60px]"
+      style={{
+        background:
+          "radial-gradient(29.68% 46.42% at 39.06% 38.97%, #2A5FDD 0%, #77A9E8 100%)",
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+      }}
+    >
+      {text &&
+        text.split(" ").map((word, index) => {
+          const start = index / text.split(" ").length;
+          const end = start + 1 / text.split(" ").length;
+          const opacity = useTransform(scrollYProgress, [start, end], [0.9, 1]);
+          return (
+            <motion.span
+              key={index}
+              style={{
+                opacity: hasRevealed ? 1 : opacity,
+                color: hasRevealed
+                  ? "#ffffff00"
+                  : opacity.get() < 1
+                    ? "#ffffff26"
+                    : "#ffffff00",
+              }}
+              className=" mx-1 lg:mx-1.5"
+            >
+              {word}
+            </motion.span>
+          );
+        })}
+    </motion.span>
   );
 };

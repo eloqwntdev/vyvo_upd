@@ -58,7 +58,7 @@ const TimeTitle = ({
           <motion.span
             key={index}
             initial={{ opacity: 0.4, color: "#ffffff" }}
-            animate={{ opacity: 1, color: "transparent" }}
+            animate={{ opacity: 1, color: "#ffffff00" }}
             transition={{ delay: index * 0.05, duration: 0 }}
           >
             {char}
