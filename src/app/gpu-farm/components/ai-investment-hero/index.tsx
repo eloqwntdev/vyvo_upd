@@ -8,7 +8,7 @@ const AIInvestmentHero = () => {
     ssr: false,
   });
   return (
-    <section className="bg-black py-12 sm:py-16 md:py-20 min-h-[500px] sm:min-h-[600px] md:min-h-[800px] relative flex items-center justify-center flex-col px-4 sm:px-6 lg:px-8">
+    <section className="bg-black py-12 sm:py-16 md:py-20 min-h-[300px] sm:min-h-[600px] md:min-h-[800px] relative flex items-center justify-center flex-col px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1280px] mx-auto w-full relative z-10 flex flex-col items-center gap-4 sm:gap-6">
         <motion.h2
           className="text-white w-full font-nb font-light text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-tight sm:leading-tight lg:leading-[60px] md:text-center"
