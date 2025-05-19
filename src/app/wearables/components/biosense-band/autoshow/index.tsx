@@ -23,13 +23,13 @@ const AutoShowBlock = () => {
     return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentCardIndex((prevIndex) => (prevIndex + 1) % cardData.length);
-  //   }, 4000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentCardIndex((prevIndex) => (prevIndex + 1) % cardData.length);
+    }, 4000);
 
-  //   return () => clearInterval(interval);
-  // }, []);
+    return () => clearInterval(interval);
+  }, []);
 
   const currentCard = cardData[currentCardIndex];
 
