@@ -111,6 +111,18 @@ const HeartBeats = () => {
 
         <motion.div
           variants={fadeInUp}
+          className="block md:hidden max-w-[630px] w-full"
+        >
+          <Lottie
+            className="pointer-events-none"
+            autoplay={false}
+            animationData={animationData}
+            loop
+            assetsPath="/lottie/4/images/"
+          />
+        </motion.div>
+        <motion.div
+          variants={fadeInUp}
           initial={{ scale: 1 }}
           animate={{
             scale: 1.05,
@@ -123,17 +135,10 @@ const HeartBeats = () => {
               ease: "easeInOut",
             },
           }}
-          className="max-w-[630px] w-full"
+          className="hidden md:block max-w-[630px] w-full"
         >
           <Lottie
-            className="block md:hidden pointer-events-none"
-            autoplay={false}
-            animationData={animationData}
-            loop
-            assetsPath="/lottie/4/images/"
-          />
-          <Lottie
-            className="hidden md:block pointer-events-none"
+            className="pointer-events-none"
             animationData={animationData}
             loop
             assetsPath="/lottie/4/images/"
