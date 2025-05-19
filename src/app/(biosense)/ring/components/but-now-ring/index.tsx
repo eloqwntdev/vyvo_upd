@@ -102,7 +102,8 @@ const ButNowRing = () => {
           variants={fadeInUp}
           className="text-white font-light font-nb text-[24px] leading-[28px] md:text-[48px] md:leading-[52px] lg:text-[56px] lg:leading-[60px] sm:text-center tracking-[-0.5px]"
         >
-          Are you ready to find your perfect fit?
+          Are you ready to find your{" "}
+          <span className="text-gradient">perfect fit?</span>
         </motion.h2>
         <motion.p
           variants={fadeInUp}
