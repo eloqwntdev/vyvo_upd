@@ -222,7 +222,8 @@ const VyvoSmart = () => {
           </motion.p>
           <div className="flex flex-row gap-4 md:gap-5">
             <div className="relative z-10 max-w-[166px] w-full">
-              <motion.button
+              <motion.a
+                href="https://play.google.com/store/apps/details?id=com.vyvo.vyvosmart"
                 initial={{ opacity: 0, x: -20 }}
                 animate={
                   isDownloadInView
@@ -248,11 +249,12 @@ const VyvoSmart = () => {
                     Google Play
                   </span>
                 </div>
-              </motion.button>
+              </motion.a>
               <div className="glow-effect transition-all duration-300 ease-in-out"></div>
             </div>
             <div className="relative z-10 max-w-[166px] w-full">
-              <motion.button
+              <motion.a
+                href="https://apps.apple.com/es/app/vyvo-smart/id1462639377"
                 initial={{ opacity: 0, x: -20 }}
                 animate={
                   isDownloadInView
@@ -278,7 +280,7 @@ const VyvoSmart = () => {
                     App Store
                   </span>
                 </div>
-              </motion.button>
+              </motion.a>
               <div className="glow-effect transition-all duration-300 ease-in-out"></div>
             </div>
           </div>

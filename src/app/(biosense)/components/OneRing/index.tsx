@@ -157,7 +157,10 @@ const OneRing: React.FC<OneRingProps> = ({
         </p>
         <div className="flex flex-row gap-4 md:gap-5">
           <div className="relative z-10 max-w-[166px] w-full">
-            <motion.button className="w-full sm:max-w-[166px] relative z-20 bg-[#77A9E829] hover:bg-[#94a7ed28] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]">
+            <motion.a
+              href="https://play.google.com/store/apps/details?id=com.vyvo.vyvosmart"
+              className="w-full sm:max-w-[166px] relative z-20 bg-[#77A9E829] hover:bg-[#94a7ed28] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]"
+            >
               <img
                 src={"/google.svg"}
                 alt={""}
@@ -173,11 +176,14 @@ const OneRing: React.FC<OneRingProps> = ({
                   Google Play
                 </span>
               </div>
-            </motion.button>
+            </motion.a>
             <div className="glow-effect transition-all duration-300 ease-in-out"></div>
           </div>
           <div className="relative z-10 max-w-[166px] w-full">
-            <motion.button className="w-full sm:max-w-[166px] relative z-20 bg-[#77A9E829] hover:bg-[#94a7ed28] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]">
+            <motion.a
+              href="https://apps.apple.com/es/app/vyvo-smart/id1462639377"
+              className="w-full sm:max-w-[166px] relative z-20 bg-[#77A9E829] hover:bg-[#94a7ed28] px-4 py-2 gap-2 main-shadow flex items-center justify-center rounded-[16px]"
+            >
               <img
                 src={"/apple.svg"}
                 alt={""}
@@ -193,7 +199,7 @@ const OneRing: React.FC<OneRingProps> = ({
                   App Store
                 </span>
               </div>
-            </motion.button>
+            </motion.a>
             <div className="glow-effect transition-all duration-300 ease-in-out"></div>
           </div>
         </div>
