@@ -134,7 +134,7 @@ const PrivacyBand = () => {
             generate a reward of VSC Coin as it gathers your health data.
           </motion.p>
 
-          <motion.div variants={fadeInLeft}>
+          {/* <motion.div variants={fadeInLeft}>
             <SlashButton
               showIcon={false}
               label="Buy Now"
@@ -142,7 +142,7 @@ const PrivacyBand = () => {
               labelClassName="!tracking-[-0.5px] text-[14px] sm:text-[15px] md:text-[16px]"
               containerStyles="!w-auto"
             />
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </div>
     </section>
