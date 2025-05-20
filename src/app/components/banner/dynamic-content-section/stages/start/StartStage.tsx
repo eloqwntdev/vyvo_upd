@@ -28,7 +28,7 @@ const StartStage = () => {
         }} // Exit animation
         className="relative mt-[24px] w-[140px] md:w-[206px]"
       >
-        <button
+        {/* <button
           type="button"
           onClick={cycleStage}
           className={clsx(
@@ -42,7 +42,7 @@ const StartStage = () => {
           >
             Press to start
           </span>
-        </button>
+        </button> */}
         <div className="glow-effect"></div>
       </motion.div>
     </>

@@ -21,9 +21,9 @@ const DynamicContentSection = () => {
   return (
     <AnimatePresence mode={"wait"}>
       {currentStage === "start" && <StartStage key={"start"} />}
-      {currentStage === "submit" && <SubmitStage key={"submit"} />}
+      {/* {currentStage === "submit" && <SubmitStage key={"submit"} />}
       {currentStage === "thinking" && <ThinkingStage key={"thinking"} />}
-      {currentStage === "audio" && <AudioStage key={"audio"} />}
+      {currentStage === "audio" && <AudioStage key={"audio"} />} */}
     </AnimatePresence>
   );
 };
