@@ -176,13 +176,13 @@ const ThinLight = () => {
               </motion.li>
             </motion.ul>
 
-            <SlashButton
+            {/* <SlashButton
               showIcon={false}
               label="Buy Now"
               className="!bg-[#77A9E829] hover:!bg-[#77A9E840] transition-colors !py-[12px] test !rounded-[16px] w-full !max-w-[140px]"
               labelClassName="!tracking-[-0.5px]"
               containerStyles="!w-auto"
-            />
+            /> */}
           </div>
         </div>
       </div>
