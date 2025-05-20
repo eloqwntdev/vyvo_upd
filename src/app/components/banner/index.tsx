@@ -63,7 +63,7 @@ const Banner = () => {
         />
       </motion.div>
       <div className="max-w-[1280px] w-full mx-auto px-[16px] pb-20">
-        <div className="h-[437px] overflow-hidden md:h-[500px] w-full flex justify-center relative">
+        <div className="h-[437px] overflow-hidden md:h-[600px] w-full flex justify-center relative">
           <AnimatePresence mode="wait">
             {!isVideoChanging && (
               <motion.video
@@ -73,7 +73,7 @@ const Banner = () => {
                 playsInline
                 loop
                 key={videoSrc}
-                className="z-10 "
+                className="z-0"
               >
                 <source src={videoSrc} />
                 Your browser does not support the video tag.
@@ -95,10 +95,10 @@ const Banner = () => {
           /> */}
 
           {/* AI Listening Text */}
-          <AiListeningText />
+          {/* <AiListeningText /> */}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col mt-[-60px]">
           <div className="flex flex-col justify-center items-center relative">
             <DynamicContentSection />
             <ScrollLogoSection />
