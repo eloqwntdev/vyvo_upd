@@ -52,10 +52,10 @@ const BannerBand = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-[100svh] sm:min-h-screen w-full tracking-[-0.5px] bg-black relative flex items-start  pt-[120px] lg:pt-0 justify-center overflow-hidden"
+      className="min-h-[100%] h-[100vh] max-h-[1000px] w-full tracking-[-0.5px] bg-black relative flex items-start  pt-[120px] lg:pt-0 justify-center overflow-hidden"
     >
       {/* Background GIF - Using a div wrapper to preserve positioning */}
-      <div className="absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute w-full h-full -pt-28 md:pt-[-220px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <motion.div
           className="w-full h-full"
           initial={{ opacity: 0 }}
@@ -75,7 +75,7 @@ const BannerBand = () => {
       </div>
 
       {/* Band Image Desktop - Using a div wrapper to preserve positioning */}
-      <div className="absolute left-1/2 bottom-10 sm:bottom-20 md:bottom-10 lg:bottom-0 -translate-x-1/2 w-full sm:block hidden z-[5]">
+      <div className="absolute left-1/2 bottom-10 sm:bottom-20 md:bottom-10 lg:bottom-0 -translate-x-1/2 w-full xl:block hidden z-[5]">
         <motion.img
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -87,7 +87,7 @@ const BannerBand = () => {
       </div>
 
       {/* Band Image Mobile - Using a div wrapper to preserve positioning */}
-      <div className="absolute left-1/2 bottom-24 -translate-x-1/2 w-full sm:hidden z-[5]">
+      <div className="absolute w-full md:w-[70%] lg:w-[60%] left-1/2 bottom-24 -translate-x-1/2  xl:hidden z-[5]">
         <motion.img
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
