@@ -123,18 +123,6 @@ const HeartBeats = () => {
         </motion.div>
         <motion.div
           variants={fadeInUp}
-          initial={{ scale: 1 }}
-          animate={{
-            scale: 1.05,
-          }}
-          transition={{
-            scale: {
-              duration: 2,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut",
-            },
-          }}
           className="hidden md:block max-w-[630px] w-full"
         >
           <Lottie
