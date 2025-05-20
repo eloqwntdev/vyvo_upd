@@ -69,7 +69,10 @@ const MainSection = () => {
 
         <ProductsCard />
 
-        <div className="cursor-pointer card-4-gradient p-[2.5px] rounded-[18px] card-shadow">
+        <div
+          onClick={() => (window.location.href = "/social-fi")}
+          className="cursor-pointer card-4-gradient p-[2.5px] rounded-[18px] card-shadow"
+        >
           <div className="p-4 rounded-[18px] card-4-inner-gradient relative">
             <img
               src="/homepage/card-4.png"
