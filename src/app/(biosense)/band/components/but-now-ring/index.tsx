@@ -108,14 +108,14 @@ const ButNowBand = () => {
       >
         <motion.h2
           variants={fadeInUp}
-          className="text-white text-left w-full font-light font-nb text-[24px] leading-[28px] md:text-[48px] md:leading-[52px] lg:text-[56px] lg:leading-[60px] sm:text-center"
+          className="text-white w-full font-light font-nb text-[24px] leading-[28px] md:text-[48px] md:leading-[52px] lg:text-[56px] lg:leading-[60px] text-center"
         >
           Skip the Ordinary. <br />
           <span className="text-gradient">Choose the Extraordinary!</span>
         </motion.h2>
         <motion.p
           variants={fadeInUp}
-          className="text-white text-left w-full font-light font-nb text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] sm:text-center"
+          className="text-white w-full font-light font-nb text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] text-center"
         >
           Choose the best, a health band as sophisticated{" "}
           <br className="hidden sm:block" />
