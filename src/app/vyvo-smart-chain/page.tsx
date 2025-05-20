@@ -33,7 +33,7 @@ const VyvoCmartChain = () => {
             the lastest Vyvo Smart Chain updates, exclusive promotions and
             practical insights.
           </p>
-          <PurpleButton label="Learn more" />
+          <PurpleButton link="https://vyvo.org/" label="Learn more" />
         </div>
 
         <div className="absolute top-[0%] w-full h-full scale-125">

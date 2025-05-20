@@ -89,7 +89,7 @@ const VyvoCmartChainBanner = () => {
               platform that directly connects users and researchers.
             </p>
           </div>
-          <PurpleButton label={"Start Mining"} />
+          <PurpleButton link="https://vyvo.org/" label={"Start Mining"} />
         </div>
       </div>
     </section>
