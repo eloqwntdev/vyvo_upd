@@ -119,9 +119,9 @@ const HealthBand = () => {
             variants={fadeInUp}
             className="max-w-[304px] w-full flex gap-6"
           >
-            <button className="py-2.5 max-w-[140px] w-full rounded-2xl border border-white text-white font-nb font-light text-[16px] leading-[20px]">
+            {/* <button className="py-2.5 max-w-[140px] w-full rounded-2xl border border-white text-white font-nb font-light text-[16px] leading-[20px]">
               Learn more
-            </button>
+            </button> */}
             <SlashButton
               showIcon={false}
               label="Buy Now"
