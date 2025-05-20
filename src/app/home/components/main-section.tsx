@@ -11,7 +11,7 @@ const MainSection = () => {
   });
 
   return (
-    <section className="min-h-[900px] flex relative flex-col items-center pt-[96px] md:pt-[162px] 2xl:px-0 px-4 bg-black">
+    <section className="max-h-[900px] md:max-h-none md:min-h-[900px] flex relative flex-col items-center pt-[96px] md:pt-[162px] 2xl:px-0 px-4 bg-black">
       <img
         src="/homepage/home.svg"
         alt=""
