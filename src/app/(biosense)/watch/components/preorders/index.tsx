@@ -99,14 +99,14 @@ const Preorders = () => {
       >
         <motion.h2
           variants={fadeInUp}
-          className="text-white font-light font-nb text-[24px] leading-[28px] md:text-[48px] md:leading-[52px] lg:text-[56px] lg:leading-[60px] sm:text-center tracking-[-0.5px]"
+          className="text-white font-light font-nb text-[24px] leading-[28px] md:text-[48px] md:leading-[52px] lg:text-[56px] lg:leading-[60px] text-center tracking-[-0.5px]"
         >
           <span className="text-gradient">BioSense Watch</span> introduces a new
           dimension in wearable devices.
         </motion.h2>
         <motion.p
           variants={fadeInUp}
-          className="text-white font-light font-nb text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] sm:text-center tracking-[-0.5px]"
+          className="text-white font-light font-nb text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] text-center tracking-[-0.5px]"
         >
           Eligible buyers can now preorder BioSense Watch. Experience BioSense
           Watch for yourself, and see how this first VAI OS companion can
