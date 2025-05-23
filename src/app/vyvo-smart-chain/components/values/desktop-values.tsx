@@ -39,10 +39,10 @@ const DesktopValues = () => {
   const activeIndex = useTransform(scrollYProgress, [0, 0.33, 0.66], [0, 1, 2]);
 
   return (
-    <div ref={wrapperRef} className="h-[200vh] relative">
+    <div ref={wrapperRef} className="h-[200vh] relative ">
       <motion.section
         ref={containerRef}
-        className="py-20 flex flex-col gap-16 items-center justify-center bg-black min-h-screen sticky top-0"
+        className="py-20 flex overflow-x-hidden flex-col gap-16 items-center justify-center bg-black min-h-screen sticky top-0"
       >
         <div className="flex flex-col items-center justify-center gap-10">
           <motion.span
