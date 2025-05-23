@@ -1,9 +1,9 @@
 "use client";
 // import { useLottie } from "lottie-react";
-import animationData from "../../../../../public/lottie/heartbeat.json";
-import secondAnimationData from "../../../../../public/lottie/3/data.json";
+import animationData from "../../../../../public/lottie/vyvo-smart-chain/1.json";
+import secondAnimationData from "../../../../../public/lottie/vyvo-smart-chain/2.json";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import AnimatedCounter from "@/components/common/animations/animated-counter";
 import dynamic from "next/dynamic";
 
@@ -43,18 +43,19 @@ const AboutVSC = () => {
           <div className="relative w-full">
             {/* {View} */}
             <Lottie animationData={animationData} loop />
-            <div className="flex flex-col gap-[25px] md:gap-[10px] lg:gap-[20px] absolute bottom-[7%] md:bottom-[4%] lg:bottom-[7%] left-7 md:left-8 lg:left-[10%]">
+            <div className="flex flex-col w-full gap-[5px] sm:gap-[10px] lg:gap-[20px] p-4 sm:p-8 md:p-6 xl:p-8 bottom-0 absolute">
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-white font-nb font-light text-lg md:text-xl lg:text-2xl leading-tight tracking-tight"
+                className="text-white font-nb font-light text-sm sm:text-lg md:text-xl lg:text-2xl leading-tight tracking-tight"
               >
                 Total Heartbeats Recorded
               </motion.span>
+              <div className="bg-[#E749F0] w-full h-[1px]"></div>
               <AnimatedCounter
                 value={3383937951543}
-                className="text-[#E749F0] font-nb font-light text-2xl md:text-3xl lg:text-4xl leading-tight tracking-tight"
+                className="text-[#E749F0] font-nb font-light text-xl sm:text-2xl md:text-2xl lg:text-4xl leading-tight tracking-tight"
               />
             </div>
           </div>
@@ -65,18 +66,19 @@ const AboutVSC = () => {
               loop
               assetsPath="/lottie/3/images/"
             />
-            <div className="flex flex-col gap-[25px] md:gap-[10px] lg:gap-[20px] absolute bottom-[7%] md:bottom-[4%] lg:bottom-[7%] left-7 md:left-8 lg:left-[10%]">
+            <div className="flex flex-col w-full gap-[5px] sm:gap-[20px] md:gap-[10px] lg:gap-[20px] absolute p-4 sm:p-8 md:p-6 xl:p-8 bottom-0">
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="text-white font-nb font-light text-lg md:text-xl lg:text-2xl leading-tight tracking-tight"
+                className="text-white font-nb font-light text-sm sm:text-lg md:text-xl lg:text-2xl leading-tight tracking-tight"
               >
                 Data Blocks Validated
               </motion.span>
+              <div className="bg-[#5348D7] w-full h-[1px]"></div>
               <AnimatedCounter
                 value={421559254}
-                className="text-[#5348D7] font-nb font-light text-2xl md:text-3xl lg:text-4xl leading-tight tracking-tight"
+                className="text-[#5348D7] font-nb font-light text-xl sm:text-2xl md:text-2xl lg:text-4xl leading-tight tracking-tight"
               />
             </div>
           </div>
