@@ -172,6 +172,7 @@ const WearablesSlider: React.FC<WearablesSliderProps> = ({ onCardClick }) => {
   const [isEnd, setIsEnd] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const swiperRef = useRef<SwiperType | null>(null);
+  const [swiperReady, setSwiperReady] = useState(false);
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -187,7 +188,11 @@ const WearablesSlider: React.FC<WearablesSliderProps> = ({ onCardClick }) => {
     // Cleanup
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
-
+  useEffect(() => {
+    if (navigationPrevRef.current && navigationNextRef.current) {
+      setSwiperReady(true);
+    }
+  }, [navigationPrevRef.current, navigationNextRef.current]);
   return (
     <section className="py-10 bg-white sm:py-14 md:py-20 sm:px-0 flex flex-col items-center justify-center gap-[30px] sm:gap-[40px] md:gap-[60px]">
       <div className="max-w-[320px] px-4 sm:px-6 md:px-8 sm:max-w-[400px] md:max-w-[480px] w-full flex flex-col items-center justify-center text-center gap-3 sm:gap-4 md:gap-6">
