@@ -11,7 +11,7 @@ const Tokenomics = () => {
   const cardsData = [
     {
       title: "Initial Supply",
-      value: "50,000,000 VSC",
+      value: "125,000,000 VSC",
       icon: "/roadmap-img/tokenomics/icon1.png",
     },
 
@@ -30,7 +30,7 @@ const Tokenomics = () => {
     {
       title: "Smart Contract",
       value: "View Contract",
-      link: "/smart-contract",
+      link: "https://vscscan.org/address/0x3A46c286A40c31E546320892fa7DB8722099635E",
       icon: "/roadmap-img/tokenomics/icon4.png",
     },
   ];
@@ -56,22 +56,18 @@ const Tokenomics = () => {
             className="flex flex-col gap-6 max-w-[527px]"
           >
             <h3 className="text-white font-nb font-light text-[20px] leading-[24px] tracking-[-0.6px] md:text-[48px] md:leading-[60px] md:tracking-[-1.44px]">
-              Vyvo Smart Chain (VSC)
+              Vyvo AI ($VAI)
             </h3>
 
             <p className="text-white font-nb font-light text-[14px] leading-[18px] tracking-[-0.42px] md:text-[16px] md:leading-[20px] md:tracking-[-0.48px]">
-              Vyvo Smart Chain is a HealthFi ecosystem that promotes and rewards
-              positive lifestyle habits through health data monetization. The
-              network runs on a validation protocol called Proof-of-Sensing
-              (PoSe), which aims to give users full privacy, complete
-              decentralization, and access to monetization of their personal
-              health data.
-              <br />
-              <br />
-              VSC is the native utility token that is used for: - Fees for
-              processing transactions and storing data. - Running validator
-              nodes on the network via staking VSC tokens. - Rewarding users for
-              generating health metric data.
+              Built within Vyvo Smart Chain, $VAI enables users to interact
+              seamlessly with AI-powered insights while maintaining full control
+              over their data. By integrating wearable health tech, blockchain
+              security, and AI automation, VAI OS leverages decentralized
+              intelligence to enhance everyday decision-making, from optimizing
+              personal wellness to managing lifestyle tasks. As AI adoption
+              scales, demand grows, reinforcing its role as a key utility token
+              within the DataFi ecosystem.
             </p>
           </motion.div>
 

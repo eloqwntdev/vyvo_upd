@@ -15,7 +15,7 @@ const Cards: React.FC<CardsProps> = ({
   title = "Total Supply",
   value = "250,000,000 VSC",
   link = null,
-  icon = "/roadmap-img/tokenomics/icon1.svg",
+  icon = "/roadmap-img/tokenomics/icon1.png",
   index = 0,
 }) => {
   return (
@@ -28,7 +28,11 @@ const Cards: React.FC<CardsProps> = ({
         duration: 0.8,
         ease: [0.43, 0.13, 0.23, 0.96],
       }}
-      className="rounded-[12px] py-3 px-4 flex items-center justify-start gap-3 bg-[#5348d70a] shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[10px]"
+      style={{
+        boxShadow:
+          "6px 80px 80px 0px rgba(148, 168, 237, 0.02) inset, 0px -1px 1px 0px rgba(148, 168, 237, 0.20) inset, 0px 1px 1px 0px rgba(148, 168, 237, 0.20) inset",
+      }}
+      className="rounded-[12px] py-3 px-4 flex items-center justify-start gap-3 bg-[#77a9e829] backdrop-blur-[10px]"
     >
       <img loading="lazy" src={icon} alt="VSC" width={48} height={48} />
       <div className="flex flex-col gap-2">
@@ -41,12 +45,28 @@ const Cards: React.FC<CardsProps> = ({
           </span>
         )}
         {link && (
-          <Link
-            className="text-[#A170FF] underline font-bn font-normal text-[20px] leading-[24px]"
-            href={link}
-          >
-            {value}
-          </Link>
+          <div className="flex flex-col">
+            <Link
+              style={{
+                background:
+                  "radial-gradient(29.68% 46.42% at 39.06% 38.97%, #2A5FDD 0%, #77A9E8 100%)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+              className="underline font-bn font-normal text-[20px] leading-[24px]"
+              href={link}
+            >
+              {value}
+            </Link>
+            <div
+              style={{
+                background:
+                  "radial-gradient(29.68% 46.42% at 39.06% 38.97%, #2A5FDD 0%, #77A9E8 100%)",
+              }}
+              className="h-[2px] w-full"
+            ></div>
+          </div>
         )}
       </div>
     </motion.div>
