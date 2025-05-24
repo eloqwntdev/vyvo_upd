@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import Tokenomics from "./components/tokenomics";
 import dynamic from "next/dynamic";
 import animationData from "../../../public/lottie/blue-back-lines-move/data.json";
-import TokenAllocationVestingSchedule from "./components/token-allocation-vesting-schedule";
 import RoadmapCards from "./components/roadmap-cards";
+import TokenAllocation from "./components/token-allocation";
 
 export default function RoadMap() {
   const Lottie = dynamic(() => import("lottie-react"), {
@@ -46,7 +46,7 @@ export default function RoadMap() {
       </div>
       <RoadmapCards />
       <Tokenomics />
-      <TokenAllocationVestingSchedule />
+      <TokenAllocation />
     </div>
   );
 }

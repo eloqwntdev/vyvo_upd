@@ -1,67 +1,85 @@
 import SortDropdown from "@/components/common/controllers/dropdowns/sort-dropdown";
-import React from "react";
+import React, { use, useState } from "react";
 import BarChart from "./components/allocations/barchart";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Allocations = () => {
   const chartdata = [
     {
-      label: "Team",
-      value: 50,
-      color: "255, 142, 117",
+      title: "Public & Private Sales",
+      circleChartImage:
+        "/roadmap-img/token-allocation/public-and-private-sales/1.png",
+      infoChartImage:
+        "/roadmap-img/token-allocation/public-and-private-sales/2.png",
     },
     {
-      label: "Investors",
-      value: 65,
-      color: "255, 227, 117",
+      title: "Infrastructure Dev. & Staking",
+      circleChartImage:
+        "/roadmap-img/token-allocation/infrastructure-taking/1.png",
+      infoChartImage:
+        "/roadmap-img/token-allocation/infrastructure-taking/2.png",
     },
     {
-      label: "Product",
-      value: 50,
-      color: "117, 255, 131",
+      title: "Treasury",
+      circleChartImage: "/roadmap-img/token-allocation/treasury/1.png",
+      infoChartImage: "/roadmap-img/token-allocation/treasury/2.png",
     },
     {
-      label: "Reserve Fund",
-      value: 25,
-      color: "255, 117, 250",
+      title: "Team",
+      circleChartImage: "/roadmap-img/token-allocation/team/1.png",
+      infoChartImage: "/roadmap-img/token-allocation/team/2.png",
     },
     {
-      label: "Marketing & Growth",
-      value: 25,
-      color: "126, 117, 255",
-    },
-    {
-      label: "Community Rewards",
-      value: 15,
-      color: "255, 117, 117",
-    },
-    {
-      label: "Staking Rewards",
-      value: 15,
-      color: "117, 248, 255",
-    },
-    {
-      label: "Liquidity Pool",
-      value: 15,
-      color: "186, 117, 255",
+      title: "Marketing & Promotion",
+      circleChartImage:
+        "/roadmap-img/token-allocation/marketing-promotion/1.png",
+      infoChartImage: "/roadmap-img/token-allocation/marketing-promotion/2.png",
     },
   ];
+  const [chartInView, SetChartInView] = useState(false);
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
-      className="rounded-xl md:rounded-3xl p-3 md:p-4 h-fit w-full bg-[rgba(83,72,215,0.04)] shadow-[inset_6px_80px_80px_0px_rgba(148,168,237,0.02),inset_0px_-1px_1px_0px_rgba(148,168,237,0.2),inset_0px_1px_1px_0px_rgba(148,168,237,0.2)] backdrop-blur-[75.8px]"
+      onViewportEnter={() => {
+        SetChartInView(true);
+      }}
+      style={{
+        boxShadow:
+          "6px 80px 80px 0px rgba(148, 168, 237, 0.02) inset, 0px -1px 1px 0px rgba(148, 168, 237, 0.20) inset, 0px 1px 1px 0px rgba(148, 168, 237, 0.20) inset",
+      }}
+      className="rounded-xl md:rounded-3xl p-3 md:p-4 h-[80vw] lg:h-full w-full bg-[#77a9e829] backdrop-blur-[75.8px]"
     >
-      <div className="rounded-xl md:rounded-3xl flex flex-col gap-10 p-4 md:p-8 border-[2px] border-[rgba(161,117,255,0.4)] backdrop-blur-[33.8px]">
-        <div className="flex flex-row justify-between">
-          <span className="text-white font-normal text-[16px] leading-[20px] tracking-[-0.48] md:text-[24px] md:leading-[28px] md:tracking-[-0.72px]">
-            Allocations
-          </span>
-          {/* <SortDropdown /> */}
-        </div>
-        <BarChart chartdata={chartdata} />
+      <div className="rounded-xl select-none pointer-events-none md:rounded-3xl flex h-full flex-col gap-10 p-4 md:p-8 bg-[#77a9e829] border-[2px] border-[#77a9e866] backdrop-blur-[33.8px]">
+        {chartdata.map((card, index) => (
+          <div className="h-full">
+            <motion.img
+              initial={{ opacity: 0 }}
+              animate={{ opacity: chartInView ? 1 : 0 }}
+              transition={{
+                delay: index * 0.1,
+                duration: 0.8,
+                ease: [0.43, 0.13, 0.23, 0.96],
+              }}
+              className="absolute h-[95%] w-auto lg:w-[90%] lg:h-auto left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+              src={card.circleChartImage}
+            />
+            <motion.img
+              initial={{ opacity: 0 }}
+              animate={{ opacity: chartInView ? 1 : 0 }}
+              transition={{
+                delay: index * 0.1 + 0.05,
+                duration: 0.8,
+                ease: [0.43, 0.13, 0.23, 0.96],
+              }}
+              className="absolute h-[95%] w-auto lg:w-[90%] lg:h-auto left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+              src={card.infoChartImage}
+            />
+          </div>
+        ))}
       </div>
     </motion.div>
   );
