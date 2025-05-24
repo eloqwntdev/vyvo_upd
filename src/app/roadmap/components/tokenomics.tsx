@@ -76,7 +76,7 @@ const Tokenomics = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-full md:max-w-[505px] lg:max-w-none"
+            className="grid grid-cols-1 md:grid-cols-2 gap-5 select-none max-w-full md:max-w-[505px] lg:max-w-none"
           >
             {cardsData.map((card, index) => (
               <Cards
