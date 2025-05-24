@@ -54,7 +54,6 @@ const TokenAllocationVestingSchedule = () => {
               icon={card.icon}
               title={card.title}
               percentage={card.percentage}
-              description={card.description}
               index={index}
             />
           ))}
