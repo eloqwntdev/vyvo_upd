@@ -71,7 +71,7 @@ const ScrollLogoSection = () => {
             ease: [0.16, 1, 0.3, 1], // Easing for smooth animation
           }}
           className={
-            "flex md:hidden flex gap-[16px] items-center hover:!bg-transparent hover:!backdrop-blur-none absolute bottom-[-48px] z-[50]"
+            "flex md:hidden gap-[16px] items-center hover:!bg-transparent hover:!backdrop-blur-none absolute bottom-[-48px] z-[50]"
           }
           onClick={() => {
             setIsModalOpen(false);
