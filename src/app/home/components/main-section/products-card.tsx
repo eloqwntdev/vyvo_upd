@@ -40,7 +40,7 @@ const ProductsCard = () => {
       }}
       className="cursor-pointer card-3-gradient p-[2.5px] rounded-[18px] card-shadow"
     >
-      <div className="p-4 rounded-[18px] card-3-inner-gradient relative">
+      <div className="p-2 sm:p-4 rounded-[18px] card-3-inner-gradient relative">
         <img
           src="/homepage/card-3.png"
           alt=""
@@ -49,12 +49,12 @@ const ProductsCard = () => {
         <img
           src={imageSrc}
           alt=""
-          className="absolute w-[100px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 scale-110"
+          className="absolute w-[40%] sm:w-[100px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 scale-110"
         />{" "}
-        <div className="absolute top-[36px] left-1/2 transform -translate-x-1/2 flex flex-col gap-10 items-center">
-          <div className="flex gap-[10.67px]">
+        <div className="absolute top-[10%] sm:top-[36px] left-1/2 transform -translate-x-1/2 flex flex-col gap-0 sm:gap-10 items-center">
+          <div className="flex gap-[5px] sm:gap-[10.67px]">
             <motion.div
-              className={`size-[32px] rounded-full cursor-pointer bg-[#FCFCFE1A] ${
+              className={`size-[24px] sm:size-[32px] rounded-full cursor-pointer bg-[#FCFCFE1A] ${
                 selectedIcon === "Icon3" ? "card-3-tag" : ""
               } grid place-content-center`}
               onHoverStart={() => handleClick("Icon3")}
@@ -93,7 +93,7 @@ const ProductsCard = () => {
               </svg>
             </motion.div>
             <motion.div
-              className={`size-[32px] rounded-full cursor-pointer bg-[#FCFCFE1A] ${
+              className={`size-[24px] sm:size-[32px] rounded-full cursor-pointer bg-[#FCFCFE1A] ${
                 selectedIcon === "Icon1" ? "card-3-tag" : ""
               } grid place-content-center`}
               onHoverStart={() => handleClick("Icon1")}
@@ -118,7 +118,7 @@ const ProductsCard = () => {
             </motion.div>
 
             <motion.div
-              className={`size-[32px] rounded-full cursor-pointer bg-[#FCFCFE1A] ${
+              className={`size-[24px] sm:size-[32px] rounded-full cursor-pointer bg-[#FCFCFE1A] ${
                 selectedIcon === "Icon2" ? "card-3-tag" : ""
               } grid place-content-center`}
               onHoverStart={() => handleClick("Icon2")}
@@ -152,11 +152,11 @@ const ProductsCard = () => {
               </svg>
             </motion.div>
           </div>
-          <span className="bg-gradient-to-r from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent font-light font-nb text-[48px] leading-[55px] max-w-[235px] text-center ">
-            {textContent}
-          </span>
         </div>
-        <span className="capitalize font-nb text-[24px] leading-[28px] text-white absolute bottom-[38px] left-1/2 transform -translate-x-1/2">
+        <span className="absolute transform left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent font-light font-nb text-[6vw] sm:text-[48px] sm:leading-[55px] max-w-[235px] text-center ">
+          {textContent}
+        </span>
+        <span className="capitalize font-nb w-full text-center text-[14px] sm:text-[24px] leading-[20px] sm:leading-[28px] text-white absolute bottom-[10%] sm:bottom-[38px] left-1/2 transform -translate-x-1/2">
           Vyvo Tech
         </span>
       </div>

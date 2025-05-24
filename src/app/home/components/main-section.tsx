@@ -11,7 +11,7 @@ const MainSection = () => {
   });
 
   return (
-    <section className="max-h-[900px] md:max-h-none md:min-h-[900px] flex relative flex-col items-center pt-[96px] md:pt-[162px] 2xl:px-0 px-4 bg-black">
+    <section className="max-h-[1000px] md:max-h-none md:min-h-[900px] flex relative flex-col items-center pt-[96px] md:pt-[162px] 2xl:px-0 px-4 bg-black">
       <img
         src="/homepage/home.svg"
         alt=""
@@ -34,18 +34,18 @@ const MainSection = () => {
           loop
         />
       </motion.div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-5 pt-[96px] md:pt-[162px] pb-6 lg:pb-0">
+      <div className="grid grid-cols-2 sm:grid-cols-2 2xl:grid-cols-4 gap-5 pt-[96px] md:pt-[162px] pb-6 lg:pb-0">
         <div
           className="cursor-pointer card-1-gradient p-[2.5px] rounded-[18px] card-shadow"
           onClick={() => (window.location.href = "/")}
         >
-          <div className="p-4 rounded-[18px] card-1-inner-gradient relative">
+          <div className="p-2 sm:p-4 rounded-[18px] card-1-inner-gradient relative">
             <img
               src="/homepage/card-1.png"
               alt=""
               className="mix-blend-color-dodge"
             />
-            <span className="capitalize font-nb text-[24px] leading-[28px] text-white absolute bottom-[38px] left-1/2 transform -translate-x-1/2">
+            <span className="capitalize font-nb text-[14px] sm:text-[24px] leading-[20px] sm:leading-[28px] text-white absolute bottom-[10%] sm:bottom-[38px] left-1/2 transform -translate-x-1/2">
               VAI OS
             </span>
           </div>
@@ -55,13 +55,13 @@ const MainSection = () => {
           className="cursor-pointer card-2-gradient p-[2.5px] rounded-[18px] card-shadow"
           onClick={() => (window.location.href = "/vyvo-smart-chain")}
         >
-          <div className="p-4 rounded-[18px] card-2-inner-gradient relative">
+          <div className="p-2 sm:p-4 rounded-[18px] card-2-inner-gradient relative">
             <img
               src="/homepage/card-2.png"
               alt=""
               className="mix-blend-color-dodge"
             />
-            <span className="capitalize max-w-[198px] w-full font-nb text-[24px] leading-[28px] text-white absolute bottom-[38px] left-1/2 transform -translate-x-1/2">
+            <span className="capitalize max-w-[198px] w-full text-center font-nb text-[14px] sm:text-[24px] leading-[20px] sm:leading-[28px] text-white absolute bottom-[10%] left-1/2 transform -translate-x-1/2">
               Vyvo Smart Chain
             </span>
           </div>
@@ -73,13 +73,13 @@ const MainSection = () => {
           onClick={() => (window.location.href = "/social-fi")}
           className="cursor-pointer card-4-gradient p-[2.5px] rounded-[18px] card-shadow"
         >
-          <div className="p-4 rounded-[18px] card-4-inner-gradient relative">
+          <div className="p-2 sm:p-4 rounded-[18px] card-4-inner-gradient relative">
             <img
               src="/homepage/card-4.png"
               alt=""
               className="mix-blend-color-dodge"
             />
-            <span className="capitalize font-nb text-[24px] leading-[28px] text-white absolute bottom-[38px] left-1/2 transform -translate-x-1/2">
+            <span className="capitalize font-nb w-full text-center text-[14px] sm:text-[24px] leading-[20px] sm:leading-[28px] text-white absolute bottom-[10%] sm:bottom-[38px] left-1/2 transform -translate-x-1/2">
               Vyvo SocialFi
             </span>
           </div>
