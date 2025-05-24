@@ -115,7 +115,7 @@ const HeartBeats = () => {
         >
           <Lottie
             className="pointer-events-none"
-            autoplay={false}
+            autoplay={true}
             animationData={animationData}
             loop
             assetsPath="/lottie/4/images/"
